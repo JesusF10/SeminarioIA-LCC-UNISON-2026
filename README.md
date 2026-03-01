@@ -32,4 +32,25 @@ SeminarioIA-LCC-UNISON-2026/
 └── README.md           # Explicación del proyecto
 ```
 
-## Cronograma
+## Metodología
+### FASE 1. EXPLORACIÓN Y DIAGNÓSTICO.
+Entendimiento general de la agricultura en Sonora y recopilación de información relevante de fuentes oficiales. 
+
+### FASE 2. ANÁLISIS DE MERCADO Y RENTABILIDAD.  
+Recopilación de datos pertinentes para la propuesta de optimización en rentabilidad y sostenibilidad en cultivos de Sonora, con enfoque en los recursos hídricos utilizados.
+
+### FASE 3. ANÁLISIS TÉCNICO Y VIABILIDAD.
+Análisis técnico exhaustivo de los datos recopilados, realizando estimaciones y clasificaciones con prioridad en la viabilidad, rentabilidad y disponibilidad, entre otros factores.
+
+### FASE 4. CONCLUSIÓN Y RECOMENDACIÓN.
+Consolidación de los datos de Mercado, Rentabilidad y Viabilidad Técnica/Agua y la elaboración del informe final.
+
+
+## Cronograma (Fase Actual)
+
+### FASE 1: EXPLORACIÓN Y DIAGNÓSTICO
+
+| Semana | Fechas | Objetivo de la Semana | Actividades Clave |
+|--------|--------|-----------------------|-------------------|
+| Semana 1-2 | 19 Feb - 4 Mar | Entender el problema y el territorio | • **Zonificación:** Identificar los distritos de riego/temporal de Sonora. Conseguir mapas básicos.<br>• **Cultivo actual:** Investigar a fondo el trigo y otros cultivos en el estado: ¿dónde se siembra?, ¿qué variedades?, ¿cómo es el ciclo (siembra-cosecha)?<br>• **Primer contacto:** Hacer una lista de posibles fuentes de datos confiables y extracción de información (SIAT, INIFAP, SADER). |
+| Semana 3 | 5 Mar - 11 Mar | Investigación de alternativas | • **Lluvia de ideas:** Basados en la búsqueda de información de los cultivos en Sonora, buscar otras opciones como sorgo, frijol, variantes del trigo, o cultivos forrajeros, además de considerar otros cultivos de regiones con condiciones similares a las del estado (canola, cártamo, girasol, maíz, hortalizas).<br>• **Filtro rápido:** Para cada cultivo, investigar: ciclo, requerimientos de agua (mm por ciclo), temperatura ideal, y si se ha cultivado antes en la región.<br>• **Fuentes clave:** Buscar páginas confiables con datos abiertos de instituciones (SIAT, INIFAP, SADER, AOANS). |
