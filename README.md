@@ -70,7 +70,11 @@ data/raw
 │   │   └── datos
 │   └── recursos-hidricos
 │       └── datos
-└── datos_proporcionados
+├── datos_proporcionados
+└── siap-produccion-agricola
+    ├── municipal
+    ├── nacional
+    └── no-seguimiento
 ```
 
 ## Src
@@ -87,3 +91,4 @@ data/raw
 - [Presentación Reconversión Productiva (18 de Febrero de 2026)](docs/Presentaciom-DEyT-Reconversion-productiva_18FEB2026.pdf)
 - [Datos Abiertos](https://www.sonora.gob.mx/datos/)
 - [Anuario Estadístico de la Producción Agrícola](https://nube.agricultura.gob.mx/cierre_agricola/)
+- [Dirección General de Servicio de Información Agroalimentaria y Pesquera - Datos Abierto](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)

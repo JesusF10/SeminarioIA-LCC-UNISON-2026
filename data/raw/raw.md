@@ -29,6 +29,43 @@ tecnificacion-riego-invernadores_DDR_2021.xlsx
 PUS-TRIGO-2024-25-AMBAS-VAR-UNISON.xlsx
 ```
 
+#### Datos SIAP
+
+Se encuentran en el directorio `siap-produccion-agricola`.
+
+- Datos Municipales
+
+```bash
+municipal
+├── Cierre_agricola_mun_2003.csv
+├── Cierre_agricola_mun_2004.csv
+...
+├── Cierre_agricola_mun_2023.csv
+├── Cierre_agricola_mun_2024.csv
+└── Diccionario_agricola_2003_a_2023.xlsx
+```
+
+- Datos Nacionales
+
+```bash
+nacional
+├── Cierre_agricola_1980.csv
+├── Cierre_agricola_1981.csv
+...
+├── Cierre_agricola_2001.csv
+├── Cierre_agricola_2002.csv
+└── Diccionario_agricola_1980_a_2002.xlsx
+```
+
+- Datos No Seguimiento
+
+```bash
+no-seguimiento
+├── NoSeguimiento_cierre_agricola_2020.csv
+├── NoSeguimiento_cierre_agricola_2021.csv
+└── NoSeguimiento_diccionario_agricola_2020_a_2021.xlsx
+```
+
 #### Datos Abiertos de Sonora
 
 Se encuentran en el directorio `datos-abiertos`.
