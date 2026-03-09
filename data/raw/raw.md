@@ -3,6 +3,9 @@
 ## Fuentes de datos
 
 - [Datos Abiertos](https://www.sonora.gob.mx/datos)
+- [SIAP - Servicio de Información Agroalimentaria y Pesquera](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)
+- [Datos Abiertos Gob Mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4)
+- Datos proporcionados por los supervisores del proyecto (Tecnificación de Riego, Trigo 2024-25)
 
 ## Lista de datos obtenidos
 
