@@ -6,11 +6,27 @@
 
 ## Lista de datos obtenidos
 
-#### Reporte Repna
+#### Datos Proporcionados
+
+Se encuentran en el directorio `datos-proporcionados`.
+
+- Datos REPNA
 
 ```bash
 reporte-repna-1.csv
 reporte-repna-2.csv
+```
+
+- Datos de la Tecnificación de Riego
+
+```bash
+tecnificacion-riego-invernadores_DDR_2021.xlsx
+```
+
+- Datos Trigo 2024-25
+
+```bash
+PUS-TRIGO-2024-25-AMBAS-VAR-UNISON.xlsx
 ```
 
 #### Datos Abiertos de Sonora
