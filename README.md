@@ -61,7 +61,17 @@ Consolidación de los datos de Mercado, Rentabilidad y Viabilidad Técnica/Agua 
 
 ## Data
 
-> Datos obtenidos
+Revisar `data/raw` para los datos obtenidos.
+
+```
+data/raw
+├── datos-abiertos
+│   ├── agricultura
+│   │   └── datos
+│   └── recursos-hidricos
+│       └── datos
+└── datos_proporcionados
+```
 
 ## Src
 
@@ -73,4 +83,7 @@ Consolidación de los datos de Mercado, Rentabilidad y Viabilidad Técnica/Agua 
 
 ## Referencias
 
-> Referencias bibliográficas o enlaces aquí
+- [Plan de trabajo](docs/PlanDeTrabajo.pdf)
+- [Presentación Reconversión Productiva (18 de Febrero de 2026)](docs/Presentaciom-DEyT-Reconversion-productiva_18FEB2026.pdf)
+- [Datos Abiertos](https://www.sonora.gob.mx/datos/)
+- [Anuario Estadístico de la Producción Agrícola](https://nube.agricultura.gob.mx/cierre_agricola/)
