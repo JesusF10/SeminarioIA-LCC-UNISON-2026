@@ -97,7 +97,7 @@ data/raw
 Para facilitar la colaboración, se ha creado un espacio compartido en Google Drive
 para subir archivos, compartir documentos y mantener un registro de las actividades del proyecto.
 
-(**Carpeta de Drive**)[https://drive.google.com/drive/folders/1uUxQb10JEHVp5kOcSslYLTTxHoU8rSpx?usp=drive_link]
+[**Carpeta de Drive**](https://drive.google.com/drive/folders/1uUxQb10JEHVp5kOcSslYLTTxHoU8rSpx?usp=drive_link)
 
 ## Development
 
