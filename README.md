@@ -73,7 +73,7 @@ del informe final.
 | Semana 1-2 | 19 Feb - 4 Mar | Entender el problema y el territorio | • **Zonificación:** Identificar los distritos de riego/temporal de Sonora. Conseguir mapas básicos.<br>• **Cultivo actual:** Investigar a fondo el trigo y otros cultivos en el estado: ¿dónde se siembra?, ¿qué variedades?, ¿cómo es el ciclo (siembra-cosecha)?<br>• **Primer contacto:** Hacer una lista de posibles fuentes de datos confiables y extracción de información (SIAT, INIFAP, SADER).                                                                                                                                                                                                     |
 | Semana 3   | 5 Mar - 11 Mar | Investigación de alternativas        | • **Lluvia de ideas:** Basados en la búsqueda de información de los cultivos en Sonora, buscar otras opciones como sorgo, frijol, variantes del trigo, o cultivos forrajeros, además de considerar otros cultivos de regiones con condiciones similares a las del estado (canola, cártamo, girasol, maíz, hortalizas).<br>• **Filtro rápido:** Para cada cultivo, investigar: ciclo, requerimientos de agua (mm por ciclo), temperatura ideal, y si se ha cultivado antes en la región.<br>• **Fuentes clave:** Buscar páginas confiables con datos abiertos de instituciones (SIAT, INIFAP, SADER, AOANS). |
 
-## Data
+## Datos
 
 Revisar `data/raw` para los datos obtenidos.
 
@@ -85,11 +85,19 @@ data/raw
 │   └── recursos-hidricos
 │       └── datos
 ├── datos_proporcionados
+├── datos-sequia
 └── siap-produccion-agricola
     ├── municipal
     ├── nacional
     └── no-seguimiento
 ```
+
+### Espacio Compartido Multiusos
+
+Para facilitar la colaboración, se ha creado un espacio compartido en Google Drive
+para subir archivos, compartir documentos y mantener un registro de las actividades del proyecto.
+
+(**Carpeta de Drive**)[https://drive.google.com/drive/folders/1uUxQb10JEHVp5kOcSslYLTTxHoU8rSpx?usp=drive_link]
 
 ## Development
 
@@ -241,3 +249,4 @@ git push origin main
 - [Datos Abiertos](https://www.sonora.gob.mx/datos/)
 - [Anuario Estadístico de la Producción Agrícola](https://nube.agricultura.gob.mx/cierre_agricola/)
 - [Dirección General de Servicio de Información Agroalimentaria y Pesquera - Datos Abierto](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)
+- [Sistema de Información Agroalimentaria y Pesquera - SIAP](https://www.gob.mx/siap)
