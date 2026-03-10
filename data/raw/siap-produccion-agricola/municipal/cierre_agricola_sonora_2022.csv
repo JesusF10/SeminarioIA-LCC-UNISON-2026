@@ -1,0 +1,1193 @@
+﻿,Anio,Idestado,Nomestado,Idddr,Nomddr,Idcader,Nomcader,Idmunicipio,Nommunicipio,Idciclo,Nomcicloproductivo,Idmodalidad,Nommodalidad,Idunidadmedida,Nomunidad,Idcultivo,Nomcultivo,Sembrada,Cosechada,Siniestrada,Volumenproduccion,Rendimiento,Preciomediorural,Valorproduccion
+29945,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,5000000,Aceituna,1211.0,1211.0,0.0,11855.69,9.79,15300.0,181392057.0
+29946,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,5000000,Aceituna,12.0,12.0,0.0,104.04,8.67,12750.0,1326510.0
+29947,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,5000000,Aceituna,11.9,11.9,0.0,101.03,8.49,15200.0,1535656.0
+29948,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,5000000,Aceituna,2.0,2.0,0.0,9,4.5,15500.0,139500.0
+29949,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5010000,Acelga,20.0,20.0,0.0,256,12.8,11550.0,2956800.0
+29950,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5010000,Acelga,6.0,6.0,0.0,61.02,10.17,10800.0,659016.0
+29951,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5010000,Acelga,2.0,2.0,0.0,23,11.5,11500.0,264500.0
+29952,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,5010000,Acelga,2.0,2.0,0.0,19,9.5,10450.0,198550.0
+29953,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5010000,Acelga,1.0,1.0,0.0,23,23.0,2940.0,67620.0
+29954,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,12.0,0.0,0.0,0,0.0,0.0,0.0
+29955,2022,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,11.0,0.0,0.0,0,0.0,0.0,0.0
+29956,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,4.0,0.0,0.0,0,0.0,0.0,0.0
+29957,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,33.0,0.0,0.0,0,0.0,0.0,0.0
+29958,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,84.0,0.0,0.0,0,0.0,0.0,0.0
+29959,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,8.0,0.0,0.0,0,0.0,0.0,0.0
+29960,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,7.8,0.0,0.0,0,0.0,0.0,0.0
+29961,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,9.0,0.0,0.0,0,0.0,0.0,0.0
+29962,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,372.0,0.0,0.0,0,0.0,0.0,0.0
+29963,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,16.0,16.0,0.0,230.4,14.4,30000.0,6912000.0
+29964,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,6.0,6.0,0.0,87,14.5,30000.0,2610000.0
+29965,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,8.0,8.0,0.0,113.6,14.2,30000.0,3408000.0
+29966,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,2.0,2.0,0.0,16.5,8.25,29500.0,486750.0
+29967,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3.0,3.0,0.0,26,8.67,29500.0,767000.0
+29968,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,15.0,15.0,0.0,120,8.0,27758.33,3330999.6
+29969,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,18.0,18.0,0.0,147,8.17,28014.29,4118100.63
+29970,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,50.0,50.0,0.0,410,8.2,29210.0,11976100.0
+29971,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,16.0,16.0,0.0,130,8.13,27869.23,3622999.9
+29972,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,50.0,50.0,0.0,395,7.9,28384.56,11211901.2
+29973,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,70.0,70.0,0.0,600,8.57,30000.0,18000000.0
+29974,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,7.0,7.0,0.0,55,7.86,29500.0,1622500.0
+29975,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,315.0,315.0,0.0,2650,8.41,30000.0,79500000.0
+29976,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,10.0,10.0,0.0,85,8.5,30364.71,2581000.35
+29977,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,4.0,4.0,0.0,31,7.75,28500.0,883500.0
+29978,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,13.0,13.0,0.0,101,7.77,28600.0,2888600.0
+29979,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,5.0,5.0,0.0,39,7.8,29500.0,1150500.0
+29980,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,5.0,5.0,0.0,31,6.2,27500.0,852500.0
+29981,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,4.0,4.0,0.0,24,6.0,27000.0,648000.0
+29982,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3.0,3.0,0.0,18,6.0,27000.0,486000.0
+29983,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,118.5,118.5,0.0,930,7.85,27405.91,25487496.3
+29984,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,2.0,2.0,0.0,15,7.5,27500.0,412500.0
+29985,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,1.5,1.5,0.0,10.2,6.8,27000.0,275400.0
+29986,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,5.0,5.0,0.0,35,7.0,22000.0,770000.0
+29987,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,1.0,1.0,0.0,9.5,9.5,28500.0,270750.0
+29988,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,300.0,300.0,0.0,510,1.7,22205.88,11324998.8
+29989,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,200.0,200.0,0.0,340,1.7,22352.94,7599999.6
+29990,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,500.0,500.0,0.0,800,1.6,22200.0,17760000.0
+29991,2022,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,20.0,20.0,0.0,8,0.4,22000.0,176000.0
+29992,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,106.0,106.0,0.0,180.2,1.7,22358.49,4028999.9
+29993,2022,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,1800.0,1800.0,0.0,720,0.4,22500.0,16200000.0
+29994,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,722.0,722.0,0.0,14042.9,19.45,2929.01,41131794.53
+29995,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,790.0,790.0,0.0,15310.2,19.38,2918.48,44682512.5
+29996,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,320.0,320.0,0.0,6262.4,19.57,2918.32,18275687.17
+29997,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,480.0,480.0,0.0,9360,19.5,2873.69,26897738.4
+29998,2022,26,Sonora,139,Caborca,3,Atil,7,Atil,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,40.0,40.0,0.0,740,18.5,2893.17,2140945.8
+29999,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,10.0,10.0,0.0,190.6,19.06,2907.55,554179.03
+30000,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,110.0,110.0,0.0,2152.7,19.57,2916.07,6277423.89
+30001,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,50.0,50.0,0.0,925,18.5,2905.6,2687680.0
+30002,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,460.0,460.0,0.0,6394,13.9,2966.03,18964795.82
+30003,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,482.0,482.0,0.0,13226.08,27.44,4582.98,60614860.12
+30004,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,220.0,220.0,0.0,5951,27.05,4448.94,26475641.94
+30005,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,100.0,100.0,0.0,2738,27.38,4671.45,12790430.1
+30006,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,260.0,260.0,0.0,3692,14.2,2984.29,11017998.68
+30007,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,40.0,40.0,0.0,1107.2,27.68,4425.11,4899481.79
+30008,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,650.0,650.0,0.0,17901,27.54,4461.61,79867280.61
+30009,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,430.0,430.0,0.0,11816.4,27.48,4420.82,52238177.45
+30010,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,210.0,210.0,0.0,6012.3,28.63,4786.61,28778535.3
+30011,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,650.0,650.0,0.0,18544.5,28.53,4709.87,87342184.22
+30012,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,190.0,190.0,0.0,2717,14.3,3088.33,8390992.61
+30013,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,200.0,200.0,0.0,5872,29.36,4760.05,27951013.6
+30014,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,160.0,160.0,0.0,4515.2,28.22,4733.56,21372970.11
+30015,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150.0,150.0,0.0,4758,31.72,6843.29,32560373.82
+30016,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,360.0,360.0,0.0,11458.8,31.83,6887.95,78927641.46
+30017,2022,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,590.0,590.0,0.0,19706,33.4,7095.75,139828849.5
+30018,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,180.0,180.0,0.0,2484,13.8,3426.34,8511028.56
+30019,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,283.0,283.0,0.0,3877,13.7,3420.72,13262131.44
+30020,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,143.0,143.0,0.0,1950,13.64,3438.94,6705933.0
+30021,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,238.0,238.0,0.0,3213,13.5,3437.88,11045908.44
+30022,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,200.0,200.0,0.0,2765,13.83,3433.93,9494816.45
+30023,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,110.0,110.0,0.0,1490,13.55,3437.31,5121591.9
+30024,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,210.0,210.0,0.0,3038.7,14.47,2820.59,8570926.83
+30025,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,215.0,215.0,0.0,3100.3,14.42,2855.87,8854053.76
+30026,2022,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,25.0,25.0,0.0,350,14.0,2851.86,998151.0
+30027,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,130.0,130.0,0.0,1874.6,14.42,2832.45,5309710.77
+30028,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150.0,150.0,0.0,2241,14.94,2831.08,6344450.28
+30029,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,160.0,160.0,0.0,2390.4,14.94,2638.74,6307644.1
+30030,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,10.0,10.0,0.0,140,14.0,2816.07,394249.8
+30031,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,25.0,25.0,0.0,360.5,14.42,2863.93,1032446.77
+30032,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,110.0,110.0,0.0,1530.1,13.91,2804.59,4291303.16
+30033,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,220.0,220.0,0.0,3062.4,13.92,2847.26,8719449.02
+30034,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,33.0,33.0,0.0,475.86,14.42,2848.86,1355658.52
+30035,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,330.0,330.0,0.0,17994.9,54.53,10137.6,182425098.2
+30036,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,1350.0,1350.0,0.0,72022.5,53.35,10290.77,741166982.3
+30037,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,360.0,360.0,0.0,19411.2,53.92,10008.01,194267483.7
+30038,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,45.0,45.0,0.0,750,16.67,3150.0,2362500.0
+30039,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,130.0,130.0,0.0,3896.1,29.97,6146.44,23947144.88
+30040,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,15.0,15.0,0.0,225,15.0,2789.33,627599.25
+30041,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,635.0,635.0,0.0,9842.5,15.5,3248.33,31971688.03
+30042,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,80.0,80.0,0.0,1270,15.88,3181.57,4040593.9
+30043,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,25.0,25.0,0.0,387.5,15.5,3076.24,1192043.0
+30044,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,23.0,23.0,0.0,368,16.0,3088.95,1136733.6
+30045,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,80.0,80.0,0.0,3188.8,39.86,6451.87,20573723.06
+30046,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,320.0,320.0,0.0,12227.2,38.21,6769.61,82773375.39
+30047,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,60.0,60.0,0.0,1532.4,25.54,4462.7,6838641.48
+30048,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,110.0,110.0,0.0,4864.2,44.22,4722.51,22971233.14
+30049,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,120.0,120.0,0.0,5216.4,43.47,4783.54,24952858.06
+30050,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,1050.0,1050.0,0.0,17325,16.5,3430.59,59434971.75
+30051,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,100.0,100.0,0.0,1560,15.6,3177.24,4956494.4
+30052,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,10.0,10.0,0.0,191.6,19.16,3109.99,595874.08
+30053,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150.0,150.0,0.0,2766,18.44,3085.88,8535544.08
+30054,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,50.0,50.0,0.0,873,17.46,3102.08,2708115.84
+30055,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,390.0,390.0,0.0,7433.4,19.06,3072.35,22838006.49
+30056,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,760.0,760.0,0.0,25353.6,33.36,6957.96,176409334.7
+30057,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,520.0,520.0,0.0,16900,32.5,6973.46,117851474.0
+30058,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,1900.0,1900.0,0.0,60268,31.72,6744.22,406460651.0
+30059,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,250.0,250.0,0.0,4377.5,17.51,3169.3,13873610.75
+30060,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,800.0,800.0,0.0,14088,17.61,3152.14,44407348.32
+30061,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150.0,150.0,0.0,2650.5,17.67,3324.83,8812461.92
+30062,2022,26,Sonora,148,Cajeme,5,Vicam,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,20.0,20.0,0.0,348.2,17.41,3506.15,1220841.43
+30063,2022,26,Sonora,148,Cajeme,5,Vicam,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,50.0,50.0,0.0,869,17.38,3516.92,3056203.48
+30064,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,350.0,350.0,0.0,5988.5,17.11,3482.93,20857526.31
+30065,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,620.0,620.0,0.0,8432,13.6,2409.94,20320614.08
+30066,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,300.0,300.0,0.0,4050,13.5,2426.67,9828013.5
+30067,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,810.0,810.0,0.0,11178,13.8,2400.72,26835248.16
+30068,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,4476.0,4476.0,0.0,154735.32,34.57,6291.45,973509529.0
+30069,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,2,Primavera-Verano,1,Riego,200201,Tonelada,5190000,Algodón hueso,17.5,17.5,0.0,71.93,4.11,15200.0,1093336.0
+30070,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5190000,Algodón hueso,4107.0,4107.0,0.0,18481.5,4.5,15404.34,284695309.7
+30071,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5370000,Apio,15.0,15.0,0.0,900,60.0,7500.0,6750000.0
+30072,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5370000,Apio,85.0,85.0,0.0,5100,60.0,7500.0,38250000.0
+30073,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5370000,Apio,50.0,50.0,0.0,3050,61.0,6890.0,21014500.0
+30074,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5650000,Arándano,12.0,12.0,0.0,98.88,8.24,42100.0,4162848.0
+30075,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,10.0,10.0,0.0,230,23.0,788.52,181359.6
+30076,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,60.0,60.0,0.0,1360,22.67,785.0,1067600.0
+30077,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,5.0,5.0,0.0,113,22.6,760.0,85880.0
+30078,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,30.0,30.0,0.0,690,23.0,750.0,517500.0
+30079,2022,26,Sonora,139,Caborca,3,Atil,7,Atil,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,5.0,5.0,0.0,120,24.0,760.0,91200.0
+30080,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,5.0,5.0,0.0,120,24.0,750.0,90000.0
+30081,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,12.0,12.0,0.0,275,22.92,781.09,214799.75
+30082,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,32.0,32.0,0.0,750,23.44,787.73,590797.5
+30083,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,110.0,110.0,0.0,2560,23.27,850.0,2176000.0
+30084,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,105.0,105.0,0.0,2670,25.43,858.65,2292595.5
+30085,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,122.0,122.0,0.0,2890,23.69,865.8,2502162.0
+30086,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,62.0,62.0,0.0,1400,22.58,855.36,1197504.0
+30087,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,62.0,62.0,0.0,1385,22.34,850.0,1177250.0
+30088,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,56.0,56.0,0.0,1400,25.0,850.0,1190000.0
+30089,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,170.0,170.0,0.0,4100,24.12,855.23,3506443.0
+30090,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,111.0,111.0,0.0,2670,24.05,853.71,2279405.7
+30091,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,315.0,315.0,0.0,7300,23.17,853.12,6227776.0
+30092,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,680.0,680.0,0.0,15800,23.24,852.96,13476768.0
+30093,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,205.0,205.0,0.0,4950,24.15,860.0,4257000.0
+30094,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,90.0,90.0,0.0,2099.7,23.33,860.0,1805742.0
+30095,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80.0,80.0,0.0,1880,23.5,860.0,1616800.0
+30096,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,210.0,210.0,0.0,9410,44.81,661.6,6225656.0
+30097,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,201.0,201.0,0.0,9125,45.4,668.83,6103073.75
+30098,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,315.0,315.0,0.0,14400,45.71,660.16,9506304.0
+30099,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,110.0,110.0,0.0,5100,46.36,678.46,3460146.0
+30100,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,95.0,95.0,0.0,4258,44.82,652.9,2780048.2
+30101,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,103.0,103.0,0.0,4650,45.15,668.02,3106293.0
+30102,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,88.0,88.0,0.0,4050,46.02,659.87,2672473.5
+30103,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,85.0,85.0,0.0,3850,45.29,665.29,2561366.5
+30104,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80.0,80.0,0.0,3625,45.31,667.33,2419071.25
+30105,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,110.0,110.0,0.0,2860,26.0,778.85,2227511.0
+30106,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,60.0,60.0,0.0,1500,25.0,764.6,1146900.0
+30107,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80.0,80.0,0.0,2048,25.6,745.92,1527644.16
+30108,2022,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,20.0,20.0,0.0,470,23.5,748.62,351851.4
+30109,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,33.0,33.0,0.0,825,25.0,747.28,616506.0
+30110,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,30.0,30.0,0.0,720,24.0,744.17,535802.4
+30111,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,40.0,40.0,0.0,1000,25.0,748.7,748700.0
+30112,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,50.0,50.0,0.0,1200,24.0,776.75,932100.0
+30113,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,20.0,20.0,0.0,490,24.5,738.78,362002.2
+30114,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,65.0,65.0,0.0,1657.5,25.5,757.3,1255224.75
+30115,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,125.0,125.0,0.0,3125,25.0,776.64,2427000.0
+30116,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,28.0,28.0,0.0,714,25.5,747.9,534000.6
+30117,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,205.0,205.0,0.0,9389,45.8,980.0,9201220.0
+30118,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,550.0,550.0,0.0,25850,47.0,980.0,25333000.0
+30119,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,165.0,165.0,0.0,7430,45.03,970.0,7207100.0
+30120,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,16.0,16.0,0.0,324.8,20.3,810.59,263279.63
+30121,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,12.0,12.0,0.0,249.6,20.8,806.15,201215.04
+30122,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,28.0,28.0,0.0,560,20.0,809.37,453247.2
+30123,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,15.0,15.0,0.0,300,20.0,805.25,241575.0
+30124,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,18.0,18.0,0.0,369,20.5,815.88,301059.72
+30125,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,25.0,25.0,0.0,500,20.0,805.78,402890.0
+30126,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,45.0,45.0,0.0,1530,34.0,858.63,1313703.9
+30127,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,125.0,125.0,0.0,4375,35.0,854.99,3740581.25
+30128,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,30.0,30.0,0.0,1038,34.6,858.13,890738.94
+30129,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,5490000,Avena forrajera en verde,8.0,8.0,0.0,10.8,1.35,30000.0,324000.0
+30130,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,2.0,2.0,0.0,34,17.0,820.0,27880.0
+30131,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,18.0,18.0,0.0,288,16.0,804.69,231750.72
+30132,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,33.0,33.0,0.0,445.5,13.5,820.0,365310.0
+30133,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80.0,80.0,0.0,1104,13.8,827.94,914045.76
+30134,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,5.0,5.0,0.0,68.5,13.7,830.0,56855.0
+30135,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,20.0,20.0,0.0,280,14.0,800.0,224000.0
+30136,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,9.0,9.0,0.0,130.5,14.5,810.8,105809.4
+30137,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,350.0,350.0,0.0,9860,28.17,882.44,8700858.4
+30138,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,14.0,14.0,0.0,415,29.64,14700.48,6100699.2
+30139,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5610000,Berenjena,42.0,42.0,0.0,1060.08,25.24,13832.08,14663111.37
+30140,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,10.0,10.0,0.0,140,14.0,7771.0,1087939.3
+30141,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,12.0,12.0,0.0,158.4,13.2,8842.93,1400719.36
+30142,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,5610000,Berenjena,1.0,1.0,0.0,11.5,11.5,9500.0,109250.0
+30143,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5640000,Betabel,6.0,6.0,0.0,105,17.5,12200.0,1281000.0
+30144,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5640000,Betabel,17.0,17.0,0.0,272,16.0,6840.0,1860480.0
+30145,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,8.0,8.0,0.0,180,22.5,10800.0,1944000.0
+30146,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,50.0,50.0,0.0,1150,23.0,8326.08,9574992.0
+30147,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,80.0,80.0,0.0,1760,22.0,9159.09,16119998.4
+30148,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,30.0,30.0,0.0,630,21.0,8469.84,5335999.2
+30149,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,868.0,868.0,0.0,19600,22.58,12657.55,248088044.0
+30150,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5670000,Brócoli,290.0,290.0,0.0,5350.5,18.45,10950.0,58587975.0
+30151,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,22.0,22.0,0.0,42.9,1.95,30000.0,1287000.0
+30152,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,70.0,70.0,0.0,175,2.5,30397.14,5319499.5
+30153,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,125.0,125.0,0.0,295,2.36,30500.0,8997500.0
+30154,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,110.0,88.5,21.5,124.79,1.41,30000.0,3743700.0
+30155,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,9.0,9.0,0.0,18.99,2.11,30000.0,569700.0
+30156,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,10.0,10.0,0.0,19,1.9,31289.47,594499.93
+30157,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,11.0,5.0,6.0,6,1.2,30000.0,180000.0
+30158,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,7.0,7.0,0.0,14.49,2.07,30000.0,434700.0
+30159,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,25.0,25.0,0.0,51,2.04,30205.88,1540499.88
+30160,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,2.0,2.0,0.0,3.5,1.75,30500.0,106750.0
+30161,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,7.0,7.0,0.0,18.2,2.6,28000.0,509600.0
+30162,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,3.5,3.5,0.0,5.99,1.71,31000.0,185690.0
+30163,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,3.0,3.0,0.0,7.5,2.5,28000.0,210000.0
+30164,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,2.0,2.0,0.0,3.3,1.65,30000.0,99000.0
+30165,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,1.5,1.5,0.0,4.2,2.8,30000.0,126000.0
+30166,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,3.0,3.0,0.0,5.49,1.83,31000.0,170190.0
+30167,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,2.0,2.0,0.0,5,2.5,28500.0,142500.0
+30168,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,6.0,6.0,0.0,141,23.5,30000.0,4230000.0
+30169,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,4.0,4.0,0.0,6,1.5,28000.0,168000.0
+30170,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,55.0,55.0,0.0,137.5,2.5,31000.0,4262500.0
+30171,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,15.0,15.0,0.0,19.5,1.3,28500.0,555750.0
+30172,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,7.0,7.0,0.0,19.6,2.8,30500.0,597800.0
+30173,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,1.0,1.0,0.0,1,1.0,30500.0,30500.0
+30174,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,7.0,7.0,0.0,9.03,1.29,32500.0,293475.0
+30175,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,20.0,20.0,0.0,36,1.8,25000.0,900000.0
+30176,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,5690000,Cacahuate,35.0,35.0,0.0,63,1.8,25500.0,1606500.0
+30177,2022,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,5690000,Cacahuate,100.0,100.0,0.0,50,0.5,20000.0,1000000.0
+30178,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,8.0,8.0,0.0,175.04,21.88,7500.0,1312800.0
+30179,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,6.0,6.0,0.0,109.98,18.33,7576.82,833298.66
+30180,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,2.0,2.0,0.0,36,18.0,7500.0,270000.0
+30181,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,6.0,6.0,0.0,118.02,19.67,7703.39,909154.09
+30182,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,17.0,17.0,0.0,258.06,15.18,7450.0,1922547.0
+30183,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,8.0,8.0,0.0,122,15.25,7377.05,900000.1
+30184,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,15.0,15.0,0.0,217.05,14.47,7650.0,1660432.5
+30185,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,10.0,10.0,0.0,220,22.0,6550.0,1441000.0
+30186,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,5.0,5.0,0.0,98,19.6,6200.0,607600.0
+30187,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,2.0,2.0,0.0,33,16.5,6150.0,202950.0
+30188,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,70.0,70.0,0.0,1925,27.5,6625.19,12753490.75
+30189,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,1066.0,1066.0,0.0,27472,25.77,6680.08,183515198.6
+30190,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,797.0,797.0,0.0,20044.72,25.15,6430.9,128905634.7
+30191,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,7.0,7.0,0.0,187,26.71,6673.26,1247900.0
+30192,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,54.0,54.0,0.0,1409,26.09,6253.01,8810495.2
+30193,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,5740000,Calabacita,15.0,15.0,0.0,177,11.8,9300.0,1646100.0
+30194,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,850.0,850.0,0.0,24225,28.5,7091.02,171779959.5
+30195,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,150.0,150.0,0.0,3324.6,22.16,7149.32,23768627.44
+30196,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,1500.0,1500.0,0.0,41400,27.6,6422.17,265877838.0
+30197,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,140.0,140.0,0.0,3045,21.75,6301.22,19187210.0
+30198,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,40.0,40.0,0.0,1000,25.0,6530.57,6530570.0
+30199,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,30.0,30.0,0.0,840,28.0,8071.67,6780202.8
+30200,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,80.0,80.0,0.0,1760,22.0,6628.98,11667004.8
+30201,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,5.0,5.0,0.0,110,22.0,7301.36,803149.6
+30202,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,65.0,65.0,0.0,1489,22.91,7434.0,11069227.15
+30203,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,105.0,105.0,0.0,2730,26.0,8379.93,22877208.9
+30204,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,80.0,80.0,0.0,1880,23.5,5423.93,10196988.4
+30205,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,110.0,110.0,0.0,2365,21.5,6300.0,14899500.0
+30206,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,140.0,140.0,0.0,3080,22.0,6285.79,19360233.2
+30207,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,25.0,25.0,0.0,525,21.0,6142.86,3225001.5
+30208,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,80.0,80.0,0.0,1760,22.0,6466.51,11381057.6
+30209,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,56.0,56.0,0.0,1192.8,21.3,6590.41,7861041.05
+30210,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,61.0,61.0,0.0,1403,23.0,6209.12,8711395.36
+30211,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,2.0,2.0,0.0,50,25.0,6500.0,325000.0
+30212,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,70.0,70.0,0.0,1420,20.29,13200.0,18744000.0
+30213,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,5760000,Calabaza,155.0,155.0,0.0,3410,22.0,13225.81,45100012.1
+30214,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,648.0,648.0,0.0,11309,17.45,13819.64,156286300.0
+30215,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5760000,Calabaza,1132.0,1132.0,0.0,24150.17,21.33,11319.21,273360886.9
+30216,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,10.0,10.0,0.0,165,16.5,13500.0,2227500.0
+30217,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,520.0,520.0,0.0,9195,17.68,7500.0,68962500.0
+30218,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,5760000,Calabaza,467.0,467.0,0.0,9479.6,20.3,7446.54,70590264.7
+30219,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,700.0,700.0,0.0,12775,18.25,7649.32,97720000.0
+30220,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,5760000,Calabaza,400.0,400.0,0.0,8015,20.04,7629.93,61153893.5
+30221,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,20.0,20.0,0.0,572,28.6,6000.0,3432000.0
+30222,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,20.0,20.0,0.0,557.4,27.87,5800.0,3232920.0
+30223,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5760000,Calabaza,200.0,200.0,0.0,5200,26.0,6000.0,31200000.0
+30224,2022,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,5822000,Caña de azúcar piloncillo,12.0,12.0,0.0,835,69.58,4200.0,3507000.0
+30225,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1395.0,1395.0,0.0,3850,2.76,14018.91,53972803.5
+30226,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,170.0,170.0,0.0,365.5,2.15,12000.0,4386000.0
+30227,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,490.0,490.0,0.0,1225,2.5,12500.0,15312500.0
+30228,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,129.0,129.0,0.0,322.5,2.5,12197.67,3933748.58
+30229,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,240.0,240.0,0.0,600,2.5,12217.5,7330500.0
+30230,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,32.0,32.0,0.0,76.8,2.4,12135.94,932040.19
+30231,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,815.0,815.0,0.0,1874.5,2.3,12335.98,23123794.51
+30232,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,266.0,266.0,0.0,665,2.5,12562.26,8353902.9
+30233,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,111.0,111.0,0.0,277.5,2.5,12241.44,3396999.6
+30234,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1410.0,1410.0,0.0,3384,2.4,12416.25,42016590.0
+30235,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,315.0,315.0,0.0,819,2.6,12500.0,10237500.0
+30236,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1052.0,1052.0,0.0,2419.6,2.3,12386.34,29969988.26
+30237,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,75.0,75.0,0.0,187.5,2.5,12189.6,2285550.0
+30238,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,360.0,360.0,0.0,828,2.3,12000.0,9936000.0
+30239,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1888.0,1888.0,0.0,4350,2.3,11950.57,51984979.5
+30240,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,4695.0,4695.0,0.0,10850,2.31,11973.36,129910956.0
+30241,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,4311.0,4311.0,0.0,9800,2.27,12022.25,117818050.0
+30242,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,8.0,8.0,0.0,160,20.0,512.0,81920.0
+30243,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,6.0,6.0,0.0,126,21.0,565.0,71190.0
+30244,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,10.0,10.0,0.0,210,21.0,565.0,118650.0
+30245,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,60.0,60.0,0.0,1200,20.0,850.0,1020000.0
+30246,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,110.0,110.0,0.0,2420,22.0,870.0,2105400.0
+30247,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,60.0,60.0,0.0,1400,23.33,850.0,1190000.0
+30248,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,2,Temporal,200201,Tonelada,5900000,Cebada forrajera en verde,24.0,24.0,0.0,201.12,8.38,811.9,163289.33
+30249,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,350,23.33,875.0,306250.0
+30250,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,1,Otoño-Invierno,2,Temporal,200201,Tonelada,5900000,Cebada forrajera en verde,18.0,18.0,0.0,156.42,8.69,837.14,130945.44
+30251,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,28.0,28.0,0.0,700,25.0,850.0,595000.0
+30252,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,1,Otoño-Invierno,2,Temporal,200201,Tonelada,5900000,Cebada forrajera en verde,20.0,20.0,0.0,170.6,8.53,861.1,146903.66
+30253,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,10.0,10.0,0.0,254.5,25.45,850.2,216375.9
+30254,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,5.0,5.0,0.0,110,22.0,875.0,96250.0
+30255,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,2,Temporal,200201,Tonelada,5900000,Cebada forrajera en verde,10.0,10.0,0.0,82.3,8.23,801.15,65934.65
+30256,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,5.0,5.0,0.0,125,25.0,875.0,109375.0
+30257,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,110.0,110.0,0.0,2645,24.05,810.0,2142450.0
+30258,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,190.0,190.0,0.0,3995,21.03,815.0,3255925.0
+30259,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,140.0,140.0,0.0,1100,7.86,820.0,902000.0
+30260,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,100.0,100.0,0.0,2250,22.5,830.0,1867500.0
+30261,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,30.0,30.0,0.0,650,21.67,845.0,549250.0
+30262,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,45.0,45.0,0.0,1800,40.0,655.0,1179000.0
+30263,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,45.0,45.0,0.0,1890,42.0,650.0,1228500.0
+30264,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,150.0,150.0,0.0,6650,44.33,650.0,4322500.0
+30265,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,80.0,80.0,0.0,3250,40.63,650.0,2112500.0
+30266,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,80.0,80.0,0.0,3280,41.0,650.0,2132000.0
+30267,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,50.0,50.0,0.0,2050,41.0,655.0,1342750.0
+30268,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,50.0,50.0,0.0,2050,41.0,650.0,1332500.0
+30269,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,25.0,25.0,0.0,1125,45.0,645.0,725625.0
+30270,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,10.0,10.0,0.0,420,42.0,875.0,367500.0
+30271,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,50.0,50.0,0.0,850,17.0,700.0,595000.0
+30272,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,240,16.0,700.0,168000.0
+30273,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,60.0,60.0,0.0,1020,17.0,720.0,734400.0
+30274,2022,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,240,16.0,730.0,175200.0
+30275,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,240,16.0,710.0,170400.0
+30276,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,247.5,16.5,720.0,178200.0
+30277,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,20.0,20.0,0.0,340,17.0,720.0,244800.0
+30278,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,40.0,40.0,0.0,680,17.0,750.0,510000.0
+30279,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,247.5,16.5,710.0,175725.0
+30280,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,33.0,33.0,0.0,594,18.0,730.0,433620.0
+30281,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,30.0,30.0,0.0,1380,46.0,950.0,1311000.0
+30282,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,150.0,150.0,0.0,6450,43.0,980.0,6321000.0
+30283,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,50.0,50.0,0.0,2350,47.0,985.0,2314750.0
+30284,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,12.0,12.0,0.0,223.2,18.6,710.0,158472.0
+30285,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,292.5,19.5,720.0,210600.0
+30286,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,7.0,7.0,0.0,129.5,18.5,700.0,90650.0
+30287,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,21.0,21.0,0.0,434.7,20.7,700.0,304290.0
+30288,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,15.0,15.0,0.0,270,18.0,710.0,191700.0
+30289,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,12.0,12.0,0.0,228,19.0,710.0,161880.0
+30290,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,13.0,13.0,0.0,292.5,22.5,720.0,210600.0
+30291,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,8.0,8.0,0.0,297.6,37.2,800.0,238080.0
+30292,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,50.0,50.0,0.0,378.3,7.57,820.0,310206.0
+30293,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5900000,Cebada forrajera en verde,10.0,10.0,0.0,378.3,37.83,820.0,310206.0
+30294,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,155,31.0,4500.0,697500.0
+30295,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,7.0,7.0,0.0,210,30.0,4500.0,945000.0
+30296,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,2.0,2.0,0.0,62,31.0,4800.0,297600.0
+30297,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,15.0,15.0,0.0,505,33.67,4381.19,2212500.95
+30298,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,4.0,4.0,0.0,52,13.0,9000.0,468000.0
+30299,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,8.0,8.0,0.0,260,32.5,4500.0,1170000.0
+30300,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,14.0,14.0,0.0,184.96,13.21,8372.69,1548613.48
+30301,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,6.0,6.0,0.0,176,29.33,4828.13,849750.0
+30302,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,170,34.0,4300.0,731000.0
+30303,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,18.0,18.0,0.0,440,24.44,4350.0,1914000.0
+30304,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,115,23.0,5100.0,586500.0
+30305,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,4.0,4.0,0.0,106,26.5,4250.0,450500.0
+30306,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,4.0,4.0,0.0,100,25.0,4200.0,420000.0
+30307,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,40.0,40.0,0.0,530,13.25,12513.21,6632001.3
+30308,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,15.0,15.0,0.0,160.05,10.67,12800.0,2048640.0
+30309,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,65,13.0,13500.0,877500.0
+30310,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,2.0,2.0,0.0,22,11.0,12750.0,280500.0
+30311,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,18.0,18.0,0.0,486,27.0,5727.99,2783803.14
+30312,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,60.0,60.0,0.0,1860,31.0,5135.11,9551304.6
+30313,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,110.0,110.0,0.0,3960,36.0,5625.0,22275000.0
+30314,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,175,35.0,5500.0,962500.0
+30315,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,8.0,8.0,0.0,304,38.0,6000.0,1824000.0
+30316,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,175,35.0,5200.0,910000.0
+30317,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,15.0,15.0,0.0,585,39.0,5709.4,3339999.0
+30318,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5.0,5.0,0.0,185,37.0,5300.0,980500.0
+30319,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,9.0,9.0,0.0,288,32.0,5700.0,1641600.0
+30320,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,25.0,25.0,0.0,962.5,38.5,5405.71,5202995.88
+30321,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,25.0,25.0,0.0,775,31.0,7069.55,5478901.25
+30322,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,10.0,10.0,0.0,305,30.5,7107.54,2167799.7
+30323,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,93.0,93.0,0.0,2957.4,31.8,7001.02,20704816.55
+30324,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,768.0,768.0,0.0,16855,21.95,12120.95,204298568.0
+30325,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,730.0,730.0,0.0,12702,17.4,12900.0,163855800.0
+30326,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6020000,Chabacano,10.0,10.0,0.0,65,6.5,11500.0,747500.0
+30327,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,6020000,Chabacano,8.0,8.0,0.0,52,6.5,11350.0,590200.0
+30328,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,6020000,Chabacano,3.0,3.0,0.0,22,7.33,11500.0,253000.0
+30329,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,12.0,12.0,0.0,84,7.0,7890.0,662760.0
+30330,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,70.0,70.0,0.0,1120,16.0,7000.0,7840000.0
+30331,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,99.0,99.0,0.0,1580.04,15.96,5559.0,8783442.36
+30332,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6070000,Chícharo,10.0,10.0,0.0,65,6.5,12000.0,780000.0
+30333,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,25.0,25.0,0.0,2450,98.0,13750.0,33687500.0
+30334,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,0.33,0.33,0.0,5,15.15,8500.0,42500.0
+30335,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,3.0,3.0,0.0,54,18.0,9500.0,513000.0
+30336,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5.0,5.0,0.0,85,17.0,10300.0,875500.0
+30337,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,4.0,4.0,0.0,75,18.75,10500.0,787500.0
+30338,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,40.0,40.0,0.0,528,13.2,9550.0,5042400.0
+30339,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,55.0,55.0,0.0,774.95,14.09,9700.0,7517015.0
+30340,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,21.0,21.0,0.0,301.98,14.38,9998.01,3019199.06
+30341,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,18.0,18.0,0.0,149.94,8.33,13200.0,1979208.0
+30342,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,8.0,5.0,3.0,53,10.6,10708.49,567549.97
+30343,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,10.0,10.0,0.0,76,7.6,10800.0,820800.0
+30344,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5.0,0.0,5.0,0,0.0,0.0,0.0
+30345,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,3.0,3.0,0.0,24,8.0,10850.0,260400.0
+30346,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,2.0,2.0,0.0,16,8.0,10885.0,174160.0
+30347,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,15.0,15.0,0.0,157.5,10.5,9500.0,1496250.0
+30348,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,55.0,55.0,0.0,539,9.8,9445.45,5091097.55
+30349,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,175.0,175.0,0.0,8930,51.03,13948.06,124556218.8
+30350,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,227.0,227.0,0.0,12006.83,52.89,13469.55,161726537.2
+30351,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,151.0,151.0,0.0,5264,34.86,8804.85,46348737.18
+30352,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,450.0,450.0,0.0,28619,63.6,10204.07,292030346.4
+30353,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,210.0,210.0,0.0,6340,30.19,7775.3,49295381.0
+30354,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,1085.0,1085.0,0.0,55172.5,50.85,10101.11,557303680.4
+30355,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,258.0,258.0,0.0,10643,41.25,9324.58,99241505.3
+30356,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,40.0,40.0,0.0,1110,27.75,6129.28,6803499.45
+30357,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,90.0,90.0,0.0,2692.5,29.92,6413.1,17267260.13
+30358,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,242.0,242.0,0.0,8282.5,34.23,7652.61,63382701.73
+30359,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,140.0,140.0,0.0,5642,40.3,8174.05,46118012.98
+30360,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,257.0,257.0,0.0,7769,30.23,7682.39,59684471.58
+30361,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,355.0,355.0,0.0,12680,35.72,8278.88,104976253.8
+30362,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,30.0,30.0,0.0,1485,49.5,8131.65,12075493.5
+30363,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,127.0,127.0,0.0,3720.5,29.3,7107.45,26443252.92
+30364,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,40.0,40.0,0.0,1140,28.5,6579.82,7500994.8
+30365,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,181.0,181.0,0.0,5843,32.28,8245.65,48179303.93
+30366,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,55.0,55.0,0.0,1537.5,27.95,6621.32,10180273.13
+30367,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,120.0,120.0,0.0,3156.5,26.3,6592.03,20807747.97
+30368,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,4.0,4.0,0.0,90,22.5,8600.0,774000.0
+30369,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,3.0,3.0,0.0,33,11.0,12500.0,412500.0
+30370,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,5.0,5.0,0.0,60,12.0,9500.0,570000.0
+30371,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,3.0,3.0,0.0,35,11.67,12500.0,437500.0
+30372,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6190000,Cilantro,2.0,2.0,0.0,21,10.5,8600.0,180600.0
+30373,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,1.0,1.0,0.0,9.95,9.95,7858.9,78196.06
+30374,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,20.0,20.0,0.0,250,12.5,11000.0,2750000.0
+30375,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,6190000,Cilantro,5.0,5.0,0.0,52,10.4,12450.0,647400.0
+30376,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,2.0,2.0,0.0,24.24,12.12,8018.31,194363.83
+30377,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,6190000,Cilantro,2.0,2.0,0.0,18,9.0,13100.0,235800.0
+30378,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6190000,Cilantro,479.5,479.5,0.0,9833.12,20.51,9928.08,97623996.76
+30379,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6190000,Cilantro,20.0,20.0,0.0,300,15.0,9400.0,2820000.0
+30380,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,6220000,Ciruela,6.0,6.0,0.0,79.08,13.18,12500.0,988500.0
+30381,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),40.0,40.0,0.0,1390,34.75,5500.0,7645000.0
+30382,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,6310000,Col (repollo),7.0,7.0,0.0,280,40.0,4500.0,1260000.0
+30383,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),10.0,10.0,0.0,385,38.5,5500.0,2117500.0
+30384,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6310000,Col (repollo),3.0,3.0,0.0,80.01,26.67,6250.0,500062.5
+30385,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,6310000,Col (repollo),2.0,2.0,0.0,60,30.0,5200.0,312000.0
+30386,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,6310000,Col (repollo),13.0,13.0,0.0,450.06,34.62,4800.0,2160288.0
+30387,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),2.0,2.0,0.0,75,37.5,5100.0,382500.0
+30388,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,6310000,Col (repollo),1.5,1.5,0.0,46.01,30.67,4850.0,223148.5
+30389,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),51.0,51.0,0.0,1937,37.98,4200.0,8135400.0
+30390,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),4.0,4.0,0.0,160,40.0,4200.0,672000.0
+30391,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),20.0,20.0,0.0,795,39.75,5500.0,4372500.0
+30392,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6310000,Col (repollo),140.0,140.0,0.0,3920,28.0,3967.0,15550640.0
+30393,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,6320000,Col de bruselas,20.0,20.0,0.0,355,17.75,11200.0,3976000.0
+30394,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,6320000,Col de bruselas,300.0,300.0,0.0,3621,12.07,11700.0,42365700.0
+30395,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6320000,Col de bruselas,65.0,65.0,0.0,858,13.2,9500.0,8151000.0
+30396,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,6320000,Col de bruselas,180.0,180.0,0.0,2205,12.25,12424.49,27396000.0
+30397,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6320000,Col de bruselas,60.0,60.0,0.0,780,13.0,10500.0,8190000.0
+30398,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,6320000,Col de bruselas,95.0,95.0,0.0,1202.5,12.66,11724.12,14098250.23
+30399,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6320000,Col de bruselas,150.0,150.0,0.0,2550,17.0,11500.0,29325000.0
+30400,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6320000,Col de bruselas,61.0,61.0,0.0,750.3,12.3,11500.0,8628450.0
+30401,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,2.0,2.0,0.0,60,30.0,8550.0,513000.0
+30402,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,100.0,100.0,0.0,2170,21.7,6889.4,14949998.0
+30403,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,100.0,100.0,0.0,2030,20.3,7633.0,15494990.0
+30404,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,18.0,18.0,0.0,410,22.78,6750.0,2767500.0
+30405,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6490000,Dátil,12.0,12.0,0.0,127.32,10.61,58400.0,7435488.0
+30406,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,6490000,Dátil,1226.0,1226.0,0.0,10592.64,8.64,63500.0,672632640.0
+30407,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,122.0,122.0,0.0,1513,12.4,8335.85,12612141.05
+30408,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,2.0,2.0,0.0,34,17.0,14500.0,493000.0
+30409,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,5.0,0.0,0.0,0,0.0,0.0,0.0
+30410,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,3,Perennes,2,Temporal,200201,Tonelada,6530000,Durazno,118.71,89.71,0.0,1166.23,13.0,12543.41,14628501.04
+30411,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,48.0,48.0,0.0,599.16,12.48,9478.04,5678865.0
+30412,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,6600000,Ejote,50.0,50.0,0.0,625.35,12.51,9924.13,6206055.0
+30413,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,6600000,Ejote,80.0,80.0,0.0,969.6,12.12,8825.91,8557602.34
+30414,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,200.0,200.0,0.0,1252,6.26,10000.0,12520000.0
+30415,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6600000,Ejote,1.0,1.0,0.0,9.6,9.6,11000.0,105600.0
+30416,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6600000,Ejote,8.0,8.0,0.0,60.64,7.58,6000.0,363840.0
+30417,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,8.0,8.0,0.0,80,10.0,5500.0,440000.0
+30418,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,6.0,6.0,0.0,60,10.0,4758.33,285499.8
+30419,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,4.0,4.0,0.0,38,9.5,4500.0,171000.0
+30420,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,1.0,1.0,0.0,9,9.0,4500.0,40500.0
+30421,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,5.0,5.0,0.0,50,10.0,4350.0,217500.0
+30422,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,2.0,2.0,0.0,19,9.5,4500.0,85500.0
+30423,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,3.0,3.0,0.0,30,10.0,4900.0,147000.0
+30424,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,100.0,100.0,0.0,1350,13.5,3407.41,4600003.5
+30425,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,180.0,180.0,0.0,2790,15.5,4050.9,11302011.0
+30426,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,150.0,150.0,0.0,2325,15.5,3655.48,8498991.0
+30427,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,15.0,15.0,0.0,195,13.0,3300.0,643500.0
+30428,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,218.0,218.0,0.0,2943,13.5,3314.42,9754338.06
+30429,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,70.0,70.0,0.0,980,14.0,3290.81,3224993.8
+30430,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,3.0,3.0,0.0,45,15.0,5000.0,225000.0
+30431,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6620000,Eneldo,2.0,2.0,0.0,15,7.5,7800.0,117000.0
+30432,2022,26,Sonora,139,Caborca,1,Sonoyta,48,Puerto Peñasco,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,440.0,440.0,0.0,3747.75,8.52,38784.31,145353884.5
+30433,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,934.0,934.0,0.0,8854.32,9.48,40886.96,362026227.7
+30434,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,8835.0,8835.0,0.0,95303.25,10.79,40097.87,3821457318.0
+30435,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,989.0,989.0,0.0,10286.24,10.4,39996.01,411408563.9
+30436,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,1990.0,1990.0,0.0,19775.9,9.94,40917.25,809175421.3
+30437,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,70.0,70.0,0.0,778.4,11.12,47335.21,36845727.46
+30438,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,100.0,20.0,0.0,210,10.5,39800.0,8358000.0
+30439,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,545.0,455.0,0.0,3991,8.77,42690.38,170377302.8
+30440,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,288.0,288.0,0.0,2555.7,8.87,37541.69,95945298.65
+30441,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,221.0,221.0,0.0,1894.3,8.57,36756.61,69628053.66
+30442,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,525.8,525.8,0.0,4554.94,8.66,55359.63,252159813.4
+30443,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,299.0,229.0,0.0,2053.92,8.97,51833.96,106462813.3
+30444,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,214.0,214.0,0.0,1829.7,8.55,37650.55,68889214.22
+30445,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,487.0,487.0,0.0,4273.6,8.78,43328.95,185170580.0
+30446,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,317.0,294.0,0.0,2601,8.85,41703.46,108470704.1
+30447,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,3486.0,3486.0,0.0,39947.68,11.46,41376.02,1652876198.0
+30448,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6670000,Espinaca,9.0,9.0,0.0,99,11.0,9600.0,950400.0
+30449,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,12.0,12.0,0.0,12.36,1.03,18000.0,222480.0
+30450,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,16.0,16.0,0.0,18.56,1.16,18135.14,336588.2
+30451,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,12.0,4.0,8.0,3.8,0.95,18000.0,68400.0
+30452,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,2.0,2.0,0.0,3,1.5,18000.0,54000.0
+30453,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10.0,10.0,0.0,13,1.3,20500.0,266500.0
+30454,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,20.0,20.0,0.0,28,1.4,20376.79,570550.12
+30455,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,30.0,30.0,0.0,45,1.5,20360.0,916200.0
+30456,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,7.0,7.0,0.0,4.9,0.7,20500.0,100450.0
+30457,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,120.0,120.0,0.0,156,1.3,20770.83,3240249.48
+30458,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,10.0,10.0,0.0,7,0.7,21000.0,147000.0
+30459,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,1230.0,1230.0,0.0,2460,2.0,20344.83,50048281.8
+30460,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5.0,5.0,0.0,9.5,1.9,20200.0,191900.0
+30461,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,2.0,2.0,0.0,2,1.0,20000.0,40000.0
+30462,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10.0,10.0,0.0,15.2,1.52,18000.0,273600.0
+30463,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,5.0,5.0,0.0,8.5,1.7,20000.0,170000.0
+30464,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,60.0,60.0,0.0,78,1.3,19802.56,1544599.68
+30465,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,22.0,22.0,0.0,46.2,2.1,17140.26,791880.01
+30466,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,16.0,16.0,0.0,27.2,1.7,19000.0,516800.0
+30467,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,196.0,196.0,0.0,446.2,2.28,17277.05,7709020.22
+30468,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,9.0,9.0,0.0,20.7,2.3,18000.0,372600.0
+30469,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,5.0,5.0,0.0,11.75,2.35,17500.0,205625.0
+30470,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,170.0,170.0,0.0,405,2.38,17516.05,7093998.45
+30471,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,35.0,35.0,0.0,86.75,2.48,17346.11,1504775.07
+30472,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,440.0,440.0,0.0,1049,2.38,17357.68,18208202.14
+30473,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,170.0,170.0,0.0,386,2.27,17351.42,6697648.88
+30474,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,65.0,65.0,0.0,143,2.2,17301.75,2474150.25
+30475,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,80.0,80.0,0.0,184,2.3,17371.74,3196400.16
+30476,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,25.0,25.0,0.0,56.25,2.25,17154.0,964912.5
+30477,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,120.0,120.0,0.0,282,2.35,17502.13,4935600.66
+30478,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,800.0,800.0,0.0,1696,2.12,17339.15,29407200.52
+30479,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,2.0,2.0,0.0,2.2,1.1,19500.0,42900.0
+30480,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,622.0,622.0,0.0,1355.96,2.18,17333.84,23503998.0
+30481,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,670.0,670.0,0.0,1474,2.2,17333.78,25549998.32
+30482,2022,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,270.0,270.0,0.0,121.5,0.45,18500.0,2247750.0
+30483,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,7050.0,7050.0,0.0,12500,1.77,20822.6,260282500.0
+30484,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,79.0,79.0,0.0,181.7,2.3,20365.99,3700500.66
+30485,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,800.0,800.0,0.0,1786,2.23,20403.81,36441205.58
+30486,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,145.0,145.0,0.0,319,2.2,20224.14,6451500.66
+30487,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,30.0,30.0,0.0,64.5,2.15,20300.0,1309350.0
+30488,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,270.0,270.0,0.0,638,2.36,20371.08,12996751.76
+30489,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,725.0,725.0,0.0,1667.5,2.3,20829.84,34733758.2
+30490,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,227.0,227.0,0.0,514.4,2.27,19753.7,10161301.44
+30491,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,360.0,360.0,0.0,774,2.15,19895.35,15399002.34
+30492,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,35.0,35.0,0.0,77,2.2,19740.26,1520000.02
+30493,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,200.0,200.0,0.0,480,2.4,20125.0,9659999.04
+30494,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,88.0,88.0,0.0,192.4,2.19,20006.24,3849199.75
+30495,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,330.0,330.0,0.0,759,2.3,20210.14,15339496.26
+30496,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,120.0,120.0,0.0,276,2.3,20438.4,5640998.4
+30497,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,184.0,184.0,0.0,441.6,2.4,20202.78,8921547.65
+30498,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,220.0,220.0,0.0,474,2.15,19744.73,9359001.3
+30499,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6940000,Girasol,110.0,110.0,0.0,253,2.3,6000.0,1518000.0
+30500,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6940000,Girasol,12.0,12.0,0.0,25.2,2.1,8500.0,214200.0
+30501,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6940000,Girasol,50.0,50.0,0.0,101.5,2.03,8400.0,852600.0
+30502,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6940000,Girasol,200.0,200.0,0.0,378,1.89,8800.0,3326400.0
+30503,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6940000,Girasol,60.0,60.0,0.0,120,2.0,8300.0,996000.0
+30504,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,2,Primavera-Verano,1,Riego,200201,Tonelada,6940000,Girasol,74.0,74.0,0.0,148,2.0,10500.0,1554000.0
+30505,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,3.0,3.0,0.0,55,18.33,15450.0,849750.0
+30506,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,2.0,2.0,0.0,36,18.0,15500.0,558000.0
+30507,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,4.0,0.0,0.0,0,0.0,0.0,0.0
+30508,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,15.0,15.0,0.0,142.5,9.5,10000.0,1425000.0
+30509,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,35.0,35.0,0.0,560,16.0,14000.0,7840000.0
+30510,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,7100000,Haba grano,2.0,2.0,0.0,7,3.5,6200.0,43400.0
+30511,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,7110000,Haba verde,2.0,2.0,0.0,7.5,3.75,9800.0,73500.0
+30512,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,5.0,5.0,0.0,28,5.6,5500.0,154000.0
+30513,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,5.0,5.0,0.0,30,6.0,7500.0,225000.0
+30514,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7150000,Higo,66.0,66.0,0.0,396,6.0,7000.0,2772000.0
+30515,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7160000,Higuerilla,116.0,0.0,0.0,0,0.0,0.0,0.0
+30516,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7160000,Higuerilla,60.0,60.0,0.0,258,4.3,6500.0,1677000.0
+30517,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7160000,Higuerilla,8.0,8.0,0.0,16.8,2.1,5500.0,92400.0
+30518,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7270000,Kale,35.0,35.0,0.0,1130,32.29,10420.35,11775000.0
+30519,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7270000,Kale,20.0,20.0,0.0,724.4,36.22,11200.0,8113280.0
+30520,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,7270000,Kale,3.0,3.0,0.0,50,16.67,9500.0,475000.0
+30521,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,11.0,11.0,0.0,308,28.0,6520.0,2008160.0
+30522,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,20.0,20.0,0.0,640,32.0,5500.0,3520000.0
+30523,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,4.0,4.0,0.0,120,30.0,4800.0,576000.0
+30524,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,10.0,10.0,0.0,315,31.5,6100.0,1921500.0
+30525,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,2.0,2.0,0.0,56,28.0,5000.0,280000.0
+30526,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,10.0,10.0,0.0,260,26.0,5370.0,1396200.0
+30527,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,3.0,3.0,0.0,90,30.0,5600.0,504000.0
+30528,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,6.0,6.0,0.0,185,30.83,7081.08,1309999.8
+30529,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,4.0,4.0,0.0,122,30.5,6500.0,793000.0
+30530,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,100.0,100.0,0.0,3000,30.0,7734.67,23204010.0
+30531,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,180.0,180.0,0.0,5760,32.0,8062.5,46440000.0
+30532,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,669.0,669.0,0.0,16810,25.13,6789.71,114135072.2
+30533,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,403.0,248.0,0.0,6219.27,25.08,7528.14,46819525.0
+30534,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,117.0,53.0,0.0,837.4,15.8,7500.0,6280500.0
+30535,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,16.0,16.0,0.0,281.6,17.6,7500.0,2112000.0
+30536,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,90.0,19.0,0.0,294.5,15.5,7500.0,2208750.0
+30537,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,6.0,6.0,0.0,87,14.5,7300.0,635100.0
+30538,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,87.0,37.0,0.0,592,16.0,7300.0,4321600.0
+30539,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,30.0,0.0,0.0,0,0.0,0.0,0.0
+30540,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,51.0,31.0,0.0,502.2,16.2,7500.0,3766500.0
+30541,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,45.0,25.0,0.0,287.5,11.5,7034.78,2022499.25
+30542,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,30.0,10.0,0.0,120,12.0,7300.0,876000.0
+30543,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,65.0,30.0,0.0,390,13.0,7200.0,2808000.0
+30544,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7400000,Limón real,388.0,233.0,0.0,5869.27,25.19,7500.0,44019525.0
+30545,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,7.0,7.0,0.0,57.4,8.2,829.76,47628.22
+30546,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,7.0,7.0,0.0,108.5,15.5,810.0,87885.0
+30547,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,8.0,8.0,0.0,112,14.0,810.0,90720.0
+30548,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,12.0,12.0,0.0,180,15.0,803.75,144675.0
+30549,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10.0,10.0,0.0,80,8.0,830.75,66460.0
+30550,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,10.0,10.0,0.0,140,14.0,800.0,112000.0
+30551,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,8.0,8.0,0.0,108,13.5,800.0,86400.0
+30552,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,1.0,1.0,0.0,14.2,14.2,835.0,11857.0
+30553,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,60.0,60.0,0.0,498,8.3,810.48,403619.04
+30554,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,2.0,2.0,0.0,27,13.5,800.0,21600.0
+30555,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,35.0,35.0,0.0,290.5,8.3,812.58,236054.49
+30556,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,60.0,60.0,0.0,486,8.1,803.6,390549.6
+30557,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,10.0,10.0,0.0,145,14.5,841.98,122087.1
+30558,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,95.0,95.0,0.0,769.5,8.1,802.73,617700.74
+30559,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,18.0,18.0,0.0,149.4,8.3,805.02,120269.99
+30560,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,27.0,27.0,0.0,216,8.0,813.24,175659.84
+30561,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,38.0,38.0,0.0,304,8.0,811.55,246711.2
+30562,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,30.0,30.0,0.0,246,8.2,822.2,202261.2
+30563,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,50.0,50.0,0.0,900,18.0,786.67,708003.0
+30564,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,40.0,40.0,0.0,350,8.75,9750.0,3412500.0
+30565,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,75.0,75.0,0.0,680.25,9.07,9800.0,6666450.0
+30566,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,25.0,25.0,0.0,205,8.2,9700.0,1988500.0
+30567,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,5.0,5.0,0.0,35,7.0,5200.0,182000.0
+30568,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10.0,10.0,0.0,90,9.0,9500.0,855000.0
+30569,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,4.0,0.0,4.0,0,0.0,0.0,0.0
+30570,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,5.0,5.0,0.0,42,8.4,9100.0,382200.0
+30571,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,5.0,5.0,0.0,45,9.0,9300.0,418500.0
+30572,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,8.0,5.0,3.0,47,9.4,9800.0,460600.0
+30573,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,2.0,2.0,0.0,16,8.0,9350.0,149600.0
+30574,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,15.0,15.0,0.0,63,4.2,6169.44,388674.72
+30575,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,20.0,20.0,0.0,100,5.0,6138.75,613875.0
+30576,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,22.0,22.0,0.0,165,7.5,7050.0,1163250.0
+30577,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10.0,10.0,0.0,48,4.8,6500.0,312000.0
+30578,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,15.0,15.0,0.0,40.5,2.7,6200.0,251100.0
+30579,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,65.0,65.0,0.0,299,4.6,6340.14,1895701.86
+30580,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,30.0,30.0,0.0,69,2.3,6246.09,430980.21
+30581,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10.0,10.0,0.0,45,4.5,6500.0,292500.0
+30582,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,5.0,5.0,0.0,13,2.6,6165.38,80149.94
+30583,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,220.0,220.0,0.0,726,3.3,6286.09,4563701.34
+30584,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,40.0,40.0,0.0,280,7.0,6767.86,1895000.8
+30585,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,12.0,12.0,0.0,81.6,6.8,6142.89,501259.82
+30586,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1240.0,1240.0,0.0,15252,12.3,6723.25,102543009.0
+30587,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,52.0,52.0,0.0,416,8.0,6500.0,2704000.0
+30588,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,150.0,150.0,0.0,1680,11.2,6388.81,10733200.8
+30589,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,300.0,300.0,0.0,3300,11.0,6429.55,21217515.0
+30590,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,150.0,150.0,0.0,1650,11.0,6416.36,10586994.0
+30591,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,13.0,13.0,0.0,104,8.0,6300.0,655200.0
+30592,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,920.0,920.0,0.0,11776,12.8,6358.92,74882641.92
+30593,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,13.0,13.0,0.0,110.5,8.5,6500.0,718250.0
+30594,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1236.0,1236.0,0.0,14832,12.0,6197.61,91922951.52
+30595,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,413.0,413.0,0.0,4749.5,11.5,6577.25,31238648.88
+30596,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,46.0,46.0,0.0,404.8,8.8,7000.0,2833600.0
+30597,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1644.0,1644.0,0.0,19728,12.0,6672.97,131644352.2
+30598,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,800.0,800.0,0.0,9600,12.0,6482.29,62229984.0
+30599,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1600.0,1600.0,0.0,18400,11.5,6676.09,122840056.0
+30600,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,14.0,14.0,0.0,119,8.5,6500.0,773500.0
+30601,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,330.0,330.0,0.0,3630,11.0,6862.26,24910003.8
+30602,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2370.0,2370.0,0.0,26781,11.3,6697.28,179359855.7
+30603,2022,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,50.0,50.0,0.0,140,2.8,6100.0,854000.0
+30604,2022,26,Sonora,148,Cajeme,6,Rosario,51,Rosario,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,30.0,30.0,0.0,75,2.5,6000.0,450000.0
+30605,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,500.0,500.0,0.0,4798,9.6,6958.02,33384579.96
+30606,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,83.0,83.0,0.0,664,8.0,6486.14,4306796.96
+30607,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2100.0,2100.0,0.0,20370,9.7,6750.42,137506055.4
+30608,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,92.0,92.0,0.0,736,8.0,6363.04,4683197.44
+30609,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1300.0,1300.0,0.0,12350,9.5,6845.84,84546124.0
+30610,2022,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,1500.0,1500.0,0.0,4500,3.0,6000.0,27000000.0
+30611,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,613.0,613.0,0.0,6352.68,10.36,7160.66,45489360.0
+30612,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,32.6,8.0,0.0,100,12.5,6500.0,650000.0
+30613,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,22.0,22.0,0.0,473,21.5,3769.77,1783101.21
+30614,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,101.0,76.0,0.0,1596,21.0,3680.95,5874796.2
+30615,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,150.0,110.0,0.0,1903,17.3,3784.97,7202797.91
+30616,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,40.0,40.0,0.0,840,21.0,3857.14,3239997.6
+30617,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,40.0,40.0,0.0,852,21.3,3731.46,3179203.92
+30618,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,75.0,75.0,0.0,1650,22.0,3784.54,6244491.0
+30619,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7.0,7.0,0.0,105,15.0,5100.0,535500.0
+30620,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,32.0,0.0,0.0,0,0.0,0.0,0.0
+30621,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7.0,7.0,0.0,101.5,14.5,4372.41,443799.62
+30622,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,21.28,1.28,0.0,18.56,14.5,4500.0,83520.0
+30623,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,75.0,15.0,0.0,210,14.0,4535.71,952499.1
+30624,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,18.0,12.0,0.0,258,21.5,4767.44,1229999.52
+30625,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,12.0,12.0,0.0,240,20.0,4631.25,1111500.0
+30626,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200205,Manojo,7570000,Mano de león,3.0,3.0,0.0,6000,2000.0,45.0,270000.0
+30627,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200205,Manojo,7570000,Mano de león,0.5,0.5,0.0,1025,2050.0,45.0,46125.0
+30628,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,3,Perennes,2,Temporal,200201,Tonelada,7580000,Manzana,207.45,184.69,0.0,2918.1,15.8,11336.42,33080807.2
+30629,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,62.0,62.0,0.0,2010,32.42,7200.0,14472000.0
+30630,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,78.0,78.0,0.0,2559.96,32.82,7244.06,18544503.84
+30631,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,4.0,4.0,0.0,122,30.5,7450.0,908900.0
+30632,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,164.0,164.0,0.0,4888,29.8,7570.54,37004796.72
+30633,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,329.0,329.0,0.0,9302.53,28.28,7259.56,67532270.54
+30634,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,120.0,120.0,0.0,4440,37.0,5708.17,25344261.3
+30635,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,195.0,195.0,0.0,8220,42.15,5953.83,48940513.85
+30636,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,390.0,390.0,0.0,15435,39.58,5924.25,91440751.95
+30637,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,1100.0,1100.0,0.0,45603,41.46,5838.17,266238244.9
+30638,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,30.0,30.0,0.0,1140,38.0,5368.42,6119998.8
+30639,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,10.0,10.0,0.0,266,26.6,6700.0,1782200.0
+30640,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,7690000,Membrillo,8.0,8.0,0.0,147.52,18.44,14800.0,2183296.0
+30641,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7690000,Membrillo,5.0,5.0,0.0,80.35,16.07,14600.0,1173110.0
+30642,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7840000,Napa,5.0,5.0,0.0,55,11.0,11500.0,632500.0
+30643,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,93.0,45.0,0.0,886,19.69,4300.0,3809800.0
+30644,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,3366.0,3266.0,0.0,104200,31.9,6027.01,628014442.0
+30645,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,5.0,5.0,0.0,103.5,20.7,3022.46,312824.61
+30646,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,455.0,455.0,0.0,9080.4,19.96,3038.32,27589160.93
+30647,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,561.0,511.0,0.0,10731,21.0,3672.86,39413460.66
+30648,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,397.0,347.0,0.0,7287,21.0,3559.52,25938222.24
+30649,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,597.0,547.0,0.0,10393,19.0,3529.65,36683652.45
+30650,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,281.0,231.0,0.0,4851,21.0,3920.95,19020528.45
+30651,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,411.0,411.0,0.0,8631,21.0,3819.76,32968348.56
+30652,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,57.0,57.0,0.0,1140,20.0,3463.75,3948675.0
+30653,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,293.0,293.0,0.0,6153,21.0,3634.29,22361786.37
+30654,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,125.0,50.0,0.0,1050,21.0,3150.0,3307500.0
+30655,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,70.0,20.0,0.0,420,21.0,3000.0,1260000.0
+30656,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,32.5,12.5,0.0,268.75,21.5,3100.0,833125.0
+30657,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,14.0,14.0,0.0,280,20.0,6500.0,1820000.0
+30658,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,3.0,3.0,0.0,95,31.67,4278.95,406500.25
+30659,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,2.0,2.0,0.0,70,35.0,4625.71,323799.7
+30660,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,1.0,1.0,0.0,32,32.0,4897.66,156725.12
+30661,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,24.0,24.0,0.0,620,25.83,4015.32,2489498.4
+30662,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,4.0,4.0,0.0,80,20.0,3962.5,317000.0
+30663,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,2.0,0.0,0.0,0,0.0,0.0,0.0
+30664,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8.0,8.0,0.0,204,25.5,4267.65,870600.6
+30665,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,12.0,6.5,0.0,144.95,22.3,4654.53,674674.12
+30666,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8.0,8.0,0.0,160,20.0,3760.0,601600.0
+30667,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,5.0,5.0,0.0,105,21.0,3833.34,402500.7
+30668,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8.0,8.0,0.0,160,20.0,3705.0,592800.0
+30669,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,4.0,4.0,0.0,64,16.0,4647.66,297450.24
+30670,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,563.0,563.0,0.0,1130,2.01,88500.0,100005000.0
+30671,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,149.0,109.0,0.0,235,2.16,91734.04,21557500.0
+30672,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1138.0,1138.0,0.0,2545,2.24,88500.0,225232500.0
+30673,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,6.0,6.0,0.0,14,2.33,88500.0,1239000.0
+30674,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,140.0,140.0,0.0,290,2.07,88500.0,25665000.0
+30675,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,9.0,9.0,0.0,17,1.89,83500.0,1419500.0
+30676,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,39.5,22.0,0.0,38,1.73,83550.0,3174900.0
+30677,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,199.58,199.58,0.0,425,2.13,83677.65,35563001.25
+30678,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,23.0,6.7,0.0,13,1.94,82000.0,1066000.0
+30679,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,566.0,286.0,0.0,625,2.19,83739.2,52337000.0
+30680,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,208.0,109.0,0.0,223,2.05,81372.2,18146000.6
+30681,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,15.0,15.0,0.0,32,2.13,80000.0,2560000.0
+30682,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,15.0,15.0,0.0,32,2.13,80625.0,2580000.0
+30683,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,186.5,136.5,0.0,275,2.01,78000.0,21450000.0
+30684,2022,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,247.0,211.0,0.0,340,1.61,78000.0,26520000.0
+30685,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,25.0,25.0,0.0,32,1.28,78484.38,2511500.16
+30686,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,457.0,427.0,0.0,550,1.29,76909.09,42299999.5
+30687,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,244.0,244.0,0.0,310,1.27,76983.87,23864999.7
+30688,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,20.0,20.0,0.0,25,1.25,75000.0,1875000.0
+30689,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,243.0,243.0,0.0,310,1.28,76432.26,23694000.6
+30690,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,35.0,35.0,0.0,45,1.29,75933.33,3416999.85
+30691,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,13.0,0.0,0.0,0,0.0,0.0,0.0
+30692,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,8.0,6.0,0.0,10.2,1.7,70000.0,714000.0
+30693,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,18.0,0.0,0.0,0,0.0,0.0,0.0
+30694,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,34.0,30.0,0.0,54,1.8,72000.0,3888000.0
+30695,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,10.0,0.0,0.0,0,0.0,0.0,0.0
+30696,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,134.0,102.75,0.0,184.95,1.8,70500.0,13038975.0
+30697,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,350.0,247.0,0.0,444.6,1.8,71000.0,31566600.0
+30698,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,103.0,70.0,0.0,112,1.6,70500.0,7896000.0
+30699,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,398.0,336.0,0.0,810,2.41,87281.48,70697998.8
+30700,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,10229.0,7983.0,0.0,18760,2.35,85486.14,1603719986.0
+30701,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,251.0,165.0,0.0,297,1.8,86515.15,25694999.55
+30702,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1.0,1.0,0.0,1.3,1.3,70000.0,91000.0
+30703,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,20.0,20.0,0.0,28,1.4,72000.0,2016000.0
+30704,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,5.0,5.0,0.0,7,1.4,70000.0,490000.0
+30705,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1.25,1.25,0.0,1.75,1.4,70000.0,122500.0
+30706,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,2.0,1.0,0.0,1.1,1.1,70000.0,77000.0
+30707,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,18.0,18.0,0.0,33.3,1.85,76000.0,2530800.0
+30708,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1195.0,673.0,0.0,1278.7,1.9,74790.37,95634446.12
+30709,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,165.0,73.0,0.0,131.4,1.8,70630.14,9280800.4
+30710,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,248.0,0.0,0.0,0,0.0,0.0,0.0
+30711,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,40.0,0.0,0.0,0,0.0,0.0,0.0
+30712,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,508.0,174.0,0.0,330.6,1.9,74540.83,24643198.4
+30713,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,253.0,103.0,0.0,195.7,1.9,72000.0,14090400.0
+30714,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,501.0,272.0,0.0,516.8,1.9,72445.82,37439999.78
+30715,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,210.0,117.0,0.0,210.6,1.8,70461.54,14839200.32
+30716,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1175.0,574.0,0.0,1090.6,1.9,73412.62,80063803.37
+30717,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,25.0,13.0,0.0,26,2.0,70000.0,1820000.0
+30718,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,1507.0,1507.0,0.0,65192.82,43.26,8072.57,526273603.0
+30719,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,150.0,150.0,0.0,6289.5,41.93,7950.0,50001525.0
+30720,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,2700.0,2700.0,0.0,113508,42.04,8250.0,936441000.0
+30721,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,158.0,158.0,0.0,6975.7,44.15,11500.0,80220550.0
+30722,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,54.0,54.0,0.0,2430,45.0,11500.0,27945000.0
+30723,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,402.0,402.0,0.0,17893.02,44.51,12000.0,214716240.0
+30724,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,6.0,6.0,0.0,180,30.0,13000.0,2340000.0
+30725,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,10.0,10.0,0.0,450,45.0,8500.0,3825000.0
+30726,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8100000,Papa,5.0,5.0,0.0,47.5,9.5,9200.0,437000.0
+30727,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,55.0,55.0,0.0,1787.5,32.5,7659.44,13691249.0
+30728,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,2360.0,2360.0,0.0,80240,34.0,7546.95,605567268.0
+30729,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,50.0,50.0,0.0,1675,33.5,7698.21,12894501.75
+30730,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,270.0,270.0,0.0,8910,33.0,7437.54,66268481.4
+30731,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,130.0,130.0,0.0,4030,31.0,7883.13,31769013.9
+30732,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,900.0,900.0,0.0,29700,33.0,7735.35,229739895.0
+30733,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,267.0,267.0,0.0,9612,36.0,7476.47,71863829.64
+30734,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,300.0,300.0,0.0,9750,32.5,7791.74,75969465.0
+30735,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,486.0,486.0,0.0,16524,34.0,7543.89,124655238.4
+30736,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1350.0,1350.0,0.0,45630,33.8,7481.18,341366243.4
+30737,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1280.0,1280.0,0.0,38784,30.3,7935.74,307779740.2
+30738,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,565.0,565.0,0.0,17515,31.0,8129.97,142396424.6
+30739,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1820.0,1820.0,0.0,56420,31.0,7998.99,451303015.8
+30740,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,60.0,60.0,0.0,1008,16.8,710.0,715680.0
+30741,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,40.0,40.0,0.0,694,17.35,710.0,492740.0
+30742,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,145.0,145.0,0.0,2616.61,18.05,975.0,2551194.75
+30743,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,20.3,20.3,0.0,343.07,16.9,710.0,243579.7
+30744,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,64.0,64.0,0.0,1056.04,16.5,980.0,1034919.2
+30745,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,62.0,62.0,0.0,1100.5,17.75,710.0,781355.0
+30746,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,25.0,25.0,0.0,463.5,18.54,980.0,454230.0
+30747,2022,26,Sonora,139,Caborca,3,Atil,7,Atil,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,13.0,13.0,0.0,217.1,16.7,710.0,154141.0
+30748,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,10.8,10.8,0.0,183.6,17.0,727.38,133546.97
+30749,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,59.25,59.25,0.0,1164.26,19.65,710.0,826624.6
+30750,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,20.0,20.0,0.0,370.8,18.54,980.0,363384.0
+30751,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,176.5,176.5,0.0,3009.33,17.05,710.0,2136624.3
+30752,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,2,Primavera-Verano,1,Riego,200201,Tonelada,15050000,Pastos y praderas,20.0,20.0,0.0,500,25.0,900.0,450000.0
+30753,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,125.0,125.0,0.0,2731.25,21.85,870.0,2376187.5
+30754,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,160.0,160.0,0.0,3720,23.25,870.0,3236400.0
+30755,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,205.0,205.0,0.0,4633,22.6,850.0,3938050.0
+30756,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,37.5,37.5,0.0,834.38,22.25,870.0,725910.6
+30757,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,68.5,68.5,0.0,1541.25,22.5,880.0,1356300.0
+30758,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,22.5,22.5,0.0,507.38,22.55,875.0,443957.5
+30759,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,145.0,145.0,0.0,3538,24.4,870.0,3078060.0
+30760,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,25.75,25.75,0.0,1036.63,40.26,1032.26,1070067.93
+30761,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,78.0,78.0,0.0,1922.7,24.65,875.0,1682362.5
+30762,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,60.0,60.0,0.0,1730.4,28.84,1039.56,1798854.62
+30763,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,30.0,30.0,0.0,258.02,8.6,1034.66,266962.97
+30764,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,280.0,280.0,0.0,6580,23.5,850.0,5593000.0
+30765,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,250.0,250.0,0.0,3500,14.0,800.0,2800000.0
+30766,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,310.0,310.0,0.0,7378,23.8,815.0,6013070.0
+30767,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,420.0,420.0,0.0,5890,14.02,810.0,4770900.0
+30768,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,105.0,105.0,0.0,2483.25,23.65,875.0,2172843.75
+30769,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,70.0,70.0,0.0,985,14.07,810.0,797850.0
+30770,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,200.0,200.0,0.0,4450,22.25,870.0,3871500.0
+30771,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,175.0,175.0,0.0,2555,14.6,800.0,2044000.0
+30772,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,85.0,85.0,0.0,1827.5,21.5,870.0,1589925.0
+30773,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,120.0,120.0,0.0,1695,14.13,810.0,1372950.0
+30774,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,200.5,200.5,0.0,13650.04,68.08,685.0,9350277.4
+30775,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,280.0,280.0,0.0,13921.6,49.72,685.0,9536296.0
+30776,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,563.5,563.5,0.0,28586.36,50.73,685.0,19581656.6
+30777,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,186.5,186.5,0.0,9498.45,50.93,685.0,6506438.25
+30778,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,123.5,123.5,0.0,5939.12,48.09,685.0,4068297.2
+30779,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,101.5,101.5,0.0,4514.72,44.48,685.0,3092583.2
+30780,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,187.5,187.5,0.0,8325,44.4,685.0,5702625.0
+30781,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,176.5,176.5,0.0,8216.08,46.55,685.0,5628014.8
+30782,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,104.0,104.0,0.0,4729.92,45.48,890.0,4209628.8
+30783,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,37.5,37.5,0.0,731.25,19.5,710.0,519187.5
+30784,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,17.5,17.5,0.0,341.25,19.5,680.0,232050.0
+30785,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,55.0,55.0,0.0,1072.5,19.5,710.0,761475.0
+30786,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,47.5,47.5,0.0,973.75,20.5,700.0,681625.0
+30787,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,55.0,55.0,0.0,1122,20.4,710.0,796620.0
+30788,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,60.0,60.0,0.0,1221,20.35,720.0,879120.0
+30789,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,25.0,25.0,0.0,493.75,19.75,730.0,360437.5
+30790,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,97.5,97.5,0.0,1945.13,19.95,700.0,1361591.0
+30791,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,42.5,42.5,0.0,845.75,19.9,700.0,592025.0
+30792,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,232.5,232.5,0.0,14821.88,63.75,990.0,14673661.2
+30793,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,310.0,310.0,0.0,13081.72,42.2,1035.88,13551128.54
+30794,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,200.0,200.0,0.0,6000,30.0,950.0,5700000.0
+30795,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,1870.0,1870.0,0.0,120035.3,64.19,980.0,117634594.0
+30796,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,1112.5,1112.5,0.0,47893.37,43.05,1028.74,49269923.18
+30797,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,181.5,181.5,0.0,7740.98,42.65,990.0,7663570.2
+30798,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,240.0,240.0,0.0,9785.41,40.77,1068.22,10452942.75
+30799,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,120.0,120.0,0.0,3520,29.33,950.0,3344000.0
+30800,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,8.0,8.0,0.0,360.72,45.09,750.0,270540.0
+30801,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,7.5,7.5,0.0,335.63,44.75,750.0,251722.5
+30802,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,20.5,20.5,0.0,1342.75,65.5,750.0,1007062.5
+30803,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,10.5,10.5,0.0,451.5,43.0,730.0,329595.0
+30804,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,10.0,10.0,0.0,441,44.1,730.0,321930.0
+30805,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,8.0,8.0,0.0,351.36,43.92,730.0,256492.8
+30806,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,21.5,21.5,0.0,850.33,39.55,850.0,722780.5
+30807,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,81.0,81.0,0.0,4722.3,58.3,830.0,3919509.0
+30808,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,11.0,11.0,0.0,865.7,78.7,830.0,718531.0
+30809,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,200.0,200.0,0.0,3296,16.48,950.0,3131200.0
+30810,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,25.5,25.5,0.0,747.5,29.31,806.42,602800.0
+30811,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,50.0,50.0,0.0,365,7.3,828.0,302220.0
+30812,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,15050000,Pastos y praderas,20.0,20.0,0.0,160,8.0,850.0,136000.0
+30813,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,300.0,300.0,0.0,4944,16.48,950.0,4696800.0
+30814,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,47.5,47.5,0.0,2034.88,42.84,889.52,1810062.22
+30815,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,15.0,15.0,0.0,610.28,40.69,900.0,549252.0
+30816,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,5.0,5.0,0.0,200.85,40.17,900.0,180765.0
+30817,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,91.0,91.0,0.0,3646.1,40.07,941.35,3432256.24
+30818,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,15050000,Pastos y praderas,95.0,95.0,0.0,3903.24,41.09,924.66,3609169.9
+30819,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,22.73,22.73,0.0,232.07,10.21,850.0,197259.5
+30820,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,90.76,90.76,0.0,912.14,10.05,880.0,802683.2
+30821,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,285.84,285.84,0.0,3072.78,10.75,870.0,2673318.6
+30822,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,15050000,Pastos y praderas,131.0,131.0,0.0,4461.86,34.06,1200.0,5354232.0
+30823,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,150.0,150.0,0.0,18300,122.0,8380.44,153362052.0
+30824,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,3.5,3.5,0.0,409.99,117.14,8969.51,3677409.4
+30825,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,20.0,20.0,0.0,2100,105.0,8850.67,18586407.0
+30826,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,222.0,222.0,0.0,26105,117.59,9020.88,235490041.2
+30827,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,101.0,101.0,0.0,11850.33,117.33,8566.91,101520710.6
+30828,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,205.0,205.0,0.0,16920,82.54,6866.02,116172976.8
+30829,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,161.0,161.0,0.0,15664,97.29,6760.13,105890682.0
+30830,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,155.0,155.0,0.0,14575,94.03,6866.71,100082268.0
+30831,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,402.0,402.0,0.0,36450,90.67,6792.97,247603609.5
+30832,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,105.0,105.0,0.0,5565,53.0,5353.1,29790011.25
+30833,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,33.0,33.0,0.0,3570,108.18,5176.19,18479005.8
+30834,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,40.0,40.0,0.0,3600,90.0,6394.45,23020020.0
+30835,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,75.0,75.0,0.0,9120,121.6,5442.87,49638993.8
+30836,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,14.0,14.0,0.0,1470,105.0,5490.24,8070653.85
+30837,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,45.0,45.0,0.0,2025,45.0,6214.81,12584990.25
+30838,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,4.0,4.0,0.0,760,190.0,5284.21,4015999.6
+30839,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,62.0,62.0,0.0,4341,70.02,5401.17,23446492.8
+30840,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,87.0,87.0,0.0,4820,55.4,5731.95,27627989.8
+30841,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,5.0,5.0,0.0,165,33.0,5500.0,907500.0
+30842,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,10.0,10.0,0.0,410,41.0,6620.73,2714499.3
+30843,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,8.0,8.0,0.0,240,30.0,7135.42,1712500.8
+30844,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,8230000,Pera,2.0,2.0,0.0,32,16.0,9600.0,307200.0
+30845,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8240000,Perejil,25.0,25.0,0.0,525,21.0,7568.0,3973200.0
+30846,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,8260000,Persimonio,2.0,2.0,0.0,32.96,16.48,18307.38,603411.24
+30847,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,8260000,Persimonio,2.0,2.0,0.0,25,12.5,18244.11,456102.75
+30848,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,8260000,Persimonio,12.0,12.0,0.0,144,12.0,16200.0,2332800.0
+30849,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8440000,Poro (leek),32.0,32.0,0.0,900,28.13,13200.0,11880000.0
+30850,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8440000,Poro (leek),3.0,3.0,0.0,39.99,13.33,4000.0,159960.0
+30851,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,8460000,Quelite,3.0,3.0,0.0,35,11.67,4250.0,148750.0
+30852,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8460000,Quelite,13.0,13.0,0.0,156,12.0,5490.0,856440.0
+30853,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,4.0,4.0,0.0,42,10.5,7200.0,302400.0
+30854,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,2.0,2.0,0.0,22,11.0,7800.0,171600.0
+30855,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,2.0,2.0,0.0,24,12.0,9500.0,228000.0
+30856,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,20.0,20.0,0.0,236,11.8,11450.0,2702200.0
+30857,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8490000,Rábano,5.0,5.0,0.0,47,9.4,11400.0,535800.0
+30858,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,2.0,2.0,0.0,24,12.0,11250.0,270000.0
+30859,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,8490000,Rábano,36.0,36.0,0.0,864,24.0,5950.0,5140800.0
+30860,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8490000,Rábano,62.0,62.0,0.0,1130.26,18.23,5600.0,6329456.0
+30861,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,8680000,Sábila,25.0,25.0,0.0,1000,40.0,920.0,920000.0
+30862,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,8680000,Sábila,10.0,10.0,0.0,430,43.0,1470.0,632100.0
+30863,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,55.0,55.0,0.0,1760,32.0,4872.73,8576004.8
+30864,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,13.0,13.0,0.0,223.99,17.23,5100.0,1142349.0
+30865,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,62.0,62.0,0.0,3750,60.48,5600.24,21000900.0
+30866,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,1231.0,1231.0,0.0,69400,56.38,5617.94,389885251.6
+30867,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,1023.0,1023.0,0.0,49828.75,48.71,6574.66,327607265.7
+30868,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,20.0,20.0,0.0,950,47.5,5000.0,4750000.0
+30869,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,270.0,270.0,0.0,12895,47.76,2746.05,35410255.65
+30870,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,795.0,795.0,0.0,36120,45.43,2975.89,107489134.8
+30871,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,910.0,910.0,0.0,42360,46.55,2852.34,120825004.8
+30872,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,1650.0,1650.0,0.0,74250,45.0,2854.89,211975740.0
+30873,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8710000,Sandía,30.0,30.0,0.0,480,16.0,2500.0,1200000.0
+30874,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,20.0,20.0,0.0,940,47.0,3500.0,3290000.0
+30875,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,63.0,63.0,0.0,2866.5,45.5,3514.43,10074113.6
+30876,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,120.0,120.0,0.0,5520,46.0,3628.45,20029044.0
+30877,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,40.0,40.0,0.0,1660,41.5,3049.4,5062000.0
+30878,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,150.0,150.0,0.0,6000,40.0,3150.0,18900000.0
+30879,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,223.0,223.0,0.0,9589,43.0,6187.49,59331841.61
+30880,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6200000,Semilla de cilantro,10.0,10.0,0.0,13,1.3,30000.0,390000.0
+30881,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,6790000,Semilla de flores,12.0,12.0,0.0,18,1.5,7300.0,131400.0
+30882,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9990000,Semilla de girasol,5.0,5.0,0.0,13,2.6,10800.0,140400.0
+30883,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8110000,Semilla de papa,50.0,50.0,0.0,1500,30.0,6500.0,9750000.0
+30884,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8840000,Semilla de soya,100.0,100.0,0.0,150,1.5,12500.0,1875000.0
+30885,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,69.0,69.0,0.0,480,6.96,9500.0,4560000.0
+30886,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,2400.0,2400.0,0.0,16800,7.0,8739.29,146820000.0
+30887,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,250.0,250.0,0.0,1800,7.2,8550.0,15390000.0
+30888,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,400.0,400.0,0.0,3040,7.6,8500.0,25840000.0
+30889,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,80.0,80.0,0.0,544,6.8,9100.0,4950400.0
+30890,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,350.0,350.0,0.0,2520,7.2,8800.0,22176000.0
+30891,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,25.0,25.0,0.0,180,7.2,8600.0,1548000.0
+30892,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,500.0,500.0,0.0,3250,6.5,8570.15,27853000.0
+30893,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,270.0,270.0,0.0,1782,6.6,8665.99,15442800.0
+30894,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9060000,Semilla de trigo grano,500.0,500.0,0.0,3140,6.28,8625.16,27083000.0
+30895,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8740000,Shop suey,70.0,70.0,0.0,44.8,0.64,27000.0,1209600.0
+30896,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,8.0,8.0,0.0,185.04,23.13,800.0,148032.0
+30897,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,105.0,105.0,0.0,2349.9,22.38,758.86,1783245.11
+30898,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,5.0,5.0,0.0,120,24.0,800.0,96000.0
+30899,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,40.0,40.0,0.0,990,24.75,800.0,792000.0
+30900,2022,26,Sonora,139,Caborca,3,Atil,7,Atil,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45.0,45.0,0.0,970.2,21.56,800.0,776160.0
+30901,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,11.0,11.0,0.0,250.03,22.73,800.0,200024.0
+30902,2022,26,Sonora,139,Caborca,3,Atil,60,Sáric,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,62.0,62.0,0.0,1364,22.0,800.0,1091200.0
+30903,2022,26,Sonora,139,Caborca,3,Atil,65,Tubutama,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,180.0,180.0,0.0,3610.8,20.06,800.0,2888640.0
+30904,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,120.0,120.0,0.0,2949.6,24.58,873.56,2576652.58
+30905,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,80.0,80.0,0.0,715.2,8.94,864.27,618125.9
+30906,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,95.0,95.0,0.0,2149.85,22.63,880.74,1893458.89
+30907,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,85.0,85.0,0.0,690.2,8.12,859.28,593075.06
+30908,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,102.0,102.0,0.0,2374.56,23.28,872.32,2071376.18
+30909,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70.0,70.0,0.0,590.1,8.43,885.42,522486.34
+30910,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,80.0,80.0,0.0,1700,21.25,890.0,1513000.0
+30911,2022,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,30.0,30.0,0.0,249.9,8.33,878.8,219612.12
+30912,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,80.0,80.0,0.0,1750.4,21.88,869.14,1521342.66
+30913,2022,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,40.0,40.0,0.0,330,8.25,880.0,290400.0
+30914,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,22.0,22.0,0.0,524.92,23.86,900.0,472428.0
+30915,2022,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,50.0,50.0,0.0,429,8.58,870.05,373251.45
+30916,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,819.0,819.0,0.0,19852.56,24.24,875.12,17373372.31
+30917,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,30.0,30.0,0.0,270,9.0,910.0,245700.0
+30918,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,175.0,175.0,0.0,4499.25,25.71,872.28,3924605.79
+30919,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,40.0,40.0,0.0,350,8.75,900.0,315000.0
+30920,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,290.0,290.0,0.0,6449.6,22.24,886.26,5716022.5
+30921,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,650.0,650.0,0.0,14852.5,22.85,893.01,13263431.03
+30922,2022,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,250.0,250.0,0.0,5600,22.4,887.9,4972240.0
+30923,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,85.0,85.0,0.0,1975.4,23.24,880.85,1740031.09
+30924,2022,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45.0,45.0,0.0,1009.8,22.44,900.0,908820.0
+30925,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,110.0,110.0,0.0,5050.1,45.91,872.0,4403687.2
+30926,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,100.0,100.0,0.0,2153,21.53,843.0,1814979.0
+30927,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,130.0,130.0,0.0,5890.3,45.31,870.0,5124561.0
+30928,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70.0,70.0,0.0,1449.7,20.71,840.0,1217748.0
+30929,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,490.0,490.0,0.0,22549.8,46.02,875.0,19731075.0
+30930,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,210.0,210.0,0.0,4752.3,22.63,902.28,4287905.24
+30931,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,115.0,115.0,0.0,4830,42.0,859.73,4152495.9
+30932,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,22.0,22.0,0.0,405.02,18.41,852.41,345243.1
+30933,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,210.0,210.0,0.0,9494.1,45.21,875.0,8307337.5
+30934,2022,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,28.0,28.0,0.0,532,19.0,850.0,452200.0
+30935,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,55.0,55.0,0.0,2580.05,46.91,875.0,2257543.75
+30936,2022,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,22.0,22.0,0.0,449.9,20.45,850.13,382473.49
+30937,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,90.0,90.0,0.0,4110.3,45.67,870.0,3575961.0
+30938,2022,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,95.0,95.0,0.0,1895.25,19.95,840.0,1592010.0
+30939,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,110.0,110.0,0.0,4900.5,44.55,865.07,4239275.54
+30940,2022,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,12.0,12.0,0.0,249.96,20.83,840.0,209966.4
+30941,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,42.0,42.0,0.0,1890,45.0,870.0,1644300.0
+30942,2022,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,15.0,15.0,0.0,295.05,19.67,841.75,248358.34
+30943,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,369.0,369.0,0.0,5719.5,15.5,830.7,4751188.65
+30944,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,246.0,246.0,0.0,1968,8.0,855.05,1682738.4
+30945,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,15.0,15.0,0.0,225,15.0,810.0,182250.0
+30946,2022,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,180.0,180.0,0.0,1404,7.8,837.18,1175400.72
+30947,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,269.0,269.0,0.0,4169.5,15.5,819.93,3418698.14
+30948,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,211.0,211.0,0.0,1688,8.0,809.27,1366047.76
+30949,2022,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,34.0,34.0,0.0,550.8,16.2,829.83,457070.36
+30950,2022,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,81.0,81.0,0.0,648,8.0,838.1,543088.8
+30951,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,130.0,130.0,0.0,2015,15.5,827.74,1667896.1
+30952,2022,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,5.0,5.0,0.0,40,8.0,830.0,33200.0
+30953,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,310.0,310.0,0.0,4650,15.0,838.34,3898281.0
+30954,2022,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,5.0,5.0,0.0,41,8.2,810.0,33210.0
+30955,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,400.0,400.0,0.0,6400,16.0,830.51,5315264.0
+30956,2022,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,12.0,12.0,0.0,99.6,8.3,850.0,84660.0
+30957,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45.0,45.0,0.0,900,20.0,830.0,747000.0
+30958,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,178.0,178.0,0.0,1441.8,8.1,818.76,1180488.17
+30959,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,93.0,93.0,0.0,1488,16.0,843.29,1254815.52
+30960,2022,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,217.0,217.0,0.0,1801.1,8.3,842.08,1516670.29
+30961,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,22.0,22.0,0.0,396,18.0,810.0,320760.0
+30962,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,90.0,90.0,0.0,675,7.5,811.11,547499.25
+30963,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45.0,45.0,0.0,765,17.0,850.0,650250.0
+30964,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,170.0,170.0,0.0,1411,8.3,820.21,1157316.31
+30965,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,39.0,39.0,0.0,585,15.0,828.46,484649.1
+30966,2022,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,25.0,25.0,0.0,207.5,8.3,850.0,176375.0
+30967,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,150.0,150.0,0.0,6850.5,45.67,880.0,6028440.0
+30968,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,950.0,950.0,0.0,44849.5,47.21,870.4,39037004.8
+30969,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,235.0,235.0,0.0,10875.8,46.28,884.96,9624647.97
+30970,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,15.0,15.0,0.0,457.5,30.5,786.45,359800.88
+30971,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,770.0,770.0,0.0,6391,8.3,774.37,4948998.67
+30972,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,25.0,25.0,0.0,800,32.0,740.63,592504.0
+30973,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,285.0,285.0,0.0,2365.5,8.3,767.82,1816278.21
+30974,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,10.0,10.0,0.0,320,32.0,770.63,246601.6
+30975,2022,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,990.0,990.0,0.0,8415,8.5,756.73,6367882.95
+30976,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,150.0,150.0,0.0,4725,31.5,773.66,3655543.5
+30977,2022,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,905.0,905.0,0.0,7421,8.2,762.87,5661258.27
+30978,2022,26,Sonora,145,Mazatán,2,La Colorada,54,San Javier,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,22.0,22.0,0.0,182.6,8.3,741.02,135310.25
+30979,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,30.0,30.0,0.0,960,32.0,777.08,745996.8
+30980,2022,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,160.0,160.0,0.0,1344,8.4,766.44,1030095.36
+30981,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,20.0,20.0,0.0,620,31.0,780.0,483600.0
+30982,2022,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,160.0,160.0,0.0,1328,8.3,753.98,1001285.44
+30983,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,15.0,15.0,0.0,480,32.0,770.63,369902.4
+30984,2022,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,250.0,250.0,0.0,2100,8.4,776.76,1631196.0
+30985,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,220.0,220.0,0.0,7260,33.0,846.93,6148711.8
+30986,2022,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,250.0,250.0,0.0,2050,8.2,842.19,1726489.5
+30987,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,950.0,950.0,0.0,31350,33.0,837.8,26265030.0
+30988,2022,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,450.0,450.0,0.0,3645,8.1,828.34,3019299.3
+30989,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,125.0,125.0,0.0,4125,33.0,847.52,3496020.0
+30990,2022,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,120.0,120.0,0.0,960,8.0,828.98,795820.8
+30991,2022,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,450.0,450.0,0.0,3915,8.7,822.05,3218325.75
+30992,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,12.0,12.0,0.0,402,33.5,803.83,323139.66
+30993,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,100.0,100.0,0.0,3550,35.5,815.0,2893250.0
+30994,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,100.0,100.0,0.0,700,7.0,808.25,565775.0
+30995,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,36.0,36.0,0.0,1224,34.0,809.22,990485.28
+30996,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,80.0,80.0,0.0,280,3.5,710.0,198800.0
+30997,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,50.0,50.0,0.0,760,15.2,810.0,615600.0
+30998,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,650.0,650.0,0.0,4810,7.4,827.36,3979601.6
+30999,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,661.0,661.0,0.0,11567.5,17.5,900.0,10410750.0
+31000,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,20.0,20.0,0.0,93,4.65,6500.0,604500.0
+31001,2022,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,20.0,20.0,0.0,48,2.4,6200.0,297600.0
+31002,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,54.0,54.0,0.0,334.8,6.2,6100.0,2042280.0
+31003,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,30.0,30.0,0.0,186,6.2,6000.0,1116000.0
+31004,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,21.0,21.0,0.0,126,6.0,6000.0,756000.0
+31005,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,6.0,6.0,0.0,37.2,6.2,6100.0,226920.0
+31006,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,50.0,50.0,0.0,305,6.1,5886.89,1795501.45
+31007,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,35.0,35.0,0.0,213.5,6.1,6000.0,1281000.0
+31008,2022,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,2500.0,2500.0,0.0,6000,2.4,5500.0,33000000.0
+31009,2022,26,Sonora,148,Cajeme,6,Rosario,51,Rosario,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,2500.0,2500.0,0.0,6250,2.5,5300.0,33125000.0
+31010,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,25.0,25.0,0.0,145,5.8,5500.0,797500.0
+31011,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,60.0,60.0,0.0,366,6.1,6100.0,2232600.0
+31012,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,67.0,67.0,0.0,388.6,5.8,6000.0,2331600.0
+31013,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,190.0,190.0,0.0,1045,5.5,5500.0,5747500.0
+31014,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,144.0,144.0,0.0,734.4,5.1,6100.0,4479840.0
+31015,2022,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,7500.0,7500.0,0.0,15000,2.0,5500.0,82500000.0
+31016,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,341.0,341.0,0.0,1705,5.0,4800.0,8184000.0
+31017,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,50.0,50.0,0.0,130,2.6,11169.23,1451999.9
+31018,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,31.0,31.0,0.0,79.05,2.55,11078.56,875760.17
+31019,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,37.0,37.0,0.0,96.2,2.6,11075.47,1065460.21
+31020,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,69.0,69.0,0.0,186.3,2.7,11000.0,2049300.0
+31021,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,74.0,74.0,0.0,192.4,2.6,11087.73,2133279.25
+31022,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,35.0,35.0,0.0,91,2.6,11047.25,1005299.75
+31023,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,78.0,78.0,0.0,195,2.5,11000.0,2145000.0
+31024,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,50.0,50.0,0.0,115,2.3,11000.0,1265000.0
+31025,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,40.0,40.0,0.0,96,2.4,11130.21,1068500.16
+31026,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,9800000,Stevia,52.0,52.0,0.0,291.6,5.61,58000.0,16912800.0
+31027,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),10.0,10.0,0.0,1200,120.0,9100.0,10920000.0
+31028,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),11.6,11.6,0.0,1458,125.69,9653.7,14075094.6
+31029,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),9.5,9.5,0.0,1189.97,125.26,9425.0,11215467.25
+31030,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),140.0,140.0,0.0,16490,117.79,7900.0,130271000.0
+31031,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),115.0,115.0,0.0,13450.3,116.96,8350.55,112317436.5
+31032,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),105.0,105.0,0.0,4442,42.3,6739.8,29938200.42
+31033,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),70.0,70.0,0.0,3630,51.86,5779.07,20978011.2
+31034,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),215.0,215.0,0.0,7475,34.77,6703.15,50106019.25
+31035,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),650.0,650.0,0.0,23150,35.62,7359.12,170363722.0
+31036,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),155.0,155.0,0.0,10055,64.87,5752.47,57841042.8
+31037,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),20.0,20.0,0.0,1980,99.0,6263.64,12402007.2
+31038,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),40.0,40.0,0.0,1360,34.0,5375.74,7311006.4
+31039,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),200.0,200.0,0.0,13047,65.24,6002.7,78317199.26
+31040,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),15.0,15.0,0.0,1125,75.0,6066.22,6824497.5
+31041,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),68.0,68.0,0.0,2668,39.24,5732.01,15293005.0
+31042,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),132.0,132.0,0.0,6796,51.48,5796.34,39391918.12
+31043,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),108.0,108.0,0.0,4980,46.11,6263.66,31193011.8
+31044,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),68.0,68.0,0.0,2176,32.0,5624.08,12237998.08
+31045,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),270.0,270.0,0.0,11860,43.93,6041.78,71655480.4
+31046,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),23.0,23.0,0.0,713,31.0,6962.55,4964298.15
+31047,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),5.0,5.0,0.0,140,28.0,7500.0,1050000.0
+31048,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,5.0,5.0,0.0,80,16.0,5400.0,432000.0
+31049,2022,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,55.0,55.0,0.0,949.85,17.27,7931.58,7533811.26
+31050,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,5.0,5.0,0.0,103,20.6,8600.0,885800.0
+31051,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,21.0,21.0,0.0,357,17.0,5022.41,1793000.37
+31052,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,8.0,8.0,0.0,176,22.0,6000.0,1056000.0
+31053,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,50.0,50.0,0.0,1370,27.4,4809.86,6589507.7
+31054,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,150.0,150.0,0.0,2475,16.5,5359.95,13265876.25
+31055,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,96.0,96.0,0.0,2112,22.0,5050.85,10667395.2
+31056,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,53.0,53.0,0.0,1166,22.0,5143.4,5997204.4
+31057,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,15.0,15.0,0.0,270,18.0,4948.15,1336000.5
+31058,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,135.0,135.0,0.0,3105,23.0,4913.04,15254989.2
+31059,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,20.0,20.0,0.0,410,20.5,4841.95,1985199.5
+31060,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,22.0,22.0,0.0,440,20.0,5042.73,2218801.2
+31061,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,98.0,98.0,0.0,2156,22.0,4959.0,10691604.0
+31062,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,60.0,60.0,0.0,1302,21.7,4976.46,6479350.92
+31063,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,114.0,114.0,0.0,2394,21.0,5139.6,12304202.4
+31064,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,60.0,60.0,0.0,1410,23.5,7092.91,10001003.1
+31065,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,41.0,41.0,0.0,963.5,23.5,6426.36,6191797.86
+31066,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,1100.0,1100.0,0.0,25850,23.5,6983.75,180529937.5
+31067,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,17.0,17.0,0.0,445.06,26.18,5300.0,2358818.0
+31068,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),220.0,220.0,0.0,8100,36.82,6032.04,48859524.0
+31069,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),77.0,47.0,0.0,878.9,18.7,6090.91,5353300.8
+31070,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),55.0,30.0,0.0,555,18.5,5608.11,3112501.05
+31071,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),95.0,50.0,0.0,1000,20.0,5970.0,5970000.0
+31072,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),49.5,16.0,0.0,356.8,22.3,6010.31,2144478.61
+31073,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),68.0,18.0,0.0,369,20.5,6300.0,2324700.0
+31074,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),23.0,3.0,0.0,22.5,7.5,5800.0,130500.0
+31075,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),49.0,32.0,0.0,640,20.0,5980.0,3827200.0
+31076,2022,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,12.0,12.0,0.0,252,21.0,850.0,214200.0
+31077,2022,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,2.0,2.0,0.0,50,25.0,875.0,43750.0
+31078,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,20.0,20.0,0.0,510,25.5,875.0,446250.0
+31079,2022,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,25.0,25.0,0.0,425,17.0,680.0,289000.0
+31080,2022,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,10.0,10.0,0.0,170,17.0,680.0,115600.0
+31081,2022,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,10.0,10.0,0.0,160,16.0,680.0,108800.0
+31082,2022,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,9040000,Trigo forrajero verde,35.0,35.0,0.0,577.5,16.5,700.0,404250.0
+31083,2022,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,52.0,52.0,0.0,295,5.67,9250.0,2728750.0
+31084,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,622.0,622.0,0.0,3700,5.95,9153.92,33869504.0
+31085,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,50.0,50.0,0.0,275,5.5,9263.27,2547399.25
+31086,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,126.0,126.0,0.0,730,5.79,9100.0,6643000.0
+31087,2022,26,Sonora,139,Caborca,3,Atil,7,Atil,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,23.0,23.0,0.0,117,5.09,9150.0,1070550.0
+31088,2022,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,34.0,34.0,0.0,170,5.0,9150.0,1555500.0
+31089,2022,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,300.0,300.0,0.0,2190,7.3,9500.0,20805000.0
+31090,2022,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,5.0,5.0,0.0,25,5.0,9800.0,245000.0
+31091,2022,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,188.0,188.0,0.0,940,5.0,9800.0,9212000.0
+31092,2022,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,40.0,40.0,0.0,180,4.5,9800.0,1764000.0
+31093,2022,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,10.0,10.0,0.0,45,4.5,9800.0,441000.0
+31094,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,5288.0,5288.0,0.0,31131,5.89,8331.92,259381004.5
+31095,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,605.0,605.0,0.0,3630,6.0,8457.02,30698982.6
+31096,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,31550.0,31550.0,0.0,242278,7.68,8472.69,2052746864.0
+31097,2022,26,Sonora,148,Cajeme,1,Cd. Obregón,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,16.0,16.0,0.0,115.2,7.2,8200.0,944640.0
+31098,2022,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1603.0,1603.0,0.0,12176,7.6,8599.06,104702133.8
+31099,2022,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,24900.0,24900.0,0.0,189060,7.59,8109.76,1533230524.0
+31100,2022,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,10470.0,10470.0,0.0,80478,7.69,8289.18,667096346.5
+31101,2022,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,24410.0,24410.0,0.0,180502,7.39,8458.6,1526793833.0
+31102,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,8763.0,8763.0,0.0,66501.4,7.59,8494.19,564875482.8
+31103,2022,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,9221.0,9221.0,0.0,69873.4,7.58,8534.21,596314156.5
+31104,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,20025.0,20025.0,0.0,153868.5,7.68,8414.45,1294719240.0
+31105,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,10776.0,10776.0,0.0,81587.2,7.57,8444.97,689001527.3
+31106,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,24496.0,24496.0,0.0,185896.4,7.59,8432.52,1567574605.0
+31107,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,2550.0,2550.0,0.0,19061,7.47,8721.58,166242019.0
+31108,2022,26,Sonora,148,Cajeme,5,Vicam,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,2281.0,2281.0,0.0,16775.4,7.35,8781.83,147318744.6
+31109,2022,26,Sonora,148,Cajeme,5,Vicam,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1956.0,1956.0,0.0,14404.4,7.36,8917.35,128449147.6
+31110,2022,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,14173.0,14173.0,0.0,106852.9,7.54,8417.95,899482310.1
+31111,2022,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,29400.0,29400.0,0.0,180855,6.15,8459.59,1529959570.0
+31112,2022,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,19807.0,19807.0,0.0,117919,5.95,8807.0,1038513039.0
+31113,2022,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,32500.0,32500.0,0.0,199550,6.14,8224.96,1641290372.0
+31114,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,8347.0,8347.0,0.0,57269,6.86,8626.02,494003463.7
+31115,2022,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9110000,Triticale grano,23.0,23.0,0.0,115,5.0,2890.0,332350.0
+31116,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9110000,Triticale grano,48.0,48.0,0.0,240,5.0,2880.0,691200.0
+31117,2022,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,7756.0,7756.0,0.0,94810,12.22,29332.03,2780969448.0
+31118,2022,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,60.0,60.0,0.0,1140,19.0,31830.0,36286200.0
+31119,2022,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,72.0,72.0,0.0,1312,18.22,32205.79,42253996.48
+31120,2022,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,34.0,34.0,0.0,527,15.5,5700.0,3003900.0
+31121,2022,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,15.0,15.0,0.0,75,5.0,5800.0,435000.0
+31122,2022,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,1249.0,1249.0,0.0,23700,18.98,32012.35,758692695.0
+31123,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,6125.0,6125.0,0.0,116930,19.09,31485.03,3681544089.0
+31124,2022,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,2940.0,2940.0,0.0,55850,19.0,31957.26,1784812752.0
+31125,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,693.0,593.0,0.0,9843.8,16.6,29152.06,286967048.2
+31126,2022,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,1307.0,1007.0,0.0,17119,17.0,28990.04,496280494.8
+31127,2022,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,10.0,10.0,0.0,160,16.0,29031.25,4645000.0
+31128,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,186.0,176.0,0.0,3080,17.5,29035.39,89429001.2
+31129,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,106.0,92.0,0.0,1518,16.5,28874.83,43831991.94
+31130,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,109.0,109.0,0.0,785,7.2,21700.0,17034500.0
+31131,2022,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,1.0,1.0,0.0,22,22.0,6400.0,140800.0
+31132,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,205.0,205.0,0.0,5435,26.51,5249.68,28531985.0
+31133,2022,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,125.0,125.0,0.0,3187.5,25.5,4797.42,15291776.25
+31134,2022,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,25.0,25.0,0.0,770,30.8,7500.0,5775000.0
+31135,2022,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,9320000,Zempoalxochitl,4.0,4.0,0.0,41,10.25,5500.0,225500.0
+31136,2022,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,9320000,Zempoalxochitl,3.0,3.0,0.0,32.01,10.67,5500.0,176055.0

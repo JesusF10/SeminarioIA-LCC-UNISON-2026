@@ -36,15 +36,14 @@ PUS-TRIGO-2024-25-AMBAS-VAR-UNISON.xlsx
 
 Se encuentran en el directorio `siap-produccion-agricola`.
 
-- Datos Municipales
+- Datos Municipales (de Sonora)
 
 ```bash
 municipal
-├── Cierre_agricola_mun_2003.csv
-├── Cierre_agricola_mun_2004.csv
+├── cierre_agricola_sonora_2003.csv
+├── cierre_agricola_sonora_2004.csv
 ...
-├── Cierre_agricola_mun_2023.csv
-├── Cierre_agricola_mun_2024.csv
+├── cierre_agricola_sonora_2024.csv
 └── Diccionario_agricola_2003_a_2023.xlsx
 ```
 
@@ -123,4 +122,27 @@ agricultura
 │   └── Agricultura Sonora año 2023.xlsx
 └── Diccionario.csv
 
+```
+
+#### Datos Sequia (Georeferenciados)
+
+Se encuentran en el directorio `datos-sequia`.
+
+Corresponden a la base de datos denominada "Mapa de Impacto de la sequía sobre la actividad agrícola",
+la cual se encuentra georeferenciada a nivel de municipio.
+
+**Nota:**
+
+- Los datos se encuentran en formato Shapefile, el cual es un formato comúnmente
+  utilizado para datos geoespaciales.
+- Se requiere el uso de software SIG (Sistema de Información Geográfica) para la
+  visualización y análisis de estos datos, como [QGIS](https://qgis.org/).
+
+```bash
+datos-sequia
+├── impacto_sequia.cpg
+├── impacto_sequia.dbf
+├── impacto_sequia.prj
+├── impacto_sequia.shp
+└── impacto_sequia.shx
 ```

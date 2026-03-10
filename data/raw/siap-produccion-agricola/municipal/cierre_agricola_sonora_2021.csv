@@ -1,0 +1,953 @@
+﻿,Anio,Idestado,Nomestado,Idddr,Nomddr,Idcader,Nomcader,Idmunicipio,Nommunicipio,Idciclo,Nomcicloproductivo,Idmodalidad,Nommodalidad,Idunidadmedida,Nomunidad,Idcultivo,Nomcultivo,Sembrada,Cosechada,Siniestrada,Volumenproduccion,Rendimiento,Preciomediorural,Valorproduccion
+23008,2021,26,Sonora,139,Caborca,1,Sonoyta,48,Puerto Peñasco,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,440,440.0,0.0,4737.0,10.77,30346.64,143752035.8
+23009,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,18,18.0,0.0,324.0,18.0,712.35,230801.4
+23010,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,226,226.0,0.0,1152.6,5.1,5790.0,6673554.0
+23011,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,2,Primavera-Verano,1,Riego,200201,Tonelada,5190000,Algodón hueso,90,90.0,0.0,351.0,3.9,15745.46,5526656.46
+23012,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,15,15.0,0.0,340.05,22.67,766.18,260539.51
+23013,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,750,750.0,0.0,14175.0,18.9,2820.16,39975768.0
+23014,2021,26,Sonora,139,Caborca,1,Sonoyta,70,General Plutarco Elías Calles,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,934,927.0,0.0,10567.8,11.4,40376.68,426692678.9
+23015,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,30,30.0,0.0,525.0,17.5,695.9,365347.5
+23016,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,18,18.0,0.0,509.94,28.33,4750.0,2422215.0
+23017,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,30,30.0,0.0,990.0,33.0,7300.0,7227000.0
+23018,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,488,488.0,0.0,2488.8,5.1,5790.0,14410152.0
+23019,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,13.5,13.5,0.0,142.02,10.52,5100.0,724302.0
+23020,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,6,6.0,0.0,40.02,6.67,6000.0,240120.0
+23021,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,125,125.0,0.0,4120.0,32.96,6960.56,28677507.2
+23022,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,1078,1078.0,0.0,45276.0,42.0,7300.0,330514800.0
+23023,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,134,134.0,0.0,3300.42,24.63,763.05,2518385.48
+23024,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,785,785.0,0.0,14805.1,18.86,2790.4,41312151.04
+23025,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,122,122.0,0.0,1500.6,12.3,8135.0,12207381.0
+23026,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,8835,8435.0,0.0,91004.0,10.79,40060.97,3645708144.0
+23027,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,93,45.0,0.0,845.1,18.78,4428.99,3742939.45
+23028,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,563,563.0,0.0,951.47,1.69,93215.79,88692027.71
+23029,2021,26,Sonora,139,Caborca,2,Caborca,17,Caborca,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,7756,7756.0,0.0,88522.83,11.41,26735.54,2366705371.0
+23030,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,10,10.0,0.0,175.0,17.5,700.0,122500.0
+23031,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,102,102.0,0.0,510.0,5.0,5790.0,2952900.0
+23032,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,130,130.0,0.0,5605.6,43.12,7378.07,41358509.19
+23033,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,35,35.0,0.0,704.9,20.14,765.74,539770.13
+23034,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,322,322.0,0.0,6050.38,18.79,2803.03,16959396.65
+23035,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,989,882.0,0.0,9626.87,10.91,38522.61,370852136.1
+23036,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,149,109.0,0.0,179.85,1.65,93211.04,16764005.74
+23037,2021,26,Sonora,139,Caborca,2,Caborca,47,Pitiquito,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,60,60.0,0.0,1050.0,17.5,28673.33,30106996.5
+23038,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,36,36.0,0.0,600.12,16.67,700.0,420084.0
+23039,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,5,0.0,5.0,0.0,0.0,0.0,0.0
+23040,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,288,288.0,0.0,1468.8,5.1,5790.0,8504352.0
+23041,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,2948,2948.0,0.0,129770.96,44.02,7622.46,989173951.8
+23042,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,80,80.0,0.0,9940.0,124.25,7103.59,70609684.6
+23043,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,46,46.0,0.0,1050.18,22.83,791.31,831017.94
+23044,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,516,516.0,0.0,9628.56,18.66,2773.64,26706159.16
+23045,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,1990,1910.0,0.0,18651.0,9.76,39244.67,731952265.2
+23046,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1138,1138.0,0.0,1911.84,1.68,92816.95,177451157.7
+23047,2021,26,Sonora,139,Caborca,3,Atil,4,Altar,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,72,72.0,0.0,1309.68,18.19,30583.97,40055213.83
+23048,2021,26,Sonora,139,Caborca,3,Atil,7,Atil,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,7,7.0,0.0,125.02,17.86,690.24,86293.8
+23049,2021,26,Sonora,139,Caborca,3,Atil,7,Atil,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,20,20.0,0.0,100.0,5.0,5790.0,579000.0
+23050,2021,26,Sonora,139,Caborca,3,Atil,7,Atil,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,14,14.0,0.0,309.96,22.14,794.32,246207.43
+23051,2021,26,Sonora,139,Caborca,3,Atil,7,Atil,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,40,40.0,0.0,745.2,18.63,2784.4,2074934.88
+23052,2021,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,6,6.0,0.0,97.98,16.33,690.0,67606.2
+23053,2021,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,8,8.0,0.0,155.04,19.38,794.84,123231.99
+23054,2021,26,Sonora,139,Caborca,3,Atil,46,Oquitoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,10,10.0,0.0,185.0,18.5,2808.22,519520.7
+23055,2021,26,Sonora,139,Caborca,3,Atil,60,Sáric,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,11,11.0,0.0,182.05,16.55,694.56,126444.65
+23056,2021,26,Sonora,139,Caborca,3,Atil,60,Sáric,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,13.5,13.5,0.0,120.02,8.89,5200.0,624104.0
+23057,2021,26,Sonora,139,Caborca,3,Atil,60,Sáric,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,62,62.0,0.0,1280.3,20.65,791.95,1013933.59
+23058,2021,26,Sonora,139,Caborca,3,Atil,60,Sáric,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,115,115.0,0.0,2162.0,18.8,2788.88,6029558.56
+23059,2021,26,Sonora,139,Caborca,3,Atil,60,Sáric,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,6,6.0,0.0,10.38,1.73,93500.0,970530.0
+23060,2021,26,Sonora,139,Caborca,3,Atil,65,Tubutama,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,34,34.0,0.0,563.04,16.56,690.0,388497.6
+23061,2021,26,Sonora,139,Caborca,3,Atil,65,Tubutama,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,120,120.0,0.0,2790.0,23.25,793.12,2212804.8
+23062,2021,26,Sonora,139,Caborca,3,Atil,65,Tubutama,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,45,45.0,0.0,837.0,18.6,2799.34,2343047.58
+23063,2021,26,Sonora,139,Caborca,3,Atil,65,Tubutama,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,140,140.0,0.0,235.2,1.68,93274.89,21938254.13
+23064,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,110,110.0,0.0,2310.0,21.0,837.32,1934209.2
+23065,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,12,12.0,0.0,480.0,40.0,3968.75,1905000.0
+23066,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,10,10.0,0.0,300.0,30.0,4250.0,1275000.0
+23067,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,6,6.0,0.0,180.0,30.0,3663.89,659500.2
+23068,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,2,2.0,0.0,33.0,16.5,9150.0,301950.0
+23069,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,6,6.0,0.0,10.02,1.67,19200.0,192384.0
+23070,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,120,120.0,0.0,2490.0,20.75,867.4,2159826.0
+23071,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,532.0,7.6,842.06,447975.92
+23072,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,210,210.0,0.0,2849.7,13.57,2943.65,8388519.41
+23073,2021,26,Sonora,140,Magdalena,1,Magdalena,22,Cucurpe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,9,9.0,0.0,15.03,1.67,93500.0,1405305.0
+23074,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,120,120.0,0.0,2520.0,21.0,824.53,2077815.6
+23075,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,32,32.0,0.0,882.03,27.56,4530.82,3996315.0
+23076,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,15,15.0,0.0,451.95,30.13,4126.77,1865093.7
+23077,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),6.5,6.5,0.0,683.02,105.08,8500.0,5805670.0
+23078,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,5,5.0,0.0,100.0,20.0,6944.0,694400.0
+23079,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,5,5.0,0.0,74.0,14.8,8500.0,629000.0
+23080,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5,5.0,0.0,90.0,18.0,10560.0,950400.0
+23081,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,5,5.0,0.0,45.0,9.0,4200.0,189000.0
+23082,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,3,3.0,0.0,75.0,25.0,4366.8,327510.0
+23083,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,84,84.0,0.0,1873.2,22.3,850.0,1592220.0
+23084,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),11.6,11.6,0.0,1419.96,122.41,8681.34,12327155.55
+23085,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,1,Riego,200201,Tonelada,9320000,Zempoalxochitl,2,2.0,0.0,17.0,8.5,5450.0,92650.0
+23086,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,5,5.0,0.0,9.0,1.8,6000.0,54000.0
+23087,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,525.0,7.5,840.0,441000.0
+23088,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,492,492.0,0.0,6671.52,13.56,2950.99,19687588.8
+23089,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,70,70.0,0.0,700.0,10.0,38637.14,27045998.0
+23090,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,3,3.0,0.0,56.01,18.67,13967.14,782299.51
+23091,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,3,3.0,0.0,132.0,44.0,6500.0,858000.0
+23092,2021,26,Sonora,140,Magdalena,1,Magdalena,35,Imuris,3,Perennes,1,Riego,200201,Tonelada,8230000,Pera,2,2.0,0.0,32.0,16.0,9440.0,302080.0
+23093,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,55,20.0,35.0,180.0,9.0,20000.0,3600000.0
+23094,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,145,145.0,0.0,3262.5,22.5,820.0,2675250.0
+23095,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,18,18.0,0.0,423.0,23.5,5397.63,2283199.2
+23096,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,10,10.0,0.0,315.0,31.5,4100.0,1291500.0
+23097,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),12,12.0,0.0,1380.0,115.0,8500.0,11730000.0
+23098,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,5,5.0,0.0,92.0,18.4,7014.13,645299.96
+23099,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,4,4.0,0.0,75.0,18.75,11652.0,873900.0
+23100,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,5,5.0,0.0,50.0,10.0,4100.0,205000.0
+23101,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,3,3.0,0.0,5.49,1.83,19200.0,105408.0
+23102,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,130,130.0,0.0,4950.4,38.08,8181.82,40503281.73
+23103,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,83,83.0,0.0,1150.38,13.86,870.0,1000830.6
+23104,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,15,15.0,0.0,430.0,28.67,6175.58,2655500.0
+23105,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,150,150.0,0.0,949.5,6.33,834.27,792139.37
+23106,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,462,462.0,0.0,6310.92,13.66,2948.99,18610839.97
+23107,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,2,2.0,0.0,31.0,15.5,14100.0,437100.0
+23108,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,2,2.0,0.0,39.0,19.5,14250.0,555750.0
+23109,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,2,2.0,0.0,88.0,44.0,6500.0,572000.0
+23110,2021,26,Sonora,140,Magdalena,1,Magdalena,36,Magdalena,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,39.5,22.0,0.0,38.06,1.73,93236.84,3548594.13
+23111,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,65,65.0,0.0,1350.05,20.77,820.0,1107041.0
+23112,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,3,3.0,0.0,60.0,20.0,6500.0,390000.0
+23113,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,4,4.0,0.0,7.0,1.75,19300.0,135100.0
+23114,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,2,2.0,0.0,52.0,26.0,4461.54,232000.08
+23115,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,125,125.0,0.0,2710.0,21.68,861.16,2333743.6
+23116,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,585.9,8.37,850.0,498015.0
+23117,2021,26,Sonora,140,Magdalena,2,Nogales,43,Nogales,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,95,95.0,0.0,1330.0,14.0,2949.06,3922249.8
+23118,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,70,70.0,0.0,1449.7,20.71,820.0,1188754.0
+23119,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,6,6.0,0.0,114.0,19.0,6500.0,741000.0
+23120,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,11,11.0,0.0,181.97,16.54,7379.39,1342827.0
+23121,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,7,7.0,0.0,67.97,9.71,4470.59,303866.0
+23122,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,9,9.0,0.0,260.01,28.89,4317.75,1122658.18
+23123,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,84,84.0,0.0,1749.72,20.83,864.17,1512055.53
+23124,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,60,60.0,0.0,460.2,7.67,850.0,391170.0
+23125,2021,26,Sonora,140,Magdalena,2,Nogales,59,Santa Cruz,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,260,260.0,0.0,3606.2,13.87,2952.42,10647017.0
+23126,2021,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,40,40.0,0.0,904.0,22.6,830.0,750320.0
+23127,2021,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,84,84.0,0.0,1449.84,17.26,870.0,1261360.8
+23128,2021,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,30,30.0,0.0,219.9,7.33,850.0,186915.0
+23129,2021,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,36,36.0,0.0,504.0,14.0,2932.93,1478196.72
+23130,2021,26,Sonora,140,Magdalena,3,Santa Ana,16,Benjamín Hill,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,199.58,199.58,0.0,357.25,1.79,93079.89,33252790.7
+23131,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3,3.0,0.0,23.4,7.8,23500.0,549900.0
+23132,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,302,302.0,0.0,6713.46,22.23,827.63,5556260.9
+23133,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,11,11.0,0.0,275.04,25.0,4645.38,1277664.0
+23134,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,3,3.0,0.0,88.5,29.5,4350.0,384975.0
+23135,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,20,20.0,0.0,1860.0,93.0,8100.0,15066000.0
+23136,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,3,3.0,0.0,54.99,18.33,10500.0,577395.0
+23137,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,3,3.0,0.0,6.51,2.17,19200.0,124992.0
+23138,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,507,507.0,0.0,10038.6,19.8,859.66,8629782.88
+23139,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,45,45.0,0.0,295.2,6.56,850.0,250920.0
+23140,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,630,630.0,0.0,8542.8,13.56,2942.63,25138299.56
+23141,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,1,1.0,0.0,45.0,45.0,6053.33,272399.85
+23142,2021,26,Sonora,140,Magdalena,3,Santa Ana,58,Santa Ana,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,23,6.7,0.0,11.99,1.79,93083.33,1116069.13
+23143,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80,80.0,0.0,1850.4,23.13,832.28,1540050.91
+23144,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,7,7.0,0.0,231.98,33.14,4100.0,951118.0
+23145,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,314.5,314.5,0.0,2484.55,7.9,5790.0,14385544.5
+23146,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,644,644.0,0.0,26990.04,41.91,8947.64,241497161.5
+23147,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,130,130.0,0.0,2908.1,22.37,859.3,2498930.33
+23148,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,17,17.0,0.0,70.04,4.12,5250.0,367710.0
+23149,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,35,35.0,0.0,240.1,6.86,850.0,204085.0
+23150,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,425,425.0,0.0,5950.0,14.0,2948.85,17545657.5
+23151,2021,26,Sonora,140,Magdalena,3,Santa Ana,64,Trincheras,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,566,286.0,0.0,509.08,1.78,93500.0,47598980.0
+23152,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,15,15.0,0.0,112.05,7.47,24120.53,2702705.39
+23153,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,289,289.0,0.0,6560.3,22.7,835.48,5480999.44
+23154,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,40,40.0,0.0,688.0,17.2,9378.93,6452703.84
+23155,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,25,25.0,0.0,29.0,1.16,19000.0,551000.0
+23156,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,90,90.0,0.0,404.1,4.49,6000.0,2424600.0
+23157,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,345,345.0,0.0,7848.75,22.75,865.24,6791052.45
+23158,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,2,Agua Prieta,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,210,210.0,0.0,2992.5,14.25,3037.15,9088671.38
+23159,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,21,21.0,0.0,160.02,7.62,23076.25,3692661.53
+23160,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,605,605.0,0.0,13612.5,22.5,850.0,11570625.0
+23161,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,95,95.0,0.0,502.55,5.29,5790.0,2909764.5
+23162,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,30,30.0,0.0,450.0,15.0,5250.0,2362500.0
+23163,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,70,70.0,0.0,1197.0,17.1,9199.54,11011849.38
+23164,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,35,35.0,0.0,46.9,1.34,19000.0,891100.0
+23165,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,295,295.0,0.0,1324.55,4.49,6000.0,7947300.0
+23166,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,60,60.0,0.0,2100.0,35.0,3553.33,7461993.0
+23167,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,750,750.0,0.0,17842.5,23.79,870.0,15522975.0
+23168,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),5,5.0,0.0,125.0,25.0,7200.0,900000.0
+23169,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,95,95.0,0.0,2090.0,22.0,6500.0,13585000.0
+23170,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,650,650.0,0.0,9152.0,14.08,3047.84,27893831.68
+23171,2021,26,Sonora,141,Agua Prieta,1,Agua Prieta,27,Fronteras,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,208,109.0,0.0,167.86,1.54,92607.14,15545034.52
+23172,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,55,55.0,0.0,403.15,7.33,25214.64,10165282.12
+23173,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,172,172.0,0.0,3859.68,22.44,848.73,3275826.21
+23174,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,16,16.0,0.0,355.04,22.19,4000.0,1420160.0
+23175,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,10,10.0,0.0,145.0,14.5,5400.0,783000.0
+23176,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,13,13.0,0.0,182.0,14.0,9300.0,1692600.0
+23177,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,20,20.0,0.0,25.0,1.25,19000.0,475000.0
+23178,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,45,45.0,0.0,210.15,4.67,6000.0,1260900.0
+23179,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,250,250.0,0.0,5900.0,23.6,870.0,5133000.0
+23180,2021,26,Sonora,141,Agua Prieta,2,Cananea,11,Bacoachi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,190,190.0,0.0,2614.4,13.76,3038.63,7944194.27
+23181,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,21,21.0,0.0,160.02,7.62,24925.0,3988498.5
+23182,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,70,70.0,0.0,1540.0,22.0,847.27,1304795.8
+23183,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,15,15.0,0.0,213.0,14.2,5300.0,1128900.0
+23184,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,7,7.0,0.0,160.02,22.86,4750.0,760095.0
+23185,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,8100000,Papa,35,35.0,0.0,1019.9,29.14,7465.2,7613757.48
+23186,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,90,90.0,0.0,2160.0,24.0,870.0,1879200.0
+23187,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,200,200.0,0.0,2820.0,14.1,3057.04,8620852.8
+23188,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,15,15.0,0.0,22.95,1.53,92847.83,2130857.7
+23189,2021,26,Sonora,141,Agua Prieta,2,Cananea,19,Cananea,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,34,25.0,0.0,386.0,15.44,5500.0,2123000.0
+23190,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,35,35.0,0.0,255.15,7.29,24435.29,6234664.24
+23191,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,60,60.0,0.0,1344.0,22.4,854.18,1148017.92
+23192,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,15,15.0,0.0,540.0,36.0,3500.0,1890000.0
+23193,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,50,50.0,0.0,1180.0,23.6,870.0,1026600.0
+23194,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,160,160.0,0.0,2160.0,13.5,3038.51,6563181.6
+23195,2021,26,Sonora,141,Agua Prieta,2,Cananea,39,Naco,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,15,15.0,0.0,25.05,1.67,92900.0,2327145.0
+23196,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,205,205.0,0.0,8337.35,40.67,537.11,4478074.06
+23197,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,24,24.0,0.0,132.0,5.5,5790.0,764280.0
+23198,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10,10.0,0.0,11.0,1.1,19850.0,218350.0
+23199,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,14,14.0,0.0,76.02,5.43,6000.0,456120.0
+23200,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,80,80.0,0.0,3900.0,48.75,791.33,3086187.0
+23201,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,170,170.0,0.0,680.0,4.0,4791.0,3257880.0
+23202,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,16.5,1.65,6000.0,99000.0
+23203,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,120,120.0,0.0,2109.6,17.58,800.0,1687680.0
+23204,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,10,10.0,0.0,17.0,1.7,5010.0,85170.0
+23205,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,138,138.0,0.0,1925.1,13.95,3530.36,6796296.04
+23206,2021,26,Sonora,142,Ures,1,Ures,45,Opodepe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,186.5,136.5,0.0,170.63,1.25,94117.65,16059294.62
+23207,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,185,185.0,0.0,7492.5,40.5,502.27,3763257.98
+23208,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,110,110.0,0.0,605.0,5.5,5790.0,3502950.0
+23209,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,15,15.0,0.0,18.0,1.2,19850.0,357300.0
+23210,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,21,21.0,0.0,82.95,3.95,6000.0,497700.0
+23211,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,175,175.0,0.0,7309.75,41.77,781.45,5712204.14
+23212,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,23.0,2.3,6000.0,138000.0
+23213,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,50,50.0,0.0,870.0,17.4,800.0,696000.0
+23214,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,12,12.0,0.0,21.0,1.75,5050.0,106050.0
+23215,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,12,0.0,0.0,0.0,0.0,0.0,0.0
+23216,2021,26,Sonora,142,Ures,1,Ures,50,Rayón,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,360,360.0,0.0,5378.4,14.94,3549.03,19088102.95
+23217,2021,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,60,60.0,0.0,439.8,7.33,22877.27,10061423.35
+23218,2021,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,305,305.0,0.0,12349.45,40.49,518.42,6402201.87
+23219,2021,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,3,3.0,0.0,66.0,22.0,4150.0,273900.0
+23220,2021,26,Sonora,142,Ures,1,Ures,66,Ures,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,38,38.0,0.0,209.0,5.5,5790.0,1210110.0
+23221,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,12,12.0,0.0,279.96,23.33,6000.0,1679760.0
+23222,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,12,12.0,0.0,110.04,9.17,13000.0,1430520.0
+23223,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10,10.0,0.0,12.0,1.2,19850.0,238200.0
+23224,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,30,30.0,0.0,129.9,4.33,6000.0,779400.0
+23225,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,520,520.0,0.0,21621.6,41.58,797.78,17249280.05
+23226,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,30,30.0,0.0,111.9,3.73,5050.0,565095.0
+23227,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,15,15.0,0.0,27.0,1.8,6000.0,162000.0
+23228,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,180,180.0,0.0,3018.6,16.77,800.0,2414880.0
+23229,2021,26,Sonora,142,Ures,1,Ures,66,Ures,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,80,80.0,0.0,142.4,1.78,5050.0,719120.0
+23230,2021,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,11,0.0,0.0,0.0,0.0,0.0,0.0
+23231,2021,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,583,583.0,0.0,8704.19,14.93,3604.96,31378256.78
+23232,2021,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,247,211.0,0.0,274.3,1.3,94096.72,25810730.3
+23233,2021,26,Sonora,142,Ures,1,Ures,66,Ures,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,15,15.0,0.0,70.05,4.67,5200.0,364260.0
+23234,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,7,7.0,0.0,52.01,7.43,23500.0,1222235.0
+23235,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,104,104.0,0.0,4368.0,42.0,554.1,2420308.8
+23236,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,7,7.0,0.0,38.01,5.43,5790.0,220077.9
+23237,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,4,4.0,0.0,35.0,8.75,12750.0,446250.0
+23238,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,6,6.0,0.0,7.2,1.2,19800.0,142560.0
+23239,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,40,40.0,0.0,208.0,5.2,6000.0,1248000.0
+23240,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,145,145.0,0.0,7032.5,48.5,800.0,5626000.0
+23241,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,5,5.0,0.0,23.0,4.6,4950.0,113850.0
+23242,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,5,5.0,0.0,8.0,1.6,6000.0,48000.0
+23243,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,24,24.0,0.0,370.08,15.42,800.0,296064.0
+23244,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,5,5.0,0.0,8.0,1.6,5000.0,40000.0
+23245,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,173,173.0,0.0,2390.86,13.82,3523.07,8423167.14
+23246,2021,26,Sonora,142,Ures,2,Banámichi,1,Aconchi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,25,25.0,0.0,33.0,1.32,92545.45,3053999.85
+23247,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,330,330.0,0.0,2772.0,8.4,22934.34,63573990.48
+23248,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,102,102.0,0.0,4313.58,42.29,534.35,2304961.47
+23249,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,4,4.0,0.0,90.0,22.5,4100.0,369000.0
+23250,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,5,5.0,0.0,100.0,20.0,6000.0,600000.0
+23251,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,7,7.0,0.0,55.02,7.86,12900.0,709758.0
+23252,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,4,4.0,0.0,5.0,1.25,19500.0,97500.0
+23253,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,20,20.0,0.0,90.0,4.5,6000.0,540000.0
+23254,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,260,260.0,0.0,11830.0,45.5,798.4,9445072.0
+23255,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,17,17.0,0.0,24.99,1.47,6000.0,149940.0
+23256,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,55,55.0,0.0,860.2,15.64,800.0,688160.0
+23257,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,20,20.0,0.0,32.0,1.6,5000.0,160000.0
+23258,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,281,281.0,0.0,3768.21,13.41,3508.77,13221782.2
+23259,2021,26,Sonora,142,Ures,2,Banámichi,6,Arizpe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,457,427.0,0.0,550.83,1.29,93063.64,51262244.82
+23260,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,9,9.0,0.0,68.04,7.56,23250.0,1581930.0
+23261,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,106,106.0,0.0,4473.2,42.2,538.04,2406760.53
+23262,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,1.5,1.5,0.0,2.0,1.33,19500.0,39000.0
+23263,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,40.0,4.0,6000.0,240000.0
+23264,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,56,56.0,0.0,2450.0,43.75,792.04,1940498.0
+23265,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,4,4.0,0.0,17.0,4.25,5050.0,85850.0
+23266,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,4,4.0,0.0,7.0,1.75,6000.0,42000.0
+23267,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,6,6.0,0.0,139.98,23.33,800.0,111984.0
+23268,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,4,4.0,0.0,6.0,1.5,5050.0,30300.0
+23269,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,146,146.0,0.0,1992.9,13.65,3515.64,7006318.96
+23270,2021,26,Sonora,142,Ures,2,Banámichi,13,Banámichi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,244,244.0,0.0,314.76,1.29,94222.22,29657385.97
+23271,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3,3.0,0.0,21.99,7.33,23500.0,516765.0
+23272,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,80,80.0,0.0,3368.0,42.1,528.86,1781200.48
+23273,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5,5.0,0.0,40.0,8.0,12900.0,516000.0
+23274,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,6,6.0,0.0,7.98,1.33,19500.0,155610.0
+23275,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,12,12.0,0.0,47.04,3.92,6000.0,282240.0
+23276,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,143,143.0,0.0,5870.15,41.05,791.31,4645108.4
+23277,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,4,4.0,0.0,7.0,1.75,6000.0,42000.0
+23278,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,28,28.0,0.0,479.92,17.14,800.0,383936.0
+23279,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,5,5.0,0.0,7.45,1.49,5050.0,37622.5
+23280,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,250,250.0,0.0,3312.5,13.25,3509.34,11624688.75
+23281,2021,26,Sonora,142,Ures,2,Banámichi,14,Baviácora,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,20,20.0,0.0,30.0,1.5,93833.33,2814999.9
+23282,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,20,20.0,0.0,142.0,7.1,23500.0,3337000.0
+23283,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,95,95.0,0.0,3879.8,40.84,534.06,2072045.99
+23284,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,3,3.0,0.0,24.0,8.0,12900.0,309600.0
+23285,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,3,3.0,0.0,4.5,1.5,19850.0,89325.0
+23286,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,15,15.0,0.0,61.95,4.13,6000.0,371700.0
+23287,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,105,105.0,0.0,4549.65,43.33,800.58,3642358.8
+23288,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,3.5,3.5,0.0,5.99,1.71,6000.0,35940.0
+23289,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,12,12.0,0.0,245.04,20.42,800.0,196032.0
+23290,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,4,4.0,0.0,6.0,1.5,5050.0,30300.0
+23291,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,208,208.0,0.0,2789.28,13.41,3516.62,9808837.83
+23292,2021,26,Sonora,142,Ures,2,Banámichi,34,Huépac,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,243,243.0,0.0,311.04,1.28,93387.1,29047123.58
+23293,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3.5,3.5,0.0,24.99,7.14,23000.0,574770.0
+23294,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,74,74.0,0.0,3050.28,41.22,546.26,1666245.95
+23295,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,3,3.0,0.0,23.01,7.67,12950.0,297979.5
+23296,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,1.5,1.5,0.0,2.0,1.33,19850.0,39700.0
+23297,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,7,7.0,0.0,35.0,5.0,6000.0,210000.0
+23298,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,58,58.0,0.0,2590.28,44.66,800.0,2072224.0
+23299,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,3,3.0,0.0,5.01,1.67,6000.0,30060.0
+23300,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,15,15.0,0.0,259.95,17.33,800.0,207960.0
+23301,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,3,3.0,0.0,4.41,1.47,5050.0,22270.5
+23302,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,110,110.0,0.0,1502.6,13.66,3535.1,5311841.26
+23303,2021,26,Sonora,142,Ures,2,Banámichi,53,San Felipe de Jesús,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,35,35.0,0.0,45.15,1.29,93500.0,4221525.0
+23304,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,6,6.0,0.0,36.0,6.0,19500.0,702000.0
+23305,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,100,100.0,0.0,2000.0,20.0,662.56,1325120.0
+23306,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,15,10.0,5.0,45.0,4.5,5500.0,247500.0
+23307,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5,5.0,0.0,46.5,9.3,8100.0,376650.0
+23308,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,6.0,1.2,18140.0,108840.0
+23309,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,18,18.0,0.0,261.0,14.5,690.8,180298.8
+23310,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,12,12.0,0.0,55.2,4.6,5413.04,298799.81
+23311,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,350,350.0,0.0,5390.0,15.4,705.9,3804801.0
+23312,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,8,8.0,0.0,56.0,7.0,682.5,38220.0
+23313,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,400,400.0,0.0,2920.0,7.3,711.3,2076996.0
+23314,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,180,180.0,0.0,2430.0,13.5,2847.04,6918307.2
+23315,2021,26,Sonora,143,Moctezuma,1,Moctezuma,23,Cumpas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,13,0.0,0.0,0.0,0.0,0.0,0.0
+23316,2021,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,55,55.0,0.0,1364.0,24.8,657.74,897157.36
+23317,2021,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,12,12.0,0.0,153.6,12.8,662.89,101819.9
+23318,2021,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,120,120.0,0.0,1800.0,15.0,687.67,1237806.0
+23319,2021,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,7,7.0,0.0,49.0,7.0,668.06,32734.94
+23320,2021,26,Sonora,143,Moctezuma,1,Moctezuma,24,Divisaderos,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,170,170.0,0.0,1241.0,7.3,724.14,898657.74
+23321,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3,3.0,0.0,17.4,5.8,20000.0,348000.0
+23322,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,75,75.0,0.0,1875.0,25.0,656.44,1230825.0
+23323,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,6.0,1.2,18150.0,108900.0
+23324,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,15,15.0,0.0,210.0,14.0,667.43,140160.3
+23325,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,14,14.0,0.0,57.4,4.1,5314.63,305059.76
+23326,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,320,320.0,0.0,4864.0,15.2,706.79,3437826.56
+23327,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,70.0,7.0,680.86,47660.2
+23328,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,300,300.0,0.0,2160.0,7.2,713.66,1541505.6
+23329,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,230,230.0,0.0,3128.0,13.6,2860.22,8946768.16
+23330,2021,26,Sonora,143,Moctezuma,1,Moctezuma,38,Moctezuma,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,6,6.0,0.0,9.0,1.5,91000.0,819000.0
+23331,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,22,22.0,0.0,506.0,23.0,658.28,333089.68
+23332,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,8,8.0,0.0,104.0,13.0,673.08,70000.32
+23333,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,30,30.0,0.0,480.0,16.0,708.75,340200.0
+23334,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,8,8.0,0.0,57.6,7.2,670.56,38624.26
+23335,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,100,100.0,0.0,710.0,7.1,712.11,505598.1
+23336,2021,26,Sonora,143,Moctezuma,1,Moctezuma,63,Tepache,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,20,20.0,0.0,276.0,13.8,2855.07,787999.32
+23337,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,40,40.0,0.0,972.0,24.3,663.68,645096.96
+23338,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,3,3.0,0.0,3.45,1.15,18500.0,63825.0
+23339,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,4,4.0,0.0,18.0,4.5,5422.22,97599.96
+23340,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45,45.0,0.0,666.0,14.8,669.19,445680.54
+23341,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,85,85.0,0.0,637.5,7.5,678.04,432250.5
+23342,2021,26,Sonora,143,Moctezuma,2,Huásabas,28,Granados,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,140,140.0,0.0,1918.0,13.7,2833.21,5434096.78
+23343,2021,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,25,25.0,0.0,612.5,24.5,670.12,410448.5
+23344,2021,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,50,50.0,0.0,725.0,14.5,680.0,493000.0
+23345,2021,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,80,80.0,0.0,560.0,7.0,690.0,386400.0
+23346,2021,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,140,140.0,0.0,1932.0,13.8,2821.52,5451176.64
+23347,2021,26,Sonora,143,Moctezuma,2,Huásabas,32,Huásabas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,2.5,0.0,0.0,0.0,0.0,0.0,0.0
+23348,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,30,30.0,0.0,720.0,24.0,662.57,477050.4
+23349,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,6.8,1.36,18064.71,122840.03
+23350,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,48.0,4.8,5400.0,259200.0
+23351,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,120,120.0,0.0,1860.0,15.5,708.6,1317996.0
+23352,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,150,150.0,0.0,1080.0,7.2,694.17,749703.6
+23353,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,165,165.0,0.0,2244.0,13.6,2836.04,6364073.76
+23354,2021,26,Sonora,143,Moctezuma,2,Huásabas,67,Villa Hidalgo,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,34,31.0,0.0,51.15,1.65,90500.0,4629075.0
+23355,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,45,45.0,0.0,990.0,22.0,682.53,675704.7
+23356,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10,10.0,0.0,12.0,1.2,18250.0,219000.0
+23357,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,165.0,16.5,694.55,114600.75
+23358,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,12,12.0,0.0,55.2,4.6,5500.0,303600.0
+23359,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,155,155.0,0.0,2402.5,15.5,664.05,1595380.13
+23360,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,8,8.0,0.0,5.6,0.7,18245.54,102175.02
+23361,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,72.0,7.2,724.31,52150.32
+23362,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,100,100.0,0.0,750.0,7.5,713.0,534750.0
+23363,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,15,15.0,0.0,202.5,13.5,2770.75,561076.88
+23364,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,8,Bacadéhuachi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,18,0.0,0.0,0.0,0.0,0.0,0.0
+23365,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,25,25.0,0.0,537.5,21.5,650.0,349375.0
+23366,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,5.5,1.1,18072.73,99400.02
+23367,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,15,15.0,0.0,217.5,14.5,672.76,146325.3
+23368,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,1155.0,16.5,695.32,803094.6
+23369,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,2,2.0,0.0,1.2,0.6,18300.0,21960.0
+23370,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,15,15.0,0.0,108.0,7.2,677.31,73149.48
+23371,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,32.0,3.2,4950.0,158400.0
+23372,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,300,300.0,0.0,2310.0,7.7,717.82,1658164.2
+23373,2021,26,Sonora,143,Moctezuma,3,Bacadéhuachi,40,Nácori Chico,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,30,30.0,0.0,411.0,13.7,2827.0,1161897.0
+23374,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,70,70.0,0.0,1834.0,26.2,657.65,1206130.1
+23375,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,5,5.0,0.0,49.0,9.8,8800.0,431200.0
+23376,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,5.5,1.1,18340.0,100870.0
+23377,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,20,20.0,0.0,260.0,13.0,708.0,184080.0
+23378,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,8,8.0,0.0,36.0,4.5,5366.67,193200.12
+23379,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,45,45.0,0.0,765.0,17.0,688.5,526702.5
+23380,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,5,5.0,0.0,3.25,0.65,18338.46,59600.0
+23381,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,8,8.0,0.0,56.0,7.0,710.0,39760.0
+23382,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,511.0,7.3,713.15,364419.65
+23383,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,105,105.0,0.0,1386.0,13.2,2798.48,3878693.28
+23384,2021,26,Sonora,143,Moctezuma,4,Bavispe,10,Bacerac,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,134,102.75,0.0,164.4,1.6,91500.0,15042600.0
+23385,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,2,2.0,0.0,12.2,6.1,19000.0,231800.0
+23386,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,120,120.0,0.0,2940.0,24.5,666.12,1958392.8
+23387,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,10,10.0,0.0,90.0,9.0,8000.0,720000.0
+23388,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,15,15.0,0.0,18.0,1.2,18295.56,329320.08
+23389,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,12,12.0,0.0,156.0,13.0,710.0,110760.0
+23390,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,15,15.0,0.0,63.0,4.2,5500.0,346500.0
+23391,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,85,85.0,0.0,1207.0,14.2,671.54,810548.78
+23392,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,8,8.0,0.0,5.6,0.7,18300.0,102480.0
+23393,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,150,150.0,0.0,1125.0,7.5,723.47,813903.75
+23394,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,210,210.0,0.0,2856.0,13.6,2865.23,8183096.88
+23395,2021,26,Sonora,143,Moctezuma,4,Bavispe,15,Bavispe,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,350,247.0,0.0,407.55,1.65,91000.0,37087050.0
+23396,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,22,22.0,0.0,565.4,25.7,655.0,370337.0
+23397,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,2,2.0,0.0,19.6,9.8,8200.0,160720.0
+23398,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,17,17.0,0.0,17.85,1.05,18150.84,323992.49
+23399,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,145.0,14.5,687.59,99700.55
+23400,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,5,5.0,0.0,22.5,4.5,5313.33,119549.93
+23401,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,60,60.0,0.0,870.0,14.5,683.07,594270.9
+23402,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,7,7.0,0.0,4.2,0.6,18328.57,76979.99
+23403,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,5,5.0,0.0,35.0,7.0,704.17,24645.95
+23404,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,5,5.0,0.0,15.0,3.0,4920.0,73800.0
+23405,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,150,150.0,0.0,1050.0,7.0,712.67,748303.5
+23406,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,20,20.0,0.0,276.0,13.8,2803.81,773851.56
+23407,2021,26,Sonora,143,Moctezuma,4,Bavispe,31,Huachinera,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,103,70.0,0.0,119.0,1.7,90500.0,10769500.0
+23408,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,210,210.0,0.0,9450.0,45.0,970.0,9166500.0
+23409,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,75,75.0,0.0,1933.5,25.78,6500.0,12567750.0
+23410,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,106,106.0,0.0,5605.28,52.88,4950.0,27746136.0
+23411,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,70,70.0,0.0,1990.1,28.43,5683.41,11310554.24
+23412,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,7470000,Maíz forrajero en verde,30,30.0,0.0,1760.1,58.67,1100.0,1936110.0
+23413,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,40,40.0,0.0,1905.2,47.63,5500.0,10478600.0
+23414,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,125,125.0,0.0,6020.0,48.16,870.0,5237400.0
+23415,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,340,340.0,0.0,6154.0,18.1,2918.49,17960387.46
+23416,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,398,314.0,0.0,693.94,2.21,93911.69,65169078.16
+23417,2021,26,Sonora,144,Hermosillo,1,Carbó,20,Carbó,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,1249,1249.0,0.0,21507.78,17.22,30439.44,654684778.8
+23418,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,62,62.0,0.0,598.3,9.65,24139.63,14442740.63
+23419,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,580,580.0,0.0,26709.0,46.05,970.0,25907730.0
+23420,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,15,15.0,0.0,490.2,32.68,14500.0,7107900.0
+23421,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,7,7.0,0.0,126.0,18.0,10500.0,1323000.0
+23422,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,1233,1233.0,0.0,31212.06,25.31,6738.46,210321231.5
+23423,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1169,1169.0,0.0,3273.2,2.8,9040.64,29591822.85
+23424,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,29,29.0,0.0,354.96,12.24,12350.89,4384071.91
+23425,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,218,218.0,0.0,14816.02,67.96,12800.61,189654155.7
+23426,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,2,2.0,0.0,65.0,32.5,8500.0,552500.0
+23427,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,5382,5382.0,0.0,9526.14,1.77,17869.41,170226501.4
+23428,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,13,13.0,0.0,404.95,31.15,7314.81,2962132.31
+23429,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,159,159.0,0.0,4685.02,29.47,7393.59,34639109.51
+23430,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,261,261.0,0.0,30330.59,116.21,8039.65,243847245.1
+23431,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,2366,2366.0,0.0,127900.48,54.06,5046.57,645458398.4
+23432,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),248,248.0,0.0,30538.72,123.14,9568.01,292194778.4
+23433,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,8,8.0,0.0,155.04,19.38,8200.0,1271328.0
+23434,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,5245,5245.0,0.0,40245.0,7.67,5392.22,217009825.3
+23435,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5610000,Berenjena,25,25.0,0.0,590.0,23.6,10500.0,6195000.0
+23436,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,1081,1081.0,0.0,31058.59,28.73,5635.21,175021708.8
+23437,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,8,8.0,0.0,85.04,10.63,12794.12,1088011.96
+23438,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,153,153.0,0.0,6822.0,44.59,12727.07,86824044.57
+23439,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,1200,1200.0,0.0,2940.0,2.45,18877.56,55500026.4
+23440,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,94,94.0,0.0,846.0,9.0,6000.0,5076000.0
+23441,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,287,287.0,0.0,6837.36,23.82,6570.79,44926824.71
+23442,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,183,183.0,0.0,22940.88,125.36,8530.0,195685706.4
+23443,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,1275,1275.0,0.0,52266.66,40.99,7013.79,366587599.8
+23444,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,980,980.0,0.0,45579.8,46.51,861.59,39271099.88
+23445,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),40,40.0,0.0,4250.0,106.25,9800.0,41650000.0
+23446,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,25,25.0,0.0,550.0,22.0,9150.0,5032500.0
+23447,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,4,0.0,0.0,0.0,0.0,0.0,0.0
+23448,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,7.8,0.0,0.0,0.0,0.0,0.0,0.0
+23449,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,1420,1420.0,0.0,25560.0,18.0,2956.96,75579897.6
+23450,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,6530000,Durazno,145,0.0,0.0,0.0,0.0,0.0,0.0
+23451,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,20,20.0,0.0,200.0,10.0,35100.0,7020000.0
+23452,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,15,15.0,0.0,370.05,24.67,6700.0,2479335.0
+23453,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,32.6,8.0,0.0,58.0,7.25,8500.0,493000.0
+23454,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,3366,3266.0,0.0,101899.2,31.2,5428.03,553111914.6
+23455,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,34,34.0,0.0,844.9,24.85,3707.12,3132145.69
+23456,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,9596,7500.0,0.0,7275.0,0.97,94112.37,684667491.8
+23457,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),220,220.0,0.0,7799.0,35.45,5306.0,41381494.0
+23458,2021,26,Sonora,144,Hermosillo,1,Carbó,30,Hermosillo,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,6125,6125.0,0.0,112085.15,18.3,30586.29,3428269213.0
+23459,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,3,3.0,0.0,30.0,10.0,19550.0,586500.0
+23460,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,170,170.0,0.0,7650.0,45.0,960.0,7344000.0
+23461,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,4,4.0,0.0,104.0,26.0,6500.0,676000.0
+23462,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,6,6.0,0.0,79.98,13.33,12702.5,1015945.95
+23463,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,4,4.0,0.0,120.0,30.0,4500.0,540000.0
+23464,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,173,173.0,0.0,5300.8,30.64,5519.9,29259867.33
+23465,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,5,5.0,0.0,55.0,11.0,12000.0,660000.0
+23466,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,247,247.0,0.0,11134.76,45.08,874.4,9736234.14
+23467,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,360,360.0,0.0,6300.0,17.5,2951.53,18594639.0
+23468,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,4,4.0,0.0,80.0,20.0,3647.87,291829.6
+23469,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,251,165.0,0.0,160.05,0.97,94107.29,15061871.76
+23470,2021,26,Sonora,144,Hermosillo,1,Carbó,56,San Miguel de Horcasitas,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,2883,2883.0,0.0,50546.44,17.53,30663.66,1549938783.0
+23471,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,15,15.0,0.0,310.5,20.7,757.96,235346.58
+23472,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,95,95.0,0.0,3040.0,32.0,690.13,2097995.2
+23473,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,15,15.0,0.0,97.5,6.5,705.0,68737.5
+23474,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,920,920.0,0.0,6992.0,7.6,649.73,4542912.16
+23475,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,37,Mazatán,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,55,55.0,0.0,852.5,15.5,2787.55,2376386.38
+23476,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,9,9.0,0.0,185.4,20.6,745.23,138165.64
+23477,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,90,90.0,0.0,2880.0,32.0,688.28,1982246.4
+23478,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,60.0,6.0,705.0,42300.0
+23479,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,375,375.0,0.0,2812.5,7.5,654.0,1839375.0
+23480,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,13,0.0,0.0,0.0,0.0,0.0,0.0
+23481,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,120,120.0,0.0,1884.0,15.7,2746.24,5173916.16
+23482,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,57,San Pedro de La Cueva,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1,1.0,0.0,0.95,0.95,90000.0,85500.0
+23483,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,35,35.0,0.0,1050.0,30.0,690.0,724500.0
+23484,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,25,25.0,0.0,157.5,6.3,707.0,111352.5
+23485,2021,26,Sonora,145,Mazatán,1,Villa Pesqueira,68,Villa Pesqueira,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,1140,1140.0,0.0,8892.0,7.8,656.47,5837331.24
+23486,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,25,25.0,0.0,530.0,21.2,744.57,394622.1
+23487,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,280,280.0,0.0,9100.0,32.5,705.22,6417502.0
+23488,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,35,35.0,0.0,210.0,6.0,705.72,148201.2
+23489,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,915,915.0,0.0,6862.5,7.5,671.32,4606933.5
+23490,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,640,640.0,0.0,9600.0,15.0,2779.0,26678400.0
+23491,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,2,0.0,0.0,0.0,0.0,0.0,0.0
+23492,2021,26,Sonora,145,Mazatán,2,La Colorada,21,La Colorada,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,20,20.0,0.0,24.0,1.2,92000.0,2208000.0
+23493,2021,26,Sonora,145,Mazatán,2,La Colorada,54,San Javier,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,35,35.0,0.0,283.5,8.1,627.2,177811.2
+23494,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,12,12.0,0.0,243.6,20.3,753.92,183654.91
+23495,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,70,70.0,0.0,2240.0,32.0,671.05,1503152.0
+23496,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,65.0,6.5,715.0,46475.0
+23497,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,55,55.0,0.0,412.5,7.5,632.45,260885.63
+23498,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,24,0.0,0.0,0.0,0.0,0.0,0.0
+23499,2021,26,Sonora,145,Mazatán,2,La Colorada,62,Suaqui Grande,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,85,85.0,0.0,1317.5,15.5,2786.45,3671147.88
+23500,2021,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,15,15.0,0.0,315.0,21.0,749.76,236174.4
+23501,2021,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,210,210.0,0.0,6615.0,31.5,694.6,4594779.0
+23502,2021,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,10,10.0,0.0,60.0,6.0,705.0,42300.0
+23503,2021,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,205,205.0,0.0,1537.5,7.5,636.69,978910.88
+23504,2021,26,Sonora,145,Mazatán,3,Soyopa,44,Onavas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,22,22.0,0.0,330.0,15.0,2768.66,913657.8
+23505,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,20,20.0,0.0,412.0,20.6,747.1,307805.2
+23506,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,185,185.0,0.0,6012.5,32.5,703.78,4231477.25
+23507,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,5,5.0,0.0,31.5,6.3,710.0,22365.0
+23508,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,380,380.0,0.0,2850.0,7.5,655.14,1867149.0
+23509,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,25,25.0,0.0,382.5,15.3,2774.51,1061250.08
+23510,2021,26,Sonora,145,Mazatán,3,Soyopa,61,Soyopa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,5,5.0,0.0,4.75,0.95,90000.0,427500.0
+23511,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,40,40.0,0.0,1392.0,34.8,857.01,1192957.92
+23512,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,5,5.0,0.0,9.25,1.85,20500.0,189625.0
+23513,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,15,15.0,0.0,67.5,4.5,5100.0,344250.0
+23514,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,250,250.0,0.0,8625.0,34.5,802.92,6925185.0
+23515,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,5,5.0,0.0,3.0,0.6,18520.0,55560.0
+23516,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,20,20.0,0.0,44.0,2.2,5250.0,231000.0
+23517,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,300,300.0,0.0,2160.0,7.2,759.99,1641578.4
+23518,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,83,83.0,0.0,1145.4,13.8,2346.02,2687131.31
+23519,2021,26,Sonora,146,Sahuaripa,1,Arivechi,5,Arivechi,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1.25,1.25,0.0,1.88,1.5,90000.0,169200.0
+23520,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,1.5,1.5,0.0,9.9,6.6,25000.0,247500.0
+23521,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,120,120.0,0.0,4380.0,36.5,858.67,3760974.6
+23522,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,7,7.0,0.0,10.15,1.45,20700.0,210105.0
+23523,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,38,38.0,0.0,152.0,4.0,5280.0,802560.0
+23524,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,650,650.0,0.0,20800.0,32.0,797.31,16584048.0
+23525,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,7,7.0,0.0,4.55,0.65,19463.74,88560.02
+23526,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,33,33.0,0.0,66.0,2.0,4863.64,321000.24
+23527,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,500,500.0,0.0,3600.0,7.2,780.65,2810340.0
+23528,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,350,350.0,0.0,4900.0,14.0,2358.28,11555572.0
+23529,2021,26,Sonora,146,Sahuaripa,1,Arivechi,52,Sahuaripa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,2,0.0,0.0,0.0,0.0,0.0,0.0
+23530,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,32,32.0,0.0,1126.4,35.2,851.8,959467.52
+23531,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,12,12.0,0.0,54.0,4.5,5181.48,279799.92
+23532,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,150,150.0,0.0,5100.0,34.0,829.26,4229226.0
+23533,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,20.0,2.0,5100.0,102000.0
+23534,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,180,180.0,0.0,1296.0,7.2,780.0,1010880.0
+23535,2021,26,Sonora,146,Sahuaripa,2,Bacanora,9,Bacanora,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,65,65.0,0.0,877.5,13.5,2349.26,2061475.65
+23536,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,5740000,Calabacita,22,22.0,0.0,253.0,11.5,8000.0,2024000.0
+23537,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,83,83.0,0.0,83.0,1.0,19060.24,1581999.92
+23538,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7470000,Maíz forrajero en verde,22,22.0,0.0,162.8,7.4,755.45,122987.26
+23539,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,287,287.0,0.0,774.9,2.7,5000.0,3874500.0
+23540,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8100000,Papa,8,8.0,0.0,72.0,9.0,8100.0,583200.0
+23541,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8210000,Pepino,8,8.0,0.0,80.0,10.0,5500.0,440000.0
+23542,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,400,400.0,0.0,3200.0,8.0,798.5,2555200.0
+23543,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,3,Perennes,2,Temporal,200201,Tonelada,6530000,Durazno,118.71,39.71,0.0,515.04,12.97,11600.0,5974464.0
+23544,2021,26,Sonora,146,Sahuaripa,3,Yécora,69,Yécora,3,Perennes,2,Temporal,200201,Tonelada,7580000,Manzana,207.45,164.69,0.0,2635.04,16.0,10850.0,28590184.0
+23545,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,2,2.0,0.0,32.0,16.0,800.0,25600.0
+23546,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,18,18.0,0.0,236.36,13.13,8135.37,1922876.0
+23547,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,970,970.0,0.0,24735.0,25.5,7584.48,187602112.8
+23548,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,20,20.0,0.0,536.0,26.8,5108.4,2738102.4
+23549,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,370,370.0,0.0,17605.0,47.58,8426.65,148351239.2
+23550,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,20,20.0,0.0,148.0,7.4,5031.08,744599.84
+23551,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,165,165.0,0.0,6295.0,38.15,5412.59,34072232.75
+23552,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,180,180.0,0.0,16157.5,89.76,6884.87,111242268.3
+23553,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,700,700.0,0.0,33600.0,48.0,2588.24,86964960.0
+23554,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,14,14.0,0.0,476.0,34.0,775.21,368999.96
+23555,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),140,140.0,0.0,5090.0,36.36,6795.02,34586661.5
+23556,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,35,35.0,0.0,560.0,16.0,4956.25,2775500.0
+23557,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,1,Otoño-Invierno,2,Temporal,200201,Tonelada,8810000,Sorgo grano,50,0.0,50.0,0.0,0.0,0.0,0.0
+23558,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,220,220.0,0.0,7203.8,32.74,7710.57,55545433.23
+23559,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,164,164.0,0.0,11199.5,68.29,10167.76,113873871.1
+23560,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,10,10.0,0.0,17.0,1.7,16500.0,280500.0
+23561,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,205,205.0,0.0,8625.0,42.07,5685.23,49035091.1
+23562,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,90,90.0,0.0,11394.9,126.61,6188.87,70521513.1
+23563,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,600,600.0,0.0,28050.0,46.75,2683.81,75280897.5
+23564,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,55,55.0,0.0,1897.5,34.5,836.89,1587998.78
+23565,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),20,20.0,0.0,1190.0,59.5,5090.12,6057247.3
+23566,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,5,5.0,0.0,85.0,17.0,4800.0,408000.0
+23567,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,50,50.0,0.0,325.0,6.5,720.0,234000.0
+23568,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,140,140.0,0.0,2884.0,20.6,2698.9,7783627.6
+23569,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,5,5.0,0.0,98.5,19.7,2867.77,282475.35
+23570,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8,8.0,0.0,208.0,26.0,4778.25,993876.0
+23571,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,25,Empalme,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,693,593.0,0.0,9665.9,16.3,27964.26,270299740.7
+23572,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,25,25.0,0.0,407.5,16.3,774.85,315751.38
+23573,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5610000,Berenjena,17,17.0,0.0,243.05,14.3,8865.66,2154799.82
+23574,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,1350,1350.0,0.0,31590.0,23.4,7525.78,237739390.2
+23575,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,60,60.0,0.0,1950.0,32.5,4798.84,9357738.0
+23576,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,555,555.0,0.0,25041.0,45.12,8035.64,201220573.0
+23577,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,100,100.0,0.0,1500.0,15.0,4741.67,7112505.0
+23578,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,11,11.0,0.0,25.08,2.28,17667.46,443099.9
+23579,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,8,8.0,0.0,19.2,2.4,18500.0,355200.0
+23580,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,250,250.0,0.0,1750.0,7.0,5040.0,8820000.0
+23581,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,800,800.0,0.0,31815.0,39.77,5572.76,177297490.6
+23582,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,60,60.0,0.0,1890.0,31.5,7317.99,13831001.1
+23583,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,380,380.0,0.0,38451.0,101.19,6513.42,250447371.3
+23584,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,1100,1100.0,0.0,52300.0,47.55,2558.99,133835082.0
+23585,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,20,20.0,0.0,710.0,35.5,839.01,595697.1
+23586,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),300,300.0,0.0,10600.0,35.33,6508.96,68995020.0
+23587,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,100,100.0,0.0,1700.0,17.0,4698.82,7987994.0
+23588,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,5610000,Berenjena,1,1.0,0.0,12.5,12.5,8300.0,103750.0
+23589,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,155,155.0,0.0,4435.05,28.61,6933.28,30749465.45
+23590,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,6120000,Chile verde,1015,1015.0,0.0,56203.0,55.37,9883.15,555462862.7
+23591,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,20,20.0,0.0,27.0,1.35,18344.44,495299.88
+23592,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,10,10.0,0.0,65.0,6.5,5500.0,357500.0
+23593,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,585,585.0,0.0,24072.5,41.15,5548.79,133573180.6
+23594,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8210000,Pepino,205,205.0,0.0,21785.0,106.27,5889.87,128310804.5
+23595,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,885,885.0,0.0,41210.0,46.56,2753.07,113454022.7
+23596,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),155,155.0,0.0,6807.5,43.92,7241.28,49294988.08
+23597,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,50,50.0,0.0,815.0,16.3,4972.39,4052497.85
+23598,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,15,15.0,0.0,12.0,0.8,17500.0,210000.0
+23599,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8710000,Sandía,30,30.0,0.0,405.0,13.5,2300.0,931500.0
+23600,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,2,Primavera-Verano,2,Temporal,200201,Tonelada,8790000,Sorgo forrajero en verde,300,300.0,0.0,1890.0,6.3,700.0,1323000.0
+23601,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150,150.0,0.0,3150.0,21.0,2723.29,8578363.5
+23602,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7,7.0,0.0,101.5,14.5,4500.0,456750.0
+23603,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,455,455.0,0.0,9100.0,20.0,2731.32,24855012.0
+23604,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,12,6.5,0.0,143.0,22.0,4778.67,683349.81
+23605,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,18,18.0,0.0,29.7,1.65,92000.0,2732400.0
+23606,2021,26,Sonora,147,Guaymas,1,Guaymas D.D.R.,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,1307,1007.0,0.0,16917.6,16.8,28209.25,477232807.8
+23607,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,16,16.0,0.0,123.2,7.7,17704.55,2181200.56
+23608,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,250,250.0,0.0,5700.0,22.8,8326.32,47460024.0
+23609,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,86,86.0,0.0,2356.4,27.4,5425.1,12783705.64
+23610,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,100,100.0,0.0,215.0,2.15,8940.81,1922274.15
+23611,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,52,52.0,0.0,1976.0,38.0,5342.18,10556147.68
+23612,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,188,188.0,0.0,8321.5,44.26,9449.26,78632034.78
+23613,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,668,668.0,0.0,1574.84,2.36,17881.9,28161123.71
+23614,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,235,235.0,0.0,552.25,2.35,17482.66,9654798.99
+23615,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,70,70.0,0.0,2135.0,30.5,7240.98,15459492.3
+23616,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,10671,10671.0,0.0,133387.5,12.5,5033.22,671368632.8
+23617,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,2040,2040.0,0.0,72012.0,35.3,7062.81,508607073.7
+23618,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,70,70.0,0.0,3145.0,44.93,4541.81,14283986.25
+23619,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,50,50.0,0.0,2450.0,49.0,3600.0,8820000.0
+23620,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),102,102.0,0.0,6981.0,68.44,5584.4,38984679.7
+23621,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,76,76.0,0.0,1687.2,22.2,4778.66,8062555.15
+23622,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,20804,20804.0,0.0,155972.6,7.5,5316.51,829229435.8
+23623,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,170,170.0,0.0,399.5,2.35,18452.94,7371949.53
+23624,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,155,155.0,0.0,1379.5,8.9,5054.84,6973151.78
+23625,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,250,250.0,0.0,1500.0,6.0,4374.0,6561000.0
+23626,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,145,145.0,0.0,377.0,2.6,10385.41,3915299.57
+23627,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,1000,1000.0,0.0,16200.0,16.2,3227.47,52285014.0
+23628,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,455,455.0,0.0,4082.0,8.97,37474.53,152971023.1
+23629,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,67,33.0,0.0,544.5,16.5,5500.0,2994750.0
+23630,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,22,22.0,0.0,470.8,21.4,3560.98,1676509.38
+23631,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,32,0.0,0.0,0.0,0.0,0.0,0.0
+23632,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,511,511.0,0.0,10731.0,21.0,3332.14,35757194.34
+23633,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1095,673.0,0.0,1144.1,1.7,90000.0,102969000.0
+23634,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),77,47.0,0.0,916.5,19.5,5442.31,4987877.12
+23635,2021,26,Sonora,148,Cajeme,1,Cd. Obregón,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150,150.0,0.0,2325.0,15.5,3221.35,7489638.75
+23636,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,10,10.0,0.0,21.0,2.1,8950.0,187950.0
+23637,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,15,15.0,0.0,35.5,2.37,17346.48,615799.99
+23638,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,751,751.0,0.0,9087.1,12.1,4970.31,45165704.0
+23639,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,91,91.0,0.0,3148.6,34.6,7518.42,23672497.21
+23640,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),20,20.0,0.0,2060.0,103.0,5615.05,11567003.0
+23641,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1598,1598.0,0.0,12102.8,7.57,5308.36,64246079.55
+23642,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,65,65.0,0.0,585.0,9.0,5046.15,2951997.75
+23643,2021,26,Sonora,148,Cajeme,2,Villa Juárez,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,10,10.0,0.0,153.0,15.3,2935.17,449081.01
+23644,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,42,42.0,0.0,787.66,18.75,5341.52,4207298.46
+23645,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,150,150.0,0.0,333.0,2.22,8964.26,2985098.58
+23646,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,2,2.0,0.0,72.0,36.0,5000.0,360000.0
+23647,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,113,113.0,0.0,6275.0,55.53,9005.66,56510492.2
+23648,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,565,565.0,0.0,1335.25,2.36,17470.33,23327252.04
+23649,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2131,2131.0,0.0,25785.1,12.1,5032.94,129774861.2
+23650,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,90,90.0,0.0,3060.0,34.0,6819.61,20868006.6
+23651,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,35,35.0,0.0,3610.0,103.14,4850.25,17509409.8
+23652,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),43,43.0,0.0,1419.0,33.0,5194.29,7370697.51
+23653,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,49,49.0,0.0,1053.5,21.5,5093.05,5365528.18
+23654,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,20973,20973.0,0.0,160792.1,7.67,5285.44,849857155.4
+23655,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,110,110.0,0.0,242.0,2.2,18300.0,4428600.0
+23656,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,23,23.0,0.0,144.9,6.3,4400.0,637560.0
+23657,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,150,150.0,0.0,2580.0,17.2,3065.12,7908009.6
+23658,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,288,288.0,0.0,2577.0,8.95,37741.44,97259690.58
+23659,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,16,16.0,0.0,278.4,17.4,5400.0,1503360.0
+23660,2021,26,Sonora,148,Cajeme,2,Villa Juárez,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,165,73.0,0.0,120.45,1.65,91000.0,10960950.0
+23661,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,75,75.0,0.0,1864.5,24.86,6069.78,11317104.81
+23662,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,50,50.0,0.0,107.5,2.15,8946.51,961749.83
+23663,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,100,100.0,0.0,3685.0,36.85,6762.42,24919499.75
+23664,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,155,155.0,0.0,389.0,2.51,17400.26,6768700.05
+23665,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1137,1137.0,0.0,13075.5,11.5,4969.5,64978697.25
+23666,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,29,29.0,0.0,928.0,32.0,7590.52,7044002.56
+23667,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,30,30.0,0.0,2790.0,93.0,6272.58,17500498.2
+23668,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,8643,8643.0,0.0,65011.3,7.52,5327.01,346316099.4
+23669,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,30,30.0,0.0,510.0,17.0,3035.88,1548298.8
+23670,2021,26,Sonora,148,Cajeme,2,Villa Juárez,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,248,0.0,0.0,0.0,0.0,0.0,0.0
+23671,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,35,35.0,0.0,787.5,22.5,8975.87,7068497.63
+23672,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,10,10.0,0.0,234.2,23.42,7071.7,1656192.14
+23673,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,200,200.0,0.0,400.0,2.0,8642.5,3457000.0
+23674,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,5,5.0,0.0,205.0,41.0,5000.0,1025000.0
+23675,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,233.5,233.5,0.0,9108.0,39.01,7573.12,68975935.74
+23676,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1040,1040.0,0.0,2597.0,2.5,17684.06,45925505.29
+23677,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,50,50.0,0.0,117.5,2.35,17396.17,2044049.98
+23678,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,180,180.0,0.0,5850.0,32.5,8244.1,48227985.0
+23679,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,6398,6398.0,0.0,76776.0,12.0,5006.67,384392095.9
+23680,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,595,595.0,0.0,19040.0,32.0,7593.49,144580049.6
+23681,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,127,127.0,0.0,15795.0,124.37,4963.79,78403006.6
+23682,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,15,15.0,0.0,705.0,47.0,3800.0,2679000.0
+23683,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),190,190.0,0.0,13290.0,69.95,5977.35,79439000.1
+23684,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,121,121.0,0.0,2722.5,22.5,4967.86,13524998.85
+23685,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,18922,18922.0,0.0,142295.6,7.52,5297.11,753755309.2
+23686,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,250,250.0,0.0,325.0,1.3,21295.38,6920998.5
+23687,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,275,275.0,0.0,639.0,2.32,18075.27,11550098.94
+23688,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,120,120.0,0.0,1080.0,9.0,5062.5,5467500.0
+23689,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,36,36.0,0.0,208.8,5.8,4460.49,931350.31
+23690,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,201,201.0,0.0,522.6,2.6,10435.42,5453550.49
+23691,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),39,39.0,0.0,3003.0,77.0,5625.02,16891935.06
+23692,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,5050000,Agave,8,0.0,0.0,0.0,0.0,0.0,0.0
+23693,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,400,400.0,0.0,6680.0,16.7,2991.98,19986426.4
+23694,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,221,221.0,0.0,1928.0,8.72,37314.9,71943131.92
+23695,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,101,76.0,0.0,1626.4,21.4,3604.67,5862635.29
+23696,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,347,347.0,0.0,7495.2,21.6,3407.18,25537495.54
+23697,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,40,0.0,0.0,0.0,0.0,0.0,0.0
+23698,2021,26,Sonora,148,Cajeme,2,Villa Juárez,71,Benito Juárez,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),30,30.0,0.0,549.0,18.3,5290.98,2904748.02
+23699,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,27.5,27.5,0.0,385.0,14.0,800.0,308000.0
+23700,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,63,63.0,0.0,1682.65,26.71,4475.86,7531298.48
+23701,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,300,300.0,0.0,570.0,1.9,8853.68,5046597.6
+23702,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,15,15.0,0.0,525.0,35.0,4409.52,2314998.0
+23703,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,152,152.0,0.0,5901.7,38.83,8329.79,49159919.98
+23704,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,260,260.0,0.0,620.0,2.38,17291.62,10720801.4
+23705,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,120,120.0,0.0,264.0,2.2,18033.33,4760799.12
+23706,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,4575,4575.0,0.0,53527.5,11.7,5020.36,268727319.9
+23707,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,264,264.0,0.0,9768.0,37.0,7255.59,70872603.12
+23708,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,15,15.0,0.0,1225.0,81.67,4640.82,5684998.5
+23709,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,50,50.0,0.0,2200.0,44.0,3183.41,7003502.0
+23710,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),73,73.0,0.0,3064.8,41.98,5605.72,17180404.81
+23711,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,5,5.0,0.0,105.0,21.0,4835.71,507749.55
+23712,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,7040.28,7040.28,0.0,53599.31,7.61,5317.96,285039234.2
+23713,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,129,129.0,0.0,141.9,1.1,21281.89,3019900.19
+23714,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,200,200.0,0.0,480.0,2.4,18150.0,8712000.0
+23715,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,200,200.0,0.0,1760.0,8.8,5060.0,8905600.0
+23716,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,133,133.0,0.0,837.9,6.3,4400.0,3686760.0
+23717,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,145,145.0,0.0,369.75,2.55,10347.87,3826124.93
+23718,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,700,700.0,0.0,10850.0,15.5,3198.97,34708824.5
+23719,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,525.8,510.8,0.0,4572.8,8.95,35863.3,163995714.7
+23720,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7010000,Granada,15,0.0,0.0,0.0,0.0,0.0,0.0
+23721,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,40,19.0,0.0,296.4,15.6,5500.0,1630200.0
+23722,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,150,110.0,0.0,1936.0,17.6,3559.09,6890398.24
+23723,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,7,7.0,0.0,56.0,8.0,3500.0,196000.0
+23724,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,547,547.0,0.0,10940.0,20.0,3053.27,33402773.8
+23725,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8,8.0,0.0,156.0,19.5,3679.49,574000.44
+23726,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,508,174.0,0.0,278.4,1.6,90000.0,25056000.0
+23727,2021,26,Sonora,148,Cajeme,3,Bácum,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),75,50.0,0.0,985.0,19.7,5652.28,5567495.8
+23728,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,15,15.0,0.0,202.5,13.5,810.0,164025.0
+23729,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,61,61.0,0.0,1220.0,20.0,8377.05,10220001.0
+23730,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,128,128.0,0.0,3619.84,28.28,4246.4,15371288.58
+23731,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,150,150.0,0.0,315.0,2.1,8930.16,2813000.4
+23732,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,12.5,12.5,0.0,482.5,38.6,5258.81,2537375.83
+23733,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,250,250.0,0.0,8674.5,34.7,8976.76,77868885.76
+23734,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,308,308.0,0.0,715.1,2.32,17922.07,12816070.02
+23735,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,160,160.0,0.0,380.0,2.38,18080.53,6870601.2
+23736,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,3300,3300.0,0.0,39930.0,12.1,5041.98,201326261.4
+23737,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,200,200.0,0.0,6600.0,33.0,7704.09,50846994.0
+23738,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,96,96.0,0.0,4800.0,50.0,6102.4,29291520.0
+23739,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),101,101.0,0.0,4764.0,47.17,5393.77,25695921.0
+23740,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,20,20.0,0.0,374.0,18.7,5299.47,1982001.78
+23741,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,7755,7755.0,0.0,56965.0,7.35,5331.17,303690072.5
+23742,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,250,250.0,0.0,300.0,1.2,21625.0,6487500.0
+23743,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,150,150.0,0.0,330.0,2.2,18393.33,6069798.9
+23744,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,83,83.0,0.0,722.1,8.7,5047.64,3644900.84
+23745,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,30,30.0,0.0,192.0,6.4,4500.0,864000.0
+23746,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,50,50.0,0.0,125.0,2.5,10579.2,1322400.0
+23747,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),30,30.0,0.0,3210.0,107.0,5729.91,18393011.1
+23748,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,500,500.0,0.0,7900.0,15.8,3191.45,25212455.0
+23749,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,229,229.0,0.0,2044.48,8.93,36214.93,74040693.18
+23750,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,6,0.0,0.0,0.0,0.0,0.0,0.0
+23751,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,1.28,0.0,0.0,0.0,0.0,0.0,0.0
+23752,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,231,231.0,0.0,4735.5,20.5,3321.95,15731094.23
+23753,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,5,5.0,0.0,101.5,20.3,3711.58,376725.37
+23754,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,153,103.0,0.0,175.1,1.7,92000.0,16109200.0
+23755,2021,26,Sonora,148,Cajeme,3,Bácum,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),29.5,16.0,0.0,360.0,22.5,5366.67,1932001.2
+23756,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,4,4.0,0.0,54.0,13.5,810.0,43740.0
+23757,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,70,70.0,0.0,1902.6,27.18,4564.46,8684341.6
+23758,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,250,250.0,0.0,525.0,2.1,9000.0,4725000.0
+23759,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,1,1.0,0.0,38.6,38.6,4900.0,189140.0
+23760,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,390,390.0,0.0,15110.9,38.75,8800.21,132979155.3
+23761,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,350,350.0,0.0,5075.0,14.5,3881.78,19700033.5
+23762,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,250,250.0,0.0,565.0,2.26,17435.4,9851001.5
+23763,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,50,50.0,0.0,119.0,2.38,17414.37,2072310.03
+23764,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,10805,10805.0,0.0,132901.5,12.3,5030.89,668612827.3
+23765,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,5,5.0,0.0,990.0,198.0,4863.03,4814399.7
+23766,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,215,215.0,0.0,9675.0,45.0,3422.22,33109978.5
+23767,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),109,109.0,0.0,7865.0,72.16,6149.78,48368000.2
+23768,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,110,110.0,0.0,2585.0,23.5,4923.4,12726989.0
+23769,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,11961,11961.0,0.0,87817.4,7.34,5328.08,467898090.3
+23770,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,95,95.0,0.0,218.5,2.3,18052.63,3944499.66
+23771,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,3,3.0,0.0,26.1,8.7,5100.0,133110.0
+23772,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,18,18.0,0.0,113.4,6.3,4450.0,504630.0
+23773,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,9,0.0,0.0,0.0,0.0,0.0,0.0
+23774,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,2000,2000.0,0.0,31600.0,15.8,3178.16,100429856.0
+23775,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,214,214.0,0.0,1887.48,8.82,32976.59,62242646.39
+23776,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,37,37.0,0.0,621.6,16.8,5700.0,3543120.0
+23777,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,40,40.0,0.0,808.0,20.2,3628.71,2931997.68
+23778,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,65,0.0,0.0,0.0,0.0,0.0,0.0
+23779,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,411,411.0,0.0,8836.5,21.5,3252.09,28737093.29
+23780,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,8,8.0,0.0,152.0,19.0,3522.37,535400.24
+23781,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,501,272.0,0.0,448.8,1.65,90000.0,40392000.0
+23782,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),48,18.0,0.0,387.0,21.5,6000.0,2322000.0
+23783,2021,26,Sonora,148,Cajeme,3,Bácum,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,10,2.0,0.0,30.8,15.4,27500.0,847000.0
+23784,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,100,100.0,0.0,2464.0,24.64,6472.42,15948042.88
+23785,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,200,200.0,0.0,370.0,1.85,8852.36,3275373.2
+23786,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,3,3.0,0.0,90.0,30.0,5500.0,495000.0
+23787,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,40,40.0,0.0,1378.0,34.45,7662.12,10558395.94
+23788,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,100,100.0,0.0,2100.0,21.0,7532.14,15817494.0
+23789,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,50,50.0,0.0,117.5,2.35,17872.34,2099999.95
+23790,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,89,89.0,0.0,209.15,2.35,16904.52,3535580.36
+23791,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,4718,4718.0,0.0,51898.0,11.0,5076.45,263457602.1
+23792,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,257,257.0,0.0,8609.5,33.5,7179.47,61811646.97
+23793,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,65,65.0,0.0,3970.0,61.08,4696.23,18644015.1
+23794,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,20,20.0,0.0,960.0,48.0,3600.0,3456000.0
+23795,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),47,47.0,0.0,1551.0,33.0,5225.66,8104998.66
+23796,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,83,83.0,0.0,1850.9,22.3,4444.5,8226325.05
+23797,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,8445,8445.0,0.0,63615.0,7.53,5326.39,338838536.3
+23798,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,200,200.0,0.0,5000.0,25.0,4413.6,22068000.0
+23799,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,8,8.0,0.0,73.6,9.2,5100.0,375360.0
+23800,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,50,50.0,0.0,307.5,6.15,4433.98,1363448.85
+23801,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,60,60.0,0.0,150.0,2.5,9916.67,1487500.5
+23802,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,372,0.0,0.0,0.0,0.0,0.0,0.0
+23803,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,250,250.0,0.0,3925.0,15.7,3214.02,12615028.5
+23804,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,487,487.0,0.0,4307.3,8.84,37381.52,161013434.2
+23805,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,30,0.0,0.0,0.0,0.0,0.0,0.0
+23806,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,40,40.0,0.0,864.0,21.6,3450.0,2980800.0
+23807,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,57,57.0,0.0,1225.5,21.5,3216.74,3942114.87
+23808,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,210,117.0,0.0,181.35,1.55,90500.0,16412175.0
+23809,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),3,3.0,0.0,69.3,23.1,5000.0,346500.0
+23810,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,176,176.0,0.0,3044.8,17.3,27200.0,82818560.0
+23811,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,145,145.0,0.0,3364.0,23.2,6441.96,21670753.44
+23812,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,250,250.0,0.0,537.5,2.15,8972.33,4822627.38
+23813,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,33,33.0,0.0,1287.0,39.0,4910.26,6319504.62
+23814,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,160,160.0,0.0,4797.5,29.98,7298.85,35016248.2
+23815,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,135,135.0,0.0,2835.0,21.0,7334.57,20793505.95
+23816,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,546,546.0,0.0,1255.3,2.3,17842.93,22398231.57
+23817,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,25,25.0,0.0,58.75,2.35,18100.0,1063375.0
+23818,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,12642,12642.0,0.0,146647.2,11.6,4993.72,732315055.6
+23819,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1413,1413.0,0.0,47335.5,33.5,7177.06,339729723.6
+23820,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,100,100.0,0.0,3500.0,35.0,4394.29,15380015.0
+23821,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),280,280.0,0.0,17000.0,60.71,6176.0,104991962.8
+23822,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,55,55.0,0.0,1116.5,20.3,5889.48,6575604.42
+23823,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,13970,13970.0,0.0,102977.6,7.37,5321.36,547981382.4
+23824,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,52,52.0,0.0,1300.0,25.0,4369.46,5680298.0
+23825,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,100,100.0,0.0,250.0,2.5,18280.0,4570000.0
+23826,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,360,360.0,0.0,3132.0,8.7,5044.44,15799186.08
+23827,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,90,90.0,0.0,558.0,6.2,4462.37,2490002.46
+23828,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,100,100.0,0.0,255.0,2.55,10311.76,2629498.8
+23829,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,850,850.0,0.0,14025.0,16.5,3170.85,44471171.25
+23830,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,294,228.0,0.0,2154.0,9.45,37145.48,80011368.84
+23831,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,51,31.0,0.0,511.5,16.5,5350.0,2736525.0
+23832,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7550000,Mandarina,75,75.0,0.0,1597.5,21.3,3501.41,5593502.48
+23833,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,293,293.0,0.0,6153.0,21.0,3345.23,20583200.19
+23834,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,1110,574.0,0.0,975.8,1.7,90000.0,87822000.0
+23835,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9000000,Toronja (pomelo),49,32.0,0.0,624.0,19.5,5730.77,3576000.48
+23836,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,92,92.0,0.0,1472.0,16.0,27000.0,39744000.0
+23837,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,150,150.0,0.0,316.5,2.11,8913.74,2821198.71
+23838,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,40,40.0,0.0,1120.0,28.0,6671.43,7472001.6
+23839,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1100,1100.0,0.0,13090.0,11.9,5024.03,65764552.7
+23840,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,10,10.0,0.0,500.0,50.0,3700.0,1850000.0
+23841,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,2380,2380.0,0.0,17302.0,7.27,5287.46,91483553.3
+23842,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,6,6.0,0.0,54.0,9.0,5100.0,275400.0
+23843,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,120,120.0,0.0,312.0,2.6,10050.0,3135600.0
+23844,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,180,180.0,0.0,2934.0,16.3,3137.91,9206627.94
+23845,2021,26,Sonora,148,Cajeme,4,Pueblo Yaqui,72,San Ignacio Río Muerto,3,Perennes,1,Riego,200201,Tonelada,7960000,Nuez,25,13.0,0.0,22.75,1.75,90000.0,2047500.0
+23846,2021,26,Sonora,148,Cajeme,5,Vicam,12,Bácum,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1900,1900.0,0.0,12798.0,6.74,5418.53,69346300.8
+23847,2021,26,Sonora,148,Cajeme,5,Vicam,12,Bácum,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,25,25.0,0.0,415.0,16.6,3101.51,1287126.65
+23848,2021,26,Sonora,148,Cajeme,5,Vicam,18,Cajeme,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,1923,1923.0,0.0,13353.3,6.94,5392.04,72001463.8
+23849,2021,26,Sonora,148,Cajeme,5,Vicam,18,Cajeme,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,50,50.0,0.0,850.0,17.0,3130.59,2661001.5
+23850,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,322,322.0,0.0,627.9,1.95,8744.59,5490728.06
+23851,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,70,70.0,0.0,126.0,1.8,17800.0,2242800.0
+23852,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,150,150.0,0.0,315.0,2.1,17243.33,5431648.95
+23853,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2000,2000.0,0.0,22000.0,11.0,4963.41,109195020.0
+23854,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,7670000,Melón,15,15.0,0.0,465.0,31.0,6200.0,2883000.0
+23855,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,15,15.0,0.0,405.0,27.0,5100.0,2065500.0
+23856,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,15300,15300.0,0.0,106011.0,6.93,5413.1,573848009.2
+23857,2021,26,Sonora,148,Cajeme,5,Vicam,29,Guaymas,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,500,500.0,0.0,8200.0,16.4,3134.45,25702490.0
+23858,2021,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,5,5.0,0.0,1.25,0.25,20000.0,25000.0
+23859,2021,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,5,5.0,0.0,2.0,0.4,18000.0,36000.0
+23860,2021,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,75,75.0,0.0,150.0,2.0,5000.0,750000.0
+23861,2021,26,Sonora,148,Cajeme,6,Rosario,49,Quiriego,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1000,1000.0,0.0,2500.0,2.5,4500.0,11250000.0
+23862,2021,26,Sonora,148,Cajeme,6,Rosario,51,Rosario,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,5,5.0,0.0,1.75,0.35,18000.0,31500.0
+23863,2021,26,Sonora,148,Cajeme,6,Rosario,51,Rosario,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,75,75.0,0.0,165.0,2.2,5000.0,825000.0
+23864,2021,26,Sonora,148,Cajeme,6,Rosario,51,Rosario,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,1000,1000.0,0.0,2300.0,2.3,4300.0,9890000.0
+23865,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,72,72.0,0.0,1598.4,22.2,6156.83,9841077.07
+23866,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,866,866.0,0.0,1749.32,2.02,8786.82,15370959.96
+23867,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,78,78.0,0.0,2363.4,30.3,7277.71,17200139.81
+23868,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,161,161.0,0.0,5383.5,33.44,8738.21,47042135.82
+23869,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,20,20.0,0.0,250.0,12.5,3000.0,750000.0
+23870,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1384,1384.0,0.0,3112.84,2.25,16744.15,52121855.18
+23871,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,50,50.0,0.0,115.0,2.3,18128.26,2084749.9
+23872,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,600,600.0,0.0,5880.0,9.8,4990.9,29346492.0
+23873,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,1500,1500.0,0.0,46500.0,31.0,8278.81,384964665.0
+23874,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,190,190.0,0.0,7080.0,37.26,3164.41,22404000.0
+23875,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),32,32.0,0.0,976.0,30.5,7065.73,6896152.48
+23876,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,50,50.0,0.0,1125.0,22.5,7703.34,8666257.5
+23877,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,17500,17500.0,0.0,127000.0,7.26,5337.5,677862005.0
+23878,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,5080000,Ajonjolí,72,72.0,0.0,86.4,1.2,21500.0,1857600.0
+23879,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,75,75.0,0.0,165.0,2.2,18200.0,3003000.0
+23880,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,370,370.0,0.0,2997.0,8.1,5206.37,15603490.89
+23881,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,76,76.0,0.0,433.2,5.7,4500.0,1949400.0
+23882,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,41,41.0,0.0,104.55,2.55,9497.99,993014.85
+23883,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,16,16.0,0.0,211.2,13.2,16500.0,3484800.0
+23884,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,650,650.0,0.0,8775.0,13.5,2230.74,19574743.5
+23885,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,45,5.0,0.0,53.5,10.7,6000.0,321000.0
+23886,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,18,12.0,0.0,252.0,21.0,4000.0,1008000.0
+23887,2021,26,Sonora,149,Navojoa,1,Navojoa,42,Navojoa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,125,30.0,0.0,645.0,21.5,2850.0,1838250.0
+23888,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,1784,1784.0,0.0,3746.4,2.1,8745.57,32764403.45
+23889,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,20,20.0,0.0,600.0,30.0,6581.0,3948600.0
+23890,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,246,246.0,0.0,6863.2,27.9,7146.14,49045384.51
+23891,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,250,250.0,0.0,3250.0,13.0,3056.92,9934990.0
+23892,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1559,1559.0,0.0,3498.6,2.24,16392.25,57349922.78
+23893,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,256,256.0,0.0,588.8,2.3,17206.86,10131399.17
+23894,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,1043,1043.0,0.0,10430.0,10.0,5033.46,52498987.8
+23895,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,942,942.0,0.0,28919.4,30.7,8243.38,238393603.6
+23896,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,100,100.0,0.0,3870.0,38.7,3000.0,11610000.0
+23897,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,5,5.0,0.0,29.0,5.8,4500.0,130500.0
+23898,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,95,95.0,0.0,2280.0,24.0,6802.85,15510498.0
+23899,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,18500,18500.0,0.0,130860.0,7.07,5355.56,700828534.2
+23900,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,6840000,Frijol,45,45.0,0.0,94.5,2.1,18200.0,1719900.0
+23901,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,210,210.0,0.0,1743.0,8.3,5068.85,8835005.55
+23902,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,10,10.0,0.0,58.0,5.8,4500.0,261000.0
+23903,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,2,Primavera-Verano,1,Riego,200201,Tonelada,8830000,Soya,40,40.0,0.0,92.0,2.3,9558.42,879374.64
+23904,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,6,6.0,0.0,81.0,13.5,15000.0,1215000.0
+23905,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,355,355.0,0.0,4721.5,13.3,2195.49,10366006.04
+23906,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,30,10.0,0.0,100.0,10.0,6000.0,600000.0
+23907,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7560000,Mango,12,12.0,0.0,246.0,20.5,4051.63,996700.98
+23908,2021,26,Sonora,149,Navojoa,2,Etchojoa,26,Etchojoa,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,70,5.0,0.0,110.0,22.0,2800.0,308000.0
+23909,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5740000,Calabacita,100,100.0,0.0,2320.0,23.2,6055.85,14049572.0
+23910,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5870000,Cártamo,4137,4137.0,0.0,8274.0,2.0,8670.05,71735993.7
+23911,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,135,135.0,0.0,4225.5,31.3,6780.44,28650749.22
+23912,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6120000,Chile verde,328,328.0,0.0,8760.0,26.71,7065.41,61893018.9
+23913,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6610000,Elote,50,50.0,0.0,660.0,13.2,3202.27,2113498.2
+23914,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6840000,Frijol,1814,1814.0,0.0,4071.92,2.24,16856.57,68638609.47
+23915,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,6900000,Garbanzo grano,178,178.0,0.0,391.6,2.2,17175.99,6726117.68
+23916,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,7490000,Maíz grano,2498,2498.0,0.0,23980.8,9.6,5026.81,120546925.3
+23917,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8100000,Papa,2358,2358.0,0.0,69796.8,29.6,8200.78,572388201.5
+23918,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8210000,Pepino,30,30.0,0.0,840.0,28.0,7514.43,6312121.2
+23919,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8710000,Sandía,313,313.0,0.0,11268.0,36.0,3000.0,33804000.0
+23920,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8810000,Sorgo grano,20,20.0,0.0,120.0,6.0,4100.0,492000.0
+23921,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8970000,Tomate rojo (jitomate),7,7.0,0.0,210.0,30.0,7300.0,1533000.0
+23922,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,8980000,Tomate verde,991,991.0,0.0,23784.0,24.0,7674.76,182536491.8
+23923,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,40908,40908.0,0.0,288483.36,7.05,5409.34,1560503480.0
+23924,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,2,Primavera-Verano,1,Riego,200201,Tonelada,5190000,Algodón hueso,70,70.0,0.0,259.0,3.7,12500.0,3237500.0
+23925,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,170,170.0,0.0,1326.0,7.8,5104.07,6767996.82
+23926,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,98,98.0,0.0,568.4,5.8,4408.37,2505717.51
+23927,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,5060000,Aguacate,8,8.0,0.0,108.0,13.5,16300.0,1760400.0
+23928,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,850,850.0,0.0,11560.0,13.6,2166.7,25047052.0
+23929,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,7390000,Limón,65,30.0,0.0,315.0,10.5,6000.0,1890000.0
+23930,2021,26,Sonora,149,Navojoa,3,Huatabampo,33,Huatabampo,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,32.5,2.5,0.0,54.5,21.8,2800.0,152600.0
+23931,2021,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,5080000,Ajonjolí,1700,1700.0,0.0,680.0,0.4,21294.12,14480001.6
+23932,2021,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,6840000,Frijol,250,250.0,0.0,137.5,0.55,18281.82,2513750.25
+23933,2021,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,7490000,Maíz grano,1250,1250.0,0.0,1625.0,1.3,5500.0,8937500.0
+23934,2021,26,Sonora,149,Navojoa,4,Álamos,3,Alamos,2,Primavera-Verano,2,Temporal,200201,Tonelada,8810000,Sorgo grano,6000,6000.0,0.0,4800.0,0.8,4478.13,21495024.0
+23935,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5070000,Ajo,1,1.0,0.0,12.5,12.5,17500.0,218750.0
+23936,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5490000,Avena forrajera en verde,187,187.0,0.0,5200.47,27.81,850.0,4420399.5
+23937,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5670000,Brócoli,930,930.0,0.0,20116.98,21.63,11043.41,222160050.0
+23938,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,5940000,Cebolla,709,709.0,0.0,13158.62,18.56,13889.61,182768073.8
+23939,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,6330000,Coliflor,21,21.0,0.0,458.01,21.81,6500.0,2977065.0
+23940,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,7330000,Lechuga,463,463.0,0.0,11481.1,24.8,7474.53,85815814.53
+23941,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9050000,Trigo grano,10977.3,10977.3,0.0,74659.19,6.8,5548.92,414277521.5
+23942,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,1,Otoño-Invierno,1,Riego,200201,Tonelada,9270000,Zanahoria,22,22.0,0.0,715.0,32.5,7200.0,5148000.0
+23943,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5190000,Algodón hueso,2475,2475.0,0.0,9652.5,3.9,16747.25,161652830.6
+23944,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5670000,Brócoli,240,240.0,0.0,5011.2,20.88,8900.0,44599680.0
+23945,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5740000,Calabacita,25,25.0,0.0,645.0,25.8,6480.62,4179999.9
+23946,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,5940000,Cebolla,945,945.0,0.0,17246.25,18.25,12642.61,218037612.7
+23947,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,6610000,Elote,20,20.0,0.0,290.0,14.5,4500.0,1305000.0
+23948,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,7330000,Lechuga,112,112.0,0.0,2095.52,18.71,6982.91,14632827.56
+23949,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,7490000,Maíz grano,744,744.0,0.0,6398.4,8.6,6000.0,38390400.0
+23950,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,7670000,Melón,32,32.0,0.0,984.96,30.78,6700.0,6599232.0
+23951,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8710000,Sandía,360,360.0,0.0,17283.6,48.01,4742.61,81969374.2
+23952,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8790000,Sorgo forrajero en verde,446,446.0,0.0,9812.0,22.0,890.0,8732680.0
+23953,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8810000,Sorgo grano,737,737.0,0.0,4274.6,5.8,4496.27,19219755.74
+23954,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,2,Primavera-Verano,1,Riego,200201,Tonelada,8980000,Tomate verde,17,17.0,0.0,502.01,29.53,5403.59,2712656.22
+23955,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,5160000,Alfalfa achicalada,3950,3950.0,0.0,73114.5,18.51,3547.29,259358334.7
+23956,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,6650000,Espárrago,3486,3486.0,0.0,41003.34,11.76,41161.27,1687749513.0
+23957,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7850000,Naranja,14,14.0,0.0,259.98,18.57,4655.77,1210407.08
+23958,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,7920000,Nopalitos,4,4.0,0.0,65.0,16.25,4441.54,288700.1
+23959,2021,26,Sonora,193,San Luis Río Colorado,1,San Luis Río Colorado,55,San Luis Río Colorado,3,Perennes,1,Riego,200201,Tonelada,9130000,Uva,109,109.0,0.0,772.81,7.09,22184.99,17144782.12

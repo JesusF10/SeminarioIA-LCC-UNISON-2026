@@ -180,7 +180,7 @@ uv sync --all
 Para ejecutar un script específico, se puede usar el siguiente comando:
 
 ```bash
-uv run python mi_script.py # Reemplaza mi_script.py por el nombre del script que deseas ejecutar
+uv run python mi_script.py
 ```
 
 Para utilizar `Ruff`:
@@ -241,15 +241,3 @@ git push origin main
 - [Datos Abiertos](https://www.sonora.gob.mx/datos/)
 - [Anuario Estadístico de la Producción Agrícola](https://nube.agricultura.gob.mx/cierre_agricola/)
 - [Dirección General de Servicio de Información Agroalimentaria y Pesquera - Datos Abierto](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
