@@ -2,41 +2,49 @@
 
 ## Fuentes de datos
 
-- [Datos Abiertos](https://www.sonora.gob.mx/datos)
+- [Datos Abiertos Sonora](https://www.sonora.gob.mx/datos)
 - [SIAP - Servicio de Información Agroalimentaria y Pesquera](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)
-- [Datos Abiertos Gob Mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4)
-- Datos proporcionados por los supervisores del proyecto (Tecnificación de Riego, Trigo 2024-25)
+- [Datos Abiertos Gob Mx (Sequía)](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4)
+- [INIFAP / FIRA (Manual Técnico 2024)](https://www.gob.mx/inifap)
+- Datos proporcionados por los supervisores del proyecto (Tecnificación de
+  Riego, Trigo 2024-25)
 
 ## Lista de datos obtenidos
 
 #### Datos Proporcionados
 
-Se encuentran en el directorio `datos-proporcionados`.
+Se encuentran en el directorio `datos_proporcionados`.
 
-- Datos REPNA
+- **Datos REPNA (Concesiones Agua)**
 
 ```bash
 reporte-repna-1.csv
 reporte-repna-2.csv
 ```
 
-- Datos de la Tecnificación de Riego
+- **Datos de la Tecnificación de Riego**
 
 ```bash
 tecnificacion-riego-invernadores_DDR_2021.xlsx
 ```
 
-- Datos Trigo 2024-25
+- **Datos Trigo 2024-25**
 
 ```bash
 PUS-TRIGO-2024-25-AMBAS-VAR-UNISON.xlsx
+```
+
+- **Manual Técnico de Cultivos 2024 (NUEVO)**
+
+```bash
+manual-tecnico-cultivos-sonora-2024.csv # Láminas de riego, costos y ciclos
 ```
 
 #### Datos SIAP
 
 Se encuentran en el directorio `siap-produccion-agricola`.
 
-- Datos Municipales (de Sonora)
+- **Datos Municipales (de Sonora)**
 
 ```bash
 municipal
@@ -47,7 +55,7 @@ municipal
 └── Diccionario_agricola_2003_a_2023.xlsx
 ```
 
-- Datos Nacionales
+- **Datos Nacionales**
 
 ```bash
 nacional
@@ -59,7 +67,7 @@ nacional
 └── Diccionario_agricola_1980_a_2002.xlsx
 ```
 
-- Datos No Seguimiento
+- **Datos No Seguimiento**
 
 ```bash
 no-seguimiento
@@ -72,7 +80,7 @@ no-seguimiento
 
 Se encuentran en el directorio `datos-abiertos`.
 
-- Recursos hídricos
+- **Recursos hídricos**
 
 ```bash
 recursos-hidricos
@@ -89,7 +97,7 @@ recursos-hidricos
 └── Diccionario.csv
 ```
 
-- Agricultura
+- **Agricultura**
 
 ```bash
 agricultura
@@ -121,28 +129,26 @@ agricultura
 │   ├── Agricultura Sonora año 2022.xlsx
 │   └── Agricultura Sonora año 2023.xlsx
 └── Diccionario.csv
-
 ```
 
-#### Datos Sequia (Georeferenciados)
+#### Datos Sequía (Georeferenciados)
 
 Se encuentran en el directorio `datos-sequia`.
 
-Corresponden a la base de datos denominada "Mapa de Impacto de la sequía sobre la actividad agrícola",
-la cual se encuentra georeferenciada a nivel de municipio.
+Corresponden a la base de datos denominada "Mapa de Impacto de la sequía sobre
+la actividad agrícola", la cual se encuentra georeferenciada a nivel de
+municipio.
 
 **Nota:**
 
-- Los datos se encuentran en formato Shapefile, el cual es un formato comúnmente
-  utilizado para datos geoespaciales.
-- Se requiere el uso de software SIG (Sistema de Información Geográfica) para la
-  visualización y análisis de estos datos, como [QGIS](https://qgis.org/).
+- Los datos se encuentran en formato Shapefile (SIG).
+- Se requiere software como [QGIS](https://qgis.org/) para su visualización.
 
 ```bash
 datos-sequia
 ├── impacto_sequia.cpg
 ├── impacto_sequia.dbf
 ├── impacto_sequia.prj
-├── impacto_sequia.shp
+├── impacto_sequia.shp  # Capa de Índice ISAG
 └── impacto_sequia.shx
 ```

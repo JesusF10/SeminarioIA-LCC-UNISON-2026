@@ -1,0 +1,23 @@
+cultivo,tipo,lamina_riego_mm,costo_prod_mxn_ha,ciclo_dias,riegos_auxilio,rendimiento_ton_ha,etapa_critica
+Trigo Grano,Grano,650,35000,160,4,6.5,Floración y llenado
+Canola,Oleaginosa,350,20000,130,1,2.5,Floración
+Cártamo,Oleaginosa,400,25000,145,2,2.1,Ramificación y floración
+Garbanzo Grano,Leguminosa,375,28000,150,1,2.3,Floración y vaina
+Sorgo Grano,Grano,550,23000,110,3,7.2,Embuche a floración
+Frijol,Leguminosa,330,26000,100,2,1.8,Floración y llenado
+Girasol,Oleaginosa,420,21500,120,2,2.0,Floración
+Maíz Grano,Grano,800,55000,150,5,10.5,Floración y llenado
+Alfalfa,Forraje,1650,52000,365,12,15.0,Todo el ciclo (perenne)
+Nogal Pecanero,Frutal,1350,85000,365,10,2.1,Llenado de nuez (perenne)
+Uva de Mesa,Frutal,950,265000,365,8,18.0,Floración a maduración
+Dátil,Frutal,1850,95000,365,12,8.5,Maduración de fruto
+Espárrago,Hortaliza,950,165000,365,8,9.5,Mantenimiento foliar
+Tomate Rojo,Hortaliza,725,365000,140,10,80.0,Floración y fructificación
+Chile Verde,Hortaliza,775,220,130,10,25.0,Fructificación
+Cebolla,Hortaliza,650,140000,150,8,45.0,Bulbeo
+Sandía,Hortaliza,550,105000,110,6,40.0,Guía y fructificación
+Melón,Hortaliza,500,100000,100,6,30.0,Fructificación
+Calabacita,Hortaliza,500,92000,90,5,20.0,Fructificación
+Algodón,Industrial,925,52000,180,6,4.5,Floración y bellota
+Papas,Hortaliza,600,155000,120,8,35.0,Estolonización y tuberización
+Cítricos (Naranja),Frutal,1050,75000,365,10,25.0,Floración y amarre
