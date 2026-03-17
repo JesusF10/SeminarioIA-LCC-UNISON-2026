@@ -11,8 +11,9 @@
 )
 
 #align(center)[
-  #text(size: 24pt, weight: "bold")[Cronograma de Actividades 2026] 
-  #text(size: 14pt, fill: rgb("#757575"))[Seminario IA - Reconversión de Cultivos en Sonora]
+  #text(size: 24pt, weight: "bold")[Cronograma de Actividades 2026]
+  #v(0.1cm)
+  #text(size: 14pt, fill: rgb("#757575"))[    Reconversión de Cultivos en Sonora]
 ]
 
 #v(1cm)
@@ -34,41 +35,41 @@
   table.header(
     [*Fase*], [*Semana*], [*Fechas*], [*Objetivo*], [*Actividades Sintetizadas*]
   ),
-  
+
   // Fase 1
   ..phase-row(
     "F1: Exploración", rgb("#e3f2fd"),
     "1 - 2", "19 Feb - 04 Mar",
-    "Diagnóstico inicial",
-    "Zonificación, Trigo, Fuentes"
+    "Entender el problema",
+    "Zonificación, Cultivos, Lista"
   ),
   ..phase-row(
     "F1: Exploración", rgb("#e3f2fd"),
     "3", "05 Mar - 11 Mar",
-    "Investigación",
-    "Alternativas, Filtro, Datos"
+    "Alternativas",
+    "Alternativas, Fuentes, Datos"
   ),
-  
+
   // Fase 2
   ..phase-row(
     "F2: Mercado", rgb("#e8f5e9"),
     "4", "12 Mar - 18 Mar",
-    "Campo",
-    "Entrevistas, Diagnóstico"
+    "Trabajo de Campo",
+    "Contexto, Diagnóstico, Problemas"
   ),
   ..phase-row(
     "F2: Mercado", rgb("#e8f5e9"),
     "5", "19 Mar - 25 Mar",
-    "Análisis Comercial",
+    "Análisis de Mercado",
     "Mercado, Precios, Demanda"
   ),
   ..phase-row(
     "F2: Mercado", rgb("#e8f5e9"),
     "6 - 7", "26 Mar - 08 Abr",
     "Finanzas",
-    "Costos, Rentabilidad"
+    "Costos, Rentabilidad, Equilibrio"
   ),
-  
+
   // Fase 3
   ..phase-row(
     "F3: Viabilidad", rgb("#fff9c4"),
@@ -82,7 +83,7 @@
     "Planificación",
     "Calendario, Rotación"
   ),
-  
+
   // Fase 4
   ..phase-row(
     "F4: Conclusión", rgb("#f5f5f5"),
@@ -94,5 +95,5 @@
 
 #v(1cm)
 #align(right)[
-  #text(size: 9pt, fill: rgb("#9e9e9e"))[Generado automáticamente para el reporte de avances - Marzo 2026]
+  #text(size: 9pt, fill: rgb("#9e9e9e"))[Marzo 2026]
 ]

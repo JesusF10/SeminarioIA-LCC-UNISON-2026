@@ -84,8 +84,26 @@
   - Datos Abiertos de Sonora (_datos.sonora.gob.mx_)
 ])
 
-#slide("Zonificación", [
-  Se identifican los siguientes distritos de riego (DDR):
+#slide("Zonificación: Niveles de División", [
+  El territorio se clasifica en tres niveles con propósitos distintos:
+
+  #set text(size: 14pt)
+  #table(
+    columns: (1fr, 1fr, 2.5fr),
+    stroke: (y, x) => if y == 0 { (bottom: 0.7pt + black) } else { none },
+    inset: 8pt,
+    fill: (x, y) => if y > 0 and calc.even(y) { rgb("#f9f9f9") },
+    [*Nivel*], [*Entidad*], [*Datos Asociados*],
+    [Municipio], [Política], [Producción SIAP, ISAG (Sequía), REPNA.],
+    [DDR], [SADER], [Agregación estadística, Tecnificación regional.],
+    [DR], [CONAGUA], [Infraestructura hidráulica, Presas, Canales.],
+  )
+  #v(0.2cm)
+  - Se identificaron los 13 Distritos de Desarrollo Rural (DDR) en Sonora.
+])
+
+#slide("Zonificación: Distritos de Desarrollo Rural (DDR)", [
+  Se identifican los siguientes Distritos de Desarrollo Rural (DDR):
   #table(
       columns: (1fr, 2fr, 1fr, 2fr),
       stroke: none,
@@ -100,6 +118,19 @@
   )
 
 ])
+
+#slide("Zonificación: Análisis Territorial", [
+  Para las fases posteriores, se ha definido la siguiente jerarquía técnica:
+
+  - *Unidad Base: Municipio.* Es la clave (`CVE_MUN`) que permite la
+    conectividad entre los datasets heterogéneos recolectados.
+  - *Agregación: DDR.* Se utilizarán los 13 Distritos de Desarrollo Rural
+    como nivel de agrupación administrativa para reportes y política agrícola.
+  - *Contexto: Distrito de Riego (DR).* Se integra como capa de
+    infraestructura para entender la procedencia del agua (superficial).
+])
+
+
 
 #slide("Inventario de Datos Técnicos", [
   #set text(size: 14pt)
