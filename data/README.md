@@ -61,15 +61,26 @@ datos-sequia/
 └── impacto_sequia.shx, .dbf, .prj, .cpg # Archivos de soporte SIG
 ```
 
+### 5. SIACON (`data/raw/siacon/`)
+
+Información sobre cultivos. Origen: [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430).
+
+```bash
+siacon
+├── AgriculturaEscalaEstatal.txt
+└── AgriculturaEscalaMunicipalSonora.txt
+```
+
 ## Resumen de Fuentes Principales
 
-| Dataset       | Periodo   | Origen                                                                | Variables Clave                   |
-| :------------ | :-------- | :-------------------------------------------------------------------- | :-------------------------------- |
-| **SIAP Mun.** | 2003-2024 | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)    | Sembrada, Cosechada, PMR, Valor.  |
-| **Hídricos**  | 1941-2024 | [Sonora](https://www.sonora.gob.mx/datos)                             | Almacenamiento (hm3), Fecha.      |
-| **REPNA**     | Actual    | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)    | Volumen Extracción (Sup/Sub).     |
-| **Manual**    | 2024      | [INIFAP](https://www.gob.mx/inifap)                                   | Lámina (mm), Costo ($/ha), Ciclo. |
-| **Sequía**    | Reciente  | [Gob.mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4) | Impacto (ISAG), Geometría (SHP).  |
+| Dataset       | Periodo   | Origen                                                                      | Variables Clave                   |
+| :------------ | :-------- | :-------------------------------------------------------------------------- | :-------------------------------- |
+| **SIAP Mun.** | 2003-2024 | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)          | Sembrada, Cosechada, PMR, Valor.  |
+| **Hídricos**  | 1941-2024 | [Sonora](https://www.sonora.gob.mx/datos)                                   | Almacenamiento (hm3), Fecha.      |
+| **REPNA**     | Actual    | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)          | Volumen Extracción (Sup/Sub).     |
+| **Manual**    | 2024      | [INIFAP](https://www.gob.mx/inifap)                                         | Lámina (mm), Costo ($/ha), Ciclo. |
+| **Sequía**    | Reciente  | [Gob.mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4)       | Impacto (ISAG), Geometría (SHP).  |
+| **SIACON**    | 1980-2024 | [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430) | Cultivos emergentes, Superficie.  |
 
 ## Guía de Uso
 
@@ -78,3 +89,7 @@ datos-sequia/
 2. **Cruce de Datos:** El campo de unión principal es `CVE_MUN` (Clave INEGI).
 3. **Diccionarios:** Consultar archivos `Diccionario.csv` o `.xlsx`
    para definiciones exactas.
+
+```
+
+```

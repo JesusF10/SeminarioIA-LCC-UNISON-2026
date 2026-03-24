@@ -44,6 +44,8 @@ SeminarioIA-LCC-UNISON-2026/
 
 ## Metodología
 
+![Metodología](images/docs/Cronograma-Visual.png)
+
 ### FASE 1. EXPLORACIÓN Y DIAGNÓSTICO.
 
 Entendimiento general de la agricultura en Sonora y recopilación de información relevante de
@@ -66,12 +68,13 @@ del informe final.
 
 ## Cronograma (Fase Actual)
 
-### FASE 1: EXPLORACIÓN Y DIAGNÓSTICO
+### FASE 2: ANÁLISIS DE MERCADO Y RENTABILIDAD
 
-| Semana     | Fechas         | Objetivo de la Semana                | Actividades Clave                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------- | -------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Semana 1-2 | 19 Feb - 4 Mar | Entender el problema y el territorio | • **Zonificación:** Identificar los distritos de riego/temporal de Sonora. Conseguir mapas básicos.<br>• **Cultivo actual:** Investigar a fondo el trigo y otros cultivos en el estado: ¿dónde se siembra?, ¿qué variedades?, ¿cómo es el ciclo (siembra-cosecha)?<br>• **Primer contacto:** Hacer una lista de posibles fuentes de datos confiables y extracción de información (SIAT, INIFAP, SADER).                                                                                                                                                                                                     |
-| Semana 3   | 5 Mar - 11 Mar | Investigación de alternativas        | • **Lluvia de ideas:** Basados en la búsqueda de información de los cultivos en Sonora, buscar otras opciones como sorgo, frijol, variantes del trigo, o cultivos forrajeros, además de considerar otros cultivos de regiones con condiciones similares a las del estado (canola, cártamo, girasol, maíz, hortalizas).<br>• **Filtro rápido:** Para cada cultivo, investigar: ciclo, requerimientos de agua (mm por ciclo), temperatura ideal, y si se ha cultivado antes en la región.<br>• **Fuentes clave:** Buscar páginas confiables con datos abiertos de instituciones (SIAT, INIFAP, SADER, AOANS). |
+| Semana     | Fechas          | Objetivo de la Semana    | Actividades Clave                                                                                                                                                                                                                                                                                                      |
+| ---------- | --------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Semana 4   | 12 Mar - 18 Mar | Trabajo de campo         | • **Responder:** "¿Qué ha funcionado antes?", "¿Qué compradores hay?", "¿Cuál es el principal problema del agua en el lugar?".                                                                                                                                                                                         |
+| Semana 5   | 19 Mar - 25 Mar | Análisis de Mercado      | • **Destino de la cosecha:** ¿Quién compra cada cultivo? (Industria, mercado de abastos, exportación, forraje local).<br>• **Precios históricos:** Buscar precios medios rurales (SNIIM - Sistema Nacional de Información e Integración de Mercados).<br>• **Demanda:** ¿Hay demanda insatisfecha? ¿Hay oportunidades? |
+| Semana 6-7 | 26 Mar - 08 Abr | Análisis de Rentabilidad | • Investigar los costos de producción de cada cultivo (semilla, fertilizantes, labores, agua, electricidad para bombeo, etc.). Se consultan INIFAP y SADER como referencia.<br>• Calcular el punto de equilibrio, optimizando el costo de producción, el rendimiento esperado y el precio.                             |
 
 ## Datos
 
@@ -86,6 +89,7 @@ data/raw
 │       └── datos
 ├── datos_proporcionados
 ├── datos-sequia
+├── siacon
 └── siap-produccion-agricola
     ├── municipal
     ├── nacional
@@ -251,3 +255,4 @@ git push origin main
 - [FIRA - Agrocostos (Costos de Producción 2024-2025)](https://www.fira.gob.mx/InfraestructuraWeb/AnexosStatico.jsp?IdAnexo=7372)
 - [INIFAP - Paquetes Tecnológicos y Requerimientos Hídricos](https://www.gob.mx/inifap)
 - [CONAGUA - Almacenamiento de Presas](https://www.gob.mx/conagua)
+- [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430)

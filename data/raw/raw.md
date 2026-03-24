@@ -8,6 +8,7 @@
 - [INIFAP / FIRA (Manual Técnico 2024)](https://www.gob.mx/inifap)
 - Datos proporcionados por los supervisores del proyecto (Tecnificación de
   Riego, Trigo 2024-25)
+- [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430)
 
 ## Lista de datos obtenidos
 
@@ -151,4 +152,16 @@ datos-sequia
 ├── impacto_sequia.prj
 ├── impacto_sequia.shp  # Capa de Índice ISAG
 └── impacto_sequia.shx
+```
+
+#### SIACON (Sistema de Información Agroalimentaria y Pesquera de Consulta)
+
+Se encuentran en el directorio `siacon`.
+
+**Nota:** Requiere una conversión previa de los archivos a formato CSV para su análisis.
+
+```bash
+siacon
+├── AgriculturaEscalaEstatal.txt
+└── AgriculturaEscalaMunicipalSonora.txt
 ```
