@@ -238,6 +238,24 @@ git push origin main
 - En GitHub, crear un Pull Request desde tu fork hacia el repositorio original
   para que los cambios sean revisados e integrados.
 
+## Data
+
+Se encuentra el script.py `data.py`, que contiene la variable `DATASET`, la cual es
+la ruta al dataset que se utilizará en el proyecto.
+
+```python
+DATASETS = {
+    "raw": {
+        "impacto-sequia": SEQUIA_DIR,
+        "datos-abiertos": DATOS_ABIERTOS_SONORA_DIR,
+        "siap-produccion-agricola": SIAP_DIR,
+        "siacon": SIACON_DIR,
+        "datos_proporcionados": PROPORCIONADOS_DIR,
+    },
+    "processed": {},
+}
+```
+
 ## Src
 
 > Código fuente a utilizar

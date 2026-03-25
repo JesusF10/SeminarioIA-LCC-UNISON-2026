@@ -1,36 +1,19 @@
-# %% Importar dependencias
 from pathlib import Path
-
-# import geopandas as gpd
-import pandas as pd
-from jedi.inference.value.dynamic_arrays import DictModification
 
 DATA_DIR = Path("../data").resolve()
 SEQUIA_DIR = DATA_DIR / "raw" / "impacto-sequia"
 DATOS_ABIERTOS_SONORA_DIR = DATA_DIR / "raw" / "datos-abiertos"
-DATOS_SIAP = DATA_DIR / "raw" / "siap-produccion-agricola"
+SIAP_DIR = DATA_DIR / "raw" / "siap-produccion-agricola"
+SIACON_DIR = DATA_DIR / "raw" / "siacon"
+PROPORCIONADOS_DIR = DATA_DIR / "raw" / "datos_proporcionados"
 
-
-# %% Cargar datos
-
-agricultura = pd.read_excel(
-    DATOS_ABIERTOS_SONORA_DIR
-    / "agricultura"
-    / "datos"
-    / "Agricultura Sonora año 2023.xlsx"
-)
-
-diccionario = pd.read_excel(
-    DATOS_SIAP / "municipal" / "Diccionario_agricola_2003_a_2023.xlsx"
-)
-
-# nacional = pd.read_csv(DATOS_SIAP / "nacional" / )
-
-# %% Filtrar datos
-# distritos_riego = agricultura["NDDR"].unique().tolist()
-#
-
-print(diccionario.dropna(axis=0))
-
-
-# %%
+DATASETS = {
+    "raw": {
+        "impacto-sequia": SEQUIA_DIR,
+        "datos-abiertos": DATOS_ABIERTOS_SONORA_DIR,
+        "siap-produccion-agricola": SIAP_DIR,
+        "siacon": SIACON_DIR,
+        "datos_proporcionados": PROPORCIONADOS_DIR,
+    },
+    "processed": {},
+}
