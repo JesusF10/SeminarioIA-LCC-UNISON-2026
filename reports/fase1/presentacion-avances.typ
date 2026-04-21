@@ -44,7 +44,7 @@
 
 #slide("Objetivos", [
 
-  - *Zonificación:* Identificación de distritos de riego.
+  - *Zonificación:* Identificación de niveles de división.
   #v(1cm)
   - *Línea Base:* Análisis de cultivos actuales.
     #v(1cm)
@@ -72,16 +72,18 @@
 
 #slide("Fuentes", [
   - Secretaría de Agricultura, Ganadería, Recursos Hidráulicos, Pesca y Acuacultura (*SAGARHPA*)
-    #v(0.8cm)
+      #v(0.5cm)
   - Servicio de Información Agroalimentaria y Pesquera (*SIAP*)
-      #v(0.8cm)
+      #v(0.5cm)
   - Comisión Nacional del Agua (*CONAGUA*)
-      #v(0.8cm)
+      #v(0.5cm)
   - Secretaría de Agricultura y Desarrollo Rural (*SADER*)
-      #v(0.8cm)
+      #v(0.5cm)
   - Registro Público de Derechos Agrarios (*REPDA*)
-      #v(0.8cm)
+      #v(0.5cm)
   - Datos Abiertos de Sonora (_datos.sonora.gob.mx_)
+      #v(0.5cm)
+  - Sistema de Información Agroalimentaria de Consulta (*SIACON*)
 ])
 
 #slide("Zonificación: Niveles de División", [
@@ -93,7 +95,7 @@
     stroke: (y, x) => if y == 0 { (bottom: 0.7pt + black) } else { none },
     inset: 8pt,
     fill: (x, y) => if y > 0 and calc.even(y) { rgb("#f9f9f9") },
-    [*Nivel*], [*Entidad*], [*Datos Asociados*],
+    [*Nivel*], [*Organización*], [*Datos Asociados*],
     [Municipio], [Política], [Producción SIAP, ISAG (Sequía), REPNA.],
     [DDR], [SADER], [Agregación estadística, Tecnificación regional.],
     [DR], [CONAGUA], [Infraestructura hidráulica, Presas, Canales.],
@@ -150,46 +152,24 @@
   )
 ])
 
-// --- DETALLE DE DATASETS ---
-
-#slide("SIAP: Producción Agrícola", [
-  Portal: #link("https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php")[SIAP Datos Abiertos]
-  #v(0.2cm)
-  ```bash
-  siap-produccion-agricola/
-  ├── municipal/
-  │   └── cierre_agricola_sonora_2003..2024.csv
-  ├── nacional/
-  │   └── Cierre_agricola_1980..2002.csv
-  └── no-seguimiento/
-      └── cultivos_emergentes_2020..2021.csv
-  ```
-])
 
 #slide("SIAP: Producción Agrícola", [
   - *Series Temporales:* 20+ años de historia productiva en Sonora.
-  #v(1cm)
+  #v(0.5cm)
   - *Siniestralidad:* Permite identificar años de crisis climática por municipio.
-  #v(1cm)
+  #v(0.5cm)
   - *Económicos:* PMR para calcular la rentabilidad bruta histórica.
-  #v(1cm)
+  #v(0.5cm)
   - *Ciclos:* Diferenciación clara entre cultivos OI y PV.
 
-  #v(1cm)
+  #v(0.5cm)
   *No Seguimiento:* Información sobre cultivos emergentes y no seguidos.
+
+  #v(1cm)
+  #set text(size: 11pt, fill: gray)
+  *PMR*: Precio Medio Rural, indicador de referencia para el valor de producción
 ])
 
-#slide("Datos Abiertos Sonora: Agricultura y Recursos Hídricos", [
-  Portal: #link("https://www.sonora.gob.mx/datos")[datos.sonora.gob.mx]
-  #v(0.2cm)
-  ```bash
-  datos-abiertos/
-  ├── agricultura/
-  │   └── Agricultura_Sonora_1999..2023.xlsx
-  └── recursos-hidricos/
-      └── Datos_hídricos_1941..2024.xlsx
-  ```
-])
 
 #slide("Datos Abiertos Sonora: Agricultura y Recursos Hídricos", [
   - *Validación:* Comparativa de anuarios estatales vs federales (SIAP).
@@ -201,41 +181,22 @@
 
 ])
 
-#slide("Manual Técnico", [
-  Fuentes: [INIFAP](https://www.gob.mx/inifap) y [FIRA](https://www.fira.gob.mx/)
-  #v(0.2cm)
-  ```bash
-  datos_proporcionados/
-  └── manual-tecnico-cultivos-sonora-2024.csv
-  ```
-  #v(1cm)
-  *Estructura:*
-  - `cultivo`
-  - `tipo`
-  - `lamina_riego_mm`
-  - `costo_prod`
-  - `ciclo`
-  - `rendimiento`
-])
 
 #slide("Manual Técnico", [
   - *Consumo Hídrico:* Parámetros de láminas de riego (mm) para 22 cultivos.
-  #v(1cm)
   - *Viabilidad Económica:* Costos de producción actualizados (\$ / Ha).
-  #v(1cm)
   - *Benchmarking:* Habilita la comparación directa entre el cultivo actual
     y alternativas potenciales en términos de eficiencia.
+  #v(1cm)
+    *Datos:*
+    - `cultivo`
+    - `tipo`
+    - `lamina_riego_mm`
+    - `costo_prod`
+    - `ciclo`
+    - `rendimiento`
 ])
 
-#slide("REPNA: Concesiones Agua", [
-  Fuente: Registro Público de Derechos de Agua (SADER/CONAGUA)
-  #v(1cm)
-  ```bash
-  datos_proporcionados/
-  ├── reporte-repna-1.csv
-  └── reporte-repna-2.csv
-  ```
-])
 
 #slide("REPNA: Concesiones Agua", [
   - *Títulos:* Identificación de concesionarios y volúmenes legales.
@@ -245,6 +206,23 @@
   - *Análisis Espacial:* Vinculación de demanda hídrica teórica vs oferta legal
     por municipio y DDR.
 ])
+
+
+#slide("SADER: Impacto Sequía", [
+  - Índice de Severidad de Sequía Agrícola.
+  - Identificador municipal para vinculación con cierres del SIAP.
+  - *SP_O-I / SP_P-V:* Superficie siniestrada reportada geográficamente.
+
+  #v(0.2cm)
+  #align(center)[
+    #image("images/sequia-mapa.png", width: 25%)
+  ]
+
+    #v(1fr)
+    #set text(size: 9pt, fill: gray)
+    *Nota:* Visualización y procesamiento de capas realizado mediante el software
+    *QGIS Desktop*.
+  ])
 
 
 #slide("Cultivos más recientes", [
@@ -273,23 +251,6 @@
   )
 
 ])
-
-#slide("SADER: Impacto Sequía", [
-  - *ISAG:* Índice de Severidad de Sequía Agrícola (Variable target).
-  - *CVE_MUN:* Identificador municipal para vinculación con cierres del SIAP.
-  - *SP_O-I / SP_P-V:* Superficie siniestrada reportada geográficamente.
-
-  #v(0.2cm)
-  #align(center)[
-    #image("images/sequia-mapa.png", width: 25%)
-  ]
-
-    #v(1fr)
-    #set text(size: 9pt, fill: gray)
-    *Nota:* Visualización y procesamiento de capas realizado mediante el software
-    *QGIS Desktop*.
-  ])
-
 
 
 
@@ -349,10 +310,9 @@
 
 #slide("Próximos Pasos: Fase 2", [
   *Análisis de Mercado y Rentabilidad*
-
-  - Evaluación de la demanda de cultivos alternativos.
-  #v(1cm)
+  - Evaluación de la demanda de cultivos.
+  #v(0.5cm)
   - Modelado de costos de producción e ingresos proyectados.
-  #v(1cm)
+  #v(0.5cm)
   - Análisis de la cadena de suministro en Sonora.
 ])

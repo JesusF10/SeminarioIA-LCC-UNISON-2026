@@ -45,3 +45,4 @@ potencial de la reconvención de cultivos.
 #v(1cm)
 #line(length: 100%, stroke: 0.5pt + gray)
 #text(size: 9pt, style: "italic")[Reporte final de inventario - Marzo 2026]
+
