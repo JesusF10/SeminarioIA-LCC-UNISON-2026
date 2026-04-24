@@ -8,7 +8,4 @@ __version__ = "0.1.0"
 __author__ = "Jesus Flores Lacarra"
 __email__ = "jss.263.fsc@gmail.com"
 
-# Importaciones principales del paquete
-
-# Hacer disponibles las funciones principales
 __all__ = []
