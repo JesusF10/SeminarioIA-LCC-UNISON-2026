@@ -29,6 +29,9 @@ for row in unidades.index:
     codigos_unidades[row[0]] = row[1]
 
 pprint(codigos_unidades)
+print()
+
+pprint(df[["Nomunidad"]].value_counts())
 
 # with open("codigos_unidades.json", "w", encoding="utf-8") as f:
 #    json.dump(codigos_unidades, f, ensure_ascii=False, indent=4)
