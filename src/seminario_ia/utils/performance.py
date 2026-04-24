@@ -97,10 +97,9 @@ def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
 # ----------------------------------------------------------------------------------
 
 
-#### NOTA: PEDIENTE POR DEFINIR PROD_DF
-
-
-def performance_per_file(df: pd.DataFrame, region: str, prod_df: pd.DataFrame) -> float:
+def performance_per_file(
+    df: pd.DataFrame, region: str, prod_df: pd.DataFrame, crop: str
+) -> float:
     """
     Obtiene el rendimiento (ton/ha) para el/los años presentes en el archivo
     usando la tabla de producción municipal (prod_df).
@@ -108,7 +107,7 @@ def performance_per_file(df: pd.DataFrame, region: str, prod_df: pd.DataFrame) -
     - Para cada año presente en df["YEAR"], busca en prod_df filas con:
         Anio == YEAR,
         Nommunicipio == region,
-        Nomcultivo == "Trigo grano".
+        Nomcultivo == crop.
     - Si encuentra varios registros, promedia Rend_t_ha.
     - Si no encuentra nada para ningún año, devuelve NaN y avisa.
 
@@ -120,6 +119,7 @@ def performance_per_file(df: pd.DataFrame, region: str, prod_df: pd.DataFrame) -
         - Nommunicipio: Nombre del municipio (str).
         - Nomcultivo: Nombre del cultivo (str).
         - Rend_t_ha: Rendimiento en toneladas por hectárea (float).
+    - crop: Nombre del cultivo a buscar en prod_df (ej. "Trigo grano").
 
     Regresa:
     - Rendimiento promedio (ton/ha) para los años encontrados en df, o NaN si no se encuentra
@@ -135,7 +135,7 @@ def performance_per_file(df: pd.DataFrame, region: str, prod_df: pd.DataFrame) -
         sel = prod_df[
             (prod_df["Anio"] == y)
             & (prod_df["Nommunicipio"].astype(str).str.strip() == region)
-            & (prod_df["Nomcultivo"] == "Trigo grano")
+            & (prod_df["Nomcultivo"] == crop)
         ]
 
         if sel.empty:

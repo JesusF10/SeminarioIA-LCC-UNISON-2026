@@ -35,7 +35,6 @@ cools_to_keep_nacional = [
     "Nomestado",
     "Idciclo",
     "Idmodalidad",
-    "Idcultivo",
     "Nomcultivo",
     "Cosechada",
     "Siniestrada",

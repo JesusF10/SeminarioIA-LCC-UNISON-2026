@@ -109,7 +109,7 @@ def get_prod_data(
 
     df = pd.concat(dataframes, ignore_index=True)
 
-    # Filter by location (municipal only)
+    # Filtrar por municipio (solo municipal)
     if muni and loc_name != "all":
         if isinstance(loc_name, int):
             df = df[df["Idmunicipio"] == loc_name]
@@ -119,7 +119,7 @@ def get_prod_data(
             else:
                 df = df[df["Nommunicipio"] == loc_name]
 
-    # Filter by crop (both municipal and national)
+    # Filtrar por cultivo
     if crop_name != "all":
         if isinstance(crop_name, int):
             df = df[df["Idcultivo"] == crop_name]

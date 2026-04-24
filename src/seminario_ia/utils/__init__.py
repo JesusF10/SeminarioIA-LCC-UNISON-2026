@@ -11,8 +11,8 @@ from seminario_ia.utils.eto import (
     extraterrestrial_radiation_mj_m2d as extraterrestrial_radiation_mj_m2d,
 )
 from seminario_ia.utils.eto import net_shortwave_rns as net_shortwave_rns
-from seminario_ia.utils.kc import performance_per_file as performance_per_file
 from seminario_ia.utils.nasa_power import get_nasa_power_data as get_nasa_power_data
+from seminario_ia.utils.performance import performance_per_file as performance_per_file
 
 __all__ = {
     "date_from_year_doy",
