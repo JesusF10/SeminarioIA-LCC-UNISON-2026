@@ -18,7 +18,6 @@ cols_to_keep_municipal = [
     "Nommunicipio",
     "Idciclo",
     "Idmodalidad",
-    "Idcultivo",
     "Nomcultivo",
     "Sembrada",
     "Cosechada",
@@ -45,9 +44,17 @@ cools_to_keep_nacional = [
 ]
 
 new_path_muni = PROCESSED_DIR / "siap_produccion" / "sonora"
+if new_path_muni.exists():
+    print(f"El directorio {new_path_muni} ya existe. Se eliminará su contenido.")
+    for file in new_path_muni.glob("*.csv"):
+        file.unlink()
 new_path_muni.mkdir(parents=True, exist_ok=True)
 
 new_path_nacional = PROCESSED_DIR / "siap_produccion" / "nacional"
+if new_path_nacional.exists():
+    print(f"El directorio {new_path_nacional} ya existe. Se eliminará su contenido.")
+    for file in new_path_nacional.glob("*.csv"):
+        file.unlink()
 new_path_nacional.mkdir(parents=True, exist_ok=True)
 
 pprint("Columnas a conservar (en municipal):")
@@ -66,7 +73,9 @@ for file in files_municipal:
         print(f"Total de registros: {len(df)}")
         print(df[df.isnull().any(axis=1)])
 
-    df.to_csv(new_path_muni / file.name, index=False)
+    if new_path_muni / file.name in new_path_muni.glob("*.csv"):
+        print(f"Archivo {file.name} ya existe en destino. Se sobrescribirá.")
+    df.to_csv(new_path_muni / file.name, index=False, mode="w")
 
 
 pprint("Columnas a conservar (en nacional):")
