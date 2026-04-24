@@ -1,0 +1,591 @@
+#import "@preview/fletcher:0.5.5" as fletcher: diagram, edge, node
+
+#set page(
+  paper: "a4",
+  margin: (x: 2cm, y: 2.5cm),
+  header: align(right, text(8pt, gray)[Cálculo de Huella Hídrica (FAO-56)]),
+  footer: context [
+    #set text(8pt, gray)
+    #grid(
+      columns: (1fr, 1fr),
+      [Reconversión de cultivos], align(right, counter(page).display()),
+    )
+  ],
+)
+
+#set text(
+  font: "Nimbus Sans",
+  size: 10pt,
+  lang: "es",
+  region: "mx",
+)
+
+#set heading(numbering: "1.1.")
+
+#align(center)[
+  #text(18pt, weight: "bold")[Metodología de Cálculo de Evapotranspiración y Huella Hídrica] \
+  #v(0.5cm)
+  #text(12pt, weight: "medium")[Basado en el Estándar FAO-56 Penman-Monteith] \
+  #v(0.2cm)
+  #text(10pt, style: "italic")[Proyecto: Reconversión de Cultivos en Sonora]
+]
+
+#v(1cm)
+
+= Introducción
+
+El presente reporte técnico detalla el marco matemático y procedimental utilizado para la estimación de la Evapotranspiración de Referencia ($E T_o$), la Evapotranspiración del Cultivo ($E T_c$) y la determinación de la Huella Hídrica ($H H$) en sus componentes verde y azul. El análisis se fundamenta estrictamente en la metodología propuesta por la Organización de las Naciones Unidas para la Alimentación y la Agricultura en el manual *FAO-56 Irrigation and Drainage Paper*, implementada computacionalmente para el estado de Sonora.
+
+El objetivo central es cuantificar el consumo hídrico real de los cultivos (inicialmente Trigo grano) para establecer una línea base técnica que permita evaluar alternativas de reconversión productiva más eficientes y rentables ante el estrés hídrico de la región.
+
+= Fuentes de Datos y Parámetros
+
+El sistema de cálculo integra dos tipos de insumos fundamentales: datos climáticos satelitales de alta resolución y parámetros específicos del dominio agrícola local.
+
+== NASA POWER API (Datos Meteorológicos)
+
+Los datos climáticos diarios se obtienen mediante la API de NASA POWER (`AG` community, daily frequency). Los parámetros verificados en el script `nasa_power.py` y su uso en las ecuaciones son:
+
+- *ALLSKY_SFC_SW_DWN ($R_s$):* Radiación solar de onda corta incidente en la superficie [MJ/m²/día].
+- *WS2M ($u_2$):* Velocidad del viento medida a 2 metros de altura [m/s].
+- *T2M_MAX ($T_"max"$):* Temperatura máxima del aire a 2 metros [°C].
+- *T2M_MIN ($T_"min"$):* Temperatura mínima del aire a 2 metros [°C].
+- *RH2M ("RH"):* Humedad relativa media a 2 metros [%].
+- *PRECTOTCORR ($P$):* Precipitación corregida acumulada diaria [mm/día].
+
+== Parámetros de Configuración Regional y de Cultivo
+
+Estos datos son ingresados manualmente o mediante archivos de referencia municipal (`SonoraLatLongAlt.csv`):
+
+- *Ubicación:* Latitud ($phi$), Longitud y Altitud ($z$ en metros sobre el nivel del mar).
+- *Calendario Agrícola:* Fechas de siembra y cosecha (Ciclo Otoño-Invierno).
+- *Coeficientes de Cultivo ($K_c$):* Valores para las etapas inicial ($K_(c, "ini")$), media ($K_(c, "mid")$) y final ($K_(c, "end")$).
+- *Duración de Etapas:* Número de días para las fases inicial, desarrollo, mediados y final.
+- *Rendimiento:* Toneladas por hectárea ($t/h a$) reportadas por el SIAP.
+
+#v(1cm)
+#figure(
+  diagram(
+    node-defocus: 0.1,
+    spacing: (1.5cm, 1.2cm),
+    node((0, 0), [Definición de Región\ (Lat, Lon, Alt)], stroke: 1pt, fill: blue.lighten(90%), name: <reg>),
+    node((2, 0), [Parámetros Cultivo\ (Kc, Duración, Rend)], stroke: 1pt, fill: green.lighten(90%), name: <cult>),
+    node((1, 1), [NASA POWER API], stroke: 1pt, fill: orange.lighten(90%), name: <nasa>),
+
+    edge(<reg>, <nasa>, [Consulta], "-|>"),
+    edge(<cult>, (1, 2), "-|>"),
+    edge(<nasa>, (1, 2), [Datos Diarios\ (T, RH, Rs, u2, P)], "-|>"),
+
+    node((1, 2), [Procesamiento ETo / HH], stroke: 2pt, fill: gray.lighten(90%), name: <proc>),
+    node((1, 3), [Reporte / Dataset ML], stroke: 1pt, fill: red.lighten(90%), name: <out>),
+    edge(<proc>, <out>, "-|>"),
+  ),
+  caption: [Flujo de Ingesta y Origen de Datos],
+)
+
+= Metodología de Cálculo (FAO-56)
+
+La ecuación de Penman-Monteith es el estándar global para estimar la evapotranspiración de una superficie de referencia (pasto de 0.12m de altura, bien regado y con albedo de 0.23).
+
+== Evapotranspiración de Referencia ($E T_o$)
+
+La fórmula general para un paso de tiempo diario es:
+
+$ E T_o = frac(0.408 Delta (R_n - G) + gamma frac(900, T + 273) u_2 (e_s - e_a), Delta + gamma (1 + 0.34 u_2)) $
+
+Donde:
+- $E T_o$: Evapotranspiración de referencia [mm/día].
+- $R_n$: Radiación neta en la superficie del cultivo [MJ/m²/día].
+- $G$: Flujo de calor del suelo [MJ/m²/día] (asumido como 0 para cálculos diarios).
+- $T$: Temperatura media del aire a 2 m de altura [°C].
+- $u_2$: Velocidad del viento a 2 m de altura [m/s].
+- $e_s$: Presión de vapor de saturación [kPa].
+- $e_a$: Presión real de vapor [kPa].
+- $e_s - e_a$: Déficit de presión de vapor [kPa].
+- $Delta$: Pendiente de la curva de presión de vapor [kPa/°C].
+- $gamma$: Constante psicrométrica [kPa/°C].
+
+Implementación en Python:
+```python
+def eto_fao56_mm(
+    tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0
+):
+    """
+    Regresa un diccionario con los componentes intermedios y el resultado final de
+    la evapotranspiración de referencia (ETo) en mm/día usando el método de Penman-Monteith según FAO-56.
+
+    ETo [mm/día] — FAO-56 Penman-Monteith (Eq. 6) diario (G=0 por defecto).
+    - Usa es, ea (de T y HR)
+    - delta(Tmean), gamma(z)
+    - Rn = Rns - Rnl (Rnl FAO-56 Eq. 39)
+
+    Parametros:
+        - tmax, tmin: Temperaturas máxima y mínima en °C.
+        - rh_pct: Humedad relativa promedio en %.
+        - u2_ms: Velocidad del viento a 2 m en m/s.
+        - rs_mjm2d: Radiación solar global en MJ/m²/día.
+        - lat_deg: Latitud en grados.
+        - z_m: Altitud en metros.
+        - doy: Día del año (1-365/366).
+        - g_mjm2d: Flujo de calor del suelo en MJ/m²/d
+
+    Regresa:
+    Un diccionario con:
+        - Tmean_: Temperatura media (°C).
+        - es_: Presión de vapor de saturación (kPa).
+        - ea_: Presión de vapor real (kPa).
+        - delta_: Pendiente de la curva de saturación (kPa/°C).
+        - P_: Presión atmosférica (kPa).
+        - gamma_: Constante psicrométrica (kPa/°C).
+        - Rso_: Radiación extraterrestre (MJ/m²/día).
+        - Rns_: Radiación neta de onda corta (MJ/m²/día).
+        - Rnl_: Radiación neta de onda larga (MJ/m²/día).
+        - Rn_: Radiación neta total (MJ/m²/día).
+        - ET0: Evapotranspiración de referencia (mm/día).
+    """
+    tmean = (tmax + tmin) / 2.0
+    es = (es_kpa(tmax) + es_kpa(tmin)) / 2.0
+    ea = es * (rh_pct / 100.0)
+    delta = delta_kpa_per_c(tmean)
+    p = atm_pressure_kpa(z_m)
+    gamma = psychrometric_constant_kpa_per_c(p)
+
+    # ===================== Versión FAO-56 ========================
+    # Rso = clear_sky_radiation_Rso_FAO56(lat_deg, doy, z_m)
+    # =============================================================
+
+    # ===================== Versión "UAMEX" =======================
+    rso = extraterrestrial_radiation_mj_m2d(
+        lat_deg, doy
+    )  # ← aquí va Ra cuando uses la versión "equipo"
+
+    rns = net_shortwave_rns(rs_mjm2d=rs_mjm2d, albedo=ALBEDO)
+    rnl = net_longwave_rnl_fao56(tmax, tmin, ea, rs_mjm2d, rso)
+    rn = rns - rnl
+    num = 0.408 * delta * (rn - g_mjm2d) + gamma * (900.0 / (tmean + 273.0)) * u2_ms * (
+        es - ea
+    )
+    den = delta + gamma * (1.0 + 0.34 * u2_ms)
+    eto = max(0.0, num / den)
+    return {
+        "Tmean_": tmean,
+        "es_": es,
+        "ea_": ea,
+        "delta_": delta,
+        "P_": p,
+        "gamma_": gamma,
+        "Rso_": rso,
+        "Rns_": rns,
+        "Rnl_": rnl,
+        "Rn_": rn,
+        "ET0": eto,
+    }
+```
+
+== Evapotranspiración del Cultivo ($E T_c$)
+
+Se ajusta la demanda de agua de referencia al cultivo específico mediante el coeficiente $K_c$:
+
+$ E T_c = K_c dot E T_o $
+
+El valor de $K_c$ varía según la etapa fenológica del cultivo (curva de 4 etapas).
+
+Implementación en Python:
+```python
+def daily_kc_curve(
+    fechas_idx: pd.DatetimeIndex,
+    kc_ini: float,
+    kc_mid: float,
+    kc_end: float,
+    dur,  # (d_ini, d_des, d_mid, d_fin)
+    endpoint_rampas: bool = True,  # se mantiene por compatibilidad, no se usa
+) -> pd.Series:
+    """
+    Calcula la curva de Kc diaria a partir de los parámetros dados.
+
+    Versión con ASIGNACIÓN POR FASE (sin rampas):
+      - Inicio: kc_ini (constante)
+      - Desarrollo: kc_mid (constante)  ← se permiten saltos
+      - Media: kc_mid (constante)
+      - Final: kc_end (constante)
+
+    Parámetros:
+    - fechas_idx: Índice de fechas para el ciclo completo.
+    - kc_ini: Kc al inicio del ciclo (constante).
+    - kc_mid: Kc en la fase media del ciclo (constante).
+    - kc_end: Kc al final del ciclo (constante).
+    - dur: Tupla con la duración (en días) de cada fase: (d_ini, d_des, d_mid, d_fin).
+    - endpoint_rampas: Si True, se generan rampas lineales entre fases; si False, se asignan
+        valores constantes por fase con saltos entre ellas.
+
+    Regresa:
+    - Serie de Kc diario con el mismo índice que fechas_idx.
+    """
+    d_ini, d_des, d_mid, d_fin = dur
+    n = len(fechas_idx)
+
+    kc_ini_arr = np.full(d_ini, kc_ini)
+    kc_des_arr = np.full(d_des, kc_mid)  # salto kc_ini -> kc_mid
+    kc_mid_arr = np.full(d_mid, kc_mid)
+    kc_fin_arr = np.full(d_fin, kc_end)  # salto kc_mid -> kc_end
+
+    kc_full = np.concatenate([kc_ini_arr, kc_des_arr, kc_mid_arr, kc_fin_arr])
+
+    # Ajuste a la longitud disponible
+    if len(kc_full) >= n:
+        kc_full = kc_full[:n]
+    else:
+        kc_full = np.concatenate([kc_full, np.full(n - len(kc_full), kc_end)])
+
+    return pd.Series(kc_full, index=fechas_idx, name="Kc_")
+```
+
+== Precipitación Efectiva ($P_"ef"$)
+
+No toda el agua de lluvia es aprovechada por el cultivo. Se utiliza el método simplificado de la FAO:
+
+- Si $P_"ciclo" < 250$ mm: $P_"ef" = 0.8 dot P_"total"$
+- Si $P_"ciclo" >= 250$ mm: $P_"ef" = 0.6 dot P_"total"$
+
+Implementación en Python:
+```python
+def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
+    """
+    Calcula el Pef diario a partir de la precipitación total (Ptotal) usando una regla simple basada en FAO-56:
+        FAO simple: Pef = f * Ptotal.
+        f = 0.8 si Ptotal < 250 mm; f = 0.6 si no.
+        Se aplica el mismo factor f a cada día.
+
+    Parámetros:
+        - ptot_series_mm: Serie de precipitación total (mm) por día.
+
+    Regresa:
+        - Serie de Pef diario (mm) con el mismo índice que ptot_series_mm.
+    """
+    ptotal = ptot_series_mm.fillna(0).sum()
+    f = 0.8 if ptotal < 250.0 else 0.6
+    return ptot_series_mm.fillna(0) * f  # Pef_ diario
+```
+
+= Huella Hídrica (HH)
+
+La huella hídrica cuantifica el volumen de agua dulce utilizado para producir el cultivo.
+
+== Componentes Verde y Azul
+
+- *Componente Verde ($E T_"verde"$):* Agua de lluvia consumida por el cultivo.
+  $ E T_"verde" = min(E T_c, P_"ef") $
+- *Componente Azul ($E T_"azul"$):* Agua de riego o recursos hídricos superficiales/subterráneos.
+  $ E T_"azul" = max(E T_c - P_"ef", 0) $
+
+== Consumo Unitario de Agua (UAC)
+
+Representa el volumen total acumulado por hectárea ($m^3/h a$).
+$ U A C = sum_"ciclo" E T dot 10 $
+(Nota: El factor 10 convierte mm de lámina de agua a $m^3/h a$).
+
+== Huella Hídrica Total ($H H$)
+
+Se expresa como el volumen de agua por unidad de masa producida ($m^3/t$):
+
+$ H H = frac(U A C, "Rendimiento" (t/h a)) $
+
+Implementación en Python:
+```python
+def calculate_wf_uac(
+    green_et_series_mm: pd.Series,
+    blue_et_series_mm: pd.Series,
+    performance_ton_ha: float,
+) -> dict:
+    """
+    Calcula:
+      - ETverde_total_mm, ETazul_total_mm
+      - UACverde_m3_ha, UACazul_m3_ha
+      - HHverde_m3_ton, HHazul_m3_ton
+    Convenciones:
+      - 1 mm sobre 1 ha = 10 m3  => UAC = sum(ET) * 10
+      - HH = UAC / rendimiento(ton/ha)
+    Si no hay rendimiento válido (>0), HH = NaN.
+
+    Parametros:
+        - green_et_series_mm: Serie de ET verde diario (mm).
+        - blue_et_series_mm: Serie de ET azul diario (mm).
+        - performance_ton_ha: Rendimiento en toneladas por hectárea (ton/ha).
+
+    Regresa:
+        Diccionario con las métricas calculadas:
+        {
+            "ETverde_total_mm": ...,
+            "ETazul_total_mm": ...,
+            "UACverde_m3_ha": ...,
+            "UACazul_m3_ha": ...,
+            "HHverde_m3_ton": ...,
+            "HHazul_m3_ton": ...,
+        }
+    """
+    total_green_et_mm = float(pd.Series(green_et_series_mm).fillna(0).sum())
+    total_blue_et_mm = float(pd.Series(blue_et_series_mm).fillna(0).sum())
+
+    green_uac_m3_ha = total_green_et_mm * 10.0
+    blue_uac_m3_ha = total_blue_et_mm * 10.0
+
+    if (performance_ton_ha is not None) and (performance_ton_ha > 0):
+        green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha
+        blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha
+    else:
+        green_wf_m3_ton = float("nan")
+        blue_wf_m3_ton = float("nan")
+
+    return {
+        "ETverde_total_mm": total_green_et_mm,
+        "ETazul_total_mm": total_blue_et_mm,
+        "UACverde_m3_ha": green_uac_m3_ha,
+        "UACazul_m3_ha": blue_uac_m3_ha,
+        "HHverde_m3_ton": green_wf_m3_ton,
+        "HHazul_m3_ton": blue_wf_m3_ton,
+    }
+```
+
+#v(1cm)
+#figure(
+  diagram(
+    node-defocus: 0.1,
+    spacing: (1.5cm, 1cm),
+    node((0, 0), [Datos Clima], name: <clima>),
+    node((0, 1), [Cálculo $E T_o$\ (Penman-Monteith)], stroke: 1pt, name: <eto>),
+    node((2, 1), [Curva $K_c$], name: <kc>),
+    node((1, 2), [$E T_c = E T_o dot K_c$], stroke: 2pt, name: <etc>),
+    node((0, 2), [Precipitación ($P$)], name: <p>),
+    node((0, 3), [$P_"ef"$ (FAO Simple)], name: <pef>),
+
+    edge(<clima>, <eto>, "-|>"),
+    edge(<eto>, <etc>, "-|>"),
+    edge(<kc>, <etc>, "-|>"),
+    edge(<p>, <pef>, "-|>"),
+
+    node((1, 4), [$E T_"Verde"$ / $E T_"Azul"$], stroke: 1pt, name: <va>),
+    edge(<etc>, <va>, "-|>"),
+    edge(<pef>, <va>, "-|>"),
+
+    node((1, 5), [$U A C$ ($m^3/h a$)], name: <uac>),
+    node((2, 6), [Rendimiento], name: <rend>),
+    node((1, 7), [Huella Hídrica ($m^3/t$)], stroke: 2pt, fill: red.lighten(95%), name: <hh>),
+
+    edge(<va>, <uac>, [Suma Ciclo], "-|>"),
+    edge(<uac>, <hh>, "-|>"),
+    edge(<rend>, <hh>, "-|>"),
+  ),
+  caption: [Proceso Secuencial de Cálculo de Huella Hídrica],
+)
+
+#pagebreak()
+
+= Apéndices: Derivaciones Matemáticas Detalladas
+
+A continuación se presentan las ecuaciones auxiliares necesarias para obtener las variables intermedias de la ecuación de Penman-Monteith.
+
+== Apéndice A: Constantes Físicas y Atmosféricas
+
+=== Presión Atmosférica ($P$)
+Depende de la elevación sobre el nivel del mar ($z$):
+$ P = 101.3 (frac(293 - 0.0065 z, 293))^(5.26) $
+
+```python
+def atm_pressure_kpa(z_m: float) -> float:
+    """
+    Calcula la presión atmosférica (kPa) a partir de la altitud en metros usando la
+    fórmula de barometría (FAO-56 Eq. 7).
+
+    Temperatura estándar de referencia (20 °C) se asume para el cálculo.
+
+    Parámetros:
+        z_m: Elevación sobre el nivel del mar [m].
+
+    Regresa:
+        Presión atmosférica [kPa].
+    """
+    return 101.3 * ((293.0 - 0.0065 * z_m) / 293.0) ** 5.26
+```
+
+=== Constante Psicrométrica ($gamma$)
+$ gamma = frac(c_p P, epsilon lambda) approx 0.000665 dot P $
+Donde:
+- $c_p$ (calor específico): $1.013 times 10^(-3)$ MJ/kg/°C.
+- $epsilon$ (cociente de pesos moleculares): 0.622.
+- $lambda$ (calor latente): 2.45 MJ/kg.
+
+```python
+def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
+    """
+    Calcula la constante psicrométrica (kPa/°C) a partir de la presión atmosférica en kPa
+    usando la fórmula de FAO-56 (Eq. 8).
+
+    Parámetros:
+        p_kpa: Presión atmosférica [kPa].
+
+    Regresa:
+        Un valor de la constante psicrométrica [kPa/°C].
+    """
+    cl = 2.45  # Calor latente de vaporización [MJ/kg]
+    cp = 1.013e-3  # Calor específico del aire [MJ/kg/°C]
+    epsilon = 0.622  # Cociente del peso molecular vapor de agua / aire seco
+    return (cp * p_kpa) / (epsilon * cl)
+```
+
+=== Pendiente de la Curva de Presión de Vapor ($Delta$)
+$ Delta = frac(4098 [0.6108 exp(frac(17.27 T, T + 237.3))], (T + 237.3)^2) $
+
+```python
+def delta_kpa_per_c(t_c: float) -> float:
+    """
+    Calcula la pendiente de la curva de saturación (kPa/°C) a partir de la temperatura en °C
+    usando la fórmula derivada de Tetens (FAO-56 Eq. 13).
+
+    Parámetros:
+        t_c: Temperatura de aire [°C].
+
+    Regresa:
+        Pendiente de la curva de saturación [kPa/°C].
+    """
+    e = es_kpa(t_c)
+    return 4098.0 * e / ((t_c + 237.3) ** 2)
+```
+
+=== Presión de Vapor ($e_s, e_a$)
+$ e^o (T) = 0.6108 exp(frac(17.27 T, T + 237.3)) $
+$ e_s = frac(e^o (T_"max") + e^o (T_"min"), 2) $
+$ e_a = e_s dot frac("RH", 100) $
+
+```python
+def es_kpa(t_c: float) -> float:
+    """
+    Calcula la presión de vapor de saturación (kPa) a partir de la temperatura en °C
+    usando la fórmula de Tetens (FAO-56 Eq. 11).
+
+    Parámetros:
+        t_c: Temperatura del aire [°C].
+
+    Regresa:
+        Presión de vapor de saturación [kPa].
+    """
+    return 0.6108 * math.exp((17.27 * t_c) / (t_c + 237.3))
+```
+
+== Apéndice B: Balance de Radiación ($R_n$)
+
+=== Radiación Extraterrestre ($R_a$)
+$ R_a = frac(24 dot 60, pi) G_"sc" d_r (omega_s sin(phi) sin(delta) + cos(phi) cos(delta) sin(omega_s)) $
+Donde:
+- $d_r$ (distancia relativa inversa Tierra-Sol): $1 + 0.033 cos(frac(2 pi, 365) J)$.
+- $delta$ (declinación solar): $0.409 sin(frac(2 pi, 365) J - 1.39)$.
+- $omega_s$ (ángulo de puesta de sol): $arccos(-tan(phi) tan(delta))$.
+- $J$: Día juliano del año (1 a 365/366).
+
+Se confirma que la fórmula de radiación ($R_a$) utiliza correctamente senos y cosenos según la implementación en `extraterrestrial_radiation_mj_m2d`:
+
+```python
+def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:
+    """
+    Calcula la radiación extraterrestre (Ra) en MJ/m²/día a partir de la latitud en grados y
+    el día del año usando las fórmulas de FAO-56 (Eqs. 21–25).
+
+    Parámetros:
+        lat_deg: Latitud en grados.
+        doy: Día del año (1-365/366).
+
+    Regresa:
+        Valor de la radiación extraterrestre [MJ/m²/día].
+    """
+    phi = math.radians(lat_deg)
+    dr = 1.0 + 0.033 * math.cos(2.0 * math.pi / 365.0 * doy)
+    delta = 0.409 * math.sin(2.0 * math.pi / 365.0 * doy - 1.39)
+    ws = math.acos(-math.tan(phi) * math.tan(delta))
+    ra = (
+        (24.0 * 60.0 / math.pi)
+        * GSC
+        * dr
+        * (
+            ws * math.sin(phi) * math.sin(delta)
+            + math.cos(phi) * math.cos(delta) * math.sin(ws)
+        )
+    )
+    return ra
+```
+
+=== Radiación Neta de Onda Corta ($R_"ns"$)
+$ R_"ns" = (1 - alpha) R_s $
+Implementado con $alpha = 0.23$ (cultivo de referencia).
+
+```python
+def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:
+    """
+    Calcula la radiación neta de onda corta (Rns) en MJ/m²/día a partir de la radiación solar global
+    y el albedo usando la fórmula de FAO-56 (Eq. 38).
+
+    Rns [MJ m-2 d-1] — (1 - albedo) * Rs (FAO-56).
+
+    Parametros:
+        - rs_mjm2d: Radiación solar global [MJ/m²/día].
+        - albedo: Coeficiente de reflexión de la superficie (por defecto 0.23 para césped).
+
+    Regresa:
+        Valor de la radiación neta de onda corta [MJ/m²/día].
+    """
+    return (1.0 - albedo) * rs_mjm2d
+```
+
+=== Radiación Neta de Onda Larga ($R_"nl"$)
+$ R_"nl" = sigma (frac(T_(max, K)^4 + T_(min, K)^4, 2)) (0.34 - 0.14 sqrt(e_a)) (1.35 frac(R_s, R_"so") - 0.35) $
+Donde:
+- $sigma$: Constante de Stefan-Boltzmann ($4.903 times 10^(-9)$ MJ/K⁴/m²/día).
+- $R_"so"$ (radiación en cielo despejado): $(0.75 + 2 times 10^(-5) z) R_a$.
+
+```python
+def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float:
+    """
+    Calcula la radiación de cielo despejado (Rso) en MJ/m²/día a partir de la latitud,
+    día del año y altitud usando la fórmula de FAO-56 (Eq. 37).
+
+    FAO-56 - Cielo despejado: (0.75 + 2e-5*z) * Ra.
+
+    Parametros:
+        lat_deg: Latitud en grados.
+        doy: Día del año (1-365/366).
+        z_m: Altitud [m].
+
+    Regresa:
+        Valor de la radiación de cielo despejado [MJ/m²/día].
+    """
+    ra = extraterrestrial_radiation_mj_m2d(lat_deg, doy)
+    return (0.75 + 2e-5 * z_m) * ra
+```
+
+```python
+def net_longwave_rnl_fao56(
+    tmax_c: float, tmin_c: float, ea_kpa: float, rs_mjm2d: float, rso_mjm2d: float
+) -> float:
+    """
+    Calcula la radiación neta de onda larga (Rnl) en MJ/m²/día a partir de las temperaturas máxima
+    y mínima, la presión de vapor actual, la radiación solar global y la radiación de cielo despejado
+    usando la fórmula de FAO-56 (Eq. 39).
+
+    Parametros:
+        tmax_c: Temperatura máxima absoluta en un periodo de 24h del aire [°C].
+        tmin_c: Temperatura mínima absoluta en un periodo de 24h del aire [°C].
+        ea_kpa: Presión de vapor real [kPa].
+        rs_mjm2d: Radiación solar media o calculada [MJ/m²/día].
+        rso_mjm2d: Radiación solar de cielo despejado [MJ/m²/día].
+
+    Regresa:
+        Valor de la radiación neta de onda larga [MJ/m²/día] calculada según FAO-56.
+    """
+    tmaxk, tmink = tmax_c + 273.16, tmin_c + 273.16
+    t4 = (tmaxk**4 + tmink**4) / 2.0
+    # Radiacion relativa de onda corta (Rs/Rso)
+    rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))
+    fcloud = 1.35 * rsrso - 0.35
+    return SIGMA * t4 * (0.34 - 0.14 * math.sqrt(max(ea_kpa, 0.0))) * fcloud
+```
+
+=== Radiación Neta Total ($R_n$)
+$ R_n = R_"ns" - R_"nl" $

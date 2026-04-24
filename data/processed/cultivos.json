@@ -1,0 +1,25 @@
+{
+  "Trigo grano": {
+    "calendario": {
+      "start_mmdd": ["10", "30"],
+      "end_mmdd": ["4", "19"]
+    },
+    "dur": ["31", "47", "63", "31"],
+    "kc": {
+      "ini": "0.30",
+      "mid": "1.15",
+      "end": "0.25"
+    }
+  },
+  "nuevo cultivo": {
+    "calendario": {
+      "start_mmdd": ["month_num", "day_num"],
+      "end_mmdd": ["month_num", "day_num"]
+    },
+    "dur": ["dur1", "dur2", "dur3", "dur4"],
+    "kc": {
+      "ini": "ini_kc",
+      "mid": "mid_kc",
+      "end": "end_kc"
+  }
+}
