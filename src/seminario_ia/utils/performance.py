@@ -2,6 +2,10 @@
 Funciones para calcular la curva de Kc diaria, Pef diario, rendimiento, UAC y HH.
 """
 
+from seminario_ia.models import Region
+
+from .eto import eto_fao56_mm
+
 import numpy as np
 import pandas as pd
 
@@ -54,7 +58,7 @@ def daily_kc_curve(
     return pd.Series(kc_full, index=fechas_idx, name="Kc_")
 
 
-def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
+def calculate_daily_simple_efp(ptot_series_mm: pd.Series) -> pd.Series:
     """
     Calcula el Pef diario a partir de la precipitación total (Ptotal) usando una regla simple basada en FAO-56:
         FAO simple: Pef = f * Ptotal.
@@ -72,32 +76,7 @@ def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
     return ptot_series_mm.fillna(0) * f  # Pef_ diario
 
 
-# ----------------------------------------------------------------------------------
-# def rendimiento_por_archivo(df: pd.DataFrame, region: str) -> float:
-#    """
-#    Obtiene el rendimiento (ton/ha) para el/los años presentes en el archivo.
-#    - Si hay varios años, usa el promedio simple de los disponibles en prod_df
-#      para ese municipio y cultivo (Trigo grano).
-#    - Si no hay coincidencias, devuelve NaN.
-#    """
-#    years = sorted(set(int(y) for y in pd.Series(df["YEAR"]).dropna().unique()))
-#    rend_vals = []
-#    for y in years:
-#        sel = prod_df[
-#            (prod_df["Anio"] == y) &
-#            (prod_df["Nommunicipio"] == region) &
-#            (prod_df["Nomcultivo"] == "Trigo grano")
-#        ]
-#        if not sel.empty:
-#            vals = sel["Rend_t_ha"].astype(float).tolist()
-#            rend_vals.extend(vals)
-#    if rend_vals:
-#        return float(np.mean(rend_vals))
-#    return float("nan")
-# ----------------------------------------------------------------------------------
-
-
-def performance_per_file(
+def calculate_performance_per_file(
     df: pd.DataFrame, region: str, prod_df: pd.DataFrame, crop: str
 ) -> float:
     """
@@ -126,8 +105,9 @@ def performance_per_file(
     ningún dato en prod_df para esos años y región.
     """
     # Años presentes en el archivo de clima (ej. 2010 y 2011 para un ciclo 2010–2011)
-    years = pd.to_numeric(df["YEAR"], errors="coerce").dropna().astype(int).unique()
-    years = sorted(years)
+    # date_col = [year_doy_from_date(row)[0] for row in df["DATE"]]
+    # years = pd.to_numeric(date_col, errors="coerce").dropna().astype(int).unique()
+    years = df["DATE"].dt.year.unique()
 
     rend_vals = []
 
@@ -145,7 +125,8 @@ def performance_per_file(
             continue
 
         # Si hay varias filas, promediamos el rendimiento
-        r_mean = float(sel["Rend_t_ha"].astype(float).mean())
+        # r_mean = float(sel["Rend_t_ha"].astype(float).mean())
+        r_mean = float(sel["Rendimiento"].astype(float).mean())
         rend_vals.append(r_mean)
 
     if rend_vals:
@@ -159,7 +140,7 @@ def performance_per_file(
     return float("nan")
 
 
-def calculate_wf_uac(
+def calculate_wf_wc(
     green_et_series_mm: pd.Series,
     blue_et_series_mm: pd.Series,
     performance_ton_ha: float,
@@ -213,7 +194,7 @@ def calculate_wf_uac(
     }
 
 
-def decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
+def calculate_decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
     """
     Calcula las décadas relativas al ciclo (no calendario) a partir de un índice de fechas.
     Cada década corresponde a un bloque de 10 días consecutivos, comenzando desde el inicio del
@@ -229,3 +210,75 @@ def decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
     n = len(idx)
     dec = np.ceil((np.arange(1, n + 1)) / 10.0).astype(int)
     return pd.Series(dec, index=idx, name="decada_")
+
+
+def process_file_per_region_crop(
+    region: Region, data_nasa: pd.DataFrame, crop_name: str, prod_data: pd.DataFrame
+) -> pd.DataFrame:
+
+    # Obtener informacion del cultivo:
+    crop = region.get_crop(crop_name)
+    kc = crop.kc
+    dur = crop.durations
+
+    # Fechas y orden
+    dates = data_nasa["DATE"]
+
+    # Kc Diario (indice consistente)
+    daily_kc = daily_kc_curve(
+        dates, kc_ini=kc["ini"], kc_mid=kc["mid"], kc_end=kc["end"], dur=dur
+    ).reset_index(drop=True)
+
+    eto_out = []
+
+    for row in data_nasa.itertuples():
+        _, date, rs, _, _, u2_ms, tmax, tmin, hr_pct = row
+        calc = eto_fao56_mm(
+            tmax=tmax,
+            tmin=tmin,
+            rh_pct=hr_pct,
+            u2_ms=u2_ms,
+            rs_mjm2d=rs,
+            lat_deg=region.latitude,
+            z_m=region.altitude,
+            doy=date.dayofyear,
+        )
+        eto_out.append(calc)
+
+    eto_df = pd.DataFrame(eto_out, index=data_nasa.index)
+
+    # --- Pef (FAO simple sobre el ciclo) ---
+    efp_series = calculate_daily_simple_efp(data_nasa["PRECTOTCORR"])
+    efp_series.index = data_nasa.index
+
+    # Decadas del ciclo (1..ceil(n/10)) con índice consistente ---
+    decades_series = calculate_decades_per_cycle(dates).reset_index(drop=True)
+
+    # --- ETc, ET verde/azul (todo con el mismo índice) ---
+    et0 = eto_df["ET0"]
+    etc = et0 * daily_kc
+
+    green_et = np.minimum(etc, efp_series)
+    blue_et = np.maximum(etc - efp_series, 0.0)
+
+    # --- Rendimiento (ton/ha) según año(s) presentes en el archivo ---
+    performance = calculate_performance_per_file(
+        data_nasa, region.name, prod_data, crop_name
+    )
+
+    summary_wf = calculate_wf_wc(green_et, blue_et, performance)
+
+    out = data_nasa.copy()
+    out["EP"] = efp_series
+    out["DECADE"] = decades_series
+    out["ET0"] = et0
+    out["ETC"] = etc
+    out["G_ET"] = green_et
+    out["B_ET"] = blue_et
+
+    out["G_WC"] = summary_wf["UACverde_m3_ha"]
+    out["B_WC"] = summary_wf["UACazul_m3_ha"]
+    out["G_HH"] = summary_wf["HHverde_m3_ton"]
+    out["B_HH"] = summary_wf["HHazul_m3_ton"]
+
+    return out

@@ -5,8 +5,12 @@ Este módulo proporciona funciones para acceder a datos procesados,
 incluyendo coordenadas de municipios en Sonora.
 """
 
+import json
+
+from seminario_ia.models import Crop
+
 from .codes import get_mun_code
-from .paths import COORDINATES_CSV, PROCESSED_DIR, RAW_DATASETS
+from .paths import CONFIG_DATA_DIR, COORDINATES_CSV, PROCESSED_DIR, RAW_DATASETS
 
 import pandas as pd
 
@@ -16,6 +20,10 @@ coordinates = coordinates.drop(columns=["entidad"])
 prod_files = PROCESSED_DIR / "siap_produccion"
 prod_muni_files = prod_files / "sonora"
 prod_nat_files = prod_files / "nacional"
+
+NASA_POWER_FILES = PROCESSED_DIR / "nasa_power"
+
+crops_info = CONFIG_DATA_DIR / "cultivos.json"
 
 
 def get_mun_coordinates(input: str | int = "all") -> pd.DataFrame:
@@ -130,6 +138,129 @@ def get_prod_data(
                 df = df[df["Nomcultivo"] == crop_name]
 
     return df
+
+
+def read_nasa_power_file(year: str, loc: str = "all") -> pd.DataFrame:
+    """
+    Lee un archivo de datos de la API de NASA POWER para el año y ubicación especificados.
+
+    Parámetros:
+        - year: str - Año para el cual se desean los datos de NASA POWER.
+        - loc: str - El nombre o código del municipio. Si se deja vacío, se
+            cargan todos los datos (para todos los municipios).
+    """
+    files = NASA_POWER_FILES.glob(f"*{year}.csv")
+
+    dfs = []
+    for file in files:
+        if loc == "all" or loc in file.stem:
+            dfs.append(pd.read_csv(file, encoding="utf-8"))
+    if len(dfs) == 0:
+        return pd.DataFrame()
+    df = pd.concat(dfs, ignore_index=True).astype({"DATE": str})
+    df["DATE"] = pd.to_datetime(df["DATE"])
+    return df
+
+
+def get_nasa_power_data(
+    loc_name: str | int, year: int | list[int] | str = "all"
+) -> pd.DataFrame:
+    """
+    Carga los datos de la API de NASA POWER para el año y ubicación especificados.
+    Si no se encuentra algún dato, se devuelve un dataframe vacío.
+
+    Parámetros:
+        - year: int | list[int] | str - Año o años para los cuales se desean los datos de NASA POWER.
+            Puede ser un año específico (int), una lista de años (list[int]), o un rango de años en formato "YYYY-YYYY" (str).
+        - loc_name: str | int - El nombre o código del municipio.
+
+    Regresa:
+        - pd.DataFrame - Un dataframe con los datos de NASA POWER para el año y ubicación especificados, o un
+        dataframe vacío si no se encuentra ningún dato.
+
+    """
+    # Determinar los años
+    years = []
+    if year == "all":
+        years = list(range(2003, 2025))
+    elif isinstance(year, int):
+        years = [year]
+    elif isinstance(year, str):  # Formato admitido: YYYY-YYYY o YYYY
+        year_splitted = year.split("-")
+        if len(year_splitted) == 2:
+            years = list(range(int(year_splitted[0]), int(year_splitted[1]) + 1))
+        else:
+            years = [int(year)]
+    elif isinstance(year, list):
+        years = year
+
+    # Determinar los municipios:
+    if isinstance(loc_name, int):
+        loc_name_str = get_mun_code(loc_name)
+        if loc_name_str is None:
+            return pd.DataFrame()
+        return pd.concat(
+            [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
+            ignore_index=True,
+        ).sort_values(by=["DATE"])
+    elif isinstance(loc_name, str):
+        if loc_name.isdigit():
+            loc_name_str = get_mun_code(int(loc_name))
+            if loc_name_str is None:
+                return pd.DataFrame()
+            return pd.concat(
+                [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
+                ignore_index=True,
+            ).sort_values(by=["DATE"])
+        else:
+            return pd.concat(
+                [read_nasa_power_file(str(year), loc_name) for year in years],
+                ignore_index=True,
+            ).sort_values(by=["DATE"])
+
+    return pd.DataFrame()
+
+
+def get_crop_data(name: str) -> Crop:
+    """
+    Regresa un objeto Crop con la información del cultivo dado su nombre.
+
+    Parámetros:
+        - name: str - El nombre del cultivo.
+
+    Regresa:
+        - Crop - Un objeto Crop con la información del cultivo.
+    """
+    with open(crops_info, encoding="utf-8") as f:
+        crops_dict = json.load(f)
+        crop_info = crops_dict.get(name, {})
+        if crop_info:
+            calendar = crop_info["calendar"]
+            kc = crop_info["kc"]
+            durations = tuple(map(int, crop_info["durations"]))
+            return Crop(
+                name=name,
+                start_month=int(calendar["start_mmdd"][0]),
+                start_day=int(calendar["start_mmdd"][1]),
+                end_month=int(calendar["end_mmdd"][0]),
+                end_day=int(calendar["end_mmdd"][1]),
+                kc_ini=float(kc["ini"]),
+                kc_mid=float(kc["mid"]),
+                kc_end=float(kc["end"]),
+                durations=durations,
+            )
+        else:
+            return Crop(
+                name=name,
+                start_month=1,
+                start_day=1,
+                end_month=1,
+                end_day=1,
+                kc_ini=0.0,
+                kc_mid=0.0,
+                kc_end=0.0,
+                durations=(0, 0, 0, 0),
+            )
 
 
 if __name__ == "__main__":

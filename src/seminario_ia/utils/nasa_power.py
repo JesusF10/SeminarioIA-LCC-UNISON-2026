@@ -24,7 +24,7 @@ DEFAULT_PARAMS = [
 URL = "https://power.larc.nasa.gov/api/temporal/daily/point"
 
 
-def get_nasa_power_data(
+def request_nasa_power_data(
     loc_name: str,
     lat: float,
     lon: float,
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     start_date = "20240101"
     end_date = "20241231"
 
-    df_nasa_power = get_nasa_power_data(loc_name, lat, lon, start_date, end_date)
+    df_nasa_power = request_nasa_power_data(loc_name, lat, lon, start_date, end_date)
     if df_nasa_power is not None:
         print(df_nasa_power.head())
     print()

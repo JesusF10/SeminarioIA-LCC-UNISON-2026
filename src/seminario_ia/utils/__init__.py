@@ -2,17 +2,22 @@
 Proporciona funciones y clases de utilidad para el proyecto de seminario de IA.
 """
 
-from seminario_ia.utils.date import date_from_year_doy as date_from_year_doy
-from seminario_ia.utils.date import year_doy_from_date as year_doy_from_date
-from seminario_ia.utils.eto import (
+from .date import date_from_year_doy as date_from_year_doy
+from .date import year_doy_from_date as year_doy_from_date
+from .eto import (
     clear_sky_radiation_rso_fao56 as clear_sky_radiation_rso_fao56,
 )
-from seminario_ia.utils.eto import (
+from .eto import (
     extraterrestrial_radiation_mj_m2d as extraterrestrial_radiation_mj_m2d,
 )
-from seminario_ia.utils.eto import net_shortwave_rns as net_shortwave_rns
-from seminario_ia.utils.nasa_power import get_nasa_power_data as get_nasa_power_data
-from seminario_ia.utils.performance import performance_per_file as performance_per_file
+from .eto import net_shortwave_rns as net_shortwave_rns
+from .nasa_power import (
+    request_nasa_power_data as request_nasa_power_data,
+)
+from .performance import (
+    calculate_performance_per_file as calculate_performance_per_file,
+)
+from .performance import process_file_per_region_crop as process_file_per_region_crop
 
 __all__ = {
     "date_from_year_doy",
@@ -21,5 +26,6 @@ __all__ = {
     "clear_sky_radiation_rso_fao56",
     "net_shortwave_rns",
     "performance_per_file",
-    "get_nasa_power_data",
+    "request_nasa_power_data",
+    "process_file_per_region_crop",
 }

@@ -91,6 +91,20 @@ class Region(BaseModel):
             self.crops = [self.crops]
         self.crops.append(crop)
 
+    def get_crops(self) -> list[Crop]:
+        """Retorna la lista de cultivos, asegurando que siempre sea una lista."""
+        if isinstance(self.crops, Crop):
+            return [self.crops]
+        return self.crops
+
+    def get_crop(self, name: str) -> Crop:
+        """Obtiene un cultivo por su nombre."""
+        crops = self.get_crops()
+        for crop in crops:
+            if crop.name == name:
+                return crop
+        raise ValueError(f"Cultivo '{name}' no encontrado en la región '{self.name}'.")
+
     def __str__(self) -> str:
         """Representación amigable con estructura."""
         crops_str = ""

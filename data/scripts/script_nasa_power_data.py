@@ -1,5 +1,5 @@
 from seminario_ia.datasets import PROCESSED_DIR
-from seminario_ia.utils import get_nasa_power_data
+from seminario_ia.utils import request_nasa_power_data
 
 import pandas as pd
 
@@ -17,7 +17,7 @@ for row in coords.itertuples():
         filename = f"data_{municipio}_{year}.csv"
         start_date = f"{str(year)}0101"
         end_date = f"{str(year)}1231"
-        data = get_nasa_power_data(municipio, lat, lon, start_date, end_date)
+        data = request_nasa_power_data(municipio, lat, lon, start_date, end_date)
         if data is None:
             print(
                 f"Error al obtener datos para el municipio {municipio} en el año {year}."

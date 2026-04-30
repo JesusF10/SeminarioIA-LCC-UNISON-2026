@@ -252,7 +252,7 @@ if resultado is None:
 Todos los códigos se cargan desde el archivo JSON de codificación:
 
 ```
-data/processed/codificacion.json
+data/config/codificacion.json
 ```
 
 Este archivo contiene los mapeos oficiales utilizados en los datasets de SIAP.

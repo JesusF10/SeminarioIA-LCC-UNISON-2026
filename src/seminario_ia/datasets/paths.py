@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).parent.resolve()
 DATA_DIR = BASE_DIR.parent.parent.parent / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
 RAW_DIR = DATA_DIR / "raw"
+CONFIG_DATA_DIR = DATA_DIR / "config"
 
 # Rutas a datasets específicos en el directorio raw
 SEQUIA_DIR = RAW_DIR / "impacto-sequia"
@@ -33,4 +34,4 @@ RAW_DATASETS: dict[str, Path] = {
 
 # Rutas a archivos procesados
 COORDINATES_CSV = PROCESSED_DIR / "SonoraLatLongAlt.csv"
-JSON_CODIFICACION = PROCESSED_DIR / "codificacion.json"
+JSON_CODIFICACION = CONFIG_DATA_DIR / "codificacion.json"
