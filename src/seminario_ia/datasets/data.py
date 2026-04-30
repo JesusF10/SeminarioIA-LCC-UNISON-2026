@@ -221,46 +221,89 @@ def get_nasa_power_data(
     return pd.DataFrame()
 
 
-def get_crop_data(name: str) -> Crop:
+def _build_crop(name: str, crop_info: dict) -> Crop:
     """
-    Regresa un objeto Crop con la información del cultivo dado su nombre.
+    Función auxiliar para construir un objeto Crop a partir de
+    información JSON.
 
     Parámetros:
-        - name: str - El nombre del cultivo.
+        - name: str - Nombre del cultivo
+        - crop_info: dict - Diccionario con información del cultivo
 
     Regresa:
-        - Crop - Un objeto Crop con la información del cultivo.
+        - Crop - Objeto Crop con los parámetros especificados
+    """
+    if crop_info:
+        calendar = crop_info["calendar"]
+        kc = crop_info["kc"]
+        durations = tuple(map(int, crop_info["durations"]))
+        return Crop(
+            name=name,
+            start_month=int(calendar["start_mmdd"][0]),
+            start_day=int(calendar["start_mmdd"][1]),
+            end_month=int(calendar["end_mmdd"][0]),
+            end_day=int(calendar["end_mmdd"][1]),
+            kc_ini=float(kc["ini"]),
+            kc_mid=float(kc["mid"]),
+            kc_end=float(kc["end"]),
+            durations=durations,
+        )
+    else:
+        # Retornar Crop vacío si no existe información
+        return Crop(
+            name=name,
+            start_month=1,
+            start_day=1,
+            end_month=1,
+            end_day=1,
+            kc_ini=0.0,
+            kc_mid=0.0,
+            kc_end=0.0,
+            durations=(0, 0, 0, 0),
+        )
+
+
+def get_crop_data(name: str | None = None) -> Crop | dict[str, Crop]:
+    """
+    Retorna información de cultivos en forma de objeto Crop o
+    diccionario.
+
+    Parámetros:
+        - name: str | None - Nombre del cultivo específico, o None
+          para obtener todos
+
+    Regresa:
+        - Crop - Si se especifica un nombre: objeto Crop del cultivo
+        - dict[str, Crop] - Si name=None: diccionario
+          {nombre_cultivo: Crop}
+
+    Ejemplos:
+        # Obtener un cultivo específico
+        trigo = get_crop_data("Trigo grano")
+        print(trigo.kc_mid)  # 1.15
+
+        # Obtener todos los cultivos
+        todos = get_crop_data()
+        for nombre, cultivo in todos.items():
+            print(f"{nombre}: Kc={cultivo.kc_mid}")
+
+        # Acceder a cultivo específico del diccionario
+        papa = get_crop_data()["Papa"]
+        print(papa.start_month)  # 2
     """
     with open(crops_info, encoding="utf-8") as f:
         crops_dict = json.load(f)
+
+        # Si name=None, retornar todos los cultivos como diccionario
+        if name is None:
+            result = {}
+            for crop_name, crop_info in crops_dict.items():
+                result[crop_name] = _build_crop(crop_name, crop_info)
+            return result
+
+        # Si name especificado, retornar un cultivo individual
         crop_info = crops_dict.get(name, {})
-        if crop_info:
-            calendar = crop_info["calendar"]
-            kc = crop_info["kc"]
-            durations = tuple(map(int, crop_info["durations"]))
-            return Crop(
-                name=name,
-                start_month=int(calendar["start_mmdd"][0]),
-                start_day=int(calendar["start_mmdd"][1]),
-                end_month=int(calendar["end_mmdd"][0]),
-                end_day=int(calendar["end_mmdd"][1]),
-                kc_ini=float(kc["ini"]),
-                kc_mid=float(kc["mid"]),
-                kc_end=float(kc["end"]),
-                durations=durations,
-            )
-        else:
-            return Crop(
-                name=name,
-                start_month=1,
-                start_day=1,
-                end_month=1,
-                end_day=1,
-                kc_ini=0.0,
-                kc_mid=0.0,
-                kc_end=0.0,
-                durations=(0, 0, 0, 0),
-            )
+        return _build_crop(name, crop_info)
 
 
 if __name__ == "__main__":
