@@ -2,7 +2,7 @@
 Funciones para calcular la curva de Kc diaria, Pef diario, rendimiento, UAC y HH.
 """
 
-from seminario_ia.models import Region
+from seminario_ia.models import Crop, Region
 
 from .eto import eto_fao56_mm
 
@@ -213,13 +213,21 @@ def calculate_decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
 
 
 def process_file_per_region_crop(
-    region: Region, data_nasa: pd.DataFrame, crop_name: str, prod_data: pd.DataFrame
+    region: Region,
+    data_nasa: pd.DataFrame,
+    crop_name: str | Crop,
+    prod_data: pd.DataFrame,
 ) -> pd.DataFrame:
 
     # Obtener informacion del cultivo:
-    crop = region.get_crop(crop_name)
-    kc = crop.kc
-    dur = crop.durations
+    if isinstance(crop_name, str):
+        crop_obj = region.get_crop(crop_name)
+    else:
+        crop_obj = crop_name
+        crop_name = crop_obj.name
+
+    kc = crop_obj.kc
+    dur = crop_obj.durations
 
     # Fechas y orden
     dates = data_nasa["DATE"]
@@ -229,23 +237,19 @@ def process_file_per_region_crop(
         dates, kc_ini=kc["ini"], kc_mid=kc["mid"], kc_end=kc["end"], dur=dur
     ).reset_index(drop=True)
 
-    eto_out = []
+    # Cálculo de ETo vectorizado
+    eto_results = eto_fao56_mm(
+        tmax=data_nasa["T2M_MAX"].values,
+        tmin=data_nasa["T2M_MIN"].values,
+        rh_pct=data_nasa["RH2M"].values,
+        u2_ms=data_nasa["WS2M"].values,
+        rs_mjm2d=data_nasa["ALLSKY_SFC_SW_DWN"].values,
+        lat_deg=region.latitude,
+        z_m=region.altitude,
+        doy=data_nasa["DATE"].dt.dayofyear.values,
+    )
 
-    for row in data_nasa.itertuples():
-        _, date, rs, _, _, u2_ms, tmax, tmin, hr_pct = row
-        calc = eto_fao56_mm(
-            tmax=tmax,
-            tmin=tmin,
-            rh_pct=hr_pct,
-            u2_ms=u2_ms,
-            rs_mjm2d=rs,
-            lat_deg=region.latitude,
-            z_m=region.altitude,
-            doy=date.dayofyear,
-        )
-        eto_out.append(calc)
-
-    eto_df = pd.DataFrame(eto_out, index=data_nasa.index)
+    eto_df = pd.DataFrame(eto_results, index=data_nasa.index)
 
     # --- Pef (FAO simple sobre el ciclo) ---
     efp_series = calculate_daily_simple_efp(data_nasa["PRECTOTCORR"])

@@ -81,18 +81,23 @@ class Region(BaseModel):
     latitude: float
     longitude: float
     altitude: float
-    crops: Crop | list[Crop]
+    crops: Crop | list[Crop] = []
 
     model_config = ConfigDict(extra="ignore")
 
     def add_crop(self, crop: Crop) -> None:
         """Agrega un cultivo a la región."""
-        if isinstance(self.crops, Crop):
-            self.crops = [self.crops]
-        self.crops.append(crop)
+        if not self.crops:
+            self.crops = [crop]
+        elif isinstance(self.crops, Crop):
+            self.crops = [self.crops, crop]
+        else:
+            self.crops.append(crop)
 
     def get_crops(self) -> list[Crop]:
         """Retorna la lista de cultivos, asegurando que siempre sea una lista."""
+        if not self.crops:
+            return []
         if isinstance(self.crops, Crop):
             return [self.crops]
         return self.crops

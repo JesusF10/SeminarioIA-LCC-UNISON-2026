@@ -6,9 +6,10 @@ Incluye funciones para:
 - Radiación extraterrestre, cielo despejado y neta.
 - Cálculo de ETo diario con G=0 (flujo del calor del suelo a 0).
 
+Se ha vectorizado el cálculo utilizando NumPy para mejorar el rendimiento con arrays de datos.
 """
 
-import math
+import numpy as np
 
 # === Constantes FAO-56 ===
 
@@ -29,7 +30,7 @@ GSC = 0.0820
 
 
 # --- Funciones ---
-def es_kpa(t_c: float) -> float:
+def es_kpa(t_c: float | np.ndarray) -> float | np.ndarray:
     """
     Calcula la presión de vapor de saturación (kPa) a partir de la temperatura en °C
     usando la fórmula de Tetens (FAO-56 Eq. 11).
@@ -40,10 +41,10 @@ def es_kpa(t_c: float) -> float:
     Regresa:
         Presión de vapor de saturación [kPa].
     """
-    return 0.6108 * math.exp((17.27 * t_c) / (t_c + 237.3))
+    return 0.6108 * np.exp((17.27 * t_c) / (t_c + 237.3))
 
 
-def delta_kpa_per_c(t_c: float) -> float:
+def delta_kpa_per_c(t_c: float | np.ndarray) -> float | np.ndarray:
     """
     Calcula la pendiente de la curva de saturación (kPa/°C) a partir de la temperatura en °C
     usando la fórmula derivada de Tetens (FAO-56 Eq. 13).
@@ -59,7 +60,7 @@ def delta_kpa_per_c(t_c: float) -> float:
 
 
 # --- Presión y constante psicrométrica ---
-def atm_pressure_kpa(z_m: float) -> float:
+def atm_pressure_kpa(z_m: float | np.ndarray) -> float | np.ndarray:
     """
     Calcula la presión atmosférica (kPa) a partir de la altitud en metros usando la
     fórmula de barometría (FAO-56 Eq. 7).
@@ -75,7 +76,7 @@ def atm_pressure_kpa(z_m: float) -> float:
     return 101.3 * ((293.0 - 0.0065 * z_m) / 293.0) ** 5.26
 
 
-def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
+def psychrometric_constant_kpa_per_c(p_kpa: float | np.ndarray) -> float | np.ndarray:
     """
     Calcula la constante psicrométrica (kPa/°C) a partir de la presión atmosférica en kPa
     usando la fórmula de FAO-56 (Eq. 8).
@@ -92,7 +93,9 @@ def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
     return (cp * p_kpa) / (epsilon * cl)
 
 
-def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:
+def extraterrestrial_radiation_mj_m2d(
+    lat_deg: float | np.ndarray, doy: int | np.ndarray
+) -> float | np.ndarray:
     """
     Calcula la radiación extraterrestre (Ra) en MJ/m²/día a partir de la latitud en grados y
     el día del año usando las fórmulas de FAO-56 (Eqs. 21–25).
@@ -102,25 +105,24 @@ def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:
         doy: Día del año (1-365/366).
 
     Regresa:
-        Valor de la radiación extraterrestre [MJ/m²/día].
+        Valor de la radiación de la radiación extraterrestre [MJ/m²/día].
     """
-    phi = math.radians(lat_deg)
-    dr = 1.0 + 0.033 * math.cos(2.0 * math.pi / 365.0 * doy)
-    delta = 0.409 * math.sin(2.0 * math.pi / 365.0 * doy - 1.39)
-    ws = math.acos(-math.tan(phi) * math.tan(delta))
+    phi = np.radians(lat_deg)
+    dr = 1.0 + 0.033 * np.cos(2.0 * np.pi / 365.0 * doy)
+    delta = 0.409 * np.sin(2.0 * np.pi / 365.0 * doy - 1.39)
+    ws = np.arccos(-np.tan(phi) * np.tan(delta))
     ra = (
-        (24.0 * 60.0 / math.pi)
+        (24.0 * 60.0 / np.pi)
         * GSC
         * dr
-        * (
-            ws * math.sin(phi) * math.sin(delta)
-            + math.cos(phi) * math.cos(delta) * math.sin(ws)
-        )
+        * (ws * np.sin(phi) * np.sin(delta) + np.cos(phi) * np.cos(delta) * np.sin(ws))
     )
     return ra
 
 
-def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float:
+def clear_sky_radiation_rso_fao56(
+    lat_deg: float | np.ndarray, doy: int | np.ndarray, z_m: float | np.ndarray
+) -> float | np.ndarray:
     """
     Calcula la radiación de cielo despejado (Rso) en MJ/m²/día a partir de la latitud,
     día del año y altitud usando la fórmula de FAO-56 (Eq. 37).
@@ -139,7 +141,9 @@ def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float
     return (0.75 + 2e-5 * z_m) * ra
 
 
-def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:
+def net_shortwave_rns(
+    rs_mjm2d: float | np.ndarray, albedo: float = ALBEDO
+) -> float | np.ndarray:
     """
     Calcula la radiación neta de onda corta (Rns) en MJ/m²/día a partir de la radiación solar global
     y el albedo usando la fórmula de FAO-56 (Eq. 38).
@@ -157,8 +161,12 @@ def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:
 
 
 def net_longwave_rnl_fao56(
-    tmax_c: float, tmin_c: float, ea_kpa: float, rs_mjm2d: float, rso_mjm2d: float
-) -> float:
+    tmax_c: float | np.ndarray,
+    tmin_c: float | np.ndarray,
+    ea_kpa: float | np.ndarray,
+    rs_mjm2d: float | np.ndarray,
+    rso_mjm2d: float | np.ndarray,
+) -> float | np.ndarray:
     """
     Calcula la radiación neta de onda larga (Rnl) en MJ/m²/día a partir de las temperaturas máxima
     y mínima, la presión de vapor actual, la radiación solar global y la radiación de cielo despejado
@@ -176,16 +184,28 @@ def net_longwave_rnl_fao56(
     """
     tmaxk, tmink = tmax_c + 273.16, tmin_c + 273.16
     t4 = (tmaxk**4 + tmink**4) / 2.0
+
     # Radiacion relativa de onda corta (Rs/Rso)
-    rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))
+    # rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))
+    # Vectorized logic:
+    rsrso = np.where(rso_mjm2d <= 0.0, 0.0, np.clip(rs_mjm2d / rso_mjm2d, 0.0, 1.0))
+
     fcloud = 1.35 * rsrso - 0.35
-    return SIGMA * t4 * (0.34 - 0.14 * math.sqrt(max(ea_kpa, 0.0))) * fcloud
+    return SIGMA * t4 * (0.34 - 0.14 * np.sqrt(np.maximum(ea_kpa, 0.0))) * fcloud
 
 
 # --- Penman-Monteith con G=0 a escala diaria ---
 def eto_fao56_mm(
-    tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0
-):
+    tmax: float | np.ndarray,
+    tmin: float | np.ndarray,
+    rh_pct: float | np.ndarray,
+    u2_ms: float | np.ndarray,
+    rs_mjm2d: float | np.ndarray,
+    lat_deg: float | np.ndarray,
+    z_m: float | np.ndarray,
+    doy: int | np.ndarray,
+    g_mjm2d: float | np.ndarray = 0.0,
+) -> dict:
     """
     Regresa un diccionario con los componentes intermedios y el resultado final de
     la evapotranspiración de referencia (ETo) en mm/día usando el método de Penman-Monteith según FAO-56.
@@ -242,7 +262,7 @@ def eto_fao56_mm(
         es - ea
     )
     den = delta + gamma * (1.0 + 0.34 * u2_ms)
-    eto = max(0.0, num / den)
+    eto = np.maximum(0.0, num / den)
     return {
         "Tmean_": tmean,
         "es_": es,
