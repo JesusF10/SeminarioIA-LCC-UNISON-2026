@@ -5,7 +5,7 @@ Este módulo proporciona funciones para acceder a datos procesados,
 incluyendo coordenadas de municipios en Sonora.
 """
 
-from seminario_ia.models import Crop
+from seminario_ia.models import Crop, Region
 from seminario_ia.utils import validate_weather_df
 
 from .codes import get_mun_code
@@ -18,7 +18,6 @@ coordinates = repo.load_coordinates()
 
 prod_files = PROCESSED_DIR / "siap_produccion"
 prod_muni_files = prod_files / "sonora"
-prod_nat_files = prod_files / "nacional"
 
 
 def get_mun_coordinates(input: str | int = "all") -> pd.DataFrame:
@@ -51,20 +50,19 @@ def get_mun_coordinates(input: str | int = "all") -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def load_prod_file(year: int | str, muni: bool = False) -> pd.DataFrame:
+def load_prod_file(year: int | str) -> pd.DataFrame:
     """
     Carga un archivo de producción agrícola de la SIAP en el año especificado.
     Si no existe, devuelve None.
 
     Parámetros:
         - year: int | str - Año de producción de la SIAP.
-        - muni: bool - Si es True, se carga el archivo con datos a nivel municipio. Por defecto es False (datos a nivel nacional).
 
     Regresa:
         - pd.DataFrame | None - El dataframe con los datos de producción, o None si no se encuentra el archivo.
     """
 
-    path_to_search = prod_muni_files if muni else prod_nat_files
+    path_to_search = prod_muni_files
 
     files = list(path_to_search.glob(f"*{year}.csv"))
     if len(files) == 0:
@@ -72,39 +70,137 @@ def load_prod_file(year: int | str, muni: bool = False) -> pd.DataFrame:
     return pd.read_csv(files[0], encoding="utf-8")
 
 
+def _parse_years(years: tuple[int, int] | str | int) -> list[int] | None:
+    """
+    Parsea el parámetro years y regresa una lista de años.
+
+    Acepta:
+        - tuple[int, int]: Rango (start, end), ambos inclusivos
+        - str: "YYYY" (año único) o "YYYY-YYYY" (rango estricto sin espacios)
+        - int: Año único
+
+    Regresa None si el input es inválido.
+    """
+    if isinstance(years, int):
+        return [years]
+
+    if isinstance(years, str):
+        years_stripped = years.strip()
+        if "-" in years_stripped:
+            parts = years_stripped.split("-")
+            if len(parts) != 2:
+                return None
+            if not parts[0].isdigit() or not parts[1].isdigit():
+                return None
+            start = int(parts[0])
+            end = int(parts[1])
+            if start > end:
+                return None
+            return list(range(start, end + 1))
+        else:
+            if years_stripped.isdigit():
+                return [int(years_stripped)]
+            return None
+
+    if isinstance(years, tuple) and len(years) == 2:
+        start, end = years
+        if not isinstance(start, int) or not isinstance(end, int):
+            return None
+        if start > end:
+            return None
+        return list(range(start, end + 1))
+
+    return None
+
+
+def _parse_loc_name(loc_name: str | Region) -> str | None:
+    """
+    Parsea el parámetro loc_name y regresa el nombre del municipio.
+
+    Acepta:
+        - "all": Regresa None (sin filtro)
+        - Region: Regresa region.name
+        - str: Nombre del municipio (no se aceptan códigos numéricos)
+
+    Regresa None si el input es inválido o es "all".
+    """
+    if loc_name == "all":
+        return None
+
+    if isinstance(loc_name, Region):
+        return loc_name.name
+
+    if isinstance(loc_name, str):
+        if loc_name.isdigit():
+            return None
+        return loc_name.strip()
+
+    return None
+
+
+def _parse_crop_name(crop_name: str | Crop) -> str | None:
+    """
+    Parsea el parámetro crop_name y regresa el nombre del cultivo.
+
+    Acepta:
+        - "all": Regresa None (sin filtro)
+        - Crop: Regresa crop.name
+        - str: Nombre del cultivo (no se aceptan códigos numéricos)
+
+    Regresa None si el input es inválido o es "all".
+    """
+    if crop_name == "all":
+        return None
+
+    if isinstance(crop_name, Crop):
+        return crop_name.name
+
+    if isinstance(crop_name, str):
+        if crop_name.isdigit():
+            return None
+        return crop_name.strip()
+
+    return None
+
+
 def get_prod_data(
-    years: tuple[int, int] | str | list[int],
-    loc_name: str | int = "all",
-    crop_name: str | int = "all",
-    muni: bool = False,
+    years: tuple[int, int] | str | int,
+    loc_name: str | Region = "all",
+    crop_name: str | Crop = "all",
 ) -> pd.DataFrame:
     """
     Carga los archivos de producción agrícola de la SIAP para los años especificados.
     Si no se encuentra algún archivo, se omite y se continúa con los demás.
 
     Parámetros:
-        - years: tuple[int, int] | str | list[int] - Años de producción de la SIAP.
-            Puede ser un rango (tupla), un año específico (str o int), o una lista de años.
-        - loc_name: str | int - El nombre o código del municipio, en el caso de municipal. Si se deja vacío, se
-            cargan todos los datos (a nivel municipal).
-        - crop_name: str | int - El nombre o código del cultivo. Si se deja vacío ("all"), se
-            cargan todos los cultivos.
-        - muni: bool - Si es True, se cargan los archivos con datos a nivel municipio.
-            Por defecto es False (datos a nivel nacional).
+        - years: tuple[int, int] | str | int - Años de producción de la SIAP.
+            Puede ser un rango (tupla o string "YYYY-YYYY") o un año específico (int o str).
+            Formato estricto para rangos en string: "YYYY-YYYY" sin espacios.
+        - loc_name: str | Region - El nombre del municipio o un objeto Region.
+            Por defecto "all" (todos los municipios). No se aceptan códigos numéricos.
+        - crop_name: str | Crop - El nombre del cultivo o un objeto Crop.
+            Por defecto "all" (todos los cultivos). No se aceptan códigos numéricos.
+
+    Regresa:
+        - pd.DataFrame - DataFrame con los datos de producción, o DataFrame vacío
+            si los parámetros son inválidos o no se encuentran archivos.
     """
-    if isinstance(years, str):
-        years = list(map(int, years.split("-")))
-        if len(years) == 2:
-            years = list(range(years[0], years[1] + 1))
-    elif isinstance(years, int):
-        years = [years]
-    elif isinstance(years, tuple) and len(years) == 2:
-        years = list(range(years[0], years[1] + 1))
+    years_list = _parse_years(years)
+    if years_list is None:
+        return pd.DataFrame()
+
+    loc_filter = _parse_loc_name(loc_name)
+    if loc_name != "all" and loc_filter is None:
+        return pd.DataFrame()
+
+    crop_filter = _parse_crop_name(crop_name)
+    if crop_name != "all" and crop_filter is None:
+        return pd.DataFrame()
 
     dataframes = []
-    for year in years:
-        df = load_prod_file(year, muni)
-        if df is not None:
+    for year in years_list:
+        df = load_prod_file(year)
+        if df is not None and not df.empty:
             dataframes.append(df)
 
     if len(dataframes) == 0:
@@ -112,25 +208,11 @@ def get_prod_data(
 
     df = pd.concat(dataframes, ignore_index=True)
 
-    # Filtrar por municipio (solo municipal)
-    if muni and loc_name != "all":
-        if isinstance(loc_name, int):
-            df = df[df["Idmunicipio"] == loc_name]
-        elif isinstance(loc_name, str):
-            if loc_name.isdigit():
-                df = df[df["Idmunicipio"] == int(loc_name)]
-            else:
-                df = df[df["Nommunicipio"] == loc_name]
+    if loc_filter is not None:
+        df = df[df["Nommunicipio"] == loc_filter]
 
-    # Filtrar por cultivo
-    if crop_name != "all":
-        if isinstance(crop_name, int):
-            df = df[df["Idcultivo"] == crop_name]
-        elif isinstance(crop_name, str):
-            if crop_name.isdigit():
-                df = df[df["Idcultivo"] == int(crop_name)]
-            else:
-                df = df[df["Nomcultivo"] == crop_name]
+    if crop_filter is not None:
+        df = df[df["Nomcultivo"] == crop_filter]
 
     return df
 

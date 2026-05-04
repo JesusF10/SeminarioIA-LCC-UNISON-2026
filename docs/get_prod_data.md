@@ -4,21 +4,16 @@
 
 La función `get_prod_data` permite cargar y consolidar datos de producción
 agrícola del Servicio de Información Agroalimentaria y Pesquera (SIAP) para
-múltiples años. Soporta dos niveles de agregación:
-
-- **Municipal**: Datos de producción agrícola de Sonora por municipio
-  (2003-2024)
-- **Nacional**: Datos de producción agrícola por estado a nivel nacional
-  (1980-2002)
+múltiples años. Trabaja exclusivamente con datos a nivel **municipal** de
+Sonora (2003-2024).
 
 ## Firma de la Función
 
 ```python
 def get_prod_data(
-    years: tuple[int, int] | str | list[int],
-    loc_name: str | int = "all",
-    crop_name: str | int = "all",
-    muni: bool = False,
+    years: tuple[int, int] | str | int,
+    loc_name: str | Region = "all",
+    crop_name: str | Crop = "all",
 ) -> pd.DataFrame
 ```
 
@@ -26,71 +21,66 @@ def get_prod_data(
 
 ### years (requerido)
 
-Especifica los años de producción a cargar. Acepta múltiples formatos:
+Especifica los años de producción a cargar. Acepta los siguientes formatos:
 
 - **tuple[int, int]**: Rango de años (ambos extremos inclusivos)
   - Ejemplo: `(2010, 2015)` carga 2010, 2011, 2012, 2013, 2014, 2015
 
-- **str**: Rango en formato "año_inicio-año_fin"
-  - Ejemplo: `"2010-2015"` carga 2010 hasta 2015
-
-- **list[int]**: Lista explícita de años
-  - Ejemplo: `[2010, 2012, 2015]` carga solo esos tres años
+- **str**:
+  - Rango en formato estricto "YYYY-YYYY" (sin espacios)
+    - Ejemplo: `"2010-2015"` carga 2010 hasta 2015
+  - Año único como string
+    - Ejemplo: `"2020"` carga solo 2020
 
 - **int**: Un único año
   - Ejemplo: `2020` carga solo 2020
 
+**Nota**: No se aceptan listas de años sueltos (ej. `[2010, 2015, 2020]`).
+Para cargar años no consecutivos, haga múltiples llamadas.
+
 ### loc_name (opcional)
 
-Filtra datos por ubicación. Solo aplica cuando `muni=True`.
+Filtra datos por municipio.
 
 - **Valor por defecto**: `"all"`
-- **Tipo**: `str | int`
+- **Tipo**: `str | Region`
 
 Opciones:
 
 - `"all"`: Retorna datos de todos los municipios (sin filtrar)
-- `int`: Código del municipio (ej. `30` para Hermosillo)
-- `str`: Nombre del municipio (ej. `"Hermosillo"`)
+- `str`: Nombre del municipio (ej. `"Hermosillo"`, `"Cajeme"`)
+- `Region`: Objeto Region del módulo `seminario_ia.models`
 
-**Nota**: Este parámetro se ignora cuando `muni=False` (datos nacionales).
+**Importante**: No se aceptan códigos numéricos de municipio. Use siempre
+el nombre o un objeto `Region`.
 
 ### crop_name (opcional)
 
-Filtra datos por cultivo. Aplica tanto para datos municipales como nacionales.
+Filtra datos por cultivo.
 
 - **Valor por defecto**: `"all"`
-- **Tipo**: `str | int`
+- **Tipo**: `str | Crop`
 
 Opciones:
 
 - `"all"`: Retorna datos de todos los cultivos (sin filtrar)
-- `int`: Código del cultivo (ej. `9050000` para Trigo grano)
-- `str`: Nombre del cultivo (ej. `"Trigo grano"`)
+- `str`: Nombre del cultivo (ej. `"Trigo grano"`, `"Maíz grano"`)
+- `Crop`: Objeto Crop del módulo `seminario_ia.models`
 
-### muni (opcional)
-
-Determina el nivel de agregación de los datos.
-
-- **Valor por defecto**: `False`
-- **Tipo**: `bool`
-
-Opciones:
-
-- `True`: Carga datos municipales de Sonora (2003-2024)
-- `False`: Carga datos nacionales por estado (1980-2002)
+**Importante**: No se aceptan códigos numéricos de cultivo. Use siempre
+el nombre o un objeto `Crop`.
 
 ## Valor de Retorno
 
 **Tipo**: `pd.DataFrame`
 
 Retorna un DataFrame consolidado con los datos de producción agrícola. Si no
-se encuentran archivos para los años especificados, retorna un DataFrame
-vacío.
+se encuentran archivos para los años especificados, o si los parámetros son
+inválidos, retorna un DataFrame vacío.
 
 ### Estructura de Datos
 
-#### Datos Municipales (muni=True)
+#### Datos Municipales
 
 Columnas disponibles:
 
@@ -112,93 +102,74 @@ Columnas disponibles:
 | PMR               | float | Precio Medio Rural ($/ton)             |
 | Valorproduccion   | float | Valor de la producción (miles de $)    |
 
-#### Datos Nacionales (muni=False)
-
-Columnas disponibles:
-
-| Columna           | Tipo  | Descripción                         |
-| ----------------- | ----- | ----------------------------------- |
-| Anio              | int   | Año de producción                   |
-| Idestado          | int   | Código del estado                   |
-| Nomestado         | str   | Nombre del estado                   |
-| Idciclo           | int   | Código del ciclo agrícola           |
-| Idmodalidad       | int   | Código de modalidad                 |
-| Idcultivo         | int   | Código del cultivo                  |
-| Nomcultivo        | str   | Nombre del cultivo                  |
-| Cosechada         | float | Superficie cosechada (hectáreas)    |
-| Siniestrada       | float | Superficie siniestrada (hectáreas)  |
-| Volumenproduccion | float | Volumen de producción               |
-| Rendimiento       | float | Rendimiento (ton/ha)                |
-| PMR               | float | Precio Medio Rural ($/ton)          |
-| Valorproduccion   | float | Valor de la producción (miles de $) |
-
 ## Ejemplos de Uso
 
-### Ejemplo 1: Cargar un año específico (municipal)
+### Ejemplo 1: Cargar un año específico
 
 ```python
 from seminario_ia.datasets import get_prod_data
 
 # Cargar datos de Sonora para 2020
-df = get_prod_data(years=2020, muni=True)
+df = get_prod_data(years=2020)
 
 print(f"Registros cargados: {len(df)}")
 print(f"Municipios únicos: {df['Nommunicipio'].nunique()}")
 ```
 
-### Ejemplo 2: Cargar rango de años (municipal)
+### Ejemplo 2: Cargar rango de años (tupla)
 
 ```python
-# Cargar datos de 2015 a 2020 (tupla)
-df = get_prod_data(years=(2015, 2020), muni=True)
-
-# Equivalente usando string
-df = get_prod_data(years="2015-2020", muni=True)
+# Cargar datos de 2015 a 2020
+df = get_prod_data(years=(2015, 2020))
 
 print(f"Años incluidos: {sorted(df['Anio'].unique())}")
 ```
 
-### Ejemplo 3: Cargar años específicos no consecutivos
+### Ejemplo 3: Cargar rango de años (string)
 
 ```python
-# Cargar solo 2010, 2015 y 2020
-df = get_prod_data(years=[2010, 2015, 2020], muni=True)
+# Equivalente usando string en formato estricto "YYYY-YYYY"
+df = get_prod_data(years="2015-2020")
 
-print(df.groupby('Anio')['Volumenproduccion'].sum())
+print(f"Años incluidos: {sorted(df['Anio'].unique())}")
 ```
 
-### Ejemplo 4: Filtrar por municipio
+### Ejemplo 4: Filtrar por municipio (nombre)
 
 ```python
-# Opción 1: Usar código de municipio
-df_hmo = get_prod_data(
-    years=(2015, 2020),
-    loc_name=30,  # Código de Hermosillo
-    muni=True
-)
-
-# Opción 2: Usar nombre de municipio
+# Usar nombre de municipio
 df_hmo = get_prod_data(
     years=(2015, 2020),
     loc_name="Hermosillo",
-    muni=True
 )
 
 print(f"Registros de Hermosillo: {len(df_hmo)}")
 print(f"Cultivos en Hermosillo: {df_hmo['Nomcultivo'].nunique()}")
 ```
 
-### Ejemplo 5: Datos nacionales históricos
+### Ejemplo 5: Filtrar por municipio (objeto Region)
 
 ```python
-# Cargar datos nacionales de 1980 a 1990
-df_nacional = get_prod_data(years=(1980, 1990), muni=False)
+from seminario_ia.datasets import get_prod_data, get_mun_coordinates
+from seminario_ia.models import Region
 
-# Filtrar solo Sonora (código 26)
-df_sonora = df_nacional[df_nacional['Idestado'] == 26]
+# Obtener coordenadas del municipio
+coords = get_mun_coordinates("Cajeme")
+if not coords.empty:
+    row = coords.iloc[0]
+    region = Region(
+        name="Cajeme",
+        latitude=row["lat"],
+        longitude=row["lon"],
+        altitude=row["z_m"],
+    )
 
-print(f"Producción de Sonora 1980-1990:")
-print(df_sonora.groupby('Anio')['Valorproduccion'].sum())
+    df = get_prod_data(
+        years=(2018, 2023),
+        loc_name=region,
+    )
+
+    print(f"Registros de Cajeme: {len(df)}")
 ```
 
 ### Ejemplo 6: Análisis por cultivo
@@ -208,7 +179,6 @@ print(df_sonora.groupby('Anio')['Valorproduccion'].sum())
 df = get_prod_data(
     years=(2018, 2023),
     loc_name="Hermosillo",
-    muni=True
 )
 
 # Analizar principales cultivos
@@ -228,7 +198,6 @@ print(top_cultivos)
 df_trigo = get_prod_data(
     years=(2018, 2023),
     crop_name="Trigo grano",
-    muni=True
 )
 
 print(f"Municipios productores de trigo: {df_trigo['Nommunicipio'].nunique()}")
@@ -243,7 +212,6 @@ df = get_prod_data(
     years=(2015, 2023),
     loc_name="Hermosillo",
     crop_name="Trigo grano",
-    muni=True
 )
 
 # Ver evolución temporal
@@ -251,30 +219,29 @@ evolucion = df.groupby('Anio')['Volumenproduccion'].sum()
 print(evolucion)
 ```
 
-### Ejemplo 9: Usar código de cultivo
+### Ejemplo 9: Usar objeto Crop para filtrar
 
 ```python
-# Opción 1: Usar código numérico del cultivo
+from seminario_ia.datasets import get_prod_data, get_crop_data
+
+# Obtener objeto Crop
+trigo = get_crop_data("Trigo grano")
+
+# Usar objeto Crop como filtro
 df = get_prod_data(
     years=2020,
-    crop_name=9050000,  # Código de Trigo grano
-    muni=True
+    crop_name=trigo,
 )
 
-# Opción 2: Equivalente con nombre
-df = get_prod_data(
-    years=2020,
-    crop_name="Trigo grano",
-    muni=True
-)
+print(f"Registros de trigo: {len(df)}")
 ```
 
 ### Ejemplo 10: Comparación temporal
 
 ```python
 # Cargar datos de dos periodos
-df_2003_2008 = get_prod_data(years=(2003, 2008), muni=True)
-df_2018_2023 = get_prod_data(years=(2018, 2023), muni=True)
+df_2003_2008 = get_prod_data(years=(2003, 2008))
+df_2018_2023 = get_prod_data(years=(2018, 2023))
 
 # Comparar producción total
 prod_temprana = df_2003_2008['Volumenproduccion'].sum()
@@ -292,7 +259,7 @@ continúa con los demás.
 
 ```python
 # Si 2014 no existe, cargará 2013, 2015, 2016
-df = get_prod_data(years=[2013, 2014, 2015, 2016], muni=True)
+df = get_prod_data(years=(2013, 2016))
 
 # Verificar qué años se cargaron realmente
 print(f"Años disponibles: {sorted(df['Anio'].unique())}")
@@ -301,7 +268,29 @@ print(f"Años disponibles: {sorted(df['Anio'].unique())}")
 Si ningún año tiene archivo, retorna un DataFrame vacío:
 
 ```python
-df = get_prod_data(years=9999, muni=True)
+df = get_prod_data(years=9999)
+print(df.empty)  # True
+```
+
+## Parámetros Inválidos
+
+La función retorna un DataFrame vacío cuando los parámetros son inválidos:
+
+```python
+# Lista de años (no soportado)
+df = get_prod_data(years=[2010, 2015, 2020])
+print(df.empty)  # True
+
+# Código numérico de municipio (no soportado)
+df = get_prod_data(years=2020, loc_name=30)
+print(df.empty)  # True
+
+# Código numérico de cultivo (no soportado)
+df = get_prod_data(years=2020, crop_name=9050000)
+print(df.empty)  # True
+
+# Rango con espacios (formato inválido)
+df = get_prod_data(years="2015 - 2020")
 print(df.empty)  # True
 ```
 
@@ -313,16 +302,13 @@ Los archivos se cargan desde:
 
 ```
 data/processed/siap_produccion/
-├── sonora/          # Datos municipales (2003-2024)
-│   └── cierre_agricola_sonora_YYYY.csv
-└── nacional/        # Datos nacionales (1980-2002)
-    └── Cierre_agricola_YYYY.csv
+└── sonora/          # Datos municipales (2003-2024)
+    └── cierre_agricola_sonora_YYYY.csv
 ```
 
 ### Convenciones de Nomenclatura
 
 - Archivos municipales: `cierre_agricola_sonora_YYYY.csv`
-- Archivos nacionales: `Cierre_agricola_YYYY.csv`
 
 La función usa glob patterns para buscar archivos que contengan el año, por
 lo que es flexible a variaciones menores en el nombre.
@@ -333,7 +319,7 @@ Para cargar múltiples años, la función:
 
 1. Lee cada archivo CSV individualmente
 2. Los concatena usando `pd.concat()`
-3. Filtra por municipio si se especifica
+3. Filtra por municipio y cultivo si se especifican
 
 Para grandes rangos de años, considere:
 
@@ -343,42 +329,47 @@ Para grandes rangos de años, considere:
 
 ## Funciones Relacionadas
 
-- `load_prod_file(year, muni)`: Función auxiliar que carga un solo año
+- `load_prod_file(year)`: Función auxiliar que carga un solo año
 - `get_mun_code()`: Obtiene códigos de municipios
+- `get_mun_coordinates()`: Obtiene coordenadas de municipios
+- `get_crop_data(name)`: Obtiene información de cultivos (objeto Crop)
 - `get_cycle_code()`: Obtiene códigos de ciclos agrícolas
 - `get_mod_code()`: Obtiene códigos de modalidades
 
 ## Referencia Rápida
 
 ```python
-# Municipal: un año
-df = get_prod_data(2020, muni=True)
+# Un año
+df = get_prod_data(2020)
 
-# Municipal: rango
-df = get_prod_data((2015, 2020), muni=True)
+# Rango con tupla
+df = get_prod_data((2015, 2020))
 
-# Municipal: municipio específico
-df = get_prod_data((2015, 2020), loc_name="Hermosillo", muni=True)
+# Rango con string (formato estricto)
+df = get_prod_data("2015-2020")
 
-# Cultivo específico
-df = get_prod_data((2015, 2020), crop_name="Trigo grano", muni=True)
+# Municipio específico (por nombre)
+df = get_prod_data((2015, 2020), loc_name="Hermosillo")
+
+# Cultivo específico (por nombre)
+df = get_prod_data((2015, 2020), crop_name="Trigo grano")
 
 # Municipio y cultivo específicos
 df = get_prod_data(
     (2015, 2020),
     loc_name="Hermosillo",
     crop_name="Trigo grano",
-    muni=True
 )
 
-# Nacional: histórico
-df = get_prod_data((1980, 2000), muni=False)
+# Usando objeto Region
+from seminario_ia.models import Region
+region = Region(name="Cajeme", latitude=..., longitude=..., altitude=...)
+df = get_prod_data((2015, 2020), loc_name=region)
 
-# Nacional con cultivo específico
-df = get_prod_data((1980, 2000), crop_name="Trigo grano", muni=False)
-
-# Lista de años no consecutivos
-df = get_prod_data([2010, 2015, 2020], muni=True)
+# Usando objeto Crop
+from seminario_ia.datasets import get_crop_data
+trigo = get_crop_data("Trigo grano")
+df = get_prod_data((2015, 2020), crop_name=trigo)
 ```
 
 ---

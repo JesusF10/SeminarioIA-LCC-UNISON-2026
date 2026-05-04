@@ -5,12 +5,13 @@ Este script demuestra las diferentes formas de filtrar datos de producción
 agrícola por cultivo específico, y cómo combinar este filtro con otros
 parámetros para análisis detallados.
 
-Autor: Equipo Seminario IA
+Autor: Jesús Flores Lacarra
 Fecha: 2024
-Proyecto: Reconversión Productiva - LCC UNISON 2026
+Proyecto: Reconversión de cultivos en Sonora
 """
 
-from seminario_ia.datasets import get_prod_data
+from seminario_ia.datasets import get_crop_data, get_mun_coordinates, get_prod_data
+from seminario_ia.models import Crop, Region
 
 import pandas as pd
 
@@ -31,8 +32,7 @@ def ejemplo_1_filtro_basico():
     """Ejemplo 1: Filtrado básico por cultivo."""
     separador("EJEMPLO 1: Filtrado Básico por Cultivo")
 
-    # Cargar datos de trigo para 2020
-    df = get_prod_data(years=2020, crop_name="Trigo grano", muni=True)
+    df = get_prod_data(years=2020, crop_name="Trigo grano")
 
     print("Datos de producción de Trigo grano en Sonora (2020)\n")
     print(f"Total de registros: {len(df)}")
@@ -41,7 +41,6 @@ def ejemplo_1_filtro_basico():
     print(f"Superficie cosechada: {df['Cosechada'].sum():,.2f} hectáreas")
     print(f"Valor de producción: ${df['Valorproduccion'].sum():,.2f} miles\n")
 
-    # Mostrar top 5 municipios productores
     top_5 = (
         df.groupby("Nommunicipio")["Volumenproduccion"]
         .sum()
@@ -54,29 +53,30 @@ def ejemplo_1_filtro_basico():
         print(f"  {i}. {municipio:20s} {produccion:>12,.2f} ton")
 
 
-def ejemplo_2_filtro_por_codigo():
-    """Ejemplo 2: Filtrado usando código de cultivo."""
-    separador("EJEMPLO 2: Filtrado por Código de Cultivo")
+def ejemplo_2_filtro_con_modelo_crop():
+    """Ejemplo 2: Filtrado usando objeto Crop."""
+    separador("EJEMPLO 2: Filtrado con Objeto Crop")
 
-    # Usar código numérico del cultivo
-    df = get_prod_data(years=2020, crop_name=9050000, muni=True)
+    trigo = get_crop_data("Trigo grano")
 
-    print("Usando código de cultivo: 9050000 (Trigo grano)\n")
+    df = get_prod_data(years=2020, crop_name=trigo)
+
+    print(f"Usando objeto Crop: {trigo.name}\n")
     print(f"Registros encontrados: {len(df)}")
     print(f"Cultivo: {df['Nomcultivo'].iloc[0] if len(df) > 0 else 'N/A'}")
-    print(f"Código verificado: {df['Idcultivo'].iloc[0] if len(df) > 0 else 'N/A'}")
+    print(
+        f"Período del cultivo: {trigo.start_month:02d}/{trigo.start_day:02d} - {trigo.end_month:02d}/{trigo.end_day:02d}"
+    )
 
 
 def ejemplo_3_combinacion_filtros():
     """Ejemplo 3: Combinar filtros de cultivo y municipio."""
     separador("EJEMPLO 3: Filtro de Cultivo + Municipio")
 
-    # Analizar trigo en Hermosillo para múltiples años
     df = get_prod_data(
         years=(2018, 2023),
         loc_name="Hermosillo",
         crop_name="Trigo grano",
-        muni=True,
     )
 
     print("Producción de Trigo en Hermosillo (2018-2023)\n")
@@ -101,22 +101,18 @@ def ejemplo_4_comparacion_cultivos():
     """Ejemplo 4: Comparación entre diferentes cultivos."""
     separador("EJEMPLO 4: Comparación entre Cultivos")
 
-    cultivos = {
-        "Trigo grano": 9050000,
-        "Maíz grano": 7490000,
-        "Espárrago": 6650000,
-    }
+    cultivos = ["Trigo grano", "Maíz grano", "Espárrago"]
 
     print("Comparación de cultivos en Sonora (2020-2023)\n")
     print(f"{'Cultivo':<20} {'Producción (ton)':>20} {'Valor (millones $)':>20}")
     print("-" * 62)
 
-    for nombre, codigo in cultivos.items():
-        df = get_prod_data(years=(2020, 2023), crop_name=codigo, muni=True)
+    for nombre in cultivos:
+        df = get_prod_data(years=(2020, 2023), crop_name=nombre)
 
         if len(df) > 0:
             produccion = df["Volumenproduccion"].sum()
-            valor = df["Valorproduccion"].sum() / 1000  # Convertir a millones
+            valor = df["Valorproduccion"].sum() / 1000
             print(f"{nombre:<20} {produccion:>20,.2f} {valor:>20,.2f}")
         else:
             print(f"{nombre:<20} {'Sin datos':>20} {'Sin datos':>20}")
@@ -126,13 +122,11 @@ def ejemplo_5_analisis_temporal():
     """Ejemplo 5: Análisis temporal de un cultivo."""
     separador("EJEMPLO 5: Análisis Temporal de Cultivo")
 
-    # Cargar datos de uva para últimos 6 años
-    df = get_prod_data(years=(2018, 2023), crop_name="Uva", muni=True)
+    df = get_prod_data(years=(2018, 2023), crop_name="Uva")
 
     print("Evolución de la producción de Uva en Sonora (2018-2023)\n")
 
     if len(df) > 0:
-        # Análisis por año
         anual = df.groupby("Anio").agg(
             {
                 "Nommunicipio": "nunique",
@@ -145,14 +139,12 @@ def ejemplo_5_analisis_temporal():
         anual.columns = ["Municipios", "Prod. (ton)", "Sup. (ha)", "Valor (miles)"]
         print(anual)
 
-        # Calcular tendencia
         prod_inicial = anual["Prod. (ton)"].iloc[0]
         prod_final = anual["Prod. (ton)"].iloc[-1]
         cambio = ((prod_final - prod_inicial) / prod_inicial) * 100
 
         print(f"\nCambio en producción 2018-2023: {cambio:+.2f}%")
 
-        # Identificar municipios principales
         top_mun = (
             df.groupby("Nommunicipio")["Volumenproduccion"]
             .sum()
@@ -179,9 +171,7 @@ def ejemplo_6_multiples_cultivos():
     resultados = []
 
     for cultivo in cultivos_analizar:
-        df = get_prod_data(
-            years=(2020, 2022), loc_name=municipio, crop_name=cultivo, muni=True
-        )
+        df = get_prod_data(years=(2020, 2022), loc_name=municipio, crop_name=cultivo)
 
         if len(df) > 0:
             produccion = df["Volumenproduccion"].sum()
@@ -190,42 +180,48 @@ def ejemplo_6_multiples_cultivos():
             print(f"{cultivo:<20} {produccion:>20,.2f} {valor:>20,.2f}")
 
     if resultados:
-        # Ordenar por valor económico
         resultados.sort(key=lambda x: x[2], reverse=True)
         mejor_cultivo = resultados[0]
         print(f"\nCultivo más valioso: {mejor_cultivo[0]}")
         print(f"Valor total: ${mejor_cultivo[2]:,.2f} miles de pesos")
 
 
-def ejemplo_7_datos_nacionales():
-    """Ejemplo 7: Análisis de cultivo en datos nacionales."""
-    separador("EJEMPLO 7: Datos Nacionales por Cultivo")
+def ejemplo_7_region_objeto():
+    """Ejemplo 7: Usar objeto Region para filtrar por municipio."""
+    separador("EJEMPLO 7: Filtrado con Objeto Region")
 
-    # Analizar trigo a nivel nacional (datos históricos)
-    df = get_prod_data(years=(1990, 1995), crop_name="Trigo grano", muni=False)
+    coords = get_mun_coordinates("Hermosillo")
 
-    print("Producción de Trigo en México (1990-1995)\n")
+    if coords.empty:
+        print("No se encontraron coordenadas para Hermosillo")
+        return
+
+    row = coords.iloc[0]
+    region = Region(
+        name="Hermosillo",
+        latitude=row["lat"],
+        longitude=row["lon"],
+        altitude=row["z_m"],
+    )
+
+    df = get_prod_data(
+        years=(2018, 2023),
+        loc_name=region,
+        crop_name="Trigo grano",
+    )
+
+    print(f"Usando objeto Region: {region.name}")
+    print(
+        f"Coordenadas: lat={region.latitude}, lon={region.longitude}, alt={region.altitude}m\n"
+    )
 
     if len(df) > 0:
-        # Top 5 estados productores
-        top_estados = (
-            df.groupby("Nomestado")["Volumenproduccion"]
-            .sum()
-            .sort_values(ascending=False)
-            .head(5)
-        )
-
-        print("Top 5 estados productores de trigo (1990-1995):")
-        for i, (estado, produccion) in enumerate(top_estados.items(), 1):
-            print(f"  {i}. {estado:20s} {produccion:>15,.2f} ton")
-
-        # Participación de Sonora
-        sonora = df[df["Nomestado"] == "Sonora"]
-        if len(sonora) > 0:
-            prod_sonora = sonora["Volumenproduccion"].sum()
-            prod_total = df["Volumenproduccion"].sum()
-            participacion = (prod_sonora / prod_total) * 100
-            print(f"\nParticipación de Sonora: {participacion:.2f}%")
+        evolucion = df.groupby("Anio")["Volumenproduccion"].sum()
+        print(f"Producción de trigo en {region.name}:\n")
+        print(evolucion)
+        print(f"\nTotal: {evolucion.sum():,.2f} toneladas")
+    else:
+        print("No hay datos disponibles para esta combinación")
 
 
 def ejemplo_8_reconversion_productiva():
@@ -239,12 +235,10 @@ def ejemplo_8_reconversion_productiva():
     print(f"Análisis de reconversión productiva en {municipio} (2020-2023)\n")
     print(f"Cultivo actual: {cultivo_actual}\n")
 
-    # Analizar cultivo actual
     df_actual = get_prod_data(
         years=(2020, 2023),
         loc_name=municipio,
         crop_name=cultivo_actual,
-        muni=True,
     )
 
     if len(df_actual) > 0:
@@ -263,7 +257,6 @@ def ejemplo_8_reconversion_productiva():
             years=(2020, 2023),
             loc_name=municipio,
             crop_name=cultivo_alt,
-            muni=True,
         )
 
         if len(df_alt) > 0:
@@ -282,17 +275,16 @@ def main():
     """Función principal que ejecuta todos los ejemplos."""
     print("\n" + "=" * 80)
     print("EJEMPLOS DE FILTRADO POR CULTIVO - get_prod_data".center(80))
-    print("Seminario IA - Reconversión Productiva LCC UNISON 2026".center(80))
     print("=" * 80)
 
     ejemplos = [
         ejemplo_1_filtro_basico,
-        ejemplo_2_filtro_por_codigo,
+        ejemplo_2_filtro_con_modelo_crop,
         ejemplo_3_combinacion_filtros,
         ejemplo_4_comparacion_cultivos,
         ejemplo_5_analisis_temporal,
         ejemplo_6_multiples_cultivos,
-        ejemplo_7_datos_nacionales,
+        ejemplo_7_region_objeto,
         ejemplo_8_reconversion_productiva,
     ]
 
