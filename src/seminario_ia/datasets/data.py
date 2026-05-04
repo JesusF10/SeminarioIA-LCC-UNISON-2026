@@ -5,25 +5,20 @@ Este módulo proporciona funciones para acceder a datos procesados,
 incluyendo coordenadas de municipios en Sonora.
 """
 
-import json
-
 from seminario_ia.models import Crop
+from seminario_ia.utils import validate_weather_df
 
 from .codes import get_mun_code
-from .paths import CONFIG_DATA_DIR, COORDINATES_CSV, PROCESSED_DIR, RAW_DATASETS
+from .paths import PROCESSED_DIR, RAW_DATASETS
+from .repository import repo
 
 import pandas as pd
 
-coordinates = pd.read_csv(COORDINATES_CSV, encoding="utf-8")
-coordinates = coordinates.drop(columns=["entidad"])
+coordinates = repo.load_coordinates()
 
 prod_files = PROCESSED_DIR / "siap_produccion"
 prod_muni_files = prod_files / "sonora"
 prod_nat_files = prod_files / "nacional"
-
-NASA_POWER_FILES = PROCESSED_DIR / "nasa_power"
-
-crops_info = CONFIG_DATA_DIR / "cultivos.json"
 
 
 def get_mun_coordinates(input: str | int = "all") -> pd.DataFrame:
@@ -143,23 +138,11 @@ def get_prod_data(
 def read_nasa_power_file(year: str, loc: str = "all") -> pd.DataFrame:
     """
     Lee un archivo de datos de la API de NASA POWER para el año y ubicación especificados.
-
-    Parámetros:
-        - year: str - Año para el cual se desean los datos de NASA POWER.
-        - loc: str - El nombre o código del municipio. Si se deja vacío, se
-            cargan todos los datos (para todos los municipios).
     """
-    files = NASA_POWER_FILES.glob(f"*{year}.csv")
-
-    dfs = []
-    for file in files:
-        if loc == "all" or loc in file.stem:
-            dfs.append(pd.read_csv(file, encoding="utf-8"))
-    if len(dfs) == 0:
+    raw_data = repo.load_nasa_power(year, loc)
+    if raw_data.empty:
         return pd.DataFrame()
-    df = pd.concat(dfs, ignore_index=True).astype({"DATE": str})
-    df["DATE"] = pd.to_datetime(df["DATE"])
-    return df
+    return validate_weather_df(raw_data)
 
 
 def get_nasa_power_data(
@@ -291,19 +274,18 @@ def get_crop_data(name: str | None = None) -> Crop | dict[str, Crop]:
         papa = get_crop_data()["Papa"]
         print(papa.start_month)  # 2
     """
-    with open(crops_info, encoding="utf-8") as f:
-        crops_dict = json.load(f)
+    crops_dict = repo.load_config_json("cultivos")
 
-        # Si name=None, retornar todos los cultivos como diccionario
-        if name is None:
-            result = {}
-            for crop_name, crop_info in crops_dict.items():
-                result[crop_name] = _build_crop(crop_name, crop_info)
-            return result
+    # Si name=None, retornar todos los cultivos como diccionario
+    if name is None:
+        result = {}
+        for crop_name, crop_info in crops_dict.items():
+            result[crop_name] = _build_crop(crop_name, crop_info)
+        return result
 
-        # Si name especificado, retornar un cultivo individual
-        crop_info = crops_dict.get(name, {})
-        return _build_crop(name, crop_info)
+    # Si name especificado, retornar un cultivo individual
+    crop_info = crops_dict.get(name, {})
+    return _build_crop(name, crop_info)
 
 
 if __name__ == "__main__":

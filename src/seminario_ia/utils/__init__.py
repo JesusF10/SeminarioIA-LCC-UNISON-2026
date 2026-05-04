@@ -18,6 +18,7 @@ from .performance import (
     calculate_performance_per_file as calculate_performance_per_file,
 )
 from .performance import process_file_per_region_crop as process_file_per_region_crop
+from .validation import validate_weather_df as validate_weather_df
 
 __all__ = {
     "date_from_year_doy",
@@ -28,4 +29,5 @@ __all__ = {
     "performance_per_file",
     "request_nasa_power_data",
     "process_file_per_region_crop",
+    "validate_weather_df",
 }

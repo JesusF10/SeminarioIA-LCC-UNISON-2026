@@ -2,7 +2,9 @@
 Modelos de datos para representar la información de cultivos y regiones.
 """
 
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+
+from pydantic import BaseModel, ConfigDict, Field, TypeAdapter
 
 
 class Crop(BaseModel):
@@ -147,3 +149,39 @@ class Region(BaseModel):
             f"altitude={self.altitude}, "
             f"crops=[{crops_reprs}])"
         )
+
+
+class WeatherRecord(BaseModel):
+    """Registro de datos meteorológicos para una fecha específica."""
+
+    date: datetime = Field(alias="DATE")  # Formato 'YYYY-MM-DD'
+    t_max: float = Field(alias="T2M_MAX")  # Temperatura máxima (°C)
+    t_min: float = Field(alias="T2M_MIN")  # Temperatura mínima (°C)
+    rs: float = Field(alias="ALLSKY_SFC_SW_DWN")  # Radiación solar (MJ/m²/día)
+    rl: float = Field(alias="ALLSKY_SFC_LW_DWN")  # Radiación térmica (MJ/m²/día)
+    rh: float = Field(alias="RH2M")  # Humedad relativa (%)
+    ws: float = Field(alias="WS2M")  # Velocidad del viento (m/s)
+    pt: float = Field(alias="PRECTOTCORR")  # Precipitación total corregida (mm/día)
+
+    model_config = ConfigDict(extra="ignore")
+
+
+WeatherAdapter = TypeAdapter(list[WeatherRecord])
+
+
+if __name__ == "__main__":
+    # Ejemplo de uso
+    weather_data = {
+        "DATE": "2024-06-01",
+        "T2M_MAX": 35.5,
+        "T2M_MIN": 20.3,
+        "ALLSKY_SFC_SW_DWN": 25.0,
+        "ALLSKY_SFC_LW_DWN": 10.0,
+        "RH2M": 60.0,
+        "WS2M": 5.0,
+        "PRECTOTCORR": 0.0,
+    }
+
+    t = WeatherRecord.model_validate(weather_data)
+
+    print(t.model_dump(by_alias=True))  # Muestra los datos con alias
