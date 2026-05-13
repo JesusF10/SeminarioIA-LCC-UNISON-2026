@@ -18,6 +18,7 @@ from .data import load_prod_file as load_prod_file
 from .paths import DATA_DIR as DATA_DIR
 from .paths import JSON_CODIFICACION as JSON_CODIFICACION
 from .paths import PROCESSED_DIR as PROCESSED_DIR
+from .paths import PRODUCCION_SIAP as PRODUCCION_SIAP
 from .paths import RAW_DATASETS as RAW_DATASETS
 from .paths import RAW_DIR as RAW_DIR
 
@@ -37,4 +38,5 @@ __all__ = {
     "get_nasa_power_data",
     "get_crop_data",
     "JSON_CODIFICACION",
+    "PRODUCCION_SIAP",
 }

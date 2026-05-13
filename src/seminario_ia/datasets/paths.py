@@ -35,4 +35,5 @@ RAW_DATASETS: dict[str, Path] = {
 # Rutas a archivos procesados
 COORDINATES_CSV = PROCESSED_DIR / "SonoraLatLongAlt.csv"
 JSON_CODIFICACION = CONFIG_DATA_DIR / "codificacion.json"
-NASA_POWER_FILES = PROCESSED_DIR / "nasa_power"
+NASA_POWER_DATA = PROCESSED_DIR / "nasa_power"
+PRODUCCION_SIAP = PROCESSED_DIR / "siap_produccion" / "municipal"

@@ -4,7 +4,7 @@ Modelos de datos para representar la información de cultivos y regiones.
 
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, Field, TypeAdapter
+from pydantic import AliasGenerator, BaseModel, ConfigDict, Field, TypeAdapter
 
 
 class Crop(BaseModel):
@@ -154,19 +154,32 @@ class Region(BaseModel):
 class WeatherRecord(BaseModel):
     """Registro de datos meteorológicos para una fecha específica."""
 
-    date: datetime = Field(alias="DATE")  # Formato 'YYYY-MM-DD'
-    t_max: float = Field(alias="T2M_MAX")  # Temperatura máxima (°C)
-    t_min: float = Field(alias="T2M_MIN")  # Temperatura mínima (°C)
-    rs: float = Field(alias="ALLSKY_SFC_SW_DWN")  # Radiación solar (MJ/m²/día)
-    rl: float = Field(alias="ALLSKY_SFC_LW_DWN")  # Radiación térmica (MJ/m²/día)
-    rh: float = Field(alias="RH2M")  # Humedad relativa (%)
-    ws: float = Field(alias="WS2M")  # Velocidad del viento (m/s)
-    pt: float = Field(alias="PRECTOTCORR")  # Precipitación total corregida (mm/día)
+    date: datetime = Field(validation_alias="DATE")  # Formato 'YYYY-MM-DD'
+    t_max: float = Field(validation_alias="T2M_MAX")  # Temperatura máxima (°C)
+    t_min: float = Field(validation_alias="T2M_MIN")  # Temperatura mínima (°C)
+    rs: float = Field(
+        validation_alias="ALLSKY_SFC_SW_DWN"
+    )  # Radiación solar (MJ/m²/día)
+    rl: float = Field(
+        validation_alias="ALLSKY_SFC_LW_DWN"
+    )  # Radiación térmica (MJ/m²/día)
+    rh: float = Field(validation_alias="RH2M")  # Humedad relativa (%)
+    ws: float = Field(validation_alias="WS2M")  # Velocidad del viento (m/s)
+    p_total: float = Field(
+        validation_alias="PRECTOTCORR"
+    )  # Precipitación total corregida (mm/día)
 
-    model_config = ConfigDict(extra="ignore")
+    model_config = ConfigDict(
+        extra="ignore",
+        alias_generator=AliasGenerator(
+            serialization_alias=lambda field: field[0].upper() + field[1:]
+        ),
+    )
 
 
-WeatherAdapter = TypeAdapter(list[WeatherRecord])
+WeatherAdapter = TypeAdapter(
+    list[WeatherRecord],
+)
 
 
 if __name__ == "__main__":

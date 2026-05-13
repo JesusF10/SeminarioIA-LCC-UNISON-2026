@@ -267,7 +267,7 @@ def get_nasa_power_data(
         return pd.concat(
             [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
             ignore_index=True,
-        ).sort_values(by=["DATE"])
+        ).sort_values(by=["Date"])
     elif isinstance(loc_name, str):
         if loc_name.isdigit():
             loc_name_str = get_mun_code(int(loc_name))
@@ -276,12 +276,12 @@ def get_nasa_power_data(
             return pd.concat(
                 [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
                 ignore_index=True,
-            ).sort_values(by=["DATE"])
+            ).sort_values(by=["Date"])
         else:
             return pd.concat(
                 [read_nasa_power_file(str(year), loc_name) for year in years],
                 ignore_index=True,
-            ).sort_values(by=["DATE"])
+            ).sort_values(by=["Date"])
 
     return pd.DataFrame()
 

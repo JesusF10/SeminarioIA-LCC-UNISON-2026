@@ -4,13 +4,12 @@ Abstracción de acceso a datos. Soporta local y futuro Cloud.
 
 import json
 from abc import ABC, abstractmethod
-from pathlib import Path
 
-from seminario_ia.datasets.paths import (
+from .paths import (
     CONFIG_DATA_DIR,
     COORDINATES_CSV,
     JSON_CODIFICACION,
-    NASA_POWER_FILES,
+    NASA_POWER_DATA,
     PROCESSED_DIR,
 )
 
@@ -39,7 +38,7 @@ class LocalRepository(DataRepository):
         return df
 
     def load_nasa_power(self, year: str, loc: str = "all") -> pd.DataFrame:
-        files = NASA_POWER_FILES.glob(f"*{year}.csv")
+        files = NASA_POWER_DATA.glob(f"*{year}.csv")
         dfs = []
         for f in files:
             if loc == "all" or loc in f.stem:
@@ -55,6 +54,12 @@ class LocalRepository(DataRepository):
         path = CONFIG_DATA_DIR / f"{name}.json"
         with open(path, encoding="utf-8") as f:
             return json.load(f)
+
+    def load_production_file(self, crop_name: str) -> pd.DataFrame:
+        # crop_name: 'Trigo grano', 'Maíz grano', etc.
+        filename = f"{crop_name.lower().replace(' ', '_')}.csv"
+        path = PROCESSED_DIR / filename
+        return pd.read_csv(path, encoding="utf-8")
 
 
 # Repositorio por defecto (Local)

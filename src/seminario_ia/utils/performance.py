@@ -107,7 +107,7 @@ def calculate_performance_per_file(
     # Años presentes en el archivo de clima (ej. 2010 y 2011 para un ciclo 2010–2011)
     # date_col = [year_doy_from_date(row)[0] for row in df["DATE"]]
     # years = pd.to_numeric(date_col, errors="coerce").dropna().astype(int).unique()
-    years = df["DATE"].dt.year.unique()
+    years = df["Date"].dt.year.unique()
 
     rend_vals = []
 
@@ -119,9 +119,6 @@ def calculate_performance_per_file(
         ]
 
         if sel.empty:
-            print(
-                f"[Rendimiento] No hay dato de Rend_t_ha en prod_df para region='{region}', año={y}."
-            )
             continue
 
         # Si hay varias filas, promediamos el rendimiento
@@ -132,11 +129,6 @@ def calculate_performance_per_file(
     if rend_vals:
         # Promedio simple de los años encontrados en este archivo
         return float(np.mean(rend_vals))
-
-    print(
-        f"[Rendimiento] Archivo de región '{region}' (años {years}) "
-        "sin rendimiento disponible en prod_df. HH se pondrá como NaN."
-    )
     return float("nan")
 
 
@@ -180,6 +172,7 @@ def calculate_wf_wc(
     if (performance_ton_ha is not None) and (performance_ton_ha > 0):
         green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha
         blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha
+        # HH =  UAC / rendimiento(ton/ha)
     else:
         green_wf_m3_ton = float("nan")
         blue_wf_m3_ton = float("nan")
@@ -221,16 +214,28 @@ def process_file_per_region_crop(
 
     # Obtener informacion del cultivo:
     if isinstance(crop_name, str):
-        crop_obj = region.get_crop(crop_name)
+        from seminario_ia.datasets import get_crop_data
+
+        crop_obj = get_crop_data(crop_name)
     else:
         crop_obj = crop_name
         crop_name = crop_obj.name
 
+    assert isinstance(crop_obj, Crop), "No se procesa un solo cultivo, sino varios."
+
     kc = crop_obj.kc
     dur = crop_obj.durations
 
+    # --- Rendimiento (ton/ha) según año(s) presentes en el archivo ---
+    performance = calculate_performance_per_file(
+        data_nasa, region.name, prod_data, crop_name
+    )
+
+    if np.isnan(performance) or performance <= 0:
+        return pd.DataFrame()
+
     # Fechas y orden
-    dates = data_nasa["DATE"]
+    dates = data_nasa["Date"]
 
     # Kc Diario (indice consistente)
     daily_kc = daily_kc_curve(
@@ -239,20 +244,20 @@ def process_file_per_region_crop(
 
     # Cálculo de ETo vectorizado
     eto_results = eto_fao56_mm(
-        tmax=data_nasa["T2M_MAX"].values,
-        tmin=data_nasa["T2M_MIN"].values,
-        rh_pct=data_nasa["RH2M"].values,
-        u2_ms=data_nasa["WS2M"].values,
-        rs_mjm2d=data_nasa["ALLSKY_SFC_SW_DWN"].values,
+        tmax=data_nasa["T_max"].values,
+        tmin=data_nasa["T_min"].values,
+        rh_pct=data_nasa["Rh"].values,
+        u2_ms=data_nasa["Ws"].values,
+        rs_mjm2d=data_nasa["Rs"].values,
         lat_deg=region.latitude,
         z_m=region.altitude,
-        doy=data_nasa["DATE"].dt.dayofyear.values,
+        doy=data_nasa["Date"].dt.dayofyear.values,
     )
 
     eto_df = pd.DataFrame(eto_results, index=data_nasa.index)
 
     # --- Pef (FAO simple sobre el ciclo) ---
-    efp_series = calculate_daily_simple_efp(data_nasa["PRECTOTCORR"])
+    efp_series = calculate_daily_simple_efp(data_nasa["P_total"])
     efp_series.index = data_nasa.index
 
     # Decadas del ciclo (1..ceil(n/10)) con índice consistente ---
@@ -265,24 +270,19 @@ def process_file_per_region_crop(
     green_et = np.minimum(etc, efp_series)
     blue_et = np.maximum(etc - efp_series, 0.0)
 
-    # --- Rendimiento (ton/ha) según año(s) presentes en el archivo ---
-    performance = calculate_performance_per_file(
-        data_nasa, region.name, prod_data, crop_name
-    )
-
     summary_wf = calculate_wf_wc(green_et, blue_et, performance)
 
     out = data_nasa.copy()
-    out["EP"] = efp_series
-    out["DECADE"] = decades_series
+    out["P_ef"] = efp_series
+    out["Decada"] = decades_series
     out["ET0"] = et0
-    out["ETC"] = etc
-    out["G_ET"] = green_et
-    out["B_ET"] = blue_et
+    out["ETc"] = etc
+    out["ET_v"] = green_et
+    out["ET_a"] = blue_et
 
-    out["G_WC"] = summary_wf["UACverde_m3_ha"]
-    out["B_WC"] = summary_wf["UACazul_m3_ha"]
-    out["G_HH"] = summary_wf["HHverde_m3_ton"]
-    out["B_HH"] = summary_wf["HHazul_m3_ton"]
+    out["UAC_v"] = summary_wf["UACverde_m3_ha"]
+    out["UAC_a"] = summary_wf["UACazul_m3_ha"]
+    out["HH_v"] = summary_wf["HHverde_m3_ton"]
+    out["HH_a"] = summary_wf["HHazul_m3_ton"]
 
     return out
