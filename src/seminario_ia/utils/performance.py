@@ -11,7 +11,7 @@ import pandas as pd
 
 
 def daily_kc_curve(
-    fechas_idx: pd.DatetimeIndex,
+    fechas_idx: pd.Index,
     kc_ini: float,
     kc_mid: float,
     kc_end: float,
@@ -78,38 +78,13 @@ def calculate_daily_simple_efp(ptot_series_mm: pd.Series) -> pd.Series:
 
 def calculate_performance_per_file(
     df: pd.DataFrame, region: str, prod_df: pd.DataFrame, crop: str
-) -> float:
+) -> dict[int, float]:
     """
-    Obtiene el rendimiento (ton/ha) para el/los años presentes en el archivo
-    usando la tabla de producción municipal (prod_df).
-
-    - Para cada año presente en df["YEAR"], busca en prod_df filas con:
-        Anio == YEAR,
-        Nommunicipio == region,
-        Nomcultivo == crop.
-    - Si encuentra varios registros, promedia Rend_t_ha.
-    - Si no encuentra nada para ningún año, devuelve NaN y avisa.
-
-    Parametros:
-    - df: DataFrame del ciclo actual, usado solo para extraer los años presentes.
-    - region: Nombre del municipio/región para buscar en prod_df.
-    - prod_df: DataFrame con la producción municipal, que debe contener las columnas:
-        - Anio: Año calendario (int).
-        - Nommunicipio: Nombre del municipio (str).
-        - Nomcultivo: Nombre del cultivo (str).
-        - Rend_t_ha: Rendimiento en toneladas por hectárea (float).
-    - crop: Nombre del cultivo a buscar en prod_df (ej. "Trigo grano").
-
-    Regresa:
-    - Rendimiento promedio (ton/ha) para los años encontrados en df, o NaN si no se encuentra
-    ningún dato en prod_df para esos años y región.
+    Obtiene un diccionario {año: rendimiento_ton_ha} para los años presentes
+    en el archivo usando la tabla de producción municipal (prod_df).
     """
-    # Años presentes en el archivo de clima (ej. 2010 y 2011 para un ciclo 2010–2011)
-    # date_col = [year_doy_from_date(row)[0] for row in df["DATE"]]
-    # years = pd.to_numeric(date_col, errors="coerce").dropna().astype(int).unique()
     years = df["Date"].dt.year.unique()
-
-    rend_vals = []
+    rend_map = {}
 
     for y in years:
         sel = prod_df[
@@ -118,18 +93,11 @@ def calculate_performance_per_file(
             & (prod_df["Nomcultivo"] == crop)
         ]
 
-        if sel.empty:
-            continue
+        if not sel.empty:
+            r_mean = float(sel["Rendimiento"].astype(float).mean())
+            rend_map[y] = r_mean
 
-        # Si hay varias filas, promediamos el rendimiento
-        # r_mean = float(sel["Rend_t_ha"].astype(float).mean())
-        r_mean = float(sel["Rendimiento"].astype(float).mean())
-        rend_vals.append(r_mean)
-
-    if rend_vals:
-        # Promedio simple de los años encontrados en este archivo
-        return float(np.mean(rend_vals))
-    return float("nan")
+    return rend_map
 
 
 def calculate_wf_wc(
@@ -187,7 +155,7 @@ def calculate_wf_wc(
     }
 
 
-def calculate_decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
+def calculate_decades_per_cycle(idx: pd.Index) -> pd.Series:
     """
     Calcula las décadas relativas al ciclo (no calendario) a partir de un índice de fechas.
     Cada década corresponde a un bloque de 10 días consecutivos, comenzando desde el inicio del
@@ -195,7 +163,7 @@ def calculate_decades_per_cycle(idx: pd.DatetimeIndex) -> pd.Series:
     mismo índice que idx y valores enteros indicando la década correspondiente a cada fecha.
 
     Parametros:
-        - idx: Índice de fechas (pd.DatetimeIndex) para el ciclo completo.
+        - idx: Índice de fechas o posiciones (pd.Index) para el ciclo completo.
 
     Regresa:
         - pd.Series de enteros indicando la década relativa al ciclo para cada fecha en idx.
@@ -211,6 +179,19 @@ def process_file_per_region_crop(
     crop_name: str | Crop,
     prod_data: pd.DataFrame,
 ) -> pd.DataFrame:
+    """
+    Procesa un archivo de datos de Nasa para una región y cultivo específicos, calculando
+    el rendimiento y agregando las estadísticas de ET0 y UAC/HH por década.
+
+    Parámetros:
+        - region: Región geográfica (Region).
+        - data_nasa: Datos de Nasa para la región (pd.DataFrame).
+        - crop_name: Nombre del cultivo (str) o objeto Crop.
+        - prod_data: Datos de producción (pd.DataFrame).
+
+    Regresa:
+        - pd.DataFrame con las estadísticas de rendimiento y ET0/UAC/HH por década.
+    """
 
     # Obtener informacion del cultivo:
     if isinstance(crop_name, str):
@@ -227,20 +208,20 @@ def process_file_per_region_crop(
     dur = crop_obj.durations
 
     # --- Rendimiento (ton/ha) según año(s) presentes en el archivo ---
-    performance = calculate_performance_per_file(
+    performance_map = calculate_performance_per_file(
         data_nasa, region.name, prod_data, crop_name
     )
 
-    if np.isnan(performance) or performance <= 0:
+    if not performance_map:
         return pd.DataFrame()
 
     # Fechas y orden
     dates = data_nasa["Date"]
 
-    # Kc Diario (indice consistente)
+    # Kc Diario (indice consistente con data_nasa)
     daily_kc = daily_kc_curve(
-        dates, kc_ini=kc["ini"], kc_mid=kc["mid"], kc_end=kc["end"], dur=dur
-    ).reset_index(drop=True)
+        data_nasa.index, kc_ini=kc["ini"], kc_mid=kc["mid"], kc_end=kc["end"], dur=dur
+    )
 
     # Cálculo de ETo vectorizado
     eto_results = eto_fao56_mm(
@@ -261,7 +242,7 @@ def process_file_per_region_crop(
     efp_series.index = data_nasa.index
 
     # Decadas del ciclo (1..ceil(n/10)) con índice consistente ---
-    decades_series = calculate_decades_per_cycle(dates).reset_index(drop=True)
+    decades_series = calculate_decades_per_cycle(data_nasa.index)
 
     # --- ETc, ET verde/azul (todo con el mismo índice) ---
     et0 = eto_df["ET0"]
@@ -270,19 +251,45 @@ def process_file_per_region_crop(
     green_et = np.minimum(etc, efp_series)
     blue_et = np.maximum(etc - efp_series, 0.0)
 
-    summary_wf = calculate_wf_wc(green_et, blue_et, performance)
+    # Preparar salida
+    out = pd.concat([data_nasa, eto_df], axis=1)
+    out = out.loc[:, ~out.columns.duplicated()]
 
-    out = data_nasa.copy()
     out["P_ef"] = efp_series
     out["Decada"] = decades_series
-    out["ET0"] = et0
     out["ETc"] = etc
     out["ET_v"] = green_et
     out["ET_a"] = blue_et
 
-    out["UAC_v"] = summary_wf["UACverde_m3_ha"]
-    out["UAC_a"] = summary_wf["UACazul_m3_ha"]
-    out["HH_v"] = summary_wf["HHverde_m3_ton"]
-    out["HH_a"] = summary_wf["HHazul_m3_ton"]
+    # Calcular HH y UAC por año
+    out["Year_tmp"] = out["Date"].dt.year
+    out["UAC_v"] = 0.0
+    out["UAC_a"] = 0.0
+    out["HH_v"] = 0.0
+    out["HH_a"] = 0.0
 
+    for year, rend in performance_map.items():
+        mask = out["Year_tmp"] == year
+        if not mask.any():
+            continue
+
+        # Resumen del año/periodo
+        summary = calculate_wf_wc(green_et[mask], blue_et[mask], rend)
+
+        # Asignar a las filas correspondientes
+        out.loc[mask, "UAC_v"] = summary["UACverde_m3_ha"]
+        out.loc[mask, "UAC_a"] = summary["UACazul_m3_ha"]
+        out.loc[mask, "HH_v"] = summary["HHverde_m3_ton"]
+        out.loc[mask, "HH_a"] = summary["HHazul_m3_ton"]
+
+    # Columnas finales deseadas
+    keep_cols = [
+        "Date", "T_max", "T_min", "Rs", "Rh", "Ws", "P_total",
+        "Tmean_", "Rn_", "ET0", "P_ef", "Decada", "ETc",
+        "ET_v", "ET_a", "UAC_v", "UAC_a", "HH_v", "HH_a"
+    ]
+    
+    # Asegurar que solo devolvemos las columnas que existen y queremos
+    out = out[[c for c in keep_cols if c in out.columns]]
+    
     return out

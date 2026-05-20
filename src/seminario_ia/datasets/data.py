@@ -6,18 +6,13 @@ incluyendo coordenadas de municipios en Sonora.
 """
 
 from seminario_ia.models import Crop, Region
-from seminario_ia.utils import validate_weather_df
-
 from .codes import get_mun_code
-from .paths import PROCESSED_DIR, RAW_DATASETS
+from .paths import RAW_DATASETS
 from .repository import repo
 
 import pandas as pd
 
 coordinates = repo.load_coordinates()
-
-prod_files = PROCESSED_DIR / "siap_produccion"
-prod_muni_files = prod_files / "sonora"
 
 
 def get_mun_coordinates(input: str | int = "all") -> pd.DataFrame:
@@ -62,12 +57,7 @@ def load_prod_file(year: int | str) -> pd.DataFrame:
         - pd.DataFrame | None - El dataframe con los datos de producción, o None si no se encuentra el archivo.
     """
 
-    path_to_search = prod_muni_files
-
-    files = list(path_to_search.glob(f"*{year}.csv"))
-    if len(files) == 0:
-        return pd.DataFrame()
-    return pd.read_csv(files[0], encoding="utf-8")
+    return repo.load_prod_file(year)
 
 
 def _parse_years(years: tuple[int, int] | str | int) -> list[int] | None:
@@ -217,16 +207,6 @@ def get_prod_data(
     return df
 
 
-def read_nasa_power_file(year: str, loc: str = "all") -> pd.DataFrame:
-    """
-    Lee un archivo de datos de la API de NASA POWER para el año y ubicación especificados.
-    """
-    raw_data = repo.load_nasa_power(year, loc)
-    if raw_data.empty:
-        return pd.DataFrame()
-    return validate_weather_df(raw_data)
-
-
 def get_nasa_power_data(
     loc_name: str | int, year: int | list[int] | str = "all"
 ) -> pd.DataFrame:
@@ -265,7 +245,7 @@ def get_nasa_power_data(
         if loc_name_str is None:
             return pd.DataFrame()
         return pd.concat(
-            [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
+            [repo.load_nasa_power(str(year), str(loc_name_str)) for year in years],
             ignore_index=True,
         ).sort_values(by=["Date"])
     elif isinstance(loc_name, str):
@@ -274,12 +254,12 @@ def get_nasa_power_data(
             if loc_name_str is None:
                 return pd.DataFrame()
             return pd.concat(
-                [read_nasa_power_file(str(year), str(loc_name_str)) for year in years],
+                [repo.load_nasa_power(str(year), str(loc_name_str)) for year in years],
                 ignore_index=True,
             ).sort_values(by=["Date"])
         else:
             return pd.concat(
-                [read_nasa_power_file(str(year), loc_name) for year in years],
+                [repo.load_nasa_power(str(year), loc_name) for year in years],
                 ignore_index=True,
             ).sort_values(by=["Date"])
 
