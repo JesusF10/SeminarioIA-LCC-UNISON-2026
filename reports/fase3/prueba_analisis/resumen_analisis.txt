@@ -1,0 +1,29 @@
+Análisis Express de Trigo grano en Sonora (2003-2024)
+==================================================
+
+1. Producción Total Histórica: 36,576,448.16 Ton
+2. Municipio Líder: Cajeme con 8,461,788.25 Ton
+3. Rendimiento Promedio Histórico: 6.31 Ton/Ha
+4. Año con mayor siniestralidad: 2014 (0.84%)
+
+Datos Huella Hídrica (Cajeme):
+- HH Azul Promedio: 1646.59 m3/Ton
+- HH Verde Promedio: 123.58 m3/Ton
+- HH Total Promedio: 1770.17 m3/Ton
+
+Análisis Geográfico (Top 10):
+Nommunicipio
+Cajeme                    8461788.25
+Etchojoa                  5659300.56
+Navojoa                   5018291.83
+Huatabampo                3362994.99
+Benito Juárez             3037256.40
+Bácum                     2756987.77
+San Ignacio Río Muerto    2385714.52
+Guaymas                   2007389.98
+San Luis Río Colorado     1862515.41
+Hermosillo                1351984.19
+
+Conclusiones:
+- Se observa una clara predominancia de la HH Azul (riego) sobre la Verde (lluvia).
+- El rendimiento muestra sensibilidad a las variaciones de la ETo acumulada.
