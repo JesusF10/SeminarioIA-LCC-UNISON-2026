@@ -187,14 +187,3 @@ ahorro de agua por unidad producida.
   )
 ]
 
-= Conclusiones y Recomendaciones
-
-1. *Reconversión Selectiva:* Se recomienda priorizar la expansión de cultivos
-   de alta eficiencia en zonas con déficit hídrico crítico.
-2. *Caso de la Nuez:* Los frutales como la nuez muestran las eficiencias más
-   bajas (frecuentemente < 0.0001 Ton/m³), lo que exige una revisión de su
-   viabilidad a largo plazo en regiones de alta escasez.
-3. *Eficiencia en Forrajes:* Cultivos como la avena y el trigo forrajero
-   presentan una eficiencia media-alta (0.006 - 0.007 Ton/m³), siendo opciones
-   viables para la seguridad alimentaria ganadera con menor impacto hídrico que
-   la alfalfa.
