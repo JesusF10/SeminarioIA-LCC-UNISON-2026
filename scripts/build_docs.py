@@ -146,16 +146,27 @@ def parse_typst_file(filepath: Path) -> list[dict]:
     sections = []
     current_section = {"title": "General", "level": 1, "blocks": []}
 
-    # Analizar línea por línea
     lines = content.split("\n")
+    
+    started = False  # Para ignorar cabeceras y setups de Typst hasta el primer heading
     in_code_block = False
+    in_figure = False
+    parenthesis_count = 0
+    
     code_lang = "python"
     code_lines = []
 
     for line in lines:
         stripped = line.strip()
 
-        # Manejo de bloques de código
+        # 1. Ignorar cabeceras, imports y configuraciones hasta el primer encabezado
+        if not started:
+            if stripped.startswith("="):
+                started = True
+            else:
+                continue
+
+        # 2. Manejo de bloques de código
         if stripped.startswith("```"):
             if in_code_block:
                 in_code_block = False
@@ -173,22 +184,44 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             continue
 
         if in_code_block:
-            # Remover número de línea si fue inyectado por view_file (no aplicable a lectura real)
             code_lines.append(line)
             continue
 
-        # Evitar directivas de configuración o imports de Typst
-        if stripped.startswith("#import") or stripped.startswith("#set") or stripped.startswith("#show"):
+        # 3. Detectar e ignorar bloques #figure(...) completos
+        if stripped.startswith("#figure("):
+            in_figure = True
+            parenthesis_count = stripped.count("(") - stripped.count(")")
             continue
 
-        # Evitar diagramas Fletcher complejos para renderizar en web directamente
-        if "diagram(" in line or "fletcher" in line:
+        if in_figure:
+            parenthesis_count += stripped.count("(") - stripped.count(")")
+            if parenthesis_count <= 0:
+                in_figure = False
             continue
 
-        # Manejo de encabezados (e.g. "= Introducción" o "== NASA POWER")
+        # 4. Ignorar directivas de configuración o imports de Typst
+        if (stripped.startswith("#import") or 
+            stripped.startswith("#set") or 
+            stripped.startswith("#show") or
+            stripped.startswith("#v(") or
+            stripped.startswith("#pagebreak")):
+            continue
+
+        # Evitar diagramas Fletcher y paréntesis de cierre sueltos
+        if "diagram(" in line or "fletcher" in line or stripped == ")":
+            continue
+
+        # Capturar tablas pre-renderizadas en HTML para que no se envuelvan en <p>
+        if stripped.startswith('<div class="table-responsive">'):
+            current_section["blocks"].append({"type": "html", "content": line})
+            continue
+
+        if not stripped:
+            continue
+
+        # 5. Manejo de encabezados (e.g. "= Introducción" o "== NASA POWER")
         heading_match = re.match(r"^(=+)\s+(.*)$", stripped)
         if heading_match:
-            # Si la sección actual tiene contenido, guardarla
             if current_section["blocks"]:
                 sections.append(current_section)
 
@@ -197,30 +230,22 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             current_section = {"title": title, "level": level, "blocks": []}
             continue
 
-        if not stripped:
-            continue
-
-        # Procesar bloques de ecuaciones de Typst
-        # Bloque matemático de línea completa
+        # 6. Ecuaciones de bloque completo
         if stripped.startswith("$") and stripped.endswith("$") and len(stripped) > 2:
             math_content = stripped[1:-1].strip()
             latex_math = clean_typst_math_to_latex(math_content)
             current_section["blocks"].append({"type": "math-block", "content": latex_math})
             continue
 
-        # Procesar párrafos normales y convertir ecuaciones inline
-        # Reemplazar ecuaciones inline $...$ por LaTeX y KaTeX tags
+        # 7. Párrafos y ecuaciones inline
         def inline_math_replacer(match):
             math_expr = match.group(1)
             latex = clean_typst_math_to_latex(math_expr)
             return f"\\({latex}\\)"
 
         paragraph = re.sub(r"\$([^\$]+)\$", inline_math_replacer, line)
-
-        # Reemplazar formato Typst de negritas *texto* por HTML <strong>
         paragraph = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", paragraph)
 
-        # Reemplazar listas del tipo "- elemento"
         if paragraph.startswith("- "):
             current_section["blocks"].append({"type": "list-item", "content": paragraph[2:]})
         else:

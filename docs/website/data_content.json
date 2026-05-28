@@ -1,104 +1,6 @@
 {
   "reporte_hh": [
     {
-      "title": "General",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "  paper: \"a4\","
-        },
-        {
-          "type": "paragraph",
-          "content": "  margin: (x: 2cm, y: 2.5cm),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  header: align(right, text(8pt, gray)[Cálculo de Huella Hídrica (FAO-56)]),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  footer: context ["
-        },
-        {
-          "type": "paragraph",
-          "content": "    #grid("
-        },
-        {
-          "type": "paragraph",
-          "content": "      columns: (1fr, 1fr),"
-        },
-        {
-          "type": "paragraph",
-          "content": "      [Reconversión de cultivos], align(right, counter(page).display()),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    )"
-        },
-        {
-          "type": "paragraph",
-          "content": "  ],"
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "  font: \"Nimbus Sans\","
-        },
-        {
-          "type": "paragraph",
-          "content": "  size: 10pt,"
-        },
-        {
-          "type": "paragraph",
-          "content": "  lang: \"es\","
-        },
-        {
-          "type": "paragraph",
-          "content": "  region: \"mx\","
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "#align(center)["
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(18pt, weight: \"bold\")[Metodología de Cálculo de Evapotranspiración y Huella Hídrica] \\"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #v(0.5cm)"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(12pt, weight: \"medium\")[Basado en el Estándar FAO-56 Penman-Monteith] \\"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #v(0.2cm)"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(10pt, style: \"italic\")[Proyecto: Reconversión de Cultivos en Sonora]"
-        },
-        {
-          "type": "paragraph",
-          "content": "]"
-        },
-        {
-          "type": "paragraph",
-          "content": "#v(1cm)"
-        }
-      ]
-    },
-    {
       "title": "Introducción",
       "level": 1,
       "blocks": [
@@ -183,70 +85,6 @@
         {
           "type": "list-item",
           "content": "<strong>Rendimiento:</strong> Toneladas por hectárea (\\(t/h a\\)) reportadas por el SIAP."
-        },
-        {
-          "type": "paragraph",
-          "content": "#v(1cm)"
-        },
-        {
-          "type": "paragraph",
-          "content": "#figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    node-defocus: 0.1,"
-        },
-        {
-          "type": "paragraph",
-          "content": "    spacing: (1.5cm, 1.2cm),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((0, 0), [Definición de Región\\ (Lat, Lon, Alt)], stroke: 1pt, fill: blue.lighten(90%), name: <reg>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((2, 0), [Parámetros Cultivo\\ (Kc, Duración, Rend)], stroke: 1pt, fill: green.lighten(90%), name: <cult>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 1), [NASA POWER API], stroke: 1pt, fill: orange.lighten(90%), name: <nasa>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<reg>, <nasa>, [Consulta], \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<cult>, (1, 2), \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<nasa>, (1, 2), [Datos Diarios\\ (T, RH, Rs, u2, P)], \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 2), [Procesamiento ETo / HH], stroke: 2pt, fill: gray.lighten(90%), name: <proc>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 3), [Reporte / Dataset ML], stroke: 1pt, fill: red.lighten(90%), name: <out>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<proc>, <out>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  ),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  caption: [Flujo de Ingesta y Origen de Datos],"
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
         }
       ]
     },
@@ -451,114 +289,6 @@
           "type": "code",
           "lang": "python",
           "content": "def calculate_wf_uac(\n    green_et_series_mm: pd.Series,\n    blue_et_series_mm: pd.Series,\n    performance_ton_ha: float,\n) -> dict:\n    \"\"\"\n    Calcula:\n      - ETverde_total_mm, ETazul_total_mm\n      - UACverde_m3_ha, UACazul_m3_ha\n      - HHverde_m3_ton, HHazul_m3_ton\n    Convenciones:\n      - 1 mm sobre 1 ha = 10 m3  => UAC = sum(ET) * 10\n      - HH = UAC / rendimiento(ton/ha)\n    Si no hay rendimiento válido (>0), HH = NaN.\n\n    Parametros:\n        - green_et_series_mm: Serie de ET verde diario (mm).\n        - blue_et_series_mm: Serie de ET azul diario (mm).\n        - performance_ton_ha: Rendimiento en toneladas por hectárea (ton/ha).\n\n    Regresa:\n        Diccionario con las métricas calculadas:\n        {\n            \"ETverde_total_mm\": ...,\n            \"ETazul_total_mm\": ...,\n            \"UACverde_m3_ha\": ...,\n            \"UACazul_m3_ha\": ...,\n            \"HHverde_m3_ton\": ...,\n            \"HHazul_m3_ton\": ...,\n        }\n    \"\"\"\n    total_green_et_mm = float(pd.Series(green_et_series_mm).fillna(0).sum())\n    total_blue_et_mm = float(pd.Series(blue_et_series_mm).fillna(0).sum())\n\n    green_uac_m3_ha = total_green_et_mm * 10.0\n    blue_uac_m3_ha = total_blue_et_mm * 10.0\n\n    if (performance_ton_ha is not None) and (performance_ton_ha > 0):\n        green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha\n        blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha\n    else:\n        green_wf_m3_ton = float(\"nan\")\n        blue_wf_m3_ton = float(\"nan\")\n\n    return {\n        \"ETverde_total_mm\": total_green_et_mm,\n        \"ETazul_total_mm\": total_blue_et_mm,\n        \"UACverde_m3_ha\": green_uac_m3_ha,\n        \"UACazul_m3_ha\": blue_uac_m3_ha,\n        \"HHverde_m3_ton\": green_wf_m3_ton,\n        \"HHazul_m3_ton\": blue_wf_m3_ton,\n    }"
-        },
-        {
-          "type": "paragraph",
-          "content": "#v(1cm)"
-        },
-        {
-          "type": "paragraph",
-          "content": "#figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    node-defocus: 0.1,"
-        },
-        {
-          "type": "paragraph",
-          "content": "    spacing: (1.5cm, 1cm),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((0, 0), [Datos Clima], name: <clima>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((0, 1), [Cálculo \\(ET_o\\)\\ (Penman-Monteith)], stroke: 1pt, name: <eto>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((2, 1), [Curva \\(K_c\\)], name: <kc>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 2), [\\(ET_c = ET_o \\cdot K_c\\)], stroke: 2pt, name: <etc>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((0, 2), [Precipitación (\\(P\\))], name: <p>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((0, 3), [\\(P_\\text{ef}\\) (FAO Simple)], name: <pef>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<clima>, <eto>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<eto>, <etc>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<kc>, <etc>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<p>, <pef>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 4), [\\(E T_\\text{Verde}\\) / \\(E T_\\text{Azul}\\)], stroke: 1pt, name: <va>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<etc>, <va>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<pef>, <va>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 5), [\\(U A C\\) (\\(m^3/h a\\))], name: <uac>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((2, 6), [Rendimiento], name: <rend>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    node((1, 7), [Huella Hídrica (\\(m^3/t\\))], stroke: 2pt, fill: red.lighten(95%), name: <hh>),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<va>, <uac>, [Suma Ciclo], \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<uac>, <hh>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    edge(<rend>, <hh>, \"-|>\"),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  ),"
-        },
-        {
-          "type": "paragraph",
-          "content": "  caption: [Proceso Secuencial de Cálculo de Huella Hídrica],"
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "#pagebreak()"
         }
       ]
     },
@@ -763,72 +493,6 @@
   ],
   "reporte_est": [
     {
-      "title": "General",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "  paper: \"us-letter\","
-        },
-        {
-          "type": "paragraph",
-          "content": "  margin: (x: 1in, y: 1in),"
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "  size: 11pt,"
-        },
-        {
-          "type": "paragraph",
-          "content": "  lang: \"es\","
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "  justify: true,"
-        },
-        {
-          "type": "paragraph",
-          "content": "  leading: 0.65em,"
-        },
-        {
-          "type": "paragraph",
-          "content": ")"
-        },
-        {
-          "type": "paragraph",
-          "content": "#align(center)["
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(size: 18pt, weight: \"bold\")[Análisis Estadístico de Eficiencia Hídrica] \\"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(size: 14pt)[Fase 3: Reconversión Productiva en Sonora] \\"
-        },
-        {
-          "type": "paragraph",
-          "content": "  #text(size: 12pt)[Mayo 2026]"
-        },
-        {
-          "type": "paragraph",
-          "content": "]"
-        },
-        {
-          "type": "paragraph",
-          "content": "#v(1cm)"
-        }
-      ]
-    },
-    {
       "title": "Introducción",
       "level": 1,
       "blocks": [
@@ -902,22 +566,6 @@
         },
         {
           "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/top_eficiencia_global.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Top 15 Cultivos más Eficientes en Sonora (Promedio 2010-2024)],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
-        },
-        {
-          "type": "paragraph",
           "content": "]"
         }
       ]
@@ -935,7 +583,7 @@
           "content": "estado:"
         },
         {
-          "type": "paragraph",
+          "type": "html",
           "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Rendimiento (Ton/Ha)</th><th>Valor (MXN/m³)</th></tr></thead><tbody><tr><td>Col (repollo)</td><td>0.0375</td><td>32.20</td><td>156,032</td></tr><tr><td>Coliflor</td><td>0.0213</td><td>22.00</td><td>143,770</td></tr><tr><td>Hortalizas</td><td>0.0166</td><td>13.75</td><td>72,582</td></tr><tr><td>Caña (piloncillo)</td><td>0.0148</td><td>60.00</td><td>33,901</td></tr><tr><td>Zanahoria</td><td>0.0127</td><td>28.00</td><td>55,125</td></tr></tbody></table></div>"
         }
       ]
@@ -962,22 +610,6 @@
         },
         {
           "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/peores_eficiencia_global.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Top 15 Cultivos MENOS Eficientes en Sonora],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
-        },
-        {
-          "type": "paragraph",
           "content": "]"
         }
       ]
@@ -995,7 +627,7 @@
           "content": "sustentabilidad hídrica en Sonora:"
         },
         {
-          "type": "paragraph",
+          "type": "html",
           "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Consumo (m³/Ton)</th></tr></thead><tbody><tr><td>Cereza</td><td>0.000037</td><td>26,850</td></tr><tr><td>Nuez</td><td>0.000108</td><td>11,164</td></tr><tr><td>Frijol</td><td>0.000175</td><td>6,464</td></tr><tr><td>Ajonjolí</td><td>0.000163</td><td>8,883</td></tr><tr><td>Cacahuate</td><td>0.000212</td><td>5,615</td></tr></tbody></table></div>"
         }
       ]
@@ -1026,22 +658,6 @@
         },
         {
           "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/productividad_economica.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Top 15 Cultivos con mayor Valor Económico por m³ de Agua],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
-        },
-        {
-          "type": "paragraph",
           "content": "]"
         }
       ]
@@ -1065,22 +681,6 @@
         {
           "type": "paragraph",
           "content": "#align(center)["
-        },
-        {
-          "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/cuadrante_rentabilidad_eficiencia.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Análisis de Cuadrantes: Rentabilidad (PMR) vs. Eficiencia Hídrica],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
         },
         {
           "type": "paragraph",
@@ -1134,22 +734,6 @@
         },
         {
           "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/valor_vs_hh_log.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Relación Valor de Mercado (MXN/Ton) vs. Huella Hídrica (m³/Ton)],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
-        },
-        {
-          "type": "paragraph",
           "content": "]"
         }
       ]
@@ -1176,22 +760,6 @@
         },
         {
           "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/productividad_economica_ddr.png\", width: 80%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Productividad Económica Media por DDR (MXN/m³)],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
-        },
-        {
-          "type": "paragraph",
           "content": "]"
         },
         {
@@ -1203,7 +771,7 @@
           "content": "administrativa:"
         },
         {
-          "type": "paragraph",
+          "type": "html",
           "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>DDR</th><th>Cultivo más Eficiente</th><th>Eficiencia (Ton/m³)</th></tr></thead><tbody><tr><td>Agua Prieta</td><td>Hortalizas</td><td>0.0168</td></tr><tr><td>Caborca</td><td>Pepino</td><td>0.0147</td></tr><tr><td>Cajeme</td><td>Hortalizas</td><td>0.0232</td></tr><tr><td>Guaymas</td><td>Pepino</td><td>0.0146</td></tr><tr><td>Hermosillo</td><td>Tomate rojo</td><td>0.0117</td></tr><tr><td>Magdalena</td><td>Col (repollo)</td><td>0.0375</td></tr><tr><td>Navojoa</td><td>Apio</td><td>0.0126</td></tr></tbody></table></div>"
         }
       ]
@@ -1231,22 +799,6 @@
         {
           "type": "paragraph",
           "content": "#align(center)["
-        },
-        {
-          "type": "paragraph",
-          "content": "  #figure("
-        },
-        {
-          "type": "paragraph",
-          "content": "    image(\"../../reports/fase3/prueba_analisis/images/rendimiento_vs_eficiencia.png\", width: 70%),"
-        },
-        {
-          "type": "paragraph",
-          "content": "    caption: [Correlación entre Rendimiento y Eficiencia Hídrica],"
-        },
-        {
-          "type": "paragraph",
-          "content": "  )"
         },
         {
           "type": "paragraph",
