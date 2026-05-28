@@ -194,6 +194,13 @@ function renderAllDynamicContent() {
 
   // 6. Ejecutar KaTeX sobre todos los contenedores cargados
   renderKaTeXOnPage();
+
+  // 7. Colorear bloques de código con Highlight.js
+  if (typeof hljs !== "undefined") {
+    document.querySelectorAll("pre code").forEach((el) => {
+      hljs.highlightElement(el);
+    });
+  }
 }
 
 // --- Renderizador de Reportes en HTML ---
@@ -244,7 +251,12 @@ function renderKaTeXOnPage() {
     if (inlinePattern.test(content)) {
       content = content.replace(inlinePattern, (match, expr) => {
         try {
-          return katex.renderToString(expr, { displayMode: false, throwOnError: false });
+          // Decodificar entidades HTML comunes que rompen el compilador de KaTeX
+          const decodedExpr = expr
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&amp;/g, "&");
+          return katex.renderToString(decodedExpr, { displayMode: false, throwOnError: false });
         } catch (err) {
           return expr;
         }
