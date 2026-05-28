@@ -24,6 +24,45 @@ def clean_typst_math_to_latex(math_expr: str) -> str:
     """
     expr = math_expr.strip()
 
+    # Mapeo estricto para resolver anidamientos complejos de Typst
+    strict_mappings = {
+        'E T_o = frac(0.408 Delta (R_n - G) + gamma frac(900, T + 273) u_2 (e_s - e_a), Delta + gamma (1 + 0.34 u_2))':
+            r'ET_o = \frac{0.408 \Delta (R_n - G) + \gamma \frac{900}{T + 273} u_2 (e_s - e_a)}{\Delta + \gamma (1 + 0.34 u_2)}',
+        'gamma = frac(c_p P, epsilon lambda) approx 0.000665 dot P':
+            r'\gamma = \frac{c_p P}{\epsilon \lambda} \approx 0.000665 \cdot P',
+        'Delta = frac(4098 [0.6108 exp(frac(17.27 T, T + 237.3))], (T + 237.3)^2)':
+            r'\Delta = \frac{4098 \left[0.6108 \exp\left(\frac{17.27 T}{T + 237.3}\right)\right]}{(T + 237.3)^2}',
+        'e^o (T) = 0.6108 exp(frac(17.27 T, T + 237.3))':
+            r'e^o (T) = 0.6108 \exp\left(\frac{17.27 T}{T + 237.3}\right)',
+        'e_s = frac(e^o (T_"max") + e^o (T_"min"), 2)':
+            r'e_s = \frac{e^o (T_{\text{max}}) + e^o (T_{\text{min}})}{2}',
+        'e_a = e_s dot frac("RH", 100)':
+            r'e_a = e_s \cdot \frac{\text{RH}}{100}',
+        'R_a = frac(24 dot 60, pi) G_"sc" d_r (omega_s sin(phi) sin(delta) + cos(phi) cos(delta) sin(omega_s))':
+            r'R_a = \frac{24 \cdot 60}{\pi} G_{\text{sc}} d_r (\omega_s \sin(\phi) \sin(\delta) + \cos(\phi) \cos(\delta) \sin(\omega_s))',
+        'R_"ns" = (1 - alpha) R_s':
+            r'R_{\text{ns}} = (1 - \alpha) R_s',
+        'R_"nl" = sigma (frac(T_(max, K)^4 + T_(min, K)^4, 2)) (0.34 - 0.14 sqrt(e_a)) (1.35 frac(R_s, R_"so") - 0.35)':
+            r'R_{\text{nl}} = \sigma \left(\frac{T_{\text{max}, K}^4 + T_{\text{min}, K}^4}{2}\right) (0.34 - 0.14 \sqrt{e_a}) \left(1.35 \frac{R_s}{R_{\text{so}}} - 0.35\right)',
+        'R_n = R_"ns" - R_"nl"':
+            r'R_n = R_{\text{ns}} - R_{\text{nl}}',
+        'E T_c = K_c dot E T_o':
+            r'ET_c = K_c \cdot ET_o',
+        'E T_"verde" = min(E T_c, P_"ef")':
+            r'ET_{\text{verde}} = \min\left(ET_c, P_{\text{ef}}\right)',
+        'E T_"azul" = max(E T_c - P_"ef", 0)':
+            r'ET_{\text{azul}} = \max\left(ET_c - P_{\text{ef}}, 0\right)',
+        'U A C = sum_"ciclo" E T dot 10':
+            r'\text{UAC} = \sum_{\text{ciclo}} ET \cdot 10',
+        'H H = frac(U A C, "Rendimiento" (t/h a))':
+            r'\text{HH} = \frac{\text{UAC}}{\text{Rendimiento (t/ha)}}',
+        'P = 101.3 (frac(293 - 0.0065 z, 293))^(5.26)':
+            r'P = 101.3 \left(\frac{293 - 0.0065 z}{293}\right)^{5.26}'
+    }
+
+    if expr in strict_mappings:
+        return strict_mappings[expr]
+
     # Reemplazos con expresiones regulares usando funciones lambda para evitar
     # problemas de escape de backslashes en re.sub
     expr = re.sub(r"frac\((.*?),\s*(.*?)\)", lambda m: f"\\frac{{{m.group(1)}}}{{{m.group(2)}}}", expr)

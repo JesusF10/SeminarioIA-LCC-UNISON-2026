@@ -1,278 +1,452 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentación - Seminario IA LCC UNISON 2026</title>
-  
-  <!-- Estilos del Sitio -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- FontAwesome para Iconografía -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- KaTeX para Ecuaciones Matemáticas -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  
-  <!-- Chart.js para Visualizaciones Gráficas -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <style>
-    /* Estilo de carga (Splash Screen) */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0c0f0a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      color: #a3e635;
-      font-family: 'Outfit', sans-serif;
-      transition: opacity 0.5s ease;
-    }
-    
-    .spinner {
-      border: 4px solid rgba(163, 230, 53, 0.1);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border-left-color: #a3e635;
-      animation: spin 1s linear infinite;
-      margin-bottom: 1rem;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Documentación - Seminario IA LCC UNISON 2026</title>
 
-  <!-- Pantalla de Carga -->
-  <div id="loader">
-    <div class="spinner"></div>
-    <h2>Cargando Documentación...</h2>
-    <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem;">Cargando base de datos técnica y modelos</p>
-  </div>
+        <!-- Estilos del Sitio -->
+        <link rel="stylesheet" href="style.css" />
 
-  <!-- Barra de Navegación Lateral -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-icon">S</div>
-      <div>
-        <div class="brand-name">Seminario IA</div>
-        <div class="brand-sub">LCC UNISON 2026</div>
-      </div>
-    </div>
-    
-    <ul class="nav-menu">
-      <li class="nav-item active" data-section="inicio">
-        <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
-      </li>
-      <li class="nav-item" data-section="metodologia">
-        <a href="#metodologia"><i class="fa-solid fa-calculator"></i> Metodología HH</a>
-      </li>
-      <li class="nav-item" data-section="calculadora">
-        <a href="#calculadora"><i class="fa-solid fa-sliders"></i> Calculadora FAO-56</a>
-      </li>
-      <li class="nav-item" data-section="datos">
-        <a href="#datos"><i class="fa-solid fa-database"></i> Inventario Datos</a>
-      </li>
-      <li class="nav-item" data-section="arquitectura">
-        <a href="#arquitectura"><i class="fa-solid fa-sitemap"></i> Arquitectura Código</a>
-      </li>
-      <li class="nav-item" data-section="estadisticas">
-        <a href="#estadisticas"><i class="fa-solid fa-chart-line"></i> Estadísticas Eficiencia</a>
-      </li>
-    </ul>
-    
-    <div class="theme-toggle-container">
-      <button class="theme-toggle-btn" id="theme-toggle">
-        <i class="fa-solid fa-sun" id="theme-icon"></i>
-        <span id="theme-text">Modo Claro</span>
-      </button>
-    </div>
-  </aside>
+        <!-- FontAwesome para Iconografía -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
 
-  <!-- Contenedor Principal de Contenido -->
-  <main class="main-content">
-    
-    <!-- Sección: Inicio -->
-    <section id="inicio" class="section active">
-      <h1>Reconversión Productiva en Sonora</h1>
-      <p style="font-size: 1.2rem; line-height: 1.8;">
-        Este proyecto, desarrollado por el equipo de <strong>Ciencias de la Computación de la Universidad de Sonora</strong>,
-        tiene como objetivo proponer alternativas viables de <strong>reconversión de cultivos</strong> para optimizar el uso de los
-        recursos hídricos y aumentar la rentabilidad agrícola frente a la sequía en Sonora.
-      </p>
-      
-      <div class="card-grid">
-        <div class="card" style="border-left: 4px solid var(--accent-green);">
-          <div class="card-title"><i class="fa-solid fa-droplet" style="color: var(--accent-blue);"></i> Eje Hídrico</div>
-          <p style="font-size: 0.95rem; margin-bottom: 0;">Análisis y cálculo de evapotranspiración de referencia (ETo) y evapotranspiración del cultivo (ETc) bajo el estándar internacional FAO-56.</p>
+        <!-- KaTeX para Ecuaciones Matemáticas -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+        />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+        ></script>
+
+        <!-- Chart.js para Visualizaciones Gráficas -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <style>
+            /* Estilo de carga (Splash Screen) */
+            #loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #0c0f0a;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                color: #a3e635;
+                font-family: "Outfit", sans-serif;
+                transition: opacity 0.5s ease;
+            }
+
+            .spinner {
+                border: 4px solid rgba(163, 230, 53, 0.1);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border-left-color: #a3e635;
+                animation: spin 1s linear infinite;
+                margin-bottom: 1rem;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Pantalla de Carga -->
+        <div id="loader">
+            <div class="spinner"></div>
+            <h2>Cargando Documentación...</h2>
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem">
+                Cargando base de datos técnica y modelos
+            </p>
         </div>
-        <div class="card" style="border-left: 4px solid var(--accent-blue);">
-          <div class="card-title"><i class="fa-solid fa-wheat-awn" style="color: var(--accent-green);"></i> Reconversión</div>
-          <p style="font-size: 0.95rem; margin-bottom: 0;">Evaluación multicultivo analizando rentabilidad económica física (MXN/m³) frente a consumos de agua para proponer alternativas de menor huella.</p>
-        </div>
-        <div class="card" style="border-left: 4px solid var(--accent-orange);">
-          <div class="card-title"><i class="fa-solid fa-microchip"></i> Backend Modular</div>
-          <p style="font-size: 0.95rem; margin-bottom: 0;">Infraestructura en Python implementando OOP y Pydantic, garantizando robustez para modelado de machine learning y analítica.</p>
-        </div>
-      </div>
-      
-      <h2>Metodología del Proyecto</h2>
-      <p>El flujo del proyecto se divide en cuatro fases principales consecutivas:</p>
-      <ul class="list-premium">
-        <li><strong>Fase 1: Exploración y Diagnóstico:</strong> Inmersión y recopilación de datos oficiales (SIAP, CONAGUA, NASA POWER).</li>
-        <li><strong>Fase 2: Análisis de Rentabilidad:</strong> Evaluación económica y determinación de precios y rentabilidad en mercado.</li>
-        <li><strong>Fase 3: Análisis Técnico y Viabilidad:</strong> Modelado del cálculo de Huella Hídrica y optimización física.</li>
-        <li><strong>Fase 4: Propuesta Sistémica:</strong> Recomendaciones del modelo para reconversión agrícola en Sonora.</li>
-      </ul>
-      
-      <div style="margin-top: 2.5rem; text-align: center;">
-        <img src="images/docs/Cronograma-Visual.png" alt="Cronograma de Metodología" style="max-width: 100%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);">
-      </div>
-    </section>
 
-    <!-- Sección: Metodología Huella Hídrica (Dinámico desde JSON) -->
-    <section id="metodologia" class="section">
-      <h1>Metodología de Evapotranspiración y Huella Hídrica</h1>
-      <p>Base matemática del modelo, compilada dinámicamente desde el reporte oficial FAO-56 del proyecto.</p>
-      <div id="metodologia-content"></div>
-    </section>
+        <!-- Barra de Navegación Lateral -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">S</div>
+                <div>
+                    <div class="brand-name">Seminario IA</div>
+                    <div class="brand-sub">LCC UNISON 2026</div>
+                </div>
+            </div>
 
-    <!-- Sección: Calculadora FAO-56 -->
-    <section id="calculadora" class="section">
-      <h1>Calculadora Interactiva de Huella Hídrica (FAO-56)</h1>
-      <p>Utiliza esta herramienta para simular y calcular el consumo hídrico y la Huella Hídrica (HH Verde y Azul) de un cultivo en base a parámetros diarios promedio.</p>
-      
-      <div class="calculator-container">
-        <div class="calc-inputs">
-          <h3>Parámetros de Entrada</h3>
-          
-          <div class="input-group">
-            <label for="calc-crop">Seleccionar Cultivo de Referencia</label>
-            <select id="calc-crop">
-              <!-- Se poblará dinámicamente desde cultivos.json -->
-            </select>
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-tmax">Temperatura Máxima Promedio (°C)</label>
-            <input type="number" id="calc-tmax" value="28.5" step="0.1">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-tmin">Temperatura Mínima Promedio (°C)</label>
-            <input type="number" id="calc-tmin" value="12.0" step="0.1">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-rh">Humedad Relativa Promedio (%)</label>
-            <input type="number" id="calc-rh" value="45" min="0" max="100">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-u2">Velocidad del Viento a 2m (m/s)</label>
-            <input type="number" id="calc-u2" value="2.1" step="0.1">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-rs">Radiación Solar (MJ/m²/día)</label>
-            <input type="number" id="calc-rs" value="22.4" step="0.1">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-precip">Precipitación Acumulada del Ciclo (mm)</label>
-            <input type="number" id="calc-precip" value="85" min="0">
-          </div>
-          
-          <div class="input-group">
-            <label for="calc-rend">Rendimiento Esperado (Ton/Ha)</label>
-            <input type="number" id="calc-rend" value="6.2" step="0.1">
-          </div>
-        </div>
-        
-        <div class="calc-results">
-          <h3>Resultados de Simulación (Estimados)</h3>
-          
-          <div class="result-item">
-            <span class="result-label">Evapotranspiración de Referencia (ETo diaria)</span>
-            <span class="result-value" id="res-eto">-- mm/día</span>
-          </div>
-          
-          <div class="result-item">
-            <span class="result-label">Evapotranspiración del Cultivo (ETc diaria promedio)</span>
-            <span class="result-value" id="res-etc">-- mm/día</span>
-          </div>
-          
-          <div class="result-item">
-            <span class="result-label">UAC Verde (Consumo Lluvia)</span>
-            <span class="result-value" id="res-uac-green">-- m³/Ha</span>
-          </div>
-          
-          <div class="result-item">
-            <span class="result-label">UAC Azul (Consumo Riego)</span>
-            <span class="result-value blue" id="res-uac-blue">-- m³/Ha</span>
-          </div>
-          
-          <div class="result-item">
-            <span class="result-label">Huella Hídrica Verde</span>
-            <span class="result-value" id="res-hh-green">-- m³/Ton</span>
-          </div>
-          
-          <div class="result-item">
-            <span class="result-label">Huella Hídrica Azul</span>
-            <span class="result-value blue" id="res-hh-blue">-- m³/Ton</span>
-          </div>
-          
-          <div class="result-item" style="border-top: 2px solid var(--accent-green); padding-top: 1rem; margin-top: 0.5rem;">
-            <span class="result-label" style="font-weight: bold; color: var(--text-primary);">Huella Hídrica Total</span>
-            <span class="result-value" id="res-hh-total" style="font-size: 1.8rem; background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-- m³/Ton</span>
-          </div>
-        </div>
-      </div>
-    </section>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="inicio">
+                    <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+                </li>
+                <li class="nav-item" data-section="metodologia">
+                    <a href="#metodologia"
+                        ><i class="fa-solid fa-calculator"></i> Metodología HH</a
+                    >
+                </li>
+                <li class="nav-item" data-section="calculadora">
+                    <a href="#calculadora"
+                        ><i class="fa-solid fa-sliders"></i> Calculadora FAO-56</a
+                    >
+                </li>
+                <li class="nav-item" data-section="datos">
+                    <a href="#datos"
+                        ><i class="fa-solid fa-database"></i> Inventario Datos</a
+                    >
+                </li>
+                <li class="nav-item" data-section="arquitectura">
+                    <a href="#arquitectura"
+                        ><i class="fa-solid fa-sitemap"></i> Arquitectura Código</a
+                    >
+                </li>
+                <li class="nav-item" data-section="estadisticas">
+                    <a href="#estadisticas"
+                        ><i class="fa-solid fa-chart-line"></i> Estadísticas
+                        Eficiencia</a
+                    >
+                </li>
+            </ul>
 
-    <!-- Sección: Inventario de Datos -->
-    <section id="datos" class="section">
-      <h1>Inventario de Datos de Sonora</h1>
-      <p>Estructura y detalle de los conjuntos de datos recopilados (Crudos, Procesados y Configuración) utilizados para el análisis de reconversión.</p>
-      
-      <h2>Datos Crudos (data/raw/)</h2>
-      <div class="card-grid" id="raw-inventory-cards">
-        <!-- Se poblará dinámicamente -->
-      </div>
-      
-      <h2>Datos Procesados (data/processed/)</h2>
-      <div class="card-grid" id="processed-inventory-cards">
-        <!-- Se poblará dinámicamente -->
-      </div>
-    </section>
+            <div class="theme-toggle-container">
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <i class="fa-solid fa-sun" id="theme-icon"></i>
+                    <span id="theme-text">Modo Claro</span>
+                </button>
+            </div>
+        </aside>
 
-    <!-- Sección: Arquitectura del Código -->
-    <section id="arquitectura" class="section">
-      <h1>Arquitectura de la Librería `seminario_ia`</h1>
-      <p>Detalle de la jerarquía de directorios del paquete de software desarrollado, sus clases, validaciones con Pydantic y lógica de cálculos.</p>
-      
-      <div class="arch-tree" id="arch-tree-container">
-        <!-- Árbol de código interactivo -->
-      </div>
-      
-      <h2>Modelos de Datos con Pydantic</h2>
-      <p>Se implementan modelos estructurados con validación estricta de tipos para asegurar la consistencia de los datos geográficos e hídricos:</p>
-      
-      <h3>Clase Crop (data_models.py)</h3>
-      <p>Representa las características técnicas y calendarios fenológicos de un cultivo individual:</p>
-      <pre><code class="language-python">class Crop(BaseModel):
+        <!-- Contenedor Principal de Contenido -->
+        <main class="main-content">
+            <!-- Sección: Inicio -->
+            <section id="inicio" class="section active">
+                <h1>Reconversión de Cultivos en Sonora</h1>
+                <p style="font-size: 1.2rem; line-height: 1.8">
+                    Este proyecto, desarrollado por el equipo de Reconversión de
+                    Cultivos de la carrera de
+                    <strong
+                        >Ciencias de la Computación de la Universidad de Sonora</strong
+                    >, tiene como objetivo proponer alternativas viables de
+                    <strong>reconversión de cultivos</strong> para optimizar el uso de
+                    los recursos hídricos y aumentar la rentabilidad agrícola frente a
+                    la sequía en Sonora.
+                </p>
+
+                <div class="card-grid">
+                    <div
+                        class="card"
+                        style="border-left: 4px solid var(--accent-green)"
+                    >
+                        <div class="card-title">
+                            <i
+                                class="fa-solid fa-droplet"
+                                style="color: var(--accent-blue)"
+                            ></i>
+                            Eje Hídrico
+                        </div>
+                        <p style="font-size: 0.95rem; margin-bottom: 0">
+                            Análisis y cálculo de evapotranspiración de referencia (ETo)
+                            y evapotranspiración del cultivo (ETc) bajo el estándar
+                            internacional FAO-56.
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--accent-blue)">
+                        <div class="card-title">
+                            <i
+                                class="fa-solid fa-wheat-awn"
+                                style="color: var(--accent-green)"
+                            ></i>
+                            Reconversión
+                        </div>
+                        <p style="font-size: 0.95rem; margin-bottom: 0">
+                            Evaluación multicultivo analizando rentabilidad económica
+                            física (MXN/m³) frente a consumos de agua para proponer
+                            alternativas de menor huella.
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="border-left: 4px solid var(--accent-orange)"
+                    >
+                        <div class="card-title">
+                            <i class="fa-solid fa-microchip"></i> Backend Modular
+                        </div>
+                        <p style="font-size: 0.95rem; margin-bottom: 0">
+                            Infraestructura en Python implementando OOP y Pydantic,
+                            garantizando robustez para modelado de machine learning y
+                            analítica.
+                        </p>
+                    </div>
+                </div>
+
+                <h2>Metodología del Proyecto</h2>
+                <p>
+                    El flujo del proyecto se divide en cuatro fases principales
+                    consecutivas:
+                </p>
+                <ul class="list-premium">
+                    <li>
+                        <strong>Fase 1: Exploración y Diagnóstico:</strong> Inmersión y
+                        recopilación de datos oficiales (SIAP, CONAGUA, NASA POWER).
+                    </li>
+                    <li>
+                        <strong>Fase 2: Análisis de Rentabilidad:</strong> Evaluación
+                        económica y determinación de precios y rentabilidad en mercado.
+                    </li>
+                    <li>
+                        <strong>Fase 3: Análisis Técnico y Viabilidad:</strong> Modelado
+                        del cálculo de Huella Hídrica y optimización física.
+                    </li>
+                    <li>
+                        <strong>Fase 4: Propuesta Sistémica:</strong> Recomendaciones
+                        del modelo para reconversión agrícola en Sonora.
+                    </li>
+                </ul>
+
+                <div style="margin-top: 2.5rem; text-align: center">
+                    <img
+                        src="images/docs/Cronograma-Visual.png"
+                        alt="Cronograma de Metodología"
+                        style="
+                            max-width: 100%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                            box-shadow: var(--shadow-premium);
+                        "
+                    />
+                </div>
+            </section>
+
+            <!-- Sección: Metodología Huella Hídrica (Dinámico desde JSON) -->
+            <section id="metodologia" class="section">
+                <h1>Metodología de Evapotranspiración y Huella Hídrica</h1>
+                <p>
+                    Base matemática del modelo, compilada dinámicamente desde el reporte
+                    oficial FAO-56 del proyecto.
+                </p>
+                <div id="metodologia-content"></div>
+            </section>
+
+            <!-- Sección: Calculadora FAO-56 -->
+            <section id="calculadora" class="section">
+                <h1>Calculadora Interactiva de Huella Hídrica (FAO-56)</h1>
+                <p>
+                    Utiliza esta herramienta para simular y calcular el consumo hídrico
+                    y la Huella Hídrica (HH Verde y Azul) de un cultivo en base a
+                    parámetros diarios promedio.
+                </p>
+
+                <div class="calculator-container">
+                    <div class="calc-inputs">
+                        <h3>Parámetros de Entrada</h3>
+
+                        <div class="input-group">
+                            <label for="calc-crop"
+                                >Seleccionar Cultivo de Referencia</label
+                            >
+                            <select id="calc-crop">
+                                <!-- Se poblará dinámicamente desde cultivos.json -->
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-tmax"
+                                >Temperatura Máxima Promedio (°C)</label
+                            >
+                            <input
+                                type="number"
+                                id="calc-tmax"
+                                value="28.5"
+                                step="0.1"
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-tmin"
+                                >Temperatura Mínima Promedio (°C)</label
+                            >
+                            <input
+                                type="number"
+                                id="calc-tmin"
+                                value="12.0"
+                                step="0.1"
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-rh">Humedad Relativa Promedio (%)</label>
+                            <input
+                                type="number"
+                                id="calc-rh"
+                                value="45"
+                                min="0"
+                                max="100"
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-u2">Velocidad del Viento a 2m (m/s)</label>
+                            <input type="number" id="calc-u2" value="2.1" step="0.1" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-rs">Radiación Solar (MJ/m²/día)</label>
+                            <input type="number" id="calc-rs" value="22.4" step="0.1" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-precip"
+                                >Precipitación Acumulada del Ciclo (mm)</label
+                            >
+                            <input type="number" id="calc-precip" value="85" min="0" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-rend">Rendimiento Esperado (Ton/Ha)</label>
+                            <input
+                                type="number"
+                                id="calc-rend"
+                                value="6.2"
+                                step="0.1"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="calc-results">
+                        <h3>Resultados de Simulación (Estimados)</h3>
+
+                        <div class="result-item">
+                            <span class="result-label"
+                                >Evapotranspiración de Referencia (ETo diaria)</span
+                            >
+                            <span class="result-value" id="res-eto">-- mm/día</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label"
+                                >Evapotranspiración del Cultivo (ETc diaria
+                                promedio)</span
+                            >
+                            <span class="result-value" id="res-etc">-- mm/día</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">UAC Verde (Consumo Lluvia)</span>
+                            <span class="result-value" id="res-uac-green"
+                                >-- m³/Ha</span
+                            >
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">UAC Azul (Consumo Riego)</span>
+                            <span class="result-value blue" id="res-uac-blue"
+                                >-- m³/Ha</span
+                            >
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Huella Hídrica Verde</span>
+                            <span class="result-value" id="res-hh-green"
+                                >-- m³/Ton</span
+                            >
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Huella Hídrica Azul</span>
+                            <span class="result-value blue" id="res-hh-blue"
+                                >-- m³/Ton</span
+                            >
+                        </div>
+
+                        <div
+                            class="result-item"
+                            style="
+                                border-top: 2px solid var(--accent-green);
+                                padding-top: 1rem;
+                                margin-top: 0.5rem;
+                            "
+                        >
+                            <span
+                                class="result-label"
+                                style="font-weight: bold; color: var(--text-primary)"
+                                >Huella Hídrica Total</span
+                            >
+                            <span
+                                class="result-value"
+                                id="res-hh-total"
+                                style="
+                                    font-size: 1.8rem;
+                                    background: linear-gradient(
+                                        135deg,
+                                        var(--accent-green),
+                                        var(--accent-blue)
+                                    );
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                "
+                                >-- m³/Ton</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Inventario de Datos -->
+            <section id="datos" class="section">
+                <h1>Inventario de Datos de Sonora</h1>
+                <p>
+                    Estructura y detalle de los conjuntos de datos recopilados (Crudos,
+                    Procesados y Configuración) utilizados para el análisis de
+                    reconversión.
+                </p>
+
+                <h2>Datos Crudos (data/raw/)</h2>
+                <div class="card-grid" id="raw-inventory-cards">
+                    <!-- Se poblará dinámicamente -->
+                </div>
+
+                <h2>Datos Procesados (data/processed/)</h2>
+                <div class="card-grid" id="processed-inventory-cards">
+                    <!-- Se poblará dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Sección: Arquitectura del Código -->
+            <section id="arquitectura" class="section">
+                <h1>Arquitectura de la Librería `seminario_ia`</h1>
+                <p>
+                    Detalle de la jerarquía de directorios del paquete de software
+                    desarrollado, sus clases, validaciones con Pydantic y lógica de
+                    cálculos.
+                </p>
+
+                <div class="arch-tree" id="arch-tree-container">
+                    <!-- Árbol de código interactivo -->
+                </div>
+
+                <h2>Modelos de Datos con Pydantic</h2>
+                <p>
+                    Se implementan modelos estructurados con validación estricta de
+                    tipos para asegurar la consistencia de los datos geográficos e
+                    hídricos:
+                </p>
+
+                <h3>Clase Crop (data_models.py)</h3>
+                <p>
+                    Representa las características técnicas y calendarios fenológicos de
+                    un cultivo individual:
+                </p>
+                <pre><code class="language-python">class Crop(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     name: str                  # Nombre del cultivo (e.g. "Trigo grano")
@@ -284,10 +458,13 @@
     kc_mid: float              # Coeficiente Kc de etapa media
     kc_end: float              # Coeficiente Kc de etapa final
     durations: tuple[int, int, int, int]  # Duración por etapas en días</code></pre>
-      
-      <h3>Clase Region (data_models.py)</h3>
-      <p>Representa un área geográfica (municipio) y contiene sus coordenadas, altitud y los cultivos activos cargados dinámicamente:</p>
-      <pre><code class="language-python">class Region(BaseModel):
+
+                <h3>Clase Region (data_models.py)</h3>
+                <p>
+                    Representa un área geográfica (municipio) y contiene sus
+                    coordenadas, altitud y los cultivos activos cargados dinámicamente:
+                </p>
+                <pre><code class="language-python">class Region(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     name: str                  # Nombre de la región (municipio)
@@ -299,34 +476,39 @@
     def add_crop(self, crop: Crop) -> None:
         """Agrega un cultivo a la región geográfica."""
         self.crops.append(crop)</code></pre>
-    </section>
+            </section>
 
-    <!-- Sección: Estadísticas de Eficiencia (Dinámico desde JSON) -->
-    <section id="estadisticas" class="section">
-      <h1>Análisis Estadístico y Eficiencia Hídrica</h1>
-      <p>Resultados del análisis multivariable del agua y rentabilidad en Sonora (periodo 2010-2024).</p>
-      
-      <div class="card-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 2rem;">
-        <div class="card">
-          <div class="card-title">Distribución de Eficiencia Hídrica</div>
-          <div style="height: 300px; position: relative;">
-            <canvas id="chart-efficiency"></canvas>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title">Productividad Económica por DDR</div>
-          <div style="height: 300px; position: relative;">
-            <canvas id="chart-ddr-economic"></canvas>
-          </div>
-        </div>
-      </div>
-      
-      <div id="estadisticas-content"></div>
-    </section>
+            <!-- Sección: Estadísticas de Eficiencia (Dinámico desde JSON) -->
+            <section id="estadisticas" class="section">
+                <h1>Análisis Estadístico y Eficiencia Hídrica</h1>
+                <p>
+                    Resultados del análisis multivariable del agua y rentabilidad en
+                    Sonora (periodo 2010-2024).
+                </p>
 
-  </main>
+                <div
+                    class="card-grid"
+                    style="grid-template-columns: 1fr 1fr; margin-bottom: 2rem"
+                >
+                    <div class="card">
+                        <div class="card-title">Distribución de Eficiencia Hídrica</div>
+                        <div style="height: 300px; position: relative">
+                            <canvas id="chart-efficiency"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Productividad Económica por DDR</div>
+                        <div style="height: 300px; position: relative">
+                            <canvas id="chart-ddr-economic"></canvas>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Lógica de Control JavaScript -->
-  <script src="app.js"></script>
-</body>
+                <div id="estadisticas-content"></div>
+            </section>
+        </main>
+
+        <!-- Lógica de Control JavaScript -->
+        <script src="app.js"></script>
+    </body>
 </html>

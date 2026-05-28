@@ -2,14 +2,13 @@
 
 ## Descripción General
 
-Las clases `Region` y `Crop` representan la estructura de regiones
-geográficas con sus cultivos asociados, incluyendo información
-fenológica y agronómica.
+Las clases `Region` y `Crop` representan la estructura de regiones geográficas con sus cultivos
+asociados, incluyendo información fenológica y agronómica.
 
 ## Clase Crop
 
-Representa un cultivo agrícola con sus características fenológicas
-y coeficientes de cultivo (Kc) para cálculo de evapotranspiración.
+Representa un cultivo agrícola con sus características fenológicas y coeficientes de cultivo (Kc)
+para cálculo de evapotranspiración.
 
 ### Atributos
 
@@ -55,33 +54,32 @@ print(trigo)
 print(repr(trigo))
 ```
 
-### Salida de __str__()
+### Salida de **str**()
 
-La representación amigable muestra la información de forma
-jerárquica y estructurada, con indentación clara.
+La representación amigable muestra la información de forma jerárquica y estructurada, con
+indentación clara.
 
-### Salida de __repr__()
+### Salida de **repr**()
 
-La representación compacta muestra todos los parámetros
-separados por comas, útil para debugging y logs.
+La representación compacta muestra todos los parámetros separados por comas, útil para debugging y
+logs.
 
 ---
 
 ## Clase Region
 
-Representa una región geográfica con información municipal
-y los cultivos que se producen en ella.
+Representa una región geográfica con información municipal y los cultivos que se producen en ella.
 
 ### Atributos
 
-| Atributo  | Tipo         | Descripción                  |
-| --------- | ------------ | ---------------------------- |
-| name      | str          | Nombre de la región          |
-| latitude  | float        | Latitud geográfica           |
-| longitude | float        | Longitud geográfica          |
-| altitude  | float        | Altitud en metros            |
-| crops     | list[Crop]   | Lista de cultivos (vacía     |
-|           |              | por defecto)                 |
+| Atributo  | Tipo       | Descripción              |
+| --------- | ---------- | ------------------------ |
+| name      | str        | Nombre de la región      |
+| latitude  | float      | Latitud geográfica       |
+| longitude | float      | Longitud geográfica      |
+| altitude  | float      | Altitud en metros        |
+| crops     | list[Crop] | Lista de cultivos (vacía |
+|           |            | por defecto)             |
 
 ### Métodos
 
@@ -90,9 +88,11 @@ y los cultivos que se producen en ella.
 Agrega un cultivo a la región.
 
 **Parámetros:**
+
 - `crop`: Instancia de la clase `Crop`
 
 **Ejemplo:**
+
 ```python
 region.add_crop(trigo)
 region.add_crop(maiz)
@@ -144,9 +144,10 @@ region.add_crop(maiz)
 print(region)
 ```
 
-### Salida de __str__()
+### Salida de **str**()
 
 La representación produce una salida jerárquica con:
+
 - Información de la región (nombre, coordenadas, altitud)
 - Lista de cultivos con indentación en cascada
 - Todos los detalles de cada cultivo apropiadamente indentados
@@ -183,7 +184,7 @@ Región: San Ignacio Río Muerto
         Maduración: 35 días
 ```
 
-### Salida de __repr__()
+### Salida de **repr**()
 
 Representación compacta para debugging:
 
@@ -198,8 +199,7 @@ longitude=-110.39104, altitude=7.0, crops=[Crop(...), Crop(...)])
 
 ### Indentación en Cascada
 
-La clase `Region` utiliza indentación en cascada para mostrar
-sus cultivos de forma jerárquica:
+La clase `Region` utiliza indentación en cascada para mostrar sus cultivos de forma jerárquica:
 
 1. **Nivel 0**: Nombre de la región (sin indentación)
 2. **Nivel 1** (2 espacios): Atributos principales de la región
@@ -207,14 +207,14 @@ sus cultivos de forma jerárquica:
 4. **Nivel 3** (10 espacios): Propiedades de cada cultivo
 5. **Nivel 4** (12 espacios): Detalles específicos
 
-### Diferencia entre __str__() y __repr__()
+### Diferencia entre **str**() y **repr**()
 
-| Aspecto        | __str__()          | __repr__()          |
-| -------------- | ------------------ | ------------------- |
-| Propósito      | Legibilidad humana | Debugging técnico   |
-| Formato        | Multilinea         | Compacto            |
-| Indentación    | Jerárquica         | Mínima              |
-| Uso            | print(), reportes  | Consola, logging    |
+| Aspecto     | **str**()          | **repr**()        |
+| ----------- | ------------------ | ----------------- |
+| Propósito   | Legibilidad humana | Debugging técnico |
+| Formato     | Multilinea         | Compacto          |
+| Indentación | Jerárquica         | Mínima            |
+| Uso         | print(), reportes  | Consola, logging  |
 
 ---
 
@@ -232,14 +232,10 @@ sus cultivos de forma jerárquica:
 
 Estas clases se integran con:
 
-- **Datasets**: Datos de `get_prod_data()` pueden ser mapeados a
-  instancias de `Crop`
-- **Análisis**: Los atributos fenológicos permiten análisis de
-  requerimientos hídricos
-- **Visualización**: El formato `__str__()` es ideal para reportes
-  y presentaciones
+- **Datasets**: Datos de `get_prod_data()` pueden ser mapeados a instancias de `Crop`
+- **Análisis**: Los atributos fenológicos permiten análisis de requerimientos hídricos
+- **Visualización**: El formato `__str__()` es ideal para reportes y presentaciones
 
 ---
 
-Última actualización: Enero 2024
-Proyecto: Seminario IA - Reconversión Productiva LCC UNISON 2026
+Última actualización: Enero 2024 Proyecto: Seminario IA - Reconversión de Cultivos LCC UNISON 2026

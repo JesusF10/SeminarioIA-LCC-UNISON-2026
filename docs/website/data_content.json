@@ -1,3863 +1,2444 @@
 {
-  "reporte_hh": [
-    {
-      "title": "Introducción",
-      "level": 1,
-      "blocks": [
+    "reporte_hh": [
         {
-          "type": "paragraph",
-          "content": "El presente reporte técnico detalla el marco matemático y procedimental utilizado para la estimación de la Evapotranspiración de Referencia (\\(ET_o\\)), la Evapotranspiración del Cultivo (\\(ET_c\\)) y la determinación de la Huella Hídrica (\\(H H\\)) en sus componentes verde y azul. El análisis se fundamenta estrictamente en la metodología propuesta por la Organización de las Naciones Unidas para la Alimentación y la Agricultura en el manual <strong>FAO-56 Irrigation and Drainage Paper</strong>, implementada computacionalmente para el estado de Sonora."
+            "title": "Introducción",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "El presente reporte técnico detalla el marco matemático y procedimental utilizado para la estimación de la Evapotranspiración de Referencia (\\(ET_o\\)), la Evapotranspiración del Cultivo (\\(ET_c\\)) y la determinación de la Huella Hídrica (\\(H H\\)) en sus componentes verde y azul. El análisis se fundamenta estrictamente en la metodología propuesta por la Organización de las Naciones Unidas para la Alimentación y la Agricultura en el manual <strong>FAO-56 Irrigation and Drainage Paper</strong>, implementada computacionalmente para el estado de Sonora."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "El objetivo central es cuantificar el consumo hídrico real de los cultivos (inicialmente Trigo grano) para establecer una línea base técnica que permita evaluar alternativas de reconversión productiva más eficientes y rentables ante el estrés hídrico de la región."
+                }
+            ]
         },
         {
-          "type": "paragraph",
-          "content": "El objetivo central es cuantificar el consumo hídrico real de los cultivos (inicialmente Trigo grano) para establecer una línea base técnica que permita evaluar alternativas de reconversión productiva más eficientes y rentables ante el estrés hídrico de la región."
+            "title": "Fuentes de Datos y Parámetros",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "El sistema de cálculo integra dos tipos de insumos fundamentales: datos climáticos satelitales de alta resolución y parámetros específicos del dominio agrícola local."
+                }
+            ]
+        },
+        {
+            "title": "NASA POWER API (Datos Meteorológicos)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Los datos climáticos diarios se obtienen mediante la API de NASA POWER (`AG` community, daily frequency). Los parámetros verificados en el script `nasa_power.py` y su uso en las ecuaciones son:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>ALLSKY_SFC_SW_DWN (\\(R_s\\)):</strong> Radiación solar de onda corta incidente en la superficie [MJ/m²/día]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>WS2M (\\(u_2\\)):</strong> Velocidad del viento medida a 2 metros de altura [m/s]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>T2M_MAX (\\(T_\\text{max}\\)):</strong> Temperatura máxima del aire a 2 metros [°C]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>T2M_MIN (\\(T_\\text{min}\\)):</strong> Temperatura mínima del aire a 2 metros [°C]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>RH2M (\"RH\"):</strong> Humedad relativa media a 2 metros [%]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>PRECTOTCORR (\\(P\\)):</strong> Precipitación corregida acumulada diaria [mm/día]."
+                }
+            ]
+        },
+        {
+            "title": "Parámetros de Configuración Regional y de Cultivo",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Estos datos son ingresados manualmente o mediante archivos de referencia municipal (`SonoraLatLongAlt.csv`):"
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Ubicación:</strong> Latitud (\\(\\phi\\)), Longitud y Altitud (\\(z\\) en metros sobre el nivel del mar)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Calendario Agrícola:</strong> Fechas de siembra y cosecha (Ciclo Otoño-Invierno)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Coeficientes de Cultivo (\\(K_c\\)):</strong> Valores para las etapas inicial (\\(K_(c, \\text{ini})\\)), media (\\(K_(c, \\text{mid})\\)) y final (\\(K_(c, \\text{end})\\))."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Duración de Etapas:</strong> Número de días para las fases inicial, desarrollo, mediados y final."
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Rendimiento:</strong> Toneladas por hectárea (\\(t/h a\\)) reportadas por el SIAP."
+                }
+            ]
+        },
+        {
+            "title": "Metodología de Cálculo (FAO-56)",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "La ecuación de Penman-Monteith es el estándar global para estimar la evapotranspiración de una superficie de referencia (pasto de 0.12m de altura, bien regado y con albedo de 0.23)."
+                }
+            ]
+        },
+        {
+            "title": "Evapotranspiración de Referencia ($E T_o$)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "La fórmula general para un paso de tiempo diario es:"
+                },
+                {
+                    "type": "math-block",
+                    "content": "ET_o = \\frac{0.408 \\Delta (R_n - G) + \\gamma \\frac{900}{T + 273} u_2 (e_s - e_a)}{\\Delta + \\gamma (1 + 0.34 u_2)}"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Donde:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(ET_o\\): Evapotranspiración de referencia [mm/día]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(R_n\\): Radiación neta en la superficie del cultivo [MJ/m²/día]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(G\\): Flujo de calor del suelo [MJ/m²/día] (asumido como 0 para cálculos diarios)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(T\\): Temperatura media del aire a 2 m de altura [°C]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(u_2\\): Velocidad del viento a 2 m de altura [m/s]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(e_s\\): Presión de vapor de saturación [kPa]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(e_a\\): Presión real de vapor [kPa]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(e_s - e_a\\): Déficit de presión de vapor [kPa]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\Delta\\): Pendiente de la curva de presión de vapor [kPa/°C]."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\gamma\\): Constante psicrométrica [kPa/°C]."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Implementación en Python:"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def eto_fao56_mm(\n    tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0\n):\n    \"\"\"\n    Regresa un diccionario con los componentes intermedios y el resultado final de\n    la evapotranspiración de referencia (ETo) en mm/día usando el método de Penman-Monteith según FAO-56.\n\n    ETo [mm/día] — FAO-56 Penman-Monteith (Eq. 6) diario (G=0 por defecto).\n    - Usa es, ea (de T y HR)\n    - delta(Tmean), gamma(z)\n    - Rn = Rns - Rnl (Rnl FAO-56 Eq. 39)\n\n    Parametros:\n        - tmax, tmin: Temperaturas máxima y mínima en °C.\n        - rh_pct: Humedad relativa promedio en %.\n        - u2_ms: Velocidad del viento a 2 m en m/s.\n        - rs_mjm2d: Radiación solar global en MJ/m²/día.\n        - lat_deg: Latitud en grados.\n        - z_m: Altitud en metros.\n        - doy: Día del año (1-365/366).\n        - g_mjm2d: Flujo de calor del suelo en MJ/m²/d\n\n    Regresa:\n    Un diccionario con:\n        - Tmean_: Temperatura media (°C).\n        - es_: Presión de vapor de saturación (kPa).\n        - ea_: Presión de vapor real (kPa).\n        - delta_: Pendiente de la curva de saturación (kPa/°C).\n        - P_: Presión atmosférica (kPa).\n        - gamma_: Constante psicrométrica (kPa/°C).\n        - Rso_: Radiación extraterrestre (MJ/m²/día).\n        - Rns_: Radiación neta de onda corta (MJ/m²/día).\n        - Rnl_: Radiación neta de onda larga (MJ/m²/día).\n        - Rn_: Radiación neta total (MJ/m²/día).\n        - ET0: Evapotranspiración de referencia (mm/día).\n    \"\"\"\n    tmean = (tmax + tmin) / 2.0\n    es = (es_kpa(tmax) + es_kpa(tmin)) / 2.0\n    ea = es * (rh_pct / 100.0)\n    delta = delta_kpa_per_c(tmean)\n    p = atm_pressure_kpa(z_m)\n    gamma = psychrometric_constant_kpa_per_c(p)\n\n    # ===================== Versión FAO-56 ========================\n    # Rso = clear_sky_radiation_Rso_FAO56(lat_deg, doy, z_m)\n    # =============================================================\n\n    # ===================== Versión \"UAMEX\" =======================\n    rso = extraterrestrial_radiation_mj_m2d(\n        lat_deg, doy\n    )  # ← aquí va Ra cuando uses la versión \"equipo\"\n\n    rns = net_shortwave_rns(rs_mjm2d=rs_mjm2d, albedo=ALBEDO)\n    rnl = net_longwave_rnl_fao56(tmax, tmin, ea, rs_mjm2d, rso)\n    rn = rns - rnl\n    num = 0.408 * delta * (rn - g_mjm2d) + gamma * (900.0 / (tmean + 273.0)) * u2_ms * (\n        es - ea\n    )\n    den = delta + gamma * (1.0 + 0.34 * u2_ms)\n    eto = max(0.0, num / den)\n    return {\n        \"Tmean_\": tmean,\n        \"es_\": es,\n        \"ea_\": ea,\n        \"delta_\": delta,\n        \"P_\": p,\n        \"gamma_\": gamma,\n        \"Rso_\": rso,\n        \"Rns_\": rns,\n        \"Rnl_\": rnl,\n        \"Rn_\": rn,\n        \"ET0\": eto,\n    }"
+                }
+            ]
+        },
+        {
+            "title": "Evapotranspiración del Cultivo ($E T_c$)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Se ajusta la demanda de agua de referencia al cultivo específico mediante el coeficiente \\(K_c\\):"
+                },
+                {
+                    "type": "math-block",
+                    "content": "ET_c = K_c \\cdot ET_o"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "El valor de \\(K_c\\) varía según la etapa fenológica del cultivo (curva de 4 etapas)."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Implementación en Python:"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def daily_kc_curve(\n    fechas_idx: pd.DatetimeIndex,\n    kc_ini: float,\n    kc_mid: float,\n    kc_end: float,\n    dur,  # (d_ini, d_des, d_mid, d_fin)\n    endpoint_rampas: bool = True,  # se mantiene por compatibilidad, no se usa\n) -> pd.Series:\n    \"\"\"\n    Calcula la curva de Kc diaria a partir de los parámetros dados.\n\n    Versión con ASIGNACIÓN POR FASE (sin rampas):\n      - Inicio: kc_ini (constante)\n      - Desarrollo: kc_mid (constante)  ← se permiten saltos\n      - Media: kc_mid (constante)\n      - Final: kc_end (constante)\n\n    Parámetros:\n    - fechas_idx: Índice de fechas para el ciclo completo.\n    - kc_ini: Kc al inicio del ciclo (constante).\n    - kc_mid: Kc en la fase media del ciclo (constante).\n    - kc_end: Kc al final del ciclo (constante).\n    - dur: Tupla con la duración (en días) de cada fase: (d_ini, d_des, d_mid, d_fin).\n    - endpoint_rampas: Si True, se generan rampas lineales entre fases; si False, se asignan\n        valores constantes por fase con saltos entre ellas.\n\n    Regresa:\n    - Serie de Kc diario con el mismo índice que fechas_idx.\n    \"\"\"\n    d_ini, d_des, d_mid, d_fin = dur\n    n = len(fechas_idx)\n\n    kc_ini_arr = np.full(d_ini, kc_ini)\n    kc_des_arr = np.full(d_des, kc_mid)  # salto kc_ini -> kc_mid\n    kc_mid_arr = np.full(d_mid, kc_mid)\n    kc_fin_arr = np.full(d_fin, kc_end)  # salto kc_mid -> kc_end\n\n    kc_full = np.concatenate([kc_ini_arr, kc_des_arr, kc_mid_arr, kc_fin_arr])\n\n    # Ajuste a la longitud disponible\n    if len(kc_full) >= n:\n        kc_full = kc_full[:n]\n    else:\n        kc_full = np.concatenate([kc_full, np.full(n - len(kc_full), kc_end)])\n\n    return pd.Series(kc_full, index=fechas_idx, name=\"Kc_\")"
+                }
+            ]
+        },
+        {
+            "title": "Precipitación Efectiva ($P_\"ef\"$)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "No toda el agua de lluvia es aprovechada por el cultivo. Se utiliza el método simplificado de la FAO:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "Si \\(P_\\text{ciclo} < 250\\) mm: \\(P_\\text{ef} = 0.8 \\cdot P_\\text{total}\\)"
+                },
+                {
+                    "type": "list-item",
+                    "content": "Si \\(P_\\text{ciclo} >= 250\\) mm: \\(P_\\text{ef} = 0.6 \\cdot P_\\text{total}\\)"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Implementación en Python:"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:\n    \"\"\"\n    Calcula el Pef diario a partir de la precipitación total (Ptotal) usando una regla simple basada en FAO-56:\n        FAO simple: Pef = f * Ptotal.\n        f = 0.8 si Ptotal < 250 mm; f = 0.6 si no.\n        Se aplica el mismo factor f a cada día.\n\n    Parámetros:\n        - ptot_series_mm: Serie de precipitación total (mm) por día.\n\n    Regresa:\n        - Serie de Pef diario (mm) con el mismo índice que ptot_series_mm.\n    \"\"\"\n    ptotal = ptot_series_mm.fillna(0).sum()\n    f = 0.8 if ptotal < 250.0 else 0.6\n    return ptot_series_mm.fillna(0) * f  # Pef_ diario"
+                }
+            ]
+        },
+        {
+            "title": "Huella Hídrica (HH)",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "La huella hídrica cuantifica el volumen de agua dulce utilizado para producir el cultivo."
+                }
+            ]
+        },
+        {
+            "title": "Componentes Verde y Azul",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "list-item",
+                    "content": "<strong>Componente Verde (\\(E T_\\text{verde}\\)):</strong> Agua de lluvia consumida por el cultivo."
+                },
+                {
+                    "type": "math-block",
+                    "content": "ET_{\\text{verde}} = \\min\\left(ET_c, P_{\\text{ef}}\\right)"
+                },
+                {
+                    "type": "list-item",
+                    "content": "<strong>Componente Azul (\\(E T_\\text{azul}\\)):</strong> Agua de riego o recursos hídricos superficiales/subterráneos."
+                },
+                {
+                    "type": "math-block",
+                    "content": "ET_{\\text{azul}} = \\max\\left(ET_c - P_{\\text{ef}}, 0\\right)"
+                }
+            ]
+        },
+        {
+            "title": "Consumo Unitario de Agua (UAC)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Representa el volumen total acumulado por hectárea (\\(m^3/h a\\))."
+                },
+                {
+                    "type": "math-block",
+                    "content": "\\text{UAC} = \\sum_{\\text{ciclo}} ET \\cdot 10"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "(Nota: El factor 10 convierte mm de lámina de agua a \\(m^3/h a\\))."
+                }
+            ]
+        },
+        {
+            "title": "Huella Hídrica Total ($H H$)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Se expresa como el volumen de agua por unidad de masa producida (\\(m^3/t\\)):"
+                },
+                {
+                    "type": "math-block",
+                    "content": "\\text{HH} = \\frac{\\text{UAC}}{\\text{Rendimiento (t/ha)}}"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Implementación en Python:"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def calculate_wf_uac(\n    green_et_series_mm: pd.Series,\n    blue_et_series_mm: pd.Series,\n    performance_ton_ha: float,\n) -> dict:\n    \"\"\"\n    Calcula:\n      - ETverde_total_mm, ETazul_total_mm\n      - UACverde_m3_ha, UACazul_m3_ha\n      - HHverde_m3_ton, HHazul_m3_ton\n    Convenciones:\n      - 1 mm sobre 1 ha = 10 m3  => UAC = sum(ET) * 10\n      - HH = UAC / rendimiento(ton/ha)\n    Si no hay rendimiento válido (>0), HH = NaN.\n\n    Parametros:\n        - green_et_series_mm: Serie de ET verde diario (mm).\n        - blue_et_series_mm: Serie de ET azul diario (mm).\n        - performance_ton_ha: Rendimiento en toneladas por hectárea (ton/ha).\n\n    Regresa:\n        Diccionario con las métricas calculadas:\n        {\n            \"ETverde_total_mm\": ...,\n            \"ETazul_total_mm\": ...,\n            \"UACverde_m3_ha\": ...,\n            \"UACazul_m3_ha\": ...,\n            \"HHverde_m3_ton\": ...,\n            \"HHazul_m3_ton\": ...,\n        }\n    \"\"\"\n    total_green_et_mm = float(pd.Series(green_et_series_mm).fillna(0).sum())\n    total_blue_et_mm = float(pd.Series(blue_et_series_mm).fillna(0).sum())\n\n    green_uac_m3_ha = total_green_et_mm * 10.0\n    blue_uac_m3_ha = total_blue_et_mm * 10.0\n\n    if (performance_ton_ha is not None) and (performance_ton_ha > 0):\n        green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha\n        blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha\n    else:\n        green_wf_m3_ton = float(\"nan\")\n        blue_wf_m3_ton = float(\"nan\")\n\n    return {\n        \"ETverde_total_mm\": total_green_et_mm,\n        \"ETazul_total_mm\": total_blue_et_mm,\n        \"UACverde_m3_ha\": green_uac_m3_ha,\n        \"UACazul_m3_ha\": blue_uac_m3_ha,\n        \"HHverde_m3_ton\": green_wf_m3_ton,\n        \"HHazul_m3_ton\": blue_wf_m3_ton,\n    }"
+                }
+            ]
+        },
+        {
+            "title": "Apéndices: Derivaciones Matemáticas Detalladas",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "A continuación se presentan las ecuaciones auxiliares necesarias para obtener las variables intermedias de la ecuación de Penman-Monteith."
+                }
+            ]
+        },
+        {
+            "title": "Presión Atmosférica ($P$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Depende de la elevación sobre el nivel del mar (\\(z\\)):"
+                },
+                {
+                    "type": "math-block",
+                    "content": "P = 101.3 \\left(\\frac{293 - 0.0065 z}{293}\\right)^{5.26}"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def atm_pressure_kpa(z_m: float) -> float:\n    \"\"\"\n    Calcula la presión atmosférica (kPa) a partir de la altitud en metros usando la\n    fórmula de barometría (FAO-56 Eq. 7).\n\n    Temperatura estándar de referencia (20 °C) se asume para el cálculo.\n\n    Parámetros:\n        z_m: Elevación sobre el nivel del mar [m].\n\n    Regresa:\n        Presión atmosférica [kPa].\n    \"\"\"\n    return 101.3 * ((293.0 - 0.0065 * z_m) / 293.0) ** 5.26"
+                }
+            ]
+        },
+        {
+            "title": "Constante Psicrométrica ($gamma$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "\\gamma = \\frac{c_p P}{\\epsilon \\lambda} \\approx 0.000665 \\cdot P"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Donde:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(c_p\\) (calor específico): \\(1.013 \\times 10^(-3)\\) MJ/kg/°C."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\epsilon\\) (cociente de pesos moleculares): 0.622."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\lambda\\) (calor latente): 2.45 MJ/kg."
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:\n    \"\"\"\n    Calcula la constante psicrométrica (kPa/°C) a partir de la presión atmosférica en kPa\n    usando la fórmula de FAO-56 (Eq. 8).\n\n    Parámetros:\n        p_kpa: Presión atmosférica [kPa].\n\n    Regresa:\n        Un valor de la constante psicrométrica [kPa/°C].\n    \"\"\"\n    cl = 2.45  # Calor latente de vaporización [MJ/kg]\n    cp = 1.013e-3  # Calor específico del aire [MJ/kg/°C]\n    epsilon = 0.622  # Cociente del peso molecular vapor de agua / aire seco\n    return (cp * p_kpa) / (epsilon * cl)"
+                }
+            ]
+        },
+        {
+            "title": "Pendiente de la Curva de Presión de Vapor ($Delta$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "\\Delta = \\frac{4098 \\left[0.6108 \\exp\\left(\\frac{17.27 T}{T + 237.3}\\right)\\right]}{(T + 237.3)^2}"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def delta_kpa_per_c(t_c: float) -> float:\n    \"\"\"\n    Calcula la pendiente de la curva de saturación (kPa/°C) a partir de la temperatura en °C\n    usando la fórmula derivada de Tetens (FAO-56 Eq. 13).\n\n    Parámetros:\n        t_c: Temperatura de aire [°C].\n\n    Regresa:\n        Pendiente de la curva de saturación [kPa/°C].\n    \"\"\"\n    e = es_kpa(t_c)\n    return 4098.0 * e / ((t_c + 237.3) ** 2)"
+                }
+            ]
+        },
+        {
+            "title": "Presión de Vapor ($e_s, e_a$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "e^o (T) = 0.6108 \\exp\\left(\\frac{17.27 T}{T + 237.3}\\right)"
+                },
+                {
+                    "type": "math-block",
+                    "content": "e_s = \\frac{e^o (T_{\\text{max}}) + e^o (T_{\\text{min}})}{2}"
+                },
+                {
+                    "type": "math-block",
+                    "content": "e_a = e_s \\cdot \\frac{\\text{RH}}{100}"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def es_kpa(t_c: float) -> float:\n    \"\"\"\n    Calcula la presión de vapor de saturación (kPa) a partir de la temperatura en °C\n    usando la fórmula de Tetens (FAO-56 Eq. 11).\n\n    Parámetros:\n        t_c: Temperatura del aire [°C].\n\n    Regresa:\n        Presión de vapor de saturación [kPa].\n    \"\"\"\n    return 0.6108 * math.exp((17.27 * t_c) / (t_c + 237.3))"
+                }
+            ]
+        },
+        {
+            "title": "Radiación Extraterrestre ($R_a$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "R_a = \\frac{24 \\cdot 60}{\\pi} G_{\\text{sc}} d_r (\\omega_s \\sin(\\phi) \\sin(\\delta) + \\cos(\\phi) \\cos(\\delta) \\sin(\\omega_s))"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Donde:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(d_r\\) (distancia relativa inversa Tierra-Sol): \\(1 + 0.033 \\cos\\left(\\frac{2 \\pi}{365} J\\right)\\)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\delta\\) (declinación solar): \\(0.409 \\sin\\left(\\frac{2 \\pi}{365} J - 1.39\\right)\\)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\omega_s\\) (ángulo de puesta de sol): \\(arc\\cos\\left(-\\tan\\left(\\phi\\right\\right) \\tan\\left(\\delta\\right))\\)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(J\\): Día juliano del año (1 a 365/366)."
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Se confirma que la fórmula de radiación (\\(R_a\\)) utiliza correctamente senos y cosenos según la implementación en `extraterrestrial_radiation_mj_m2d`:"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:\n    \"\"\"\n    Calcula la radiación extraterrestre (Ra) en MJ/m²/día a partir de la latitud en grados y\n    el día del año usando las fórmulas de FAO-56 (Eqs. 21–25).\n\n    Parámetros:\n        lat_deg: Latitud en grados.\n        doy: Día del año (1-365/366).\n\n    Regresa:\n        Valor de la radiación extraterrestre [MJ/m²/día].\n    \"\"\"\n    phi = math.radians(lat_deg)\n    dr = 1.0 + 0.033 * math.cos(2.0 * math.pi / 365.0 * doy)\n    delta = 0.409 * math.sin(2.0 * math.pi / 365.0 * doy - 1.39)\n    ws = math.acos(-math.tan(phi) * math.tan(delta))\n    ra = (\n        (24.0 * 60.0 / math.pi)\n        * GSC\n        * dr\n        * (\n            ws * math.sin(phi) * math.sin(delta)\n            + math.cos(phi) * math.cos(delta) * math.sin(ws)\n        )\n    )\n    return ra"
+                }
+            ]
+        },
+        {
+            "title": "Radiación Neta de Onda Corta ($R_\"ns\"$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "R_{\\text{ns}} = (1 - \\alpha) R_s"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Implementado con \\(\\alpha = 0.23\\) (cultivo de referencia)."
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:\n    \"\"\"\n    Calcula la radiación neta de onda corta (Rns) en MJ/m²/día a partir de la radiación solar global\n    y el albedo usando la fórmula de FAO-56 (Eq. 38).\n\n    Rns [MJ m-2 d-1] — (1 - albedo) * Rs (FAO-56).\n\n    Parametros:\n        - rs_mjm2d: Radiación solar global [MJ/m²/día].\n        - albedo: Coeficiente de reflexión de la superficie (por defecto 0.23 para césped).\n\n    Regresa:\n        Valor de la radiación neta de onda corta [MJ/m²/día].\n    \"\"\"\n    return (1.0 - albedo) * rs_mjm2d"
+                }
+            ]
+        },
+        {
+            "title": "Radiación Neta de Onda Larga ($R_\"nl\"$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "R_{\\text{nl}} = \\sigma \\left(\\frac{T_{\\text{max}, K}^4 + T_{\\text{min}, K}^4}{2}\\right) (0.34 - 0.14 \\sqrt{e_a}) \\left(1.35 \\frac{R_s}{R_{\\text{so}}} - 0.35\\right)"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Donde:"
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(\\sigma\\): Constante de Stefan-Boltzmann (\\(4.903 \\times 10^(-9)\\) MJ/K⁴/m²/día)."
+                },
+                {
+                    "type": "list-item",
+                    "content": "\\(R_\\text{so}\\) (radiación en cielo despejado): \\((0.75 + 2 \\times 10^(-5) z) R_a\\)."
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float:\n    \"\"\"\n    Calcula la radiación de cielo despejado (Rso) en MJ/m²/día a partir de la latitud,\n    día del año y altitud usando la fórmula de FAO-56 (Eq. 37).\n\n    FAO-56 - Cielo despejado: (0.75 + 2e-5*z) * Ra.\n\n    Parametros:\n        lat_deg: Latitud en grados.\n        doy: Día del año (1-365/366).\n        z_m: Altitud [m].\n\n    Regresa:\n        Valor de la radiación de cielo despejado [MJ/m²/día].\n    \"\"\"\n    ra = extraterrestrial_radiation_mj_m2d(lat_deg, doy)\n    return (0.75 + 2e-5 * z_m) * ra"
+                },
+                {
+                    "type": "code",
+                    "lang": "python",
+                    "content": "def net_longwave_rnl_fao56(\n    tmax_c: float, tmin_c: float, ea_kpa: float, rs_mjm2d: float, rso_mjm2d: float\n) -> float:\n    \"\"\"\n    Calcula la radiación neta de onda larga (Rnl) en MJ/m²/día a partir de las temperaturas máxima\n    y mínima, la presión de vapor actual, la radiación solar global y la radiación de cielo despejado\n    usando la fórmula de FAO-56 (Eq. 39).\n\n    Parametros:\n        tmax_c: Temperatura máxima absoluta en un periodo de 24h del aire [°C].\n        tmin_c: Temperatura mínima absoluta en un periodo de 24h del aire [°C].\n        ea_kpa: Presión de vapor real [kPa].\n        rs_mjm2d: Radiación solar media o calculada [MJ/m²/día].\n        rso_mjm2d: Radiación solar de cielo despejado [MJ/m²/día].\n\n    Regresa:\n        Valor de la radiación neta de onda larga [MJ/m²/día] calculada según FAO-56.\n    \"\"\"\n    tmaxk, tmink = tmax_c + 273.16, tmin_c + 273.16\n    t4 = (tmaxk**4 + tmink**4) / 2.0\n    # Radiacion relativa de onda corta (Rs/Rso)\n    rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))\n    fcloud = 1.35 * rsrso - 0.35\n    return SIGMA * t4 * (0.34 - 0.14 * math.sqrt(max(ea_kpa, 0.0))) * fcloud"
+                }
+            ]
+        },
+        {
+            "title": "Radiación Neta Total ($R_n$)",
+            "level": 3,
+            "blocks": [
+                {
+                    "type": "math-block",
+                    "content": "R_n = R_{\\text{ns}} - R_{\\text{nl}}"
+                }
+            ]
         }
-      ]
+    ],
+    "reporte_est": [
+        {
+            "title": "Introducción",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Este reporte presenta un análisis detallado de la eficiencia hídrica de los"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "cultivos en Sonora, utilizando datos de la NASA POWER y registros históricos de"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "producción (2010-2024). El objetivo es identificar los cultivos que maximizan la"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "producción por unidad de agua consumida (Toneladas por m³), comparando el"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "rendimiento agrícola con la huella hídrica total (HH total)."
+                }
+            ]
+        },
+        {
+            "title": "Metodología",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "La eficiencia se define como la inversa de la Huella Hídrica Total (\\(1/\\text{HH}_\\text{total}\\)),"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "representando la cantidad de producto obtenido por cada metro cúbico de agua"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "evapotranspirada (verde + azul). Se analizaron 12,747 registros municipales para"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "extraer tendencias por Distrito de Desarrollo Rural (DDR) y Municipio."
+                }
+            ]
+        },
+        {
+            "title": "Resultados Globales",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "El análisis global revela una disparidad significativa en la eficiencia hídrica"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "entre diferentes grupos de cultivos. Las hortalizas y flores muestran, en"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "general, una eficiencia mayor debido a su alto rendimiento en relación con su"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "consumo hídrico acumulado durante el ciclo."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/top_eficiencia_global.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos más Eficientes en Sonora (Promedio 2010-2024)</figcaption></figure>"
+                }
+            ]
+        },
+        {
+            "title": "Cultivos Líderes en Eficiencia",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "A continuación se muestran los cultivos con mayor eficiencia hídrica en el"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "estado:"
+                },
+                {
+                    "type": "html",
+                    "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Rendimiento (Ton/Ha)</th><th>Valor (MXN/m³)</th></tr></thead><tbody><tr><td>Col (repollo)</td><td>0.0375</td><td>32.20</td><td>156,032</td></tr><tr><td>Coliflor</td><td>0.0213</td><td>22.00</td><td>143,770</td></tr><tr><td>Hortalizas</td><td>0.0166</td><td>13.75</td><td>72,582</td></tr><tr><td>Caña (piloncillo)</td><td>0.0148</td><td>60.00</td><td>33,901</td></tr><tr><td>Zanahoria</td><td>0.0127</td><td>28.00</td><td>55,125</td></tr></tbody></table></div>"
+                }
+            ]
+        },
+        {
+            "title": "Cultivos con Menor Eficiencia Hídrica",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "No todos los cultivos presentan un retorno hídrico favorable. Los frutales de"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "largo ciclo y ciertas leguminosas muestran las eficiencias más bajas del estado,"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "requiriendo volúmenes masivos de agua por cada tonelada producida."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/peores_eficiencia_global.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos MENOS Eficientes en Sonora</figcaption></figure>"
+                }
+            ]
+        },
+        {
+            "title": "El Caso Crítico de los Frutales y Granos",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Los cultivos enlistados a continuación representan el mayor reto para la"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "sustentabilidad hídrica en Sonora:"
+                },
+                {
+                    "type": "html",
+                    "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Consumo (m³/Ton)</th></tr></thead><tbody><tr><td>Cereza</td><td>0.000037</td><td>26,850</td></tr><tr><td>Nuez</td><td>0.000108</td><td>11,164</td></tr><tr><td>Frijol</td><td>0.000175</td><td>6,464</td></tr><tr><td>Ajonjolí</td><td>0.000163</td><td>8,883</td></tr><tr><td>Cacahuate</td><td>0.000212</td><td>5,615</td></tr></tbody></table></div>"
+                }
+            ]
+        },
+        {
+            "title": "Productividad Económica del Agua",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "La eficiencia no debe medirse solo en masa, sino en valor. La *Productividad"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Económica* (\\(\\text{MXN}/m^3\\)) se calcula multiplicando el Precio Medio Rural (PMR)"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "por la eficiencia hídrica (\\(\\text{Ton}/\\text{m}^3\\)). Esto permite identificar qué cultivos"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "generan más riqueza por cada gota de agua invertida."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/productividad_economica.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos con mayor Valor Económico por m³ de Agua</figcaption></figure>"
+                }
+            ]
+        },
+        {
+            "title": "Análisis de Rentabilidad vs. Eficiencia (Cuadrantes)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Al cruzar la rentabilidad por tonelada (PMR) con la eficiencia hídrica física,"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "podemos clasificar los cultivos en cuatro categorías. El cuadrante superior"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "derecho representa los cultivos \"ideales\": <strong>Alta Rentabilidad y Bajo Consumo</strong>."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/cuadrante_rentabilidad_eficiencia.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Análisis de Cuadrantes: Rentabilidad (PMR) vs. Eficiencia Hídrica</figcaption></figure>"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Se observa que cultivos como la <strong>Coliflor</strong> y el <strong>Tomate rojo</strong> se posicionan"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "como líderes absolutos, no solo por producir mucha biomasa por litro, sino por"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "el alto valor de mercado de dicha biomasa. En contraste, granos como el trigo y"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "la avena forrajera, aunque eficientes en masa, poseen una productividad"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "económica significativamente menor debido a sus bajos PMR."
+                }
+            ]
+        },
+        {
+            "title": "Relación Valor vs. Consumo (Escala Logarítmica)",
+            "level": 2,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Para entender la dispersión total, comparamos el valor (\\(\\text{PMR}\\)) contra el"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "consumo total (\\(\\text{HH}_\\text{total}\\)). Esta vista permite identificar cultivos que son"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "\"lujos hídricos\" (alto valor pero altísimo consumo) vs. \"motores económicos\""
+                },
+                {
+                    "type": "paragraph",
+                    "content": "(alto valor y bajo consumo)."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/valor_vs_hh_log.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Relación Valor de Mercado (MXN/Ton) vs. Huella Hídrica (m³/Ton)</figcaption></figure>"
+                }
+            ]
+        },
+        {
+            "title": "Análisis por Distrito de Desarrollo Rural (DDR)",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Cada DDR presenta una especialización distinta y un retorno económico hídrico"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "diferenciado. La productividad económica media por región revela dónde el agua"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "se traduce en mayor riqueza local."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/productividad_economica_ddr.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Productividad Económica Media por DDR (MXN/m³)</figcaption></figure>"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "A continuación se detallan los cultivos más eficientes identificados por región"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "administrativa:"
+                },
+                {
+                    "type": "html",
+                    "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>DDR</th><th>Cultivo más Eficiente</th><th>Eficiencia (Ton/m³)</th></tr></thead><tbody><tr><td>Agua Prieta</td><td>Hortalizas</td><td>0.0168</td></tr><tr><td>Caborca</td><td>Pepino</td><td>0.0147</td></tr><tr><td>Cajeme</td><td>Hortalizas</td><td>0.0232</td></tr><tr><td>Guaymas</td><td>Pepino</td><td>0.0146</td></tr><tr><td>Hermosillo</td><td>Tomate rojo</td><td>0.0117</td></tr><tr><td>Magdalena</td><td>Col (repollo)</td><td>0.0375</td></tr><tr><td>Navojoa</td><td>Apio</td><td>0.0126</td></tr></tbody></table></div>"
+                }
+            ]
+        },
+        {
+            "title": "Correlación Rendimiento vs. Eficiencia",
+            "level": 1,
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "content": "Se observa una correlación positiva general: a mayor rendimiento (Ton/Ha), mayor"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "eficiencia hídrica relativa. Esto sugiere que las mejoras tecnológicas que"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "incrementan el rendimiento tienen un impacto directo y proporcional en el"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "ahorro de agua por unidad producida."
+                },
+                {
+                    "type": "html",
+                    "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/rendimiento_vs_eficiencia.png\" style=\"max-width: 70%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Correlación entre Rendimiento y Eficiencia Hídrica</figcaption></figure>"
+                }
+            ]
+        }
+    ],
+    "cultivos": {
+        "Brócoli": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["1", "14"]
+            },
+            "durations": ["35", "45", "40", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Acelga": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["1", "25"]
+            },
+            "durations": ["25", "30", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Ajo": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["4", "30"]
+            },
+            "durations": ["20", "35", "110", "45"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.70"
+            }
+        },
+        "Alcachofa": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["40", "40", "250", "30"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Apio": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["25", "40", "95", "20"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "1.00"
+            }
+        },
+        "Berenjena": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["6", "9"]
+            },
+            "durations": ["30", "40", "40", "20"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Betabel": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["11", "30"]
+            },
+            "durations": ["15", "25", "20", "10"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Calabacita": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "5"]
+            },
+            "durations": ["25", "35", "25", "15"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "0.95",
+                "end": "0.75"
+            }
+        },
+        "Calabaza": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["6", "8"]
+            },
+            "durations": ["20", "30", "30", "20"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.00",
+                "end": "0.80"
+            }
+        },
+        "Cebolla": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["4", "30"]
+            },
+            "durations": ["20", "35", "110", "45"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.75"
+            }
+        },
+        "Chícharo": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["1", "19"]
+            },
+            "durations": ["20", "30", "35", "15"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.15",
+                "end": "1.10"
+            }
+        },
+        "Chile verde": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["30", "40", "110", "30"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Chile seco": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["30", "40", "110", "30"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Cilantro": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "5"]
+            },
+            "durations": ["20", "25", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Col (repollo)": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "13"]
+            },
+            "durations": ["40", "60", "50", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Col de bruselas": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["1", "14"]
+            },
+            "durations": ["35", "45", "40", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Coliflor": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "7"]
+            },
+            "durations": ["35", "50", "40", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Ejote": {
+            "calendar": {
+                "start_mmdd": ["8", "1"],
+                "end_mmdd": ["10", "30"]
+            },
+            "durations": ["15", "25", "25", "10"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Elote": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["6", "18"]
+            },
+            "durations": ["20", "25", "25", "10"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.15",
+                "end": "1.05"
+            }
+        },
+        "Eneldo": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "5"]
+            },
+            "durations": ["20", "25", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Espinaca": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["11", "30"]
+            },
+            "durations": ["20", "20", "15", "5"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Espárrago": {
+            "calendar": {
+                "start_mmdd": ["2", "1"],
+                "end_mmdd": ["9", "19"]
+            },
+            "durations": ["50", "30", "100", "50"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "0.95",
+                "end": "0.30"
+            }
+        },
+        "Fresa": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["4", "9"]
+            },
+            "durations": ["20", "30", "30", "20"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.85",
+                "end": "0.75"
+            }
+        },
+        "Hortalizas": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "3"]
+            },
+            "durations": ["25", "35", "35", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Kale": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "8"]
+            },
+            "durations": ["30", "35", "40", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Lechuga": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["1", "14"]
+            },
+            "durations": ["20", "30", "15", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Mano de león": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "20"]
+            },
+            "durations": ["20", "30", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Melón": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["7", "9"]
+            },
+            "durations": ["30", "30", "50", "30"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "0.85",
+                "end": "0.60"
+            }
+        },
+        "Melón amargo": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["7", "4"]
+            },
+            "durations": ["25", "35", "40", "20"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "0.85",
+                "end": "0.60"
+            }
+        },
+        "Napa": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["1", "24"]
+            },
+            "durations": ["25", "35", "40", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Pepino": {
+            "calendar": {
+                "start_mmdd": ["6", "1"],
+                "end_mmdd": ["9", "14"]
+            },
+            "durations": ["20", "30", "40", "15"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.00",
+                "end": "0.75"
+            }
+        },
+        "Perejil": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "5"]
+            },
+            "durations": ["20", "25", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Poro (leek)": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["25", "40", "95", "20"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "1.00"
+            }
+        },
+        "Quelite": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "5"]
+            },
+            "durations": ["20", "25", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Rábano": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["5", "10", "15", "5"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.90",
+                "end": "0.85"
+            }
+        },
+        "Rapini": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "19"]
+            },
+            "durations": ["25", "30", "30", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Sandía": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "19"]
+            },
+            "durations": ["20", "30", "30", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.00",
+                "end": "0.75"
+            }
+        },
+        "Shop suey": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["12", "5"]
+            },
+            "durations": ["20", "25", "20", "10"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.95"
+            }
+        },
+        "Tomate rojo (jitomate)": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["5", "16"]
+            },
+            "durations": ["30", "40", "40", "25"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.15",
+                "end": "0.70"
+            }
+        },
+        "Tomate verde": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["5", "16"]
+            },
+            "durations": ["30", "40", "40", "25"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "1.15",
+                "end": "0.70"
+            }
+        },
+        "Zanahoria": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["2", "28"]
+            },
+            "durations": ["20", "30", "50", "20"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.95"
+            }
+        },
+        "Zempoalxochitl": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "4"]
+            },
+            "durations": ["20", "30", "30", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Margarita": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "4"]
+            },
+            "durations": ["20", "30", "30", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Flores": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "4"]
+            },
+            "durations": ["20", "30", "30", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Semilla de flores": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["7", "4"]
+            },
+            "durations": ["20", "30", "30", "15"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.05",
+                "end": "0.90"
+            }
+        },
+        "Avena grano": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["20", "25", "60", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Avena forrajera en verde": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["20", "25", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.90"
+            }
+        },
+        "Avena forrajera seca": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["20", "25", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Cebada grano": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["20", "25", "60", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Cebada forrajera en verde": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["20", "25", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.90"
+            }
+        },
+        "Cebada forrajera seca": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["20", "25", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Centeno forrajero en verde": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "4"]
+            },
+            "durations": ["20", "25", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.90"
+            }
+        },
+        "Maíz grano": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["30", "40", "50", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.20",
+                "end": "0.60"
+            }
+        },
+        "Maíz forrajero en verde": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["9", "8"]
+            },
+            "durations": ["30", "40", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.20",
+                "end": "1.05"
+            }
+        },
+        "Maíz forrajero seco": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["9", "8"]
+            },
+            "durations": ["30", "40", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.20",
+                "end": "0.60"
+            }
+        },
+        "Sorgo grano": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "18"]
+            },
+            "durations": ["20", "35", "45", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.00",
+                "end": "0.55"
+            }
+        },
+        "Sorgo forrajero en verde": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["7", "29"]
+            },
+            "durations": ["20", "35", "45", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.00",
+                "end": "0.85"
+            }
+        },
+        "Sorgo forrajero seco": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["7", "29"]
+            },
+            "durations": ["20", "35", "45", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.00",
+                "end": "0.55"
+            }
+        },
+        "Sorgo forrajero achicalado": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["7", "29"]
+            },
+            "durations": ["20", "35", "45", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.00",
+                "end": "0.55"
+            }
+        },
+        "Trigo grano": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["31", "47", "63", "31"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Trigo forrajero verde": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["3", "27"]
+            },
+            "durations": ["31", "47", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.90"
+            }
+        },
+        "Trigo forrajero seco": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["3", "27"]
+            },
+            "durations": ["31", "47", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Trigo forrajero achicalado": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["3", "27"]
+            },
+            "durations": ["31", "47", "50", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Semilla de trigo grano": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["31", "47", "63", "31"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Triticale grano": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["20", "25", "60", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Mijo": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["20", "30", "55", "35"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.00",
+                "end": "0.30"
+            }
+        },
+        "Alfalfa": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["3", "17"]
+            },
+            "durations": ["10", "30", "25", "10"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.95",
+                "end": "0.90"
+            }
+        },
+        "Alfalfa verde": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["3", "17"]
+            },
+            "durations": ["10", "20", "20", "10"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.20",
+                "end": "1.15"
+            }
+        },
+        "Alfalfa achicalada": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["3", "17"]
+            },
+            "durations": ["10", "20", "20", "10"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.95",
+                "end": "0.90"
+            }
+        },
+        "Pastos y praderas": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["10", "31"]
+            },
+            "durations": ["10", "20", "0", "0"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.85",
+                "end": "0.85"
+            }
+        },
+        "Pastos y praderas seco": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["10", "31"]
+            },
+            "durations": ["10", "20", "0", "0"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.85",
+                "end": "0.85"
+            }
+        },
+        "Pastos y praderas achicalado": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["10", "31"]
+            },
+            "durations": ["10", "20", "0", "0"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.85",
+                "end": "0.85"
+            }
+        },
+        "Nopal forrajero": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["30", "60", "120", "60"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.50",
+                "end": "0.45"
+            }
+        },
+        "Trébol": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["6", "28"]
+            },
+            "durations": ["10", "20", "20", "10"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.90",
+                "end": "0.85"
+            }
+        },
+        "Frijol": {
+            "calendar": {
+                "start_mmdd": ["5", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["20", "30", "40", "20"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.15",
+                "end": "0.35"
+            }
+        },
+        "Garbanzo grano": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["3", "19"]
+            },
+            "durations": ["20", "35", "60", "25"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.00",
+                "end": "0.35"
+            }
+        },
+        "Haba grano": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["2", "28"]
+            },
+            "durations": ["20", "30", "35", "15"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.15",
+                "end": "0.30"
+            }
+        },
+        "Haba verde": {
+            "calendar": {
+                "start_mmdd": ["11", "1"],
+                "end_mmdd": ["5", "30"]
+            },
+            "durations": ["90", "45", "40", "60"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.15",
+                "end": "1.10"
+            }
+        },
+        "Soya": {
+            "calendar": {
+                "start_mmdd": ["5", "1"],
+                "end_mmdd": ["9", "23"]
+            },
+            "durations": ["20", "30", "60", "25"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.15",
+                "end": "0.50"
+            }
+        },
+        "Semilla de soya": {
+            "calendar": {
+                "start_mmdd": ["5", "1"],
+                "end_mmdd": ["9", "23"]
+            },
+            "durations": ["20", "30", "60", "25"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.15",
+                "end": "0.50"
+            }
+        },
+        "Cacahuate": {
+            "calendar": {
+                "start_mmdd": ["5", "1"],
+                "end_mmdd": ["10", "18"]
+            },
+            "durations": ["35", "35", "35", "35"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.15",
+                "end": "0.60"
+            }
+        },
+        "Canola": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["3", "4"]
+            },
+            "durations": ["25", "35", "55", "30"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.10",
+                "end": "0.35"
+            }
+        },
+        "Cártamo": {
+            "calendar": {
+                "start_mmdd": ["10", "1"],
+                "end_mmdd": ["3", "4"]
+            },
+            "durations": ["20", "35", "55", "30"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.10",
+                "end": "0.25"
+            }
+        },
+        "Girasol": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["25", "35", "45", "25"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.05",
+                "end": "0.35"
+            }
+        },
+        "Girasol flor": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["25", "35", "45", "25"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.05",
+                "end": "0.35"
+            }
+        },
+        "Semilla de girasol": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["25", "35", "45", "25"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.05",
+                "end": "0.35"
+            }
+        },
+        "Higuerilla": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "18"]
+            },
+            "durations": ["25", "40", "65", "50"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.15",
+                "end": "0.55"
+            }
+        },
+        "Ajonjolí": {
+            "calendar": {
+                "start_mmdd": ["6", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["20", "30", "40", "20"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.10",
+                "end": "0.25"
+            }
+        },
+        "Alpiste": {
+            "calendar": {
+                "start_mmdd": ["10", "30"],
+                "end_mmdd": ["4", "19"]
+            },
+            "durations": ["20", "25", "55", "30"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "1.15",
+                "end": "0.25"
+            }
+        },
+        "Papa": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["5", "10"]
+            },
+            "durations": ["25", "30", "45", "30"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.15",
+                "end": "0.75"
+            }
+        },
+        "Semilla de papa": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["5", "10"]
+            },
+            "durations": ["25", "30", "45", "30"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.15",
+                "end": "0.75"
+            }
+        },
+        "Remolacha azucarera": {
+            "calendar": {
+                "start_mmdd": ["5", "1"],
+                "end_mmdd": ["11", "28"]
+            },
+            "durations": ["25", "35", "50", "50"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.20",
+                "end": "0.70"
+            }
+        },
+        "Caña de azúcar otro uso": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["35", "60", "190", "120"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.25",
+                "end": "0.75"
+            }
+        },
+        "Caña de azúcar piloncillo": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["35", "60", "190", "120"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.25",
+                "end": "0.75"
+            }
+        },
+        "Agave": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "120", "600", "90"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.60",
+                "end": "0.50"
+            }
+        },
+        "Maguey pulquero (miles de lts.)": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "120", "600", "90"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.60",
+                "end": "0.50"
+            }
+        },
+        "Nopalitos": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["20", "30", "60", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.50",
+                "end": "0.45"
+            }
+        },
+        "Sábila": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["3", "31"]
+            },
+            "durations": ["30", "60", "120", "60"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.60",
+                "end": "0.50"
+            }
+        },
+        "Jojoba": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["30", "60", "120", "60"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.65",
+                "end": "0.55"
+            }
+        },
+        "Stevia": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["20", "40", "60", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "1.00",
+                "end": "0.85"
+            }
+        },
+        "Aceituna": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["20", "90", "60", "90"],
+            "kc": {
+                "ini": "0.65",
+                "mid": "0.70",
+                "end": "0.70"
+            }
+        },
+        "Aguacate": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["20", "60", "120", "60"],
+            "kc": {
+                "ini": "0.60",
+                "mid": "0.85",
+                "end": "0.75"
+            }
+        },
+        "Almendra": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["8", "28"]
+            },
+            "durations": ["20", "60", "90", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Arándano": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "50", "75", "60"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "0.85",
+                "end": "0.45"
+            }
+        },
+        "Chabacano": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Cereza": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.95",
+                "end": "0.70"
+            }
+        },
+        "Ciruela": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Cítricos": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "durationsazno": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Dátil": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["30", "90", "120", "60"],
+            "kc": {
+                "ini": "0.90",
+                "mid": "0.95",
+                "end": "0.95"
+            }
+        },
+        "Granada": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["30", "50", "120", "60"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Higo": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "60", "90", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Limón": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "Limón real": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "Mandarina": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "Mango": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["30", "60", "120", "60"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.00",
+                "end": "0.85"
+            }
+        },
+        "Manzana": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.95",
+                "end": "0.70"
+            }
+        },
+        "Membrillo": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "60", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Naranja": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "Nuez": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["10", "28"]
+            },
+            "durations": ["20", "10", "130", "30"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.10",
+                "end": "0.65"
+            }
+        },
+        "Pera": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "70", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.95",
+                "end": "0.70"
+            }
+        },
+        "Persimonio": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["10", "28"]
+            },
+            "durations": ["20", "60", "90", "30"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Pitahaya": {
+            "calendar": {
+                "start_mmdd": ["4", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["30", "60", "90", "60"],
+            "kc": {
+                "ini": "0.40",
+                "mid": "0.70",
+                "end": "0.55"
+            }
+        },
+        "Toronja (pomelo)": {
+            "calendar": {
+                "start_mmdd": ["1", "1"],
+                "end_mmdd": ["12", "31"]
+            },
+            "durations": ["60", "90", "120", "95"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "0.65",
+                "end": "0.70"
+            }
+        },
+        "Uva": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "18"]
+            },
+            "durations": ["20", "50", "90", "20"],
+            "kc": {
+                "ini": "0.30",
+                "mid": "0.85",
+                "end": "0.45"
+            }
+        },
+        "Frutales varios": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["20", "60", "90", "30"],
+            "kc": {
+                "ini": "0.45",
+                "mid": "0.90",
+                "end": "0.65"
+            }
+        },
+        "Semilla de cilantro": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "28"]
+            },
+            "durations": ["25", "35", "60", "30"],
+            "kc": {
+                "ini": "0.70",
+                "mid": "1.00",
+                "end": "0.45"
+            }
+        },
+        "Varios": {
+            "calendar": {
+                "start_mmdd": ["9", "1"],
+                "end_mmdd": ["2", "28"]
+            },
+            "durations": ["25", "35", "40", "20"],
+            "kc": {
+                "ini": "0.50",
+                "mid": "1.00",
+                "end": "0.75"
+            }
+        },
+        "Algodón hueso": {
+            "calendar": {
+                "start_mmdd": ["3", "1"],
+                "end_mmdd": ["9", "28"]
+            },
+            "durations": ["30", "50", "60", "55"],
+            "kc": {
+                "ini": "0.35",
+                "mid": "1.15",
+                "end": "0.70"
+            }
+        }
     },
-    {
-      "title": "Fuentes de Datos y Parámetros",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "El sistema de cálculo integra dos tipos de insumos fundamentales: datos climáticos satelitales de alta resolución y parámetros específicos del dominio agrícola local."
+    "codificaciones": {
+        "codigos_municipios": {
+            "01": "Aconchi",
+            "02": "Agua Prieta",
+            "03": "Alamos",
+            "04": "Altar",
+            "05": "Arivechi",
+            "06": "Arizpe",
+            "07": "Atil",
+            "08": "Bacadéhuachi",
+            "09": "Bacanora",
+            "10": "Bacerac",
+            "11": "Bacoachi",
+            "12": "Bácum",
+            "13": "Banámichi",
+            "14": "Baviácora",
+            "15": "Bavispe",
+            "16": "Benjamín Hill",
+            "17": "Caborca",
+            "18": "Cajeme",
+            "19": "Cananea",
+            "20": "Carbó",
+            "21": "La Colorada",
+            "22": "Cucurpe",
+            "23": "Cumpas",
+            "24": "Divisaderos",
+            "25": "Empalme",
+            "26": "Etchojoa",
+            "27": "Fronteras",
+            "28": "Granados",
+            "29": "Guaymas",
+            "30": "Hermosillo",
+            "31": "Huachinera",
+            "32": "Huásabas",
+            "33": "Huatabampo",
+            "34": "Huépac",
+            "35": "Imuris",
+            "36": "Magdalena",
+            "37": "Mazatán",
+            "38": "Moctezuma",
+            "39": "Naco",
+            "40": "Nácori Chico",
+            "41": "Nacozari de García",
+            "42": "Navojoa",
+            "43": "Nogales",
+            "44": "Onavas",
+            "45": "Opodepe",
+            "46": "Oquitoa",
+            "47": "Pitiquito",
+            "48": "Puerto Peñasco",
+            "49": "Quiriego",
+            "50": "Rayón",
+            "51": "Rosario",
+            "52": "Sahuaripa",
+            "53": "San Felipe de Jesús",
+            "54": "San Javier",
+            "55": "San Luis Río Colorado",
+            "56": "San Miguel de Horcasitas",
+            "57": "San Pedro de La Cueva",
+            "58": "Santa Ana",
+            "59": "Santa Cruz",
+            "60": "Sáric",
+            "61": "Soyopa",
+            "62": "Suaqui Grande",
+            "63": "Tepache",
+            "64": "Trincheras",
+            "65": "Tubutama",
+            "66": "Ures",
+            "67": "Villa Hidalgo",
+            "68": "Villa Pesqueira",
+            "69": "Yécora",
+            "70": "General Plutarco Elías Calles",
+            "71": "Benito Juárez",
+            "72": "San Ignacio Río Muerto"
+        },
+        "codigos_ciclos": {
+            "1": "Ciclo Primavera-Verano",
+            "2": "Ciclo Otoño-Invierno",
+            "3": "Ciclo Perennes",
+            "4": "Ciclo Anual",
+            "5": "Ciclo Otro"
+        },
+        "codigos_ddrs": {
+            "149": "Navojoa",
+            "140": "Magdalena",
+            "139": "Caborca",
+            "146": "Sahuaripa",
+            "143": "Moctezuma",
+            "141": "Agua Prieta",
+            "142": "Ures",
+            "193": "San Luis Río Colorado",
+            "148": "Cajeme",
+            "144": "Hermosillo",
+            "147": "Guaymas",
+            "145": "Mazatán"
+        },
+        "codigos_modalidades": {
+            "1": "Riego",
+            "2": "Temporal"
+        },
+        "codigos_unidades": {
+            "200201": "Tonelada",
+            "200205": "Manojo",
+            "200204": "Miles de lts.",
+            "200203": "Gruesa"
         }
-      ]
     },
-    {
-      "title": "NASA POWER API (Datos Meteorológicos)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Los datos climáticos diarios se obtienen mediante la API de NASA POWER (`AG` community, daily frequency). Los parámetros verificados en el script `nasa_power.py` y su uso en las ecuaciones son:"
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>ALLSKY_SFC_SW_DWN (\\(R_s\\)):</strong> Radiación solar de onda corta incidente en la superficie [MJ/m²/día]."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>WS2M (\\(u_2\\)):</strong> Velocidad del viento medida a 2 metros de altura [m/s]."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>T2M_MAX (\\(T_\\text{max}\\)):</strong> Temperatura máxima del aire a 2 metros [°C]."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>T2M_MIN (\\(T_\\text{min}\\)):</strong> Temperatura mínima del aire a 2 metros [°C]."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>RH2M (\"RH\"):</strong> Humedad relativa media a 2 metros [%]."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>PRECTOTCORR (\\(P\\)):</strong> Precipitación corregida acumulada diaria [mm/día]."
-        }
-      ]
-    },
-    {
-      "title": "Parámetros de Configuración Regional y de Cultivo",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Estos datos son ingresados manualmente o mediante archivos de referencia municipal (`SonoraLatLongAlt.csv`):"
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Ubicación:</strong> Latitud (\\(\\phi\\)), Longitud y Altitud (\\(z\\) en metros sobre el nivel del mar)."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Calendario Agrícola:</strong> Fechas de siembra y cosecha (Ciclo Otoño-Invierno)."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Coeficientes de Cultivo (\\(K_c\\)):</strong> Valores para las etapas inicial (\\(K_(c, \\text{ini})\\)), media (\\(K_(c, \\text{mid})\\)) y final (\\(K_(c, \\text{end})\\))."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Duración de Etapas:</strong> Número de días para las fases inicial, desarrollo, mediados y final."
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Rendimiento:</strong> Toneladas por hectárea (\\(t/h a\\)) reportadas por el SIAP."
-        }
-      ]
-    },
-    {
-      "title": "Metodología de Cálculo (FAO-56)",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "La ecuación de Penman-Monteith es el estándar global para estimar la evapotranspiración de una superficie de referencia (pasto de 0.12m de altura, bien regado y con albedo de 0.23)."
-        }
-      ]
-    },
-    {
-      "title": "Evapotranspiración de Referencia ($E T_o$)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "La fórmula general para un paso de tiempo diario es:"
-        },
-        {
-          "type": "math-block",
-          "content": "ET_o = \\frac{0.408 \\Delta (R_n - G) + \\gamma frac(900}{T + 273} u_2 (e_s - e_a), \\Delta + \\gamma (1 + 0.34 u_2))"
-        },
-        {
-          "type": "paragraph",
-          "content": "Donde:"
-        },
-        {
-          "type": "list-item",
-          "content": "\\(ET_o\\): Evapotranspiración de referencia [mm/día]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(R_n\\): Radiación neta en la superficie del cultivo [MJ/m²/día]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(G\\): Flujo de calor del suelo [MJ/m²/día] (asumido como 0 para cálculos diarios)."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(T\\): Temperatura media del aire a 2 m de altura [°C]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(u_2\\): Velocidad del viento a 2 m de altura [m/s]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(e_s\\): Presión de vapor de saturación [kPa]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(e_a\\): Presión real de vapor [kPa]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(e_s - e_a\\): Déficit de presión de vapor [kPa]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\Delta\\): Pendiente de la curva de presión de vapor [kPa/°C]."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\gamma\\): Constante psicrométrica [kPa/°C]."
-        },
-        {
-          "type": "paragraph",
-          "content": "Implementación en Python:"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def eto_fao56_mm(\n    tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0\n):\n    \"\"\"\n    Regresa un diccionario con los componentes intermedios y el resultado final de\n    la evapotranspiración de referencia (ETo) en mm/día usando el método de Penman-Monteith según FAO-56.\n\n    ETo [mm/día] — FAO-56 Penman-Monteith (Eq. 6) diario (G=0 por defecto).\n    - Usa es, ea (de T y HR)\n    - delta(Tmean), gamma(z)\n    - Rn = Rns - Rnl (Rnl FAO-56 Eq. 39)\n\n    Parametros:\n        - tmax, tmin: Temperaturas máxima y mínima en °C.\n        - rh_pct: Humedad relativa promedio en %.\n        - u2_ms: Velocidad del viento a 2 m en m/s.\n        - rs_mjm2d: Radiación solar global en MJ/m²/día.\n        - lat_deg: Latitud en grados.\n        - z_m: Altitud en metros.\n        - doy: Día del año (1-365/366).\n        - g_mjm2d: Flujo de calor del suelo en MJ/m²/d\n\n    Regresa:\n    Un diccionario con:\n        - Tmean_: Temperatura media (°C).\n        - es_: Presión de vapor de saturación (kPa).\n        - ea_: Presión de vapor real (kPa).\n        - delta_: Pendiente de la curva de saturación (kPa/°C).\n        - P_: Presión atmosférica (kPa).\n        - gamma_: Constante psicrométrica (kPa/°C).\n        - Rso_: Radiación extraterrestre (MJ/m²/día).\n        - Rns_: Radiación neta de onda corta (MJ/m²/día).\n        - Rnl_: Radiación neta de onda larga (MJ/m²/día).\n        - Rn_: Radiación neta total (MJ/m²/día).\n        - ET0: Evapotranspiración de referencia (mm/día).\n    \"\"\"\n    tmean = (tmax + tmin) / 2.0\n    es = (es_kpa(tmax) + es_kpa(tmin)) / 2.0\n    ea = es * (rh_pct / 100.0)\n    delta = delta_kpa_per_c(tmean)\n    p = atm_pressure_kpa(z_m)\n    gamma = psychrometric_constant_kpa_per_c(p)\n\n    # ===================== Versión FAO-56 ========================\n    # Rso = clear_sky_radiation_Rso_FAO56(lat_deg, doy, z_m)\n    # =============================================================\n\n    # ===================== Versión \"UAMEX\" =======================\n    rso = extraterrestrial_radiation_mj_m2d(\n        lat_deg, doy\n    )  # ← aquí va Ra cuando uses la versión \"equipo\"\n\n    rns = net_shortwave_rns(rs_mjm2d=rs_mjm2d, albedo=ALBEDO)\n    rnl = net_longwave_rnl_fao56(tmax, tmin, ea, rs_mjm2d, rso)\n    rn = rns - rnl\n    num = 0.408 * delta * (rn - g_mjm2d) + gamma * (900.0 / (tmean + 273.0)) * u2_ms * (\n        es - ea\n    )\n    den = delta + gamma * (1.0 + 0.34 * u2_ms)\n    eto = max(0.0, num / den)\n    return {\n        \"Tmean_\": tmean,\n        \"es_\": es,\n        \"ea_\": ea,\n        \"delta_\": delta,\n        \"P_\": p,\n        \"gamma_\": gamma,\n        \"Rso_\": rso,\n        \"Rns_\": rns,\n        \"Rnl_\": rnl,\n        \"Rn_\": rn,\n        \"ET0\": eto,\n    }"
-        }
-      ]
-    },
-    {
-      "title": "Evapotranspiración del Cultivo ($E T_c$)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Se ajusta la demanda de agua de referencia al cultivo específico mediante el coeficiente \\(K_c\\):"
-        },
-        {
-          "type": "math-block",
-          "content": "ET_c = K_c \\cdot ET_o"
-        },
-        {
-          "type": "paragraph",
-          "content": "El valor de \\(K_c\\) varía según la etapa fenológica del cultivo (curva de 4 etapas)."
-        },
-        {
-          "type": "paragraph",
-          "content": "Implementación en Python:"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def daily_kc_curve(\n    fechas_idx: pd.DatetimeIndex,\n    kc_ini: float,\n    kc_mid: float,\n    kc_end: float,\n    dur,  # (d_ini, d_des, d_mid, d_fin)\n    endpoint_rampas: bool = True,  # se mantiene por compatibilidad, no se usa\n) -> pd.Series:\n    \"\"\"\n    Calcula la curva de Kc diaria a partir de los parámetros dados.\n\n    Versión con ASIGNACIÓN POR FASE (sin rampas):\n      - Inicio: kc_ini (constante)\n      - Desarrollo: kc_mid (constante)  ← se permiten saltos\n      - Media: kc_mid (constante)\n      - Final: kc_end (constante)\n\n    Parámetros:\n    - fechas_idx: Índice de fechas para el ciclo completo.\n    - kc_ini: Kc al inicio del ciclo (constante).\n    - kc_mid: Kc en la fase media del ciclo (constante).\n    - kc_end: Kc al final del ciclo (constante).\n    - dur: Tupla con la duración (en días) de cada fase: (d_ini, d_des, d_mid, d_fin).\n    - endpoint_rampas: Si True, se generan rampas lineales entre fases; si False, se asignan\n        valores constantes por fase con saltos entre ellas.\n\n    Regresa:\n    - Serie de Kc diario con el mismo índice que fechas_idx.\n    \"\"\"\n    d_ini, d_des, d_mid, d_fin = dur\n    n = len(fechas_idx)\n\n    kc_ini_arr = np.full(d_ini, kc_ini)\n    kc_des_arr = np.full(d_des, kc_mid)  # salto kc_ini -> kc_mid\n    kc_mid_arr = np.full(d_mid, kc_mid)\n    kc_fin_arr = np.full(d_fin, kc_end)  # salto kc_mid -> kc_end\n\n    kc_full = np.concatenate([kc_ini_arr, kc_des_arr, kc_mid_arr, kc_fin_arr])\n\n    # Ajuste a la longitud disponible\n    if len(kc_full) >= n:\n        kc_full = kc_full[:n]\n    else:\n        kc_full = np.concatenate([kc_full, np.full(n - len(kc_full), kc_end)])\n\n    return pd.Series(kc_full, index=fechas_idx, name=\"Kc_\")"
-        }
-      ]
-    },
-    {
-      "title": "Precipitación Efectiva ($P_\"ef\"$)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "No toda el agua de lluvia es aprovechada por el cultivo. Se utiliza el método simplificado de la FAO:"
-        },
-        {
-          "type": "list-item",
-          "content": "Si \\(P_\\text{ciclo} < 250\\) mm: \\(P_\\text{ef} = 0.8 \\cdot P_\\text{total}\\)"
-        },
-        {
-          "type": "list-item",
-          "content": "Si \\(P_\\text{ciclo} >= 250\\) mm: \\(P_\\text{ef} = 0.6 \\cdot P_\\text{total}\\)"
-        },
-        {
-          "type": "paragraph",
-          "content": "Implementación en Python:"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:\n    \"\"\"\n    Calcula el Pef diario a partir de la precipitación total (Ptotal) usando una regla simple basada en FAO-56:\n        FAO simple: Pef = f * Ptotal.\n        f = 0.8 si Ptotal < 250 mm; f = 0.6 si no.\n        Se aplica el mismo factor f a cada día.\n\n    Parámetros:\n        - ptot_series_mm: Serie de precipitación total (mm) por día.\n\n    Regresa:\n        - Serie de Pef diario (mm) con el mismo índice que ptot_series_mm.\n    \"\"\"\n    ptotal = ptot_series_mm.fillna(0).sum()\n    f = 0.8 if ptotal < 250.0 else 0.6\n    return ptot_series_mm.fillna(0) * f  # Pef_ diario"
-        }
-      ]
-    },
-    {
-      "title": "Huella Hídrica (HH)",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "La huella hídrica cuantifica el volumen de agua dulce utilizado para producir el cultivo."
-        }
-      ]
-    },
-    {
-      "title": "Componentes Verde y Azul",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "list-item",
-          "content": "<strong>Componente Verde (\\(E T_\\text{verde}\\)):</strong> Agua de lluvia consumida por el cultivo."
-        },
-        {
-          "type": "math-block",
-          "content": "E T_\\text{verde} = \\min\\left(ET_c, P_\\text{ef}\\right)"
-        },
-        {
-          "type": "list-item",
-          "content": "<strong>Componente Azul (\\(E T_\\text{azul}\\)):</strong> Agua de riego o recursos hídricos superficiales/subterráneos."
-        },
-        {
-          "type": "math-block",
-          "content": "E T_\\text{azul} = \\max\\left(ET_c - P_\\text{ef}, 0\\right)"
-        }
-      ]
-    },
-    {
-      "title": "Consumo Unitario de Agua (UAC)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Representa el volumen total acumulado por hectárea (\\(m^3/h a\\))."
-        },
-        {
-          "type": "math-block",
-          "content": "U A C = \\\\sum_{\\text{ciclo}} E T \\cdot 10"
-        },
-        {
-          "type": "paragraph",
-          "content": "(Nota: El factor 10 convierte mm de lámina de agua a \\(m^3/h a\\))."
-        }
-      ]
-    },
-    {
-      "title": "Huella Hídrica Total ($H H$)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Se expresa como el volumen de agua por unidad de masa producida (\\(m^3/t\\)):"
-        },
-        {
-          "type": "math-block",
-          "content": "H H = \\frac{U A C}{\\text{Rendimiento} (t/h a})"
-        },
-        {
-          "type": "paragraph",
-          "content": "Implementación en Python:"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def calculate_wf_uac(\n    green_et_series_mm: pd.Series,\n    blue_et_series_mm: pd.Series,\n    performance_ton_ha: float,\n) -> dict:\n    \"\"\"\n    Calcula:\n      - ETverde_total_mm, ETazul_total_mm\n      - UACverde_m3_ha, UACazul_m3_ha\n      - HHverde_m3_ton, HHazul_m3_ton\n    Convenciones:\n      - 1 mm sobre 1 ha = 10 m3  => UAC = sum(ET) * 10\n      - HH = UAC / rendimiento(ton/ha)\n    Si no hay rendimiento válido (>0), HH = NaN.\n\n    Parametros:\n        - green_et_series_mm: Serie de ET verde diario (mm).\n        - blue_et_series_mm: Serie de ET azul diario (mm).\n        - performance_ton_ha: Rendimiento en toneladas por hectárea (ton/ha).\n\n    Regresa:\n        Diccionario con las métricas calculadas:\n        {\n            \"ETverde_total_mm\": ...,\n            \"ETazul_total_mm\": ...,\n            \"UACverde_m3_ha\": ...,\n            \"UACazul_m3_ha\": ...,\n            \"HHverde_m3_ton\": ...,\n            \"HHazul_m3_ton\": ...,\n        }\n    \"\"\"\n    total_green_et_mm = float(pd.Series(green_et_series_mm).fillna(0).sum())\n    total_blue_et_mm = float(pd.Series(blue_et_series_mm).fillna(0).sum())\n\n    green_uac_m3_ha = total_green_et_mm * 10.0\n    blue_uac_m3_ha = total_blue_et_mm * 10.0\n\n    if (performance_ton_ha is not None) and (performance_ton_ha > 0):\n        green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha\n        blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha\n    else:\n        green_wf_m3_ton = float(\"nan\")\n        blue_wf_m3_ton = float(\"nan\")\n\n    return {\n        \"ETverde_total_mm\": total_green_et_mm,\n        \"ETazul_total_mm\": total_blue_et_mm,\n        \"UACverde_m3_ha\": green_uac_m3_ha,\n        \"UACazul_m3_ha\": blue_uac_m3_ha,\n        \"HHverde_m3_ton\": green_wf_m3_ton,\n        \"HHazul_m3_ton\": blue_wf_m3_ton,\n    }"
-        }
-      ]
-    },
-    {
-      "title": "Apéndices: Derivaciones Matemáticas Detalladas",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "A continuación se presentan las ecuaciones auxiliares necesarias para obtener las variables intermedias de la ecuación de Penman-Monteith."
-        }
-      ]
-    },
-    {
-      "title": "Presión Atmosférica ($P$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Depende de la elevación sobre el nivel del mar (\\(z\\)):"
-        },
-        {
-          "type": "math-block",
-          "content": "P = 101.3 (\\frac{293 - 0.0065 z}{293})^(5.26)"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def atm_pressure_kpa(z_m: float) -> float:\n    \"\"\"\n    Calcula la presión atmosférica (kPa) a partir de la altitud en metros usando la\n    fórmula de barometría (FAO-56 Eq. 7).\n\n    Temperatura estándar de referencia (20 °C) se asume para el cálculo.\n\n    Parámetros:\n        z_m: Elevación sobre el nivel del mar [m].\n\n    Regresa:\n        Presión atmosférica [kPa].\n    \"\"\"\n    return 101.3 * ((293.0 - 0.0065 * z_m) / 293.0) ** 5.26"
-        }
-      ]
-    },
-    {
-      "title": "Constante Psicrométrica ($gamma$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "\\gamma = \\frac{c_p P}{\\epsilon \\lambda} \\approx 0.000665 \\cdot P"
-        },
-        {
-          "type": "paragraph",
-          "content": "Donde:"
-        },
-        {
-          "type": "list-item",
-          "content": "\\(c_p\\) (calor específico): \\(1.013 \\times 10^(-3)\\) MJ/kg/°C."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\epsilon\\) (cociente de pesos moleculares): 0.622."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\lambda\\) (calor latente): 2.45 MJ/kg."
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:\n    \"\"\"\n    Calcula la constante psicrométrica (kPa/°C) a partir de la presión atmosférica en kPa\n    usando la fórmula de FAO-56 (Eq. 8).\n\n    Parámetros:\n        p_kpa: Presión atmosférica [kPa].\n\n    Regresa:\n        Un valor de la constante psicrométrica [kPa/°C].\n    \"\"\"\n    cl = 2.45  # Calor latente de vaporización [MJ/kg]\n    cp = 1.013e-3  # Calor específico del aire [MJ/kg/°C]\n    epsilon = 0.622  # Cociente del peso molecular vapor de agua / aire seco\n    return (cp * p_kpa) / (epsilon * cl)"
-        }
-      ]
-    },
-    {
-      "title": "Pendiente de la Curva de Presión de Vapor ($Delta$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "\\Delta = \\frac{4098 [0.6108 \\exp\\left(frac(17.27 T}{T + 237.3}\\right)], (T + 237.3)^2)"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def delta_kpa_per_c(t_c: float) -> float:\n    \"\"\"\n    Calcula la pendiente de la curva de saturación (kPa/°C) a partir de la temperatura en °C\n    usando la fórmula derivada de Tetens (FAO-56 Eq. 13).\n\n    Parámetros:\n        t_c: Temperatura de aire [°C].\n\n    Regresa:\n        Pendiente de la curva de saturación [kPa/°C].\n    \"\"\"\n    e = es_kpa(t_c)\n    return 4098.0 * e / ((t_c + 237.3) ** 2)"
-        }
-      ]
-    },
-    {
-      "title": "Presión de Vapor ($e_s, e_a$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "e^o (T) = 0.6108 \\exp\\left(\\frac{17.27 T}{T + 237.3}\\right)"
-        },
-        {
-          "type": "math-block",
-          "content": "e_s = \\frac{e^o (T_\\text{max}) + e^o (T_\\text{min})}{2}"
-        },
-        {
-          "type": "math-block",
-          "content": "e_a = e_s \\cdot \\frac{\\text{RH}}{100}"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def es_kpa(t_c: float) -> float:\n    \"\"\"\n    Calcula la presión de vapor de saturación (kPa) a partir de la temperatura en °C\n    usando la fórmula de Tetens (FAO-56 Eq. 11).\n\n    Parámetros:\n        t_c: Temperatura del aire [°C].\n\n    Regresa:\n        Presión de vapor de saturación [kPa].\n    \"\"\"\n    return 0.6108 * math.exp((17.27 * t_c) / (t_c + 237.3))"
-        }
-      ]
-    },
-    {
-      "title": "Radiación Extraterrestre ($R_a$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "R_a = \\frac{24 \\cdot 60}{\\pi} G_\\text{sc} d_r (\\omega_s \\sin\\left(\\phi\\right) \\sin\\left(\\delta\\right) + \\cos\\left(\\phi\\right) \\cos\\left(\\delta\\right) \\sin\\left(\\omega_s\\right))"
-        },
-        {
-          "type": "paragraph",
-          "content": "Donde:"
-        },
-        {
-          "type": "list-item",
-          "content": "\\(d_r\\) (distancia relativa inversa Tierra-Sol): \\(1 + 0.033 \\cos\\left(\\frac{2 \\pi}{365} J\\right)\\)."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\delta\\) (declinación solar): \\(0.409 \\sin\\left(\\frac{2 \\pi}{365} J - 1.39\\right)\\)."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\omega_s\\) (ángulo de puesta de sol): \\(arc\\cos\\left(-\\tan\\left(\\phi\\right\\right) \\tan\\left(\\delta\\right))\\)."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(J\\): Día juliano del año (1 a 365/366)."
-        },
-        {
-          "type": "paragraph",
-          "content": "Se confirma que la fórmula de radiación (\\(R_a\\)) utiliza correctamente senos y cosenos según la implementación en `extraterrestrial_radiation_mj_m2d`:"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:\n    \"\"\"\n    Calcula la radiación extraterrestre (Ra) en MJ/m²/día a partir de la latitud en grados y\n    el día del año usando las fórmulas de FAO-56 (Eqs. 21–25).\n\n    Parámetros:\n        lat_deg: Latitud en grados.\n        doy: Día del año (1-365/366).\n\n    Regresa:\n        Valor de la radiación extraterrestre [MJ/m²/día].\n    \"\"\"\n    phi = math.radians(lat_deg)\n    dr = 1.0 + 0.033 * math.cos(2.0 * math.pi / 365.0 * doy)\n    delta = 0.409 * math.sin(2.0 * math.pi / 365.0 * doy - 1.39)\n    ws = math.acos(-math.tan(phi) * math.tan(delta))\n    ra = (\n        (24.0 * 60.0 / math.pi)\n        * GSC\n        * dr\n        * (\n            ws * math.sin(phi) * math.sin(delta)\n            + math.cos(phi) * math.cos(delta) * math.sin(ws)\n        )\n    )\n    return ra"
-        }
-      ]
-    },
-    {
-      "title": "Radiación Neta de Onda Corta ($R_\"ns\"$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "R_\\text{ns} = (1 - \\alpha) R_s"
-        },
-        {
-          "type": "paragraph",
-          "content": "Implementado con \\(\\alpha = 0.23\\) (cultivo de referencia)."
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:\n    \"\"\"\n    Calcula la radiación neta de onda corta (Rns) en MJ/m²/día a partir de la radiación solar global\n    y el albedo usando la fórmula de FAO-56 (Eq. 38).\n\n    Rns [MJ m-2 d-1] — (1 - albedo) * Rs (FAO-56).\n\n    Parametros:\n        - rs_mjm2d: Radiación solar global [MJ/m²/día].\n        - albedo: Coeficiente de reflexión de la superficie (por defecto 0.23 para césped).\n\n    Regresa:\n        Valor de la radiación neta de onda corta [MJ/m²/día].\n    \"\"\"\n    return (1.0 - albedo) * rs_mjm2d"
-        }
-      ]
-    },
-    {
-      "title": "Radiación Neta de Onda Larga ($R_\"nl\"$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "R_\\text{nl} = \\sigma (\\frac{T_(max}{K}^4 + T_{\\text{min}, K}^4, 2)) (0.34 - 0.14 \\sqrt{e_a}) (1.35 \\frac{R_s}{R_\\text{so}} - 0.35)"
-        },
-        {
-          "type": "paragraph",
-          "content": "Donde:"
-        },
-        {
-          "type": "list-item",
-          "content": "\\(\\sigma\\): Constante de Stefan-Boltzmann (\\(4.903 \\times 10^(-9)\\) MJ/K⁴/m²/día)."
-        },
-        {
-          "type": "list-item",
-          "content": "\\(R_\\text{so}\\) (radiación en cielo despejado): \\((0.75 + 2 \\times 10^(-5) z) R_a\\)."
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float:\n    \"\"\"\n    Calcula la radiación de cielo despejado (Rso) en MJ/m²/día a partir de la latitud,\n    día del año y altitud usando la fórmula de FAO-56 (Eq. 37).\n\n    FAO-56 - Cielo despejado: (0.75 + 2e-5*z) * Ra.\n\n    Parametros:\n        lat_deg: Latitud en grados.\n        doy: Día del año (1-365/366).\n        z_m: Altitud [m].\n\n    Regresa:\n        Valor de la radiación de cielo despejado [MJ/m²/día].\n    \"\"\"\n    ra = extraterrestrial_radiation_mj_m2d(lat_deg, doy)\n    return (0.75 + 2e-5 * z_m) * ra"
-        },
-        {
-          "type": "code",
-          "lang": "python",
-          "content": "def net_longwave_rnl_fao56(\n    tmax_c: float, tmin_c: float, ea_kpa: float, rs_mjm2d: float, rso_mjm2d: float\n) -> float:\n    \"\"\"\n    Calcula la radiación neta de onda larga (Rnl) en MJ/m²/día a partir de las temperaturas máxima\n    y mínima, la presión de vapor actual, la radiación solar global y la radiación de cielo despejado\n    usando la fórmula de FAO-56 (Eq. 39).\n\n    Parametros:\n        tmax_c: Temperatura máxima absoluta en un periodo de 24h del aire [°C].\n        tmin_c: Temperatura mínima absoluta en un periodo de 24h del aire [°C].\n        ea_kpa: Presión de vapor real [kPa].\n        rs_mjm2d: Radiación solar media o calculada [MJ/m²/día].\n        rso_mjm2d: Radiación solar de cielo despejado [MJ/m²/día].\n\n    Regresa:\n        Valor de la radiación neta de onda larga [MJ/m²/día] calculada según FAO-56.\n    \"\"\"\n    tmaxk, tmink = tmax_c + 273.16, tmin_c + 273.16\n    t4 = (tmaxk**4 + tmink**4) / 2.0\n    # Radiacion relativa de onda corta (Rs/Rso)\n    rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))\n    fcloud = 1.35 * rsrso - 0.35\n    return SIGMA * t4 * (0.34 - 0.14 * math.sqrt(max(ea_kpa, 0.0))) * fcloud"
-        }
-      ]
-    },
-    {
-      "title": "Radiación Neta Total ($R_n$)",
-      "level": 3,
-      "blocks": [
-        {
-          "type": "math-block",
-          "content": "R_n = R_\\text{ns} - R_\\text{nl}"
-        }
-      ]
+    "meta": {
+        "title": "Seminario de IA - Reconversión de Cultivos Sonora 2026",
+        "version": "1.0.0",
+        "author": "Equipo LCC UNISON 2026"
     }
-  ],
-  "reporte_est": [
-    {
-      "title": "Introducción",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Este reporte presenta un análisis detallado de la eficiencia hídrica de los"
-        },
-        {
-          "type": "paragraph",
-          "content": "cultivos en Sonora, utilizando datos de la NASA POWER y registros históricos de"
-        },
-        {
-          "type": "paragraph",
-          "content": "producción (2010-2024). El objetivo es identificar los cultivos que maximizan la"
-        },
-        {
-          "type": "paragraph",
-          "content": "producción por unidad de agua consumida (Toneladas por m³), comparando el"
-        },
-        {
-          "type": "paragraph",
-          "content": "rendimiento agrícola con la huella hídrica total (HH total)."
-        }
-      ]
-    },
-    {
-      "title": "Metodología",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "La eficiencia se define como la inversa de la Huella Hídrica Total (\\(1/\\text{HH}_\\text{total}\\)),"
-        },
-        {
-          "type": "paragraph",
-          "content": "representando la cantidad de producto obtenido por cada metro cúbico de agua"
-        },
-        {
-          "type": "paragraph",
-          "content": "evapotranspirada (verde + azul). Se analizaron 12,747 registros municipales para"
-        },
-        {
-          "type": "paragraph",
-          "content": "extraer tendencias por Distrito de Desarrollo Rural (DDR) y Municipio."
-        }
-      ]
-    },
-    {
-      "title": "Resultados Globales",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "El análisis global revela una disparidad significativa en la eficiencia hídrica"
-        },
-        {
-          "type": "paragraph",
-          "content": "entre diferentes grupos de cultivos. Las hortalizas y flores muestran, en"
-        },
-        {
-          "type": "paragraph",
-          "content": "general, una eficiencia mayor debido a su alto rendimiento en relación con su"
-        },
-        {
-          "type": "paragraph",
-          "content": "consumo hídrico acumulado durante el ciclo."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/top_eficiencia_global.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos más Eficientes en Sonora (Promedio 2010-2024)</figcaption></figure>"
-        }
-      ]
-    },
-    {
-      "title": "Cultivos Líderes en Eficiencia",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "A continuación se muestran los cultivos con mayor eficiencia hídrica en el"
-        },
-        {
-          "type": "paragraph",
-          "content": "estado:"
-        },
-        {
-          "type": "html",
-          "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Rendimiento (Ton/Ha)</th><th>Valor (MXN/m³)</th></tr></thead><tbody><tr><td>Col (repollo)</td><td>0.0375</td><td>32.20</td><td>156,032</td></tr><tr><td>Coliflor</td><td>0.0213</td><td>22.00</td><td>143,770</td></tr><tr><td>Hortalizas</td><td>0.0166</td><td>13.75</td><td>72,582</td></tr><tr><td>Caña (piloncillo)</td><td>0.0148</td><td>60.00</td><td>33,901</td></tr><tr><td>Zanahoria</td><td>0.0127</td><td>28.00</td><td>55,125</td></tr></tbody></table></div>"
-        }
-      ]
-    },
-    {
-      "title": "Cultivos con Menor Eficiencia Hídrica",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "No todos los cultivos presentan un retorno hídrico favorable. Los frutales de"
-        },
-        {
-          "type": "paragraph",
-          "content": "largo ciclo y ciertas leguminosas muestran las eficiencias más bajas del estado,"
-        },
-        {
-          "type": "paragraph",
-          "content": "requiriendo volúmenes masivos de agua por cada tonelada producida."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/peores_eficiencia_global.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos MENOS Eficientes en Sonora</figcaption></figure>"
-        }
-      ]
-    },
-    {
-      "title": "El Caso Crítico de los Frutales y Granos",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Los cultivos enlistados a continuación representan el mayor reto para la"
-        },
-        {
-          "type": "paragraph",
-          "content": "sustentabilidad hídrica en Sonora:"
-        },
-        {
-          "type": "html",
-          "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Eficiencia (Ton/m³)</th><th>Consumo (m³/Ton)</th></tr></thead><tbody><tr><td>Cereza</td><td>0.000037</td><td>26,850</td></tr><tr><td>Nuez</td><td>0.000108</td><td>11,164</td></tr><tr><td>Frijol</td><td>0.000175</td><td>6,464</td></tr><tr><td>Ajonjolí</td><td>0.000163</td><td>8,883</td></tr><tr><td>Cacahuate</td><td>0.000212</td><td>5,615</td></tr></tbody></table></div>"
-        }
-      ]
-    },
-    {
-      "title": "Productividad Económica del Agua",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "La eficiencia no debe medirse solo en masa, sino en valor. La *Productividad"
-        },
-        {
-          "type": "paragraph",
-          "content": "Económica* (\\(\\text{MXN}/m^3\\)) se calcula multiplicando el Precio Medio Rural (PMR)"
-        },
-        {
-          "type": "paragraph",
-          "content": "por la eficiencia hídrica (\\(\\text{Ton}/\\text{m}^3\\)). Esto permite identificar qué cultivos"
-        },
-        {
-          "type": "paragraph",
-          "content": "generan más riqueza por cada gota de agua invertida."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/productividad_economica.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Top 15 Cultivos con mayor Valor Económico por m³ de Agua</figcaption></figure>"
-        }
-      ]
-    },
-    {
-      "title": "Análisis de Rentabilidad vs. Eficiencia (Cuadrantes)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Al cruzar la rentabilidad por tonelada (PMR) con la eficiencia hídrica física,"
-        },
-        {
-          "type": "paragraph",
-          "content": "podemos clasificar los cultivos en cuatro categorías. El cuadrante superior"
-        },
-        {
-          "type": "paragraph",
-          "content": "derecho representa los cultivos \"ideales\": <strong>Alta Rentabilidad y Bajo Consumo</strong>."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/cuadrante_rentabilidad_eficiencia.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Análisis de Cuadrantes: Rentabilidad (PMR) vs. Eficiencia Hídrica</figcaption></figure>"
-        },
-        {
-          "type": "paragraph",
-          "content": "Se observa que cultivos como la <strong>Coliflor</strong> y el <strong>Tomate rojo</strong> se posicionan"
-        },
-        {
-          "type": "paragraph",
-          "content": "como líderes absolutos, no solo por producir mucha biomasa por litro, sino por"
-        },
-        {
-          "type": "paragraph",
-          "content": "el alto valor de mercado de dicha biomasa. En contraste, granos como el trigo y"
-        },
-        {
-          "type": "paragraph",
-          "content": "la avena forrajera, aunque eficientes en masa, poseen una productividad"
-        },
-        {
-          "type": "paragraph",
-          "content": "económica significativamente menor debido a sus bajos PMR."
-        }
-      ]
-    },
-    {
-      "title": "Relación Valor vs. Consumo (Escala Logarítmica)",
-      "level": 2,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Para entender la dispersión total, comparamos el valor (\\(\\text{PMR}\\)) contra el"
-        },
-        {
-          "type": "paragraph",
-          "content": "consumo total (\\(\\text{HH}_\\text{total}\\)). Esta vista permite identificar cultivos que son"
-        },
-        {
-          "type": "paragraph",
-          "content": "\"lujos hídricos\" (alto valor pero altísimo consumo) vs. \"motores económicos\""
-        },
-        {
-          "type": "paragraph",
-          "content": "(alto valor y bajo consumo)."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/valor_vs_hh_log.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Relación Valor de Mercado (MXN/Ton) vs. Huella Hídrica (m³/Ton)</figcaption></figure>"
-        }
-      ]
-    },
-    {
-      "title": "Análisis por Distrito de Desarrollo Rural (DDR)",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Cada DDR presenta una especialización distinta y un retorno económico hídrico"
-        },
-        {
-          "type": "paragraph",
-          "content": "diferenciado. La productividad económica media por región revela dónde el agua"
-        },
-        {
-          "type": "paragraph",
-          "content": "se traduce en mayor riqueza local."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/productividad_economica_ddr.png\" style=\"max-width: 80%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Productividad Económica Media por DDR (MXN/m³)</figcaption></figure>"
-        },
-        {
-          "type": "paragraph",
-          "content": "A continuación se detallan los cultivos más eficientes identificados por región"
-        },
-        {
-          "type": "paragraph",
-          "content": "administrativa:"
-        },
-        {
-          "type": "html",
-          "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>DDR</th><th>Cultivo más Eficiente</th><th>Eficiencia (Ton/m³)</th></tr></thead><tbody><tr><td>Agua Prieta</td><td>Hortalizas</td><td>0.0168</td></tr><tr><td>Caborca</td><td>Pepino</td><td>0.0147</td></tr><tr><td>Cajeme</td><td>Hortalizas</td><td>0.0232</td></tr><tr><td>Guaymas</td><td>Pepino</td><td>0.0146</td></tr><tr><td>Hermosillo</td><td>Tomate rojo</td><td>0.0117</td></tr><tr><td>Magdalena</td><td>Col (repollo)</td><td>0.0375</td></tr><tr><td>Navojoa</td><td>Apio</td><td>0.0126</td></tr></tbody></table></div>"
-        }
-      ]
-    },
-    {
-      "title": "Correlación Rendimiento vs. Eficiencia",
-      "level": 1,
-      "blocks": [
-        {
-          "type": "paragraph",
-          "content": "Se observa una correlación positiva general: a mayor rendimiento (Ton/Ha), mayor"
-        },
-        {
-          "type": "paragraph",
-          "content": "eficiencia hídrica relativa. Esto sugiere que las mejoras tecnológicas que"
-        },
-        {
-          "type": "paragraph",
-          "content": "incrementan el rendimiento tienen un impacto directo y proporcional en el"
-        },
-        {
-          "type": "paragraph",
-          "content": "ahorro de agua por unidad producida."
-        },
-        {
-          "type": "html",
-          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/rendimiento_vs_eficiencia.png\" style=\"max-width: 70%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Correlación entre Rendimiento y Eficiencia Hídrica</figcaption></figure>"
-        }
-      ]
-    }
-  ],
-  "cultivos": {
-    "Brócoli": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "14"
-        ]
-      },
-      "durations": [
-        "35",
-        "45",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Acelga": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "25"
-        ]
-      },
-      "durations": [
-        "25",
-        "30",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Ajo": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "4",
-          "30"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "110",
-        "45"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.70"
-      }
-    },
-    "Alcachofa": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "40",
-        "40",
-        "250",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Apio": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "25",
-        "40",
-        "95",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "1.00"
-      }
-    },
-    "Berenjena": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "6",
-          "9"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "40",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Betabel": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "11",
-          "30"
-        ]
-      },
-      "durations": [
-        "15",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Calabacita": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "5"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "25",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "0.95",
-        "end": "0.75"
-      }
-    },
-    "Calabaza": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "6",
-          "8"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.00",
-        "end": "0.80"
-      }
-    },
-    "Cebolla": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "4",
-          "30"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "110",
-        "45"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.75"
-      }
-    },
-    "Chícharo": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "35",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.15",
-        "end": "1.10"
-      }
-    },
-    "Chile verde": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "110",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Chile seco": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "110",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Cilantro": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "5"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Col (repollo)": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "13"
-        ]
-      },
-      "durations": [
-        "40",
-        "60",
-        "50",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Col de bruselas": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "14"
-        ]
-      },
-      "durations": [
-        "35",
-        "45",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Coliflor": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "7"
-        ]
-      },
-      "durations": [
-        "35",
-        "50",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Ejote": {
-      "calendar": {
-        "start_mmdd": [
-          "8",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "30"
-        ]
-      },
-      "durations": [
-        "15",
-        "25",
-        "25",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Elote": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "6",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "25",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.15",
-        "end": "1.05"
-      }
-    },
-    "Eneldo": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "5"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Espinaca": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "11",
-          "30"
-        ]
-      },
-      "durations": [
-        "20",
-        "20",
-        "15",
-        "5"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Espárrago": {
-      "calendar": {
-        "start_mmdd": [
-          "2",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "19"
-        ]
-      },
-      "durations": [
-        "50",
-        "30",
-        "100",
-        "50"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "0.95",
-        "end": "0.30"
-      }
-    },
-    "Fresa": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "4",
-          "9"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.85",
-        "end": "0.75"
-      }
-    },
-    "Hortalizas": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "3"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "35",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Kale": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "8"
-        ]
-      },
-      "durations": [
-        "30",
-        "35",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Lechuga": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "14"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "15",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Mano de león": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "20"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Melón": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "9"
-        ]
-      },
-      "durations": [
-        "30",
-        "30",
-        "50",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "0.85",
-        "end": "0.60"
-      }
-    },
-    "Melón amargo": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "4"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "40",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "0.85",
-        "end": "0.60"
-      }
-    },
-    "Napa": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "1",
-          "24"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Pepino": {
-      "calendar": {
-        "start_mmdd": [
-          "6",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "14"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "40",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.00",
-        "end": "0.75"
-      }
-    },
-    "Perejil": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "5"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Poro (leek)": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "25",
-        "40",
-        "95",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "1.00"
-      }
-    },
-    "Quelite": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "5"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Rábano": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "5",
-        "10",
-        "15",
-        "5"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.90",
-        "end": "0.85"
-      }
-    },
-    "Rapini": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "19"
-        ]
-      },
-      "durations": [
-        "25",
-        "30",
-        "30",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Sandía": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.00",
-        "end": "0.75"
-      }
-    },
-    "Shop suey": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "5"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.95"
-      }
-    },
-    "Tomate rojo (jitomate)": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "5",
-          "16"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "40",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.15",
-        "end": "0.70"
-      }
-    },
-    "Tomate verde": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "5",
-          "16"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "40",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "1.15",
-        "end": "0.70"
-      }
-    },
-    "Zanahoria": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.95"
-      }
-    },
-    "Zempoalxochitl": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Margarita": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Flores": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Semilla de flores": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "30",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.05",
-        "end": "0.90"
-      }
-    },
-    "Avena grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Avena forrajera en verde": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.90"
-      }
-    },
-    "Avena forrajera seca": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Cebada grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Cebada forrajera en verde": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.90"
-      }
-    },
-    "Cebada forrajera seca": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Centeno forrajero en verde": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.90"
-      }
-    },
-    "Maíz grano": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "50",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.20",
-        "end": "0.60"
-      }
-    },
-    "Maíz forrajero en verde": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "8"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.20",
-        "end": "1.05"
-      }
-    },
-    "Maíz forrajero seco": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "8"
-        ]
-      },
-      "durations": [
-        "30",
-        "40",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.20",
-        "end": "0.60"
-      }
-    },
-    "Sorgo grano": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "45",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.00",
-        "end": "0.55"
-      }
-    },
-    "Sorgo forrajero en verde": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "29"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "45",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.00",
-        "end": "0.85"
-      }
-    },
-    "Sorgo forrajero seco": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "29"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "45",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.00",
-        "end": "0.55"
-      }
-    },
-    "Sorgo forrajero achicalado": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "7",
-          "29"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "45",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.00",
-        "end": "0.55"
-      }
-    },
-    "Trigo grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "31",
-        "47",
-        "63",
-        "31"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Trigo forrajero verde": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "3",
-          "27"
-        ]
-      },
-      "durations": [
-        "31",
-        "47",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.90"
-      }
-    },
-    "Trigo forrajero seco": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "3",
-          "27"
-        ]
-      },
-      "durations": [
-        "31",
-        "47",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Trigo forrajero achicalado": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "3",
-          "27"
-        ]
-      },
-      "durations": [
-        "31",
-        "47",
-        "50",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Semilla de trigo grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "31",
-        "47",
-        "63",
-        "31"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Triticale grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Mijo": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "55",
-        "35"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.00",
-        "end": "0.30"
-      }
-    },
-    "Alfalfa": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "17"
-        ]
-      },
-      "durations": [
-        "10",
-        "30",
-        "25",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.95",
-        "end": "0.90"
-      }
-    },
-    "Alfalfa verde": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "17"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.20",
-        "end": "1.15"
-      }
-    },
-    "Alfalfa achicalada": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "17"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.95",
-        "end": "0.90"
-      }
-    },
-    "Pastos y praderas": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "31"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "0",
-        "0"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.85",
-        "end": "0.85"
-      }
-    },
-    "Pastos y praderas seco": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "31"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "0",
-        "0"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.85",
-        "end": "0.85"
-      }
-    },
-    "Pastos y praderas achicalado": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "31"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "0",
-        "0"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.85",
-        "end": "0.85"
-      }
-    },
-    "Nopal forrajero": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "60",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.50",
-        "end": "0.45"
-      }
-    },
-    "Trébol": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "6",
-          "28"
-        ]
-      },
-      "durations": [
-        "10",
-        "20",
-        "20",
-        "10"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.90",
-        "end": "0.85"
-      }
-    },
-    "Frijol": {
-      "calendar": {
-        "start_mmdd": [
-          "5",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "40",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.15",
-        "end": "0.35"
-      }
-    },
-    "Garbanzo grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "60",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.00",
-        "end": "0.35"
-      }
-    },
-    "Haba grano": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "35",
-        "15"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.15",
-        "end": "0.30"
-      }
-    },
-    "Haba verde": {
-      "calendar": {
-        "start_mmdd": [
-          "11",
-          "1"
-        ],
-        "end_mmdd": [
-          "5",
-          "30"
-        ]
-      },
-      "durations": [
-        "90",
-        "45",
-        "40",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.15",
-        "end": "1.10"
-      }
-    },
-    "Soya": {
-      "calendar": {
-        "start_mmdd": [
-          "5",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "23"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "60",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.15",
-        "end": "0.50"
-      }
-    },
-    "Semilla de soya": {
-      "calendar": {
-        "start_mmdd": [
-          "5",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "23"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "60",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.15",
-        "end": "0.50"
-      }
-    },
-    "Cacahuate": {
-      "calendar": {
-        "start_mmdd": [
-          "5",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "18"
-        ]
-      },
-      "durations": [
-        "35",
-        "35",
-        "35",
-        "35"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.15",
-        "end": "0.60"
-      }
-    },
-    "Canola": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "4"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "55",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.10",
-        "end": "0.35"
-      }
-    },
-    "Cártamo": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "4"
-        ]
-      },
-      "durations": [
-        "20",
-        "35",
-        "55",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.10",
-        "end": "0.25"
-      }
-    },
-    "Girasol": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "45",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.05",
-        "end": "0.35"
-      }
-    },
-    "Girasol flor": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "45",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.05",
-        "end": "0.35"
-      }
-    },
-    "Semilla de girasol": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "45",
-        "25"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.05",
-        "end": "0.35"
-      }
-    },
-    "Higuerilla": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "18"
-        ]
-      },
-      "durations": [
-        "25",
-        "40",
-        "65",
-        "50"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.15",
-        "end": "0.55"
-      }
-    },
-    "Ajonjolí": {
-      "calendar": {
-        "start_mmdd": [
-          "6",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "40",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.10",
-        "end": "0.25"
-      }
-    },
-    "Alpiste": {
-      "calendar": {
-        "start_mmdd": [
-          "10",
-          "30"
-        ],
-        "end_mmdd": [
-          "4",
-          "19"
-        ]
-      },
-      "durations": [
-        "20",
-        "25",
-        "55",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "1.15",
-        "end": "0.25"
-      }
-    },
-    "Papa": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "5",
-          "10"
-        ]
-      },
-      "durations": [
-        "25",
-        "30",
-        "45",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.15",
-        "end": "0.75"
-      }
-    },
-    "Semilla de papa": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "5",
-          "10"
-        ]
-      },
-      "durations": [
-        "25",
-        "30",
-        "45",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.15",
-        "end": "0.75"
-      }
-    },
-    "Remolacha azucarera": {
-      "calendar": {
-        "start_mmdd": [
-          "5",
-          "1"
-        ],
-        "end_mmdd": [
-          "11",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "50",
-        "50"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.20",
-        "end": "0.70"
-      }
-    },
-    "Caña de azúcar otro uso": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "35",
-        "60",
-        "190",
-        "120"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.25",
-        "end": "0.75"
-      }
-    },
-    "Caña de azúcar piloncillo": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "35",
-        "60",
-        "190",
-        "120"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.25",
-        "end": "0.75"
-      }
-    },
-    "Agave": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "120",
-        "600",
-        "90"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.60",
-        "end": "0.50"
-      }
-    },
-    "Maguey pulquero (miles de lts.)": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "120",
-        "600",
-        "90"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.60",
-        "end": "0.50"
-      }
-    },
-    "Nopalitos": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "30",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.50",
-        "end": "0.45"
-      }
-    },
-    "Sábila": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "3",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "60",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.60",
-        "end": "0.50"
-      }
-    },
-    "Jojoba": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "60",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.65",
-        "end": "0.55"
-      }
-    },
-    "Stevia": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "40",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "1.00",
-        "end": "0.85"
-      }
-    },
-    "Aceituna": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "20",
-        "90",
-        "60",
-        "90"
-      ],
-      "kc": {
-        "ini": "0.65",
-        "mid": "0.70",
-        "end": "0.70"
-      }
-    },
-    "Aguacate": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.60",
-        "mid": "0.85",
-        "end": "0.75"
-      }
-    },
-    "Almendra": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "8",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Arándano": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "50",
-        "75",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "0.85",
-        "end": "0.45"
-      }
-    },
-    "Chabacano": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Cereza": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.95",
-        "end": "0.70"
-      }
-    },
-    "Ciruela": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Cítricos": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "durationsazno": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Dátil": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "90",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.90",
-        "mid": "0.95",
-        "end": "0.95"
-      }
-    },
-    "Granada": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "50",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Higo": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Limón": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "Limón real": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "Mandarina": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "Mango": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "60",
-        "120",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.00",
-        "end": "0.85"
-      }
-    },
-    "Manzana": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.95",
-        "end": "0.70"
-      }
-    },
-    "Membrillo": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Naranja": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "Nuez": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "10",
-        "130",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.10",
-        "end": "0.65"
-      }
-    },
-    "Pera": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "70",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.95",
-        "end": "0.70"
-      }
-    },
-    "Persimonio": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "10",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Pitahaya": {
-      "calendar": {
-        "start_mmdd": [
-          "4",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "30",
-        "60",
-        "90",
-        "60"
-      ],
-      "kc": {
-        "ini": "0.40",
-        "mid": "0.70",
-        "end": "0.55"
-      }
-    },
-    "Toronja (pomelo)": {
-      "calendar": {
-        "start_mmdd": [
-          "1",
-          "1"
-        ],
-        "end_mmdd": [
-          "12",
-          "31"
-        ]
-      },
-      "durations": [
-        "60",
-        "90",
-        "120",
-        "95"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "0.65",
-        "end": "0.70"
-      }
-    },
-    "Uva": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "18"
-        ]
-      },
-      "durations": [
-        "20",
-        "50",
-        "90",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.30",
-        "mid": "0.85",
-        "end": "0.45"
-      }
-    },
-    "Frutales varios": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "20",
-        "60",
-        "90",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.45",
-        "mid": "0.90",
-        "end": "0.65"
-      }
-    },
-    "Semilla de cilantro": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "60",
-        "30"
-      ],
-      "kc": {
-        "ini": "0.70",
-        "mid": "1.00",
-        "end": "0.45"
-      }
-    },
-    "Varios": {
-      "calendar": {
-        "start_mmdd": [
-          "9",
-          "1"
-        ],
-        "end_mmdd": [
-          "2",
-          "28"
-        ]
-      },
-      "durations": [
-        "25",
-        "35",
-        "40",
-        "20"
-      ],
-      "kc": {
-        "ini": "0.50",
-        "mid": "1.00",
-        "end": "0.75"
-      }
-    },
-    "Algodón hueso": {
-      "calendar": {
-        "start_mmdd": [
-          "3",
-          "1"
-        ],
-        "end_mmdd": [
-          "9",
-          "28"
-        ]
-      },
-      "durations": [
-        "30",
-        "50",
-        "60",
-        "55"
-      ],
-      "kc": {
-        "ini": "0.35",
-        "mid": "1.15",
-        "end": "0.70"
-      }
-    }
-  },
-  "codificaciones": {
-    "codigos_municipios": {
-      "01": "Aconchi",
-      "02": "Agua Prieta",
-      "03": "Alamos",
-      "04": "Altar",
-      "05": "Arivechi",
-      "06": "Arizpe",
-      "07": "Atil",
-      "08": "Bacadéhuachi",
-      "09": "Bacanora",
-      "10": "Bacerac",
-      "11": "Bacoachi",
-      "12": "Bácum",
-      "13": "Banámichi",
-      "14": "Baviácora",
-      "15": "Bavispe",
-      "16": "Benjamín Hill",
-      "17": "Caborca",
-      "18": "Cajeme",
-      "19": "Cananea",
-      "20": "Carbó",
-      "21": "La Colorada",
-      "22": "Cucurpe",
-      "23": "Cumpas",
-      "24": "Divisaderos",
-      "25": "Empalme",
-      "26": "Etchojoa",
-      "27": "Fronteras",
-      "28": "Granados",
-      "29": "Guaymas",
-      "30": "Hermosillo",
-      "31": "Huachinera",
-      "32": "Huásabas",
-      "33": "Huatabampo",
-      "34": "Huépac",
-      "35": "Imuris",
-      "36": "Magdalena",
-      "37": "Mazatán",
-      "38": "Moctezuma",
-      "39": "Naco",
-      "40": "Nácori Chico",
-      "41": "Nacozari de García",
-      "42": "Navojoa",
-      "43": "Nogales",
-      "44": "Onavas",
-      "45": "Opodepe",
-      "46": "Oquitoa",
-      "47": "Pitiquito",
-      "48": "Puerto Peñasco",
-      "49": "Quiriego",
-      "50": "Rayón",
-      "51": "Rosario",
-      "52": "Sahuaripa",
-      "53": "San Felipe de Jesús",
-      "54": "San Javier",
-      "55": "San Luis Río Colorado",
-      "56": "San Miguel de Horcasitas",
-      "57": "San Pedro de La Cueva",
-      "58": "Santa Ana",
-      "59": "Santa Cruz",
-      "60": "Sáric",
-      "61": "Soyopa",
-      "62": "Suaqui Grande",
-      "63": "Tepache",
-      "64": "Trincheras",
-      "65": "Tubutama",
-      "66": "Ures",
-      "67": "Villa Hidalgo",
-      "68": "Villa Pesqueira",
-      "69": "Yécora",
-      "70": "General Plutarco Elías Calles",
-      "71": "Benito Juárez",
-      "72": "San Ignacio Río Muerto"
-    },
-    "codigos_ciclos": {
-      "1": "Ciclo Primavera-Verano",
-      "2": "Ciclo Otoño-Invierno",
-      "3": "Ciclo Perennes",
-      "4": "Ciclo Anual",
-      "5": "Ciclo Otro"
-    },
-    "codigos_ddrs": {
-      "149": "Navojoa",
-      "140": "Magdalena",
-      "139": "Caborca",
-      "146": "Sahuaripa",
-      "143": "Moctezuma",
-      "141": "Agua Prieta",
-      "142": "Ures",
-      "193": "San Luis Río Colorado",
-      "148": "Cajeme",
-      "144": "Hermosillo",
-      "147": "Guaymas",
-      "145": "Mazatán"
-    },
-    "codigos_modalidades": {
-      "1": "Riego",
-      "2": "Temporal"
-    },
-    "codigos_unidades": {
-      "200201": "Tonelada",
-      "200205": "Manojo",
-      "200204": "Miles de lts.",
-      "200203": "Gruesa"
-    }
-  },
-  "meta": {
-    "title": "Seminario IA - Reconversión Productiva Sonora 2026",
-    "version": "1.0.0",
-    "author": "Equipo LCC UNISON 2026"
-  }
 }
