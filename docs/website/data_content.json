@@ -498,23 +498,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Este reporte presenta un análisis detallado de la eficiencia hídrica de los"
-        },
-        {
-          "type": "paragraph",
-          "content": "cultivos en Sonora, utilizando datos de la NASA POWER y registros históricos de"
-        },
-        {
-          "type": "paragraph",
-          "content": "producción (2010-2024). El objetivo es identificar los cultivos que maximizan la"
-        },
-        {
-          "type": "paragraph",
-          "content": "producción por unidad de agua consumida (Toneladas por m³), comparando el"
-        },
-        {
-          "type": "paragraph",
-          "content": "rendimiento agrícola con la huella hídrica total (HH total)."
+          "content": "Este reporte presenta un análisis detallado de la eficiencia hídrica de los cultivos en Sonora, utilizando datos de la NASA POWER y registros históricos de producción (2010-2024). El objetivo es identificar los cultivos que maximizan la producción por unidad de agua consumida (Toneladas por m³), comparando el rendimiento agrícola con la huella hídrica total (HH total)."
         }
       ]
     },
@@ -524,19 +508,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "La eficiencia se define como la inversa de la Huella Hídrica Total (\\(1/\\text{HH}_{\\text{total}}\\)),"
-        },
-        {
-          "type": "paragraph",
-          "content": "representando la cantidad de producto obtenido por cada metro cúbico de agua"
-        },
-        {
-          "type": "paragraph",
-          "content": "evapotranspirada (verde + azul). Se analizaron 12,747 registros municipales para"
-        },
-        {
-          "type": "paragraph",
-          "content": "extraer tendencias por Distrito de Desarrollo Rural (DDR) y Municipio."
+          "content": "La eficiencia se define como la inversa de la Huella Hídrica Total (\\(1/\\text{HH}_{\\text{total}}\\)), representando la cantidad de producto obtenido por cada metro cúbico de agua evapotranspirada (verde + azul). Se analizaron 12,747 registros municipales para extraer tendencias por Distrito de Desarrollo Rural (DDR) y Municipio."
         }
       ]
     },
@@ -546,19 +518,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "El análisis global revela una disparidad significativa en la eficiencia hídrica"
-        },
-        {
-          "type": "paragraph",
-          "content": "entre diferentes grupos de cultivos. Las hortalizas y flores muestran, en"
-        },
-        {
-          "type": "paragraph",
-          "content": "general, una eficiencia mayor debido a su alto rendimiento en relación con su"
-        },
-        {
-          "type": "paragraph",
-          "content": "consumo hídrico acumulado durante el ciclo."
+          "content": "El análisis global revela una disparidad significativa en la eficiencia hídrica entre diferentes grupos de cultivos. Las hortalizas y flores muestran, en general, una eficiencia mayor debido a su alto rendimiento en relación con su consumo hídrico acumulado durante el ciclo."
         },
         {
           "type": "html",
@@ -572,11 +532,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "A continuación se muestran los cultivos con mayor eficiencia hídrica en el"
-        },
-        {
-          "type": "paragraph",
-          "content": "estado:"
+          "content": "A continuación se muestran los cultivos con mayor eficiencia hídrica en el estado:"
         },
         {
           "type": "html",
@@ -590,15 +546,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "No todos los cultivos presentan un retorno hídrico favorable. Los frutales de"
-        },
-        {
-          "type": "paragraph",
-          "content": "largo ciclo y ciertas leguminosas muestran las eficiencias más bajas del estado,"
-        },
-        {
-          "type": "paragraph",
-          "content": "requiriendo volúmenes masivos de agua por cada tonelada producida."
+          "content": "No todos los cultivos presentan un retorno hídrico favorable. Los frutales de largo ciclo y ciertas leguminosas muestran las eficiencias más bajas del estado, requiriendo volúmenes masivos de agua por cada tonelada producida."
         },
         {
           "type": "html",
@@ -612,11 +560,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Los cultivos enlistados a continuación representan el mayor reto para la"
-        },
-        {
-          "type": "paragraph",
-          "content": "sustentabilidad hídrica en Sonora:"
+          "content": "Los cultivos enlistados a continuación representan el mayor reto para la sustentabilidad hídrica en Sonora:"
         },
         {
           "type": "html",
@@ -630,19 +574,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "La eficiencia no debe medirse solo en masa, sino en valor. La *Productividad"
-        },
-        {
-          "type": "paragraph",
-          "content": "Económica* (\\(\\text{MXN}/m^3\\)) se calcula multiplicando el Precio Medio Rural (PMR)"
-        },
-        {
-          "type": "paragraph",
-          "content": "por la eficiencia hídrica (\\(\\text{Ton}/m^3\\)). Esto permite identificar qué cultivos"
-        },
-        {
-          "type": "paragraph",
-          "content": "generan más riqueza por cada gota de agua invertida."
+          "content": "La eficiencia no debe medirse solo en masa, sino en valor. La <strong>Productividad Económica</strong> (\\(\\text{MXN}/m^3\\)) se calcula multiplicando el Precio Medio Rural (PMR) por la eficiencia hídrica (\\(\\text{Ton}/m^3\\)). Esto permite identificar qué cultivos generan más riqueza por cada gota de agua invertida."
         },
         {
           "type": "html",
@@ -656,15 +588,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Al cruzar la rentabilidad por tonelada (PMR) con la eficiencia hídrica física,"
-        },
-        {
-          "type": "paragraph",
-          "content": "podemos clasificar los cultivos en cuatro categorías. El cuadrante superior"
-        },
-        {
-          "type": "paragraph",
-          "content": "derecho representa los cultivos \"ideales\": <strong>Alta Rentabilidad y Bajo Consumo</strong>."
+          "content": "Al cruzar la rentabilidad por tonelada (PMR) con la eficiencia hídrica física, podemos clasificar los cultivos en cuatro categorías. El cuadrante superior derecho representa los cultivos \"ideales\": <strong>Alta Rentabilidad y Bajo Consumo</strong>."
         },
         {
           "type": "html",
@@ -672,23 +596,7 @@
         },
         {
           "type": "paragraph",
-          "content": "Se observa que cultivos como la <strong>Coliflor</strong> y el <strong>Tomate rojo</strong> se posicionan"
-        },
-        {
-          "type": "paragraph",
-          "content": "como líderes absolutos, no solo por producir mucha biomasa por litro, sino por"
-        },
-        {
-          "type": "paragraph",
-          "content": "el alto valor de mercado de dicha biomasa. En contraste, granos como el trigo y"
-        },
-        {
-          "type": "paragraph",
-          "content": "la avena forrajera, aunque eficientes en masa, poseen una productividad"
-        },
-        {
-          "type": "paragraph",
-          "content": "económica significativamente menor debido a sus bajos PMR."
+          "content": "Se observa que cultivos como la <strong>Coliflor</strong> y el <strong>Tomate rojo</strong> se posicionan como líderes absolutos, no solo por producir mucha biomasa por litro, sino por el alto valor de mercado de dicha biomasa. En contraste, granos como el trigo y la avena forrajera, aunque eficientes en masa, poseen una productividad económica significativamente menor debido a sus bajos PMR."
         }
       ]
     },
@@ -698,19 +606,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Para entender la dispersión total, comparamos el valor (\\(\\text{PMR}\\)) contra el"
-        },
-        {
-          "type": "paragraph",
-          "content": "consumo total (\\(\\text{HH}_{\\text{total}}\\)). Esta vista permite identificar cultivos que son"
-        },
-        {
-          "type": "paragraph",
-          "content": "\"lujos hídricos\" (alto valor pero altísimo consumo) vs. \"motores económicos\""
-        },
-        {
-          "type": "paragraph",
-          "content": "(alto valor y bajo consumo)."
+          "content": "Para entender la dispersión total, comparamos el valor (\\(\\text{PMR}\\)) contra el consumo total (\\(\\text{HH}_{\\text{total}}\\)). Esta vista permite identificar cultivos que son \"lujos hídricos\" (alto valor pero altísimo consumo) vs. \"motores económicos\" (alto valor y bajo consumo)."
         },
         {
           "type": "html",
@@ -724,15 +620,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Cada DDR presenta una especialización distinta y un retorno económico hídrico"
-        },
-        {
-          "type": "paragraph",
-          "content": "diferenciado. La productividad económica media por región revela dónde el agua"
-        },
-        {
-          "type": "paragraph",
-          "content": "se traduce en mayor riqueza local."
+          "content": "Cada DDR presenta una especialización distinta y un retorno económico hídrico diferenciado. La productividad económica media por región revela dónde el agua se traduce en mayor riqueza local."
         },
         {
           "type": "html",
@@ -740,11 +628,7 @@
         },
         {
           "type": "paragraph",
-          "content": "A continuación se detallan los cultivos más eficientes identificados por región"
-        },
-        {
-          "type": "paragraph",
-          "content": "administrativa:"
+          "content": "A continuación se detallan los cultivos más eficientes identificados por región administrativa:"
         },
         {
           "type": "html",
@@ -758,19 +642,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Se observa una correlación positiva general: a mayor rendimiento (Ton/Ha), mayor"
-        },
-        {
-          "type": "paragraph",
-          "content": "eficiencia hídrica relativa. Esto sugiere que las mejoras tecnológicas que"
-        },
-        {
-          "type": "paragraph",
-          "content": "incrementan el rendimiento tienen un impacto directo y proporcional en el"
-        },
-        {
-          "type": "paragraph",
-          "content": "ahorro de agua por unidad producida."
+          "content": "Se observa una correlación positiva general: a mayor rendimiento (Ton/Ha), mayor eficiencia hídrica relativa. Esto sugiere que las mejoras tecnológicas que incrementan el rendimiento tienen un impacto directo y proporcional en el ahorro de agua por unidad producida."
         },
         {
           "type": "html",

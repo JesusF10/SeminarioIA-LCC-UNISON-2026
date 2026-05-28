@@ -274,6 +274,21 @@ def parse_typst_file(filepath: Path) -> list[dict]:
 
     code_lang = "python"
     code_lines = []
+    pending_paragraph = []
+
+    def flush_paragraph():
+        if pending_paragraph:
+            full_text = " ".join(pending_paragraph)
+            # Traducir ecuaciones inline y formato en párrafos
+            def inline_math_replacer(match):
+                math_expr = match.group(1)
+                latex = clean_typst_math_to_latex(math_expr)
+                return f"\\({latex}\\)"
+
+            paragraph = re.sub(r"\$([^\$]+)\$", inline_math_replacer, full_text)
+            paragraph = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", paragraph)
+            current_section["blocks"].append({"type": "paragraph", "content": paragraph})
+            pending_paragraph.clear()
 
     for line in lines:
         stripped = line.strip()
@@ -287,6 +302,7 @@ def parse_typst_file(filepath: Path) -> list[dict]:
 
         # 2. Manejo de bloques de código
         if stripped.startswith("```"):
+            flush_paragraph()
             if in_code_block:
                 in_code_block = False
                 current_section["blocks"].append(
@@ -308,6 +324,7 @@ def parse_typst_file(filepath: Path) -> list[dict]:
 
         # 3. Detectar, acumular e integrar bloques #figure(...) que contienen imágenes
         if stripped.startswith("#figure("):
+            flush_paragraph()
             in_figure = True
             figure_lines = [line]
             parenthesis_count = stripped.count("(") - stripped.count(")")
@@ -331,27 +348,33 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             stripped.startswith("#v(") or
             stripped.startswith("#align") or
             stripped.startswith("#pagebreak")):
+            flush_paragraph()
             continue
 
         # Evitar diagramas Fletcher y paréntesis de cierre sueltos
         if "diagram(" in line or "fletcher" in line:
+            flush_paragraph()
             continue
 
         # Ignorar líneas que solo contienen caracteres de cierre residuales de bloques de diseño (e.g. ']', ')', ',', etc.)
         if re.match(r"^[\s\]\),]+$", stripped):
+            flush_paragraph()
             continue
 
         # Capturar tablas pre-renderizadas en HTML para que no se envuelvan en <p>
         if stripped.startswith('<div class="table-responsive">'):
+            flush_paragraph()
             current_section["blocks"].append({"type": "html", "content": line})
             continue
 
         if not stripped:
+            flush_paragraph()
             continue
 
         # 5. Manejo de encabezados (e.g. "= Introducción" o "== NASA POWER")
         heading_match = re.match(r"^(=+)\s+(.*)$", stripped)
         if heading_match:
+            flush_paragraph()
             if current_section["blocks"]:
                 sections.append(current_section)
 
@@ -372,24 +395,31 @@ def parse_typst_file(filepath: Path) -> list[dict]:
 
         # 6. Ecuaciones de bloque completo
         if stripped.startswith("$") and stripped.endswith("$") and len(stripped) > 2:
+            flush_paragraph()
             math_content = stripped[1:-1].strip()
             latex_math = clean_typst_math_to_latex(math_content)
             current_section["blocks"].append({"type": "math-block", "content": latex_math})
             continue
 
-        # 7. Párrafos y ecuaciones inline
-        def inline_math_replacer(match):
-            math_expr = match.group(1)
-            latex = clean_typst_math_to_latex(math_expr)
-            return f"\\({latex}\\)"
+        # 7. Listas
+        if stripped.startswith("- "):
+            flush_paragraph()
+            # Formatear el item de la lista
+            def inline_math_replacer(match):
+                math_expr = match.group(1)
+                latex = clean_typst_math_to_latex(math_expr)
+                return f"\\({latex}\\)"
 
-        paragraph = re.sub(r"\$([^\$]+)\$", inline_math_replacer, line)
-        paragraph = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", paragraph)
+            item_text = re.sub(r"\$([^\$]+)\$", inline_math_replacer, stripped[2:])
+            item_text = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", item_text)
+            current_section["blocks"].append({"type": "list-item", "content": item_text})
+            continue
 
-        if paragraph.startswith("- "):
-            current_section["blocks"].append({"type": "list-item", "content": paragraph[2:]})
-        else:
-            current_section["blocks"].append({"type": "paragraph", "content": paragraph})
+        # 8. Acumular texto para párrafo
+        pending_paragraph.append(stripped)
+
+    # Procesar último párrafo pendiente
+    flush_paragraph()
 
     if current_section["blocks"]:
         sections.append(current_section)
