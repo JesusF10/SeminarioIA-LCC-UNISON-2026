@@ -26,6 +26,7 @@ def clean_typst_math_to_latex(math_expr: str) -> str:
 
     # Mapeo estricto para resolver anidamientos complejos de Typst
     strict_mappings = {
+        # Ecuaciones de bloque
         'E T_o = frac(0.408 Delta (R_n - G) + gamma frac(900, T + 273) u_2 (e_s - e_a), Delta + gamma (1 + 0.34 u_2))':
             r'ET_o = \frac{0.408 \Delta (R_n - G) + \gamma \frac{900}{T + 273} u_2 (e_s - e_a)}{\Delta + \gamma (1 + 0.34 u_2)}',
         'gamma = frac(c_p P, epsilon lambda) approx 0.000665 dot P':
@@ -57,7 +58,56 @@ def clean_typst_math_to_latex(math_expr: str) -> str:
         'H H = frac(U A C, "Rendimiento" (t/h a))':
             r'\text{HH} = \frac{\text{UAC}}{\text{Rendimiento (t/ha)}}',
         'P = 101.3 (frac(293 - 0.0065 z, 293))^(5.26)':
-            r'P = 101.3 \left(\frac{293 - 0.0065 z}{293}\right)^{5.26}'
+            r'P = 101.3 \left(\frac{293 - 0.0065 z}{293}\right)^{5.26}',
+        # Expresiones inline
+        'P_"ciclo" < 250': r'P_{\text{ciclo}} < 250',
+        'P_"ef" = 0.8 dot P_"total"': r'P_{\text{ef}} = 0.8 \cdot P_{\text{total}}',
+        'P_"ciclo" >= 250': r'P_{\text{ciclo}} \ge 250',
+        'P_"ef" = 0.6 dot P_"total"': r'P_{\text{ef}} = 0.6 \cdot P_{\text{total}}',
+        'c_p': r'c_p',
+        '1.013 times 10^(-3)': r'1.013 \times 10^{-3}',
+        'epsilon': r'\epsilon',
+        'lambda': r'\lambda',
+        'omega_s': r'\omega_s',
+        'arccos(-tan(phi) tan(delta))': r'\omega_s = \arccos(-\tan(\phi) \tan(\delta))',
+        'phi': r'\phi',
+        'delta': r'\delta',
+        'E T_o': r'ET_o',
+        'E T_c': r'ET_c',
+        'H H': r'HH',
+        'z': r'z',
+        'R_s': r'R_s',
+        'u_2': r'u_2',
+        'T_"max"': r'T_{\text{max}}',
+        'T_"min"': r'T_{\text{min}}',
+        'R_n': r'R_n',
+        'G': r'G',
+        'e_s': r'e_s',
+        'e_a': r'e_a',
+        'e_s - e_a': r'e_s - e_a',
+        'Delta': r'\Delta',
+        'gamma': r'\gamma',
+        'K_c': r'K_c',
+        'K_(c, "ini")': r'K_{c, \text{ini}}',
+        'K_(c, "mid")': r'K_{c, \text{mid}}',
+        'K_(c, "end")': r'K_{c, \text{end}}',
+        'E T_"verde"': r'ET_{\text{verde}}',
+        'E T_"azul"': r'ET_{\text{azul}}',
+        'P': r'P',
+        'R_"ns"': r'R_{\text{ns}}',
+        'R_"nl"': r'R_{\text{nl}}',
+        'R_"so"': r'R_{\text{so}}',
+        '1 / "HH"_"total"': r'1/\text{HH}_{\text{total}}',
+        '1/"HH"_"total"': r'1/\text{HH}_{\text{total}}',
+        '"HH"_"total"': r'\text{HH}_{\text{total}}',
+        '"MXN"/m^3': r'\text{MXN}/m^3',
+        '"MXN"/m^2': r'\text{MXN}/m^2',
+        '"Ton"/"m"^3': r'\text{Ton}/m^3',
+        '"Ton"/m^3': r'\text{Ton}/m^3',
+        '"PMR"': r'\text{PMR}',
+        'P_"ef"': r'P_{\text{ef}}',
+        'P_"total"': r'P_{\text{total}}',
+        'omega_s sin(phi) sin(delta) + cos(phi) cos(delta) sin(omega_s)': r'\omega_s \sin(\phi) \sin(\delta) + \cos(\phi) \cos(\delta) \sin(\omega_s)'
     }
 
     if expr in strict_mappings:
@@ -307,6 +357,16 @@ def parse_typst_file(filepath: Path) -> list[dict]:
 
             level = len(heading_match.group(1))
             title = heading_match.group(2).strip()
+
+            # Traducir ecuaciones inline y formato en títulos
+            def inline_math_replacer(match):
+                math_expr = match.group(1)
+                latex = clean_typst_math_to_latex(math_expr)
+                return f"\\({latex}\\)"
+
+            title = re.sub(r"\$([^\$]+)\$", inline_math_replacer, title)
+            title = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", title)
+
             current_section = {"title": title, "level": level, "blocks": []}
             continue
 

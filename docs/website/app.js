@@ -237,7 +237,7 @@ function renderKaTeXOnPage() {
   });
 
   // Ecuaciones inline
-  document.querySelectorAll("p, li, td").forEach(el => {
+  document.querySelectorAll("p, li, td, h2, h3, h4").forEach(el => {
     let content = el.innerHTML;
     // Capturar cualquier patrón del tipo \( ... \)
     const inlinePattern = /\\\((.*?)\\\)/g;
