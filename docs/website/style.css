@@ -1,0 +1,562 @@
+/*
+ * style.css - Sistema de diseño premium para la documentación de Seminario IA.
+ * Utiliza variables CSS para soporte nativo de temas (light/dark) e iconografía moderna.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Tema Oscuro (Por Defecto) */
+  --bg-color: #0c0f0a;
+  --bg-sidebar: rgba(18, 24, 15, 0.75);
+  --card-bg: rgba(26, 35, 22, 0.6);
+  --card-border: rgba(163, 230, 53, 0.15);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --accent-green: #a3e635; /* Color cultivos */
+  --accent-blue: #38bdf8;  /* Color agua */
+  --accent-orange: #fb923c;
+  --sidebar-width: 280px;
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  --glass-blur: blur(12px);
+  --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --code-bg: #111827;
+  --border-radius: 12px;
+}
+
+[data-theme="light"] {
+  /* Tema Claro */
+  --bg-color: #f4f6f3;
+  --bg-sidebar: rgba(235, 240, 233, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(77, 124, 15, 0.15);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --accent-green: #4d7c0f;
+  --accent-blue: #0284c7;
+  --accent-orange: #ea580c;
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  --code-bg: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  overflow-x: hidden;
+  transition: var(--transition-smooth);
+}
+
+/* --- Barra de Navegación Lateral (Sidebar) --- */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-right: 1px solid var(--card-border);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-weight: 800;
+  font-size: 1.25rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.brand-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.nav-item a:hover {
+  background-color: rgba(163, 230, 53, 0.08);
+  color: var(--accent-green);
+  transform: translateX(4px);
+}
+
+.nav-item.active a {
+  background: linear-gradient(90deg, rgba(163, 230, 53, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%);
+  color: var(--accent-green);
+  border-left: 3px solid var(--accent-green);
+  font-weight: 600;
+}
+
+.theme-toggle-container {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--card-border);
+  transform: translateY(-2px);
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex-grow: 1;
+  padding: 3rem 4rem;
+  max-width: 1200px;
+  min-height: 100vh;
+}
+
+/* --- Estilos de Sección --- */
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.section.active {
+  display: block;
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-green);
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --- Tarjetas Premium y Paneles --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background-color: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 1.75rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-premium);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(163, 230, 53, 0.4);
+  box-shadow: 0 15px 35px -5px rgba(163, 230, 53, 0.1);
+}
+
+.card-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-raw {
+  background-color: rgba(251, 146, 60, 0.15);
+  color: var(--accent-orange);
+}
+
+.tag-processed {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: var(--accent-blue);
+}
+
+.tag-config {
+  background-color: rgba(163, 230, 53, 0.15);
+  color: var(--accent-green);
+}
+
+/* --- Bloques Matemáticos y KaTeX --- */
+.math-block {
+  background-color: var(--code-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-premium);
+}
+
+.math-inline {
+  padding: 0.1rem 0.3rem;
+  background-color: var(--code-bg);
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* --- Código y Resaltado --- */
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-premium);
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* --- Tablas Premium --- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--card-border);
+}
+
+.table-premium {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-premium th {
+  background-color: rgba(163, 230, 53, 0.08);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--accent-green);
+}
+
+.table-premium td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px dotted var(--card-border);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.table-premium tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+}
+
+/* --- Calculadora Interactiva --- */
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-premium);
+}
+
+@media (max-width: 768px) {
+  .calculator-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-group input, .input-group select {
+  background-color: var(--code-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+.input-group input:focus, .input-group select:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.25);
+}
+
+.calc-results {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.75rem;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.result-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.result-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.result-value.blue {
+  color: var(--accent-blue);
+}
+
+/* --- Listas --- */
+.list-premium {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.list-premium li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.list-premium li::before {
+  content: "➔";
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+/* --- Visor de Arquitectura del Código --- */
+.arch-tree {
+  font-family: monospace;
+  background-color: var(--code-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: auto;
+  box-shadow: var(--shadow-premium);
+}
+
+.arch-node {
+  margin-left: 1.5rem;
+}
+
+.arch-dir {
+  color: var(--accent-green);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arch-file {
+  color: var(--text-primary);
+}
+
+/* --- Animaciones --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Estilos Responsivos Generales --- */
+@media (max-width: 992px) {
+  body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+    padding: 1.5rem;
+  }
+  .sidebar .nav-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  .sidebar .nav-item a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 2rem 1.5rem;
+  }
+  .theme-toggle-container {
+    border-top: none;
+    padding-top: 0;
+  }
+}
