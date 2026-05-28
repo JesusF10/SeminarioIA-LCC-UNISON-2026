@@ -14,7 +14,7 @@ la ruta al dataset que se utilizará en el proyecto.
 ```python
 DATASETS = {
     "raw": {
-        "impacto-sequia": SEQUIA_DIR,
+        "datos-sequia": SEQUIA_DIR,
         "datos-abiertos": DATOS_ABIERTOS_SONORA_DIR,
         "siap-produccion-agricola": SIAP_DIR,
         "siacon": SIACON_DIR,
