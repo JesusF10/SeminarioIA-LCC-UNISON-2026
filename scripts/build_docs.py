@@ -129,6 +129,36 @@ def parse_typst_tables(content: str) -> str:
     return re.sub(table_pattern, table_replacer, content, flags=re.DOTALL)
 
 
+def parse_typst_figure_to_html(figure_text: str) -> str:
+    """
+    Parsea un bloque #figure(...) de Typst y lo convierte a un elemento HTML figure
+    estetizado si contiene una imagen.
+    """
+    path_match = re.search(r'image\("([^"]+)"', figure_text)
+    if not path_match:
+        return ""
+
+    img_path = path_match.group(1)
+    img_filename = Path(img_path).name
+
+    # Extraer caption
+    caption_match = re.search(r'caption:\s*\[(.*?)\]', figure_text, re.DOTALL)
+    caption = caption_match.group(1).strip() if caption_match else ""
+    # Traducir negritas de Typst a HTML
+    caption = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", caption)
+
+    # Extraer ancho
+    width_match = re.search(r'width:\s*([\d%]+)', figure_text)
+    width = width_match.group(1) if width_match else "80%"
+
+    html = '<figure class="figure-premium" style="text-align: center; margin: 2rem 0;">'
+    html += f'  <img src="images/{img_filename}" style="max-width: {width}; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);">'
+    if caption:
+        html += f'  <figcaption style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;">{caption}</figcaption>'
+    html += '</figure>'
+    return html
+
+
 def parse_typst_file(filepath: Path) -> list[dict]:
     """
     Parsea un archivo Typst y lo divide en secciones estructuradas por headings.
@@ -147,12 +177,12 @@ def parse_typst_file(filepath: Path) -> list[dict]:
     current_section = {"title": "General", "level": 1, "blocks": []}
 
     lines = content.split("\n")
-    
+
     started = False  # Para ignorar cabeceras y setups de Typst hasta el primer heading
     in_code_block = False
     in_figure = False
     parenthesis_count = 0
-    
+
     code_lang = "python"
     code_lines = []
 
@@ -187,28 +217,39 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             code_lines.append(line)
             continue
 
-        # 3. Detectar e ignorar bloques #figure(...) completos
+        # 3. Detectar, acumular e integrar bloques #figure(...) que contienen imágenes
         if stripped.startswith("#figure("):
             in_figure = True
+            figure_lines = [line]
             parenthesis_count = stripped.count("(") - stripped.count(")")
             continue
 
         if in_figure:
+            figure_lines.append(line)
             parenthesis_count += stripped.count("(") - stripped.count(")")
             if parenthesis_count <= 0:
                 in_figure = False
+                figure_text = "\n".join(figure_lines)
+                html_fig = parse_typst_figure_to_html(figure_text)
+                if html_fig:
+                    current_section["blocks"].append({"type": "html", "content": html_fig})
             continue
 
         # 4. Ignorar directivas de configuración o imports de Typst
-        if (stripped.startswith("#import") or 
-            stripped.startswith("#set") or 
+        if (stripped.startswith("#import") or
+            stripped.startswith("#set") or
             stripped.startswith("#show") or
             stripped.startswith("#v(") or
+            stripped.startswith("#align") or
             stripped.startswith("#pagebreak")):
             continue
 
         # Evitar diagramas Fletcher y paréntesis de cierre sueltos
-        if "diagram(" in line or "fletcher" in line or stripped == ")":
+        if "diagram(" in line or "fletcher" in line:
+            continue
+
+        # Ignorar líneas que solo contienen caracteres de cierre residuales de bloques de diseño (e.g. ']', ')', ',', etc.)
+        if re.match(r"^[\s\]\),]+$", stripped):
             continue
 
         # Capturar tablas pre-renderizadas en HTML para que no se envuelvan en <p>
@@ -303,11 +344,19 @@ def main():
     # Copiar imágenes al sitio web de documentación
     images_src = BASE_DIR / "images"
     images_dest = WEBSITE_DIR / "images"
+    import shutil
+    if images_dest.exists():
+        shutil.rmtree(images_dest)
     if images_src.exists():
-        import shutil
-        if images_dest.exists():
-            shutil.rmtree(images_dest)
         shutil.copytree(images_src, images_dest)
+    else:
+        images_dest.mkdir(parents=True, exist_ok=True)
+
+    # Copiar imágenes del reporte de estadísticas
+    report_images_src = BASE_DIR / "reports/fase3/prueba_analisis/images"
+    if report_images_src.exists():
+        for img_file in report_images_src.glob("*.png"):
+            shutil.copy(img_file, images_dest)
 
     print(f"Compilación terminada con éxito. Archivo escrito en: {output_path}")
 
