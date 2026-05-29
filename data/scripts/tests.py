@@ -1,16 +1,22 @@
-import json
-from pprint import pprint
+from seminario_ia.datasets import RAW_DATASETS
 
-from seminario_ia.datasets import PROCESSED_DIR
+import geopandas as gpd
 
-JSON_PATH = PROCESSED_DIR / "codificacion.json"
+path = RAW_DATASETS.get("datos-sequia", None)
+
+assert path is not None, "datos-sequia not found in RAW_DATASETS"
+
+assert len(list(path.glob("*.shp"))) > 0, (
+    "No shapefiles found in impacto Sequia dataset"
+)
+
+filename = list(path.glob("*.shp"))[0]
+
+df = gpd.read_file(filename)
+
+df = df[df["Entidad"] == "Sonora"]
+
+print(len(df))
 
 
-with open(JSON_PATH) as f:
-    data = json.load(f)
-    codes = data["codigos_municipios"]
-
-    if codes.get("41", None) is None:
-        codes["41"] = "Nacozari de García"
-
-    pprint(codes)
+print(df.columns)
