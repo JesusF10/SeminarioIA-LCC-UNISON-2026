@@ -462,11 +462,11 @@
                 },
                 {
                     "type": "list-item",
-                    "content": "\\(\\sigma\\): Constante de Stefan-Boltzmann (\\(4.903 \\times {10}^(-9)\\) MJ/K⁴/m²/día)."
+                    "content": "\\(\\sigma\\): Constante de Stefan-Boltzmann (\\(4.903 \\times {10}^{(-9)}\\) MJ/K⁴/m²/día)."
                 },
                 {
                     "type": "list-item",
-                    "content": "\\(R_{\\text{so}}\\) (radiación en cielo despejado): \\((0.75 + 2 \\times {10}^(-5) z) R_a\\)."
+                    "content": "\\(R_{\\text{so}}\\) (radiación en cielo despejado): \\((0.75 + 2 \\times {10}^{(-5)} z) R_a\\)."
                 },
                 {
                     "type": "code",
