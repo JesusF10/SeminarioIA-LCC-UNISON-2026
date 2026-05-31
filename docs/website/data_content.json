@@ -552,11 +552,11 @@
       "blocks": [
         {
           "type": "paragraph",
-          "content": "Los requerimientos hídricos teóricos (láminas netas recomendadas) y los costos de producción promedio para los cultivos tradicionales y potenciales se presentan en la siguiente tabla de referencia agronómica:"
+          "content": "Los requerimientos hídricos teóricos (láminas netas recomendadas) para los cultivos tradicionales y potenciales se presentan en la siguiente tabla de referencia agronómica:"
         },
         {
           "type": "html",
-          "content": "  <div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Tipo</th><th>Lámina (mm)</th><th>Costo (MXN/Ha)</th><th>Ciclo (Días)</th></tr></thead><tbody><tr><td>Alfalfa</td><td>Forraje (Perenne)</td><td>1,650</td><td>52,000</td><td>365</td></tr><tr><td>Nogal Pecanero</td><td>Frutal (Perenne)</td><td>1,350</td><td>85,000</td><td>365</td></tr><tr><td>Dátil</td><td>Frutal (Perenne)</td><td>1,850</td><td>95,000</td><td>365</td></tr><tr><td>Maíz Grano</td><td>Grano</td><td>800</td><td>55,000</td><td>150</td></tr><tr><td>Trigo Grano</td><td>Grano</td><td>650</td><td>35,000</td><td>160</td></tr><tr><td>Tomate Rojo</td><td>Hortaliza</td><td>725</td><td>365,000</td><td>140</td></tr><tr><td>Garbanzo Grano</td><td>Leguminosa</td><td>375</td><td>28,000</td><td>150</td></tr></tbody></table></div>"
+          "content": "  <div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Cultivo</th><th>Tipo</th><th>Lámina (mm)</th><th>Ciclo (Días)</th></tr></thead><tbody><tr><td>Alfalfa</td><td>Forraje (Perenne)</td><td>1,650</td><td>365</td></tr><tr><td>Nogal Pecanero</td><td>Frutal (Perenne)</td><td>1,350</td><td>365</td></tr><tr><td>Dátil</td><td>Frutal (Perenne)</td><td>1,850</td><td>365</td></tr><tr><td>Maíz Grano</td><td>Grano</td><td>800</td><td>150</td></tr><tr><td>Trigo Grano</td><td>Grano</td><td>650</td><td>160</td></tr><tr><td>Tomate Rojo</td><td>Hortaliza</td><td>725</td><td>140</td></tr><tr><td>Garbanzo Grano</td><td>Leguminosa</td><td>375</td><td>150</td></tr></tbody></table></div>"
         },
         {
           "type": "paragraph",

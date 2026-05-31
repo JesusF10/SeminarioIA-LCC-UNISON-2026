@@ -248,22 +248,22 @@ dormancia.
 
 == Láminas Técnicas de Riego por Cultivo (INIFAP/FIRA)
 
-Los requerimientos hídricos teóricos (láminas netas recomendadas) y los costos de
-producción promedio para los cultivos tradicionales y potenciales se presentan en
-la siguiente tabla de referencia agronómica:
+Los requerimientos hídricos teóricos (láminas netas recomendadas) para los
+cultivos tradicionales y potenciales se presentan en la siguiente tabla de
+referencia agronómica:
 
 #align(center)[
   #table(
-    columns: (auto, 1fr, 1fr, 1.2fr, 1fr),
-    align: (left, center, center, center, center),
-    [*Cultivo*], [*Tipo*], [*Lámina (mm)*], [*Costo (MXN/Ha)*], [*Ciclo (Días)*],
-    [Alfalfa], [Forraje (Perenne)], [1,650], [52,000], [365],
-    [Nogal Pecanero], [Frutal (Perenne)], [1,350], [85,000], [365],
-    [Dátil], [Frutal (Perenne)], [1,850], [95,000], [365],
-    [Maíz Grano], [Grano], [800], [55,000], [150],
-    [Trigo Grano], [Grano], [650], [35,000], [160],
-    [Tomate Rojo], [Hortaliza], [725], [365,000], [140],
-    [Garbanzo Grano], [Leguminosa], [375], [28,000], [150],
+    columns: (auto, 1fr, 1fr, 1fr),
+    align: (left, center, center, center),
+    [*Cultivo*], [*Tipo*], [*Lámina (mm)*], [*Ciclo (Días)*],
+    [Alfalfa], [Forraje (Perenne)], [1,650], [365],
+    [Nogal Pecanero], [Frutal (Perenne)], [1,350], [365],
+    [Dátil], [Frutal (Perenne)], [1,850], [365],
+    [Maíz Grano], [Grano], [800], [150],
+    [Trigo Grano], [Grano], [650], [160],
+    [Tomate Rojo], [Hortaliza], [725], [140],
+    [Garbanzo Grano], [Leguminosa], [375], [150],
   )
 ]
 
