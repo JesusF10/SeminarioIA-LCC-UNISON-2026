@@ -97,19 +97,31 @@
                 <li class="nav-item active" data-section="inicio">
                     <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
                 </li>
+                <li class="nav-item" data-section="hidrico">
+                    <a href="#hidrico"
+                        ><i class="fa-solid fa-droplet"></i> Situación Hídrica</a
+                    >
+                </li>
+                <li class="nav-item" data-section="especificaciones">
+                    <a href="#especificaciones"
+                        ><i class="fa-solid fa-seedling"></i> Especificaciones
+                        Condiciones</a
+                    >
+                </li>
                 <li class="nav-item" data-section="metodologia">
                     <a href="#metodologia"
                         ><i class="fa-solid fa-calculator"></i> Metodología HH</a
                     >
                 </li>
+                <li class="nav-item" data-section="estadisticas">
+                    <a href="#estadisticas"
+                        ><i class="fa-solid fa-chart-line"></i> Estadísticas
+                        Eficiencia</a
+                    >
+                </li>
                 <li class="nav-item" data-section="calculadora">
                     <a href="#calculadora"
                         ><i class="fa-solid fa-sliders"></i> Calculadora FAO-56</a
-                    >
-                </li>
-                <li class="nav-item" data-section="hidrico">
-                    <a href="#hidrico"
-                        ><i class="fa-solid fa-droplet"></i> Situación Hídrica</a
                     >
                 </li>
                 <li class="nav-item" data-section="datos">
@@ -120,17 +132,6 @@
                 <li class="nav-item" data-section="arquitectura">
                     <a href="#arquitectura"
                         ><i class="fa-solid fa-sitemap"></i> Arquitectura Código</a
-                    >
-                </li>
-                <li class="nav-item" data-section="especificaciones">
-                    <a href="#especificaciones"
-                        ><i class="fa-solid fa-seedling"></i> Especificaciones Condiciones</a
-                    >
-                </li>
-                <li class="nav-item" data-section="estadisticas">
-                    <a href="#estadisticas"
-                        ><i class="fa-solid fa-chart-line"></i> Estadísticas
-                        Eficiencia</a
                     >
                 </li>
             </ul>
@@ -502,8 +503,9 @@
                             --%
                         </div>
                         <p style="font-size: 0.9rem">
-                            Fracción de agua azul (riego de presas/pozos) promedio requerida
-                            para la evapotranspiración de los cultivos en Sonora.
+                            Fracción de agua azul (riego de presas/pozos) promedio
+                            requerida para la evapotranspiración de los cultivos en
+                            Sonora.
                         </p>
                     </div>
                 </div>
@@ -1385,17 +1387,21 @@
         """Agrega un cultivo a la región geográfica."""
         self.crops.append(crop)</code></pre>
 
-                <h2>Algoritmos de Cálculo y Fórmulas en Python (<code>eto.py</code>)</h2>
+                <h2>
+                    Algoritmos de Cálculo y Fórmulas en Python (<code>eto.py</code>)
+                </h2>
                 <p>
                     Las ecuaciones del estándar FAO-56 se implementan de forma modular
-                    dentro de la librería en el archivo <code>src/seminario_ia/utils/eto.py</code>.
-                    A continuación se detallan los bloques algorítmicos principales de cálculo diario:
+                    dentro de la librería en el archivo
+                    <code>src/seminario_ia/utils/eto.py</code>. A continuación se
+                    detallan los bloques algorítmicos principales de cálculo diario:
                 </p>
 
                 <h3>Evapotranspiración de Referencia ($E T_o$ - Penman-Monteith)</h3>
                 <p>
-                    El cálculo principal diario de la evapotranspiración de referencia, integrando
-                    todas las derivaciones de radiación neta de onda corta y larga y las constantes psicrométricas:
+                    El cálculo principal diario de la evapotranspiración de referencia,
+                    integrando todas las derivaciones de radiación neta de onda corta y
+                    larga y las constantes psicrométricas:
                 </p>
                 <pre><code class="language-python">def eto_fao56_mm(
     tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0
@@ -1415,7 +1421,7 @@
     rns = net_shortwave_rns(rs_mjm2d=rs_mjm2d, albedo=ALBEDO)
     rnl = net_longwave_rnl_fao56(tmax, tmin, ea, rs_mjm2d, rso)
     rn = rns - rnl
-    
+
     num = 0.408 * delta * (rn - g_mjm2d) + gamma * (900.0 / (tmean + 273.0)) * u2_ms * (es - ea)
     den = delta + gamma * (1.0 + 0.34 * u2_ms)
     eto = max(0.0, num / den)
@@ -1424,9 +1430,12 @@
         "Rso_": rso, "Rns_": rns, "Rnl_": rnl, "Rn_": rn, "ET0": eto
     }</code></pre>
 
-                <h3>Construcción de la Curva Diaria de Coeficiente de Cultivo ($K_c$)</h3>
+                <h3>
+                    Construcción de la Curva Diaria de Coeficiente de Cultivo ($K_c$)
+                </h3>
                 <p>
-                    Calcula los coeficientes diarios correspondientes a las fases vegetativas del cultivo:
+                    Calcula los coeficientes diarios correspondientes a las fases
+                    vegetativas del cultivo:
                 </p>
                 <pre><code class="language-python">def daily_kc_curve(
     fechas_idx: pd.DatetimeIndex,
@@ -1457,7 +1466,8 @@
 
                 <h3>Precipitación Efectiva ($P_"ef"$) y Huella Hídrica Total</h3>
                 <p>
-                    Módulos para estimar la fracción pluvial aprovechada en parcela y los componentes azul y verde de la huella hídrica:
+                    Módulos para estimar la fracción pluvial aprovechada en parcela y
+                    los componentes azul y verde de la huella hídrica:
                 </p>
                 <pre><code class="language-python">def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
     """Calcula Pef aplicando un factor (0.8 o 0.6) según el volumen de lluvia del ciclo."""
@@ -1492,50 +1502,194 @@ def calculate_wf_uac(
         "HHverde_m3_ton": green_wf_m3_ton,
         "HHazul_m3_ton": blue_wf_m3_ton,
     }</code></pre>
+
+                <h3>Funciones Auxiliares y Termodinámicas de Soporte</h3>
+                <p>
+                    Para resolver variables físicas intermedias como presiones de vapor,
+                    radiación de cielo despejado y declinación solar, se implementan las
+                    siguientes funciones auxiliares basadas en las guías técnicas de la
+                    FAO:
+                </p>
+                <pre><code class="language-python">def atm_pressure_kpa(z_m: float) -> float:
+    """Calcula la presión atmosférica (kPa) a partir de la altitud (m) (Eq. 7)."""
+    return 101.3 * ((293.0 - 0.0065 * z_m) / 293.0) ** 5.26
+
+def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
+    """Calcula la constante psicrométrica (kPa/°C) a partir de la presión (Eq. 8)."""
+    cl, cp, epsilon = 2.45, 1.013e-3, 0.622
+    return (cp * p_kpa) / (epsilon * cl)
+
+def delta_kpa_per_c(t_c: float) -> float:
+    """Calcula la pendiente de la curva de saturación (kPa/°C) (Eq. 13)."""
+    e = es_kpa(t_c)
+    return 4098.0 * e / ((t_c + 237.3) ** 2)
+
+def es_kpa(t_c: float) -> float:
+    """Calcula la presión de vapor de saturación (kPa) usando la fórmula de Tetens (Eq. 11)."""
+    return 0.6108 * math.exp((17.27 * t_c) / (t_c + 237.3))
+
+def extraterrestrial_radiation_mj_m2d(lat_deg: float, doy: int) -> float:
+    """Calcula la radiación extraterrestre (Ra) en MJ/m²/día (Eqs. 21–25)."""
+    phi = math.radians(lat_deg)
+    dr = 1.0 + 0.033 * math.cos(2.0 * math.pi / 365.0 * doy)
+    delta = 0.409 * math.sin(2.0 * math.pi / 365.0 * doy - 1.39)
+    ws = math.acos(-math.tan(phi) * math.tan(delta))
+    return (24.0 * 60.0 / math.pi) * GSC * dr * (
+        ws * math.sin(phi) * math.sin(delta) + math.cos(phi) * math.cos(delta) * math.sin(ws)
+    )
+
+def net_shortwave_rns(rs_mjm2d: float, albedo: float = ALBEDO) -> float:
+    """Calcula la radiación neta de onda corta (Rns) (Eq. 38)."""
+    return (1.0 - albedo) * rs_mjm2d
+
+def clear_sky_radiation_rso_fao56(lat_deg: float, doy: int, z_m: float) -> float:
+    """Calcula la radiación de cielo despejado (Rso) (Eq. 37)."""
+    ra = extraterrestrial_radiation_mj_m2d(lat_deg, doy)
+    return (0.75 + 2e-5 * z_m) * ra
+
+def net_longwave_rnl_fao56(
+    tmax_c: float, tmin_c: float, ea_kpa: float, rs_mjm2d: float, rso_mjm2d: float
+) -> float:
+    """Calcula la radiación neta de onda larga (Rnl) según el estándar de la FAO-56 (Eq. 39)."""
+    tmaxk, tmink = tmax_c + 273.16, tmin_c + 273.16
+    t4 = (tmaxk**4 + tmink**4) / 2.0
+    rsrso = 0.0 if rso_mjm2d <= 0.0 else max(0.0, min(rs_mjm2d / rso_mjm2d, 1.0))
+    fcloud = 1.35 * rsrso - 0.35
+    return SIGMA * t4 * (0.34 - 0.14 * math.sqrt(max(ea_kpa, 0.0))) * fcloud</code></pre>
             </section>
 
             <!-- Sección: Especificaciones del Modelo y Cultivos -->
             <section id="especificaciones" class="section">
                 <h1>Especificaciones de Cultivos y Condiciones de Contorno</h1>
                 <p style="font-size: 1.1rem; margin-bottom: 2rem">
-                    Especificaciones técnicas de los cultivos clave y las condiciones físicas bajo las cuales opera el modelo de simulación de reconversión agrícola en Sonora.
+                    Especificaciones técnicas de los cultivos clave y las condiciones
+                    físicas bajo las cuales opera el modelo de simulación de
+                    reconversión agrícola en Sonora.
                 </p>
 
                 <h2>1. Ficha Técnica y Especificaciones de los Cultivos</h2>
                 <p>
-                    El modelo de simulación se alimenta de los parámetros fenológicos de la FAO-56 y los requerimientos técnicos oficiales del INIFAP. Los cultivos se dividen en tres categorías principales según su comportamiento y ciclo vegetativo:
+                    El modelo de simulación se alimenta de los parámetros fenológicos de
+                    la FAO-56 y los requerimientos técnicos oficiales del INIFAP. Los
+                    cultivos se dividen en tres categorías principales según su
+                    comportamiento y ciclo vegetativo:
                 </p>
 
-                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 2.5rem; gap: 1.5rem;">
+                <div
+                    class="card-grid"
+                    style="
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        margin-bottom: 2.5rem;
+                        gap: 1.5rem;
+                    "
+                >
                     <!-- Card 1: Perennes -->
-                    <div class="card" style="border-top: 4px solid var(--accent-orange); text-align: center;">
-                        <div class="card-title"><i class="fa-solid fa-tree" style="color: var(--accent-orange); margin-right: 0.5rem;"></i> Cultivos Perennes</div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                            Especies de ciclo continuo de 365 días o temporadas de desarrollo extensas con alta demanda acumulada.
+                    <div
+                        class="card"
+                        style="
+                            border-top: 4px solid var(--accent-orange);
+                            text-align: center;
+                        "
+                    >
+                        <div class="card-title">
+                            <i
+                                class="fa-solid fa-tree"
+                                style="
+                                    color: var(--accent-orange);
+                                    margin-right: 0.5rem;
+                                "
+                            ></i>
+                            Cultivos Perennes
+                        </div>
+                        <p
+                            style="
+                                font-size: 0.9rem;
+                                color: var(--text-secondary);
+                                margin-bottom: 1.25rem;
+                            "
+                        >
+                            Especies de ciclo continuo de 365 días o temporadas de
+                            desarrollo extensas con alta demanda acumulada.
                         </p>
-                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                        <div
+                            style="
+                                font-size: 1.15rem;
+                                font-weight: bold;
+                                color: var(--text-primary);
+                            "
+                        >
                             Alfalfa, Nuez (Nogal Pecanero) y Dátil
                         </div>
                     </div>
 
                     <!-- Card 2: Otoño-Invierno -->
-                    <div class="card" style="border-top: 4px solid var(--accent-blue); text-align: center;">
-                        <div class="card-title"><i class="fa-solid fa-snowflake" style="color: var(--accent-blue); margin-right: 0.5rem;"></i> Ciclo Otoño-Invierno (O-I)</div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                            Cultivos establecidos en la época fría para aprovechar menores tasas de evapotranspiración de referencia (ETo).
+                    <div
+                        class="card"
+                        style="
+                            border-top: 4px solid var(--accent-blue);
+                            text-align: center;
+                        "
+                    >
+                        <div class="card-title">
+                            <i
+                                class="fa-solid fa-snowflake"
+                                style="color: var(--accent-blue); margin-right: 0.5rem"
+                            ></i>
+                            Ciclo Otoño-Invierno (O-I)
+                        </div>
+                        <p
+                            style="
+                                font-size: 0.9rem;
+                                color: var(--text-secondary);
+                                margin-bottom: 1.25rem;
+                            "
+                        >
+                            Cultivos establecidos en la época fría para aprovechar
+                            menores tasas de evapotranspiración de referencia (ETo).
                         </p>
-                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                        <div
+                            style="
+                                font-size: 1.15rem;
+                                font-weight: bold;
+                                color: var(--text-primary);
+                            "
+                        >
                             Trigo Grano y Garbanzo Grano
                         </div>
                     </div>
 
                     <!-- Card 3: Primavera-Verano -->
-                    <div class="card" style="border-top: 4px solid var(--accent-green); text-align: center;">
-                        <div class="card-title"><i class="fa-solid fa-sun" style="color: var(--accent-green); margin-right: 0.5rem;"></i> Ciclo Primavera-Verano (P-V)</div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                            Cultivos de ciclo cálido expuestos a la máxima radiación solar y tasas pico de evapotranspiración.
+                    <div
+                        class="card"
+                        style="
+                            border-top: 4px solid var(--accent-green);
+                            text-align: center;
+                        "
+                    >
+                        <div class="card-title">
+                            <i
+                                class="fa-solid fa-sun"
+                                style="color: var(--accent-green); margin-right: 0.5rem"
+                            ></i>
+                            Ciclo Primavera-Verano (P-V)
+                        </div>
+                        <p
+                            style="
+                                font-size: 0.9rem;
+                                color: var(--text-secondary);
+                                margin-bottom: 1.25rem;
+                            "
+                        >
+                            Cultivos de ciclo cálido expuestos a la máxima radiación
+                            solar y tasas pico de evapotranspiración.
                         </p>
-                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                        <div
+                            style="
+                                font-size: 1.15rem;
+                                font-weight: bold;
+                                color: var(--text-primary);
+                            "
+                        >
                             Maíz Grano
                         </div>
                     </div>
@@ -1543,128 +1697,419 @@ def calculate_wf_uac(
 
                 <h2>Parámetros de Entrada del Modelo y su Rol en el Cálculo</h2>
                 <p>
-                    Para realizar la simulación física de la evapotranspiración y el posterior modelado de la huella hídrica y reconversión, se utilizan los siguientes parámetros clave:
+                    Para realizar la simulación física de la evapotranspiración y el
+                    posterior modelado de la huella hídrica y reconversión, se utilizan
+                    los siguientes parámetros clave:
                 </p>
 
-                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem;">
+                <div
+                    style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        margin-bottom: 3rem;
+                    "
+                >
                     <!-- Parámetro 1 -->
-                    <div class="card" style="border-left: 4px solid var(--accent-green);">
-                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-green);"><i class="fa-solid fa-calendar-days"></i> Duración del Ciclo Vegetativo (días)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
-                            <strong>Definición:</strong> El número de días desde la siembra o brote hasta la cosecha.
+                    <div
+                        class="card"
+                        style="border-left: 4px solid var(--accent-green)"
+                    >
+                        <div
+                            class="card-title"
+                            style="font-size: 1.15rem; color: var(--accent-green)"
+                        >
+                            <i class="fa-solid fa-calendar-days"></i> Duración del Ciclo
+                            Vegetativo (días)
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem">
+                            <strong>Definición:</strong> El número de días desde la
+                            siembra o brote hasta la cosecha.
                         </p>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
-                            <strong>Rol en el cálculo:</strong> Define el rango temporal de integración diaria. La evapotranspiración \( (ET_c) \) y la lluvia efectiva \( (P_{ef}) \) se calculan y acumulan día con día a lo largo de este ciclo específico para determinar el volumen total de agua consumido en el ciclo \( (UAC) \).
+                        <p
+                            style="
+                                margin-top: 0.5rem;
+                                font-size: 0.95rem;
+                                color: var(--text-secondary);
+                            "
+                        >
+                            <strong>Rol en el cálculo:</strong> Define el rango temporal
+                            de integración diaria. La evapotranspiración \( (ET_c) \) y
+                            la lluvia efectiva \( (P_{ef}) \) se calculan y acumulan día
+                            con día a lo largo de este ciclo específico para determinar
+                            el volumen total de agua consumido en el ciclo \( (UAC) \).
                         </p>
                     </div>
 
                     <!-- Parámetro 2 -->
-                    <div class="card" style="border-left: 4px solid var(--accent-blue);">
-                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-blue);"><i class="fa-solid fa-compass-drafting"></i> Coeficiente de Cultivo (Kc)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
-                            <strong>Definición:</strong> Factor adimensional que relaciona la demanda evapotranspirativa del cultivo con la de un cultivo de referencia (pasto) bajo el mismo clima. Varía en las etapas inicial, media y final.
+                    <div class="card" style="border-left: 4px solid var(--accent-blue)">
+                        <div
+                            class="card-title"
+                            style="font-size: 1.15rem; color: var(--accent-blue)"
+                        >
+                            <i class="fa-solid fa-compass-drafting"></i> Coeficiente de
+                            Cultivo (Kc)
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem">
+                            <strong>Definición:</strong> Factor adimensional que
+                            relaciona la demanda evapotranspirativa del cultivo con la
+                            de un cultivo de referencia (pasto) bajo el mismo clima.
+                            Varía en las etapas inicial, media y final.
                         </p>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
-                            <strong>Rol en el cálculo:</strong> Se multiplica por la evapotranspiración de referencia \( (ET_o) \) diaria (Penman-Monteith) para calcular el requerimiento fisiológico diario del cultivo \( (ET_c = K_c \times ET_o) \). Permite capturar la demanda dinámica de agua de la planta a lo largo de su desarrollo.
+                        <p
+                            style="
+                                margin-top: 0.5rem;
+                                font-size: 0.95rem;
+                                color: var(--text-secondary);
+                            "
+                        >
+                            <strong>Rol en el cálculo:</strong> Se multiplica por la
+                            evapotranspiración de referencia \( (ET_o) \) diaria
+                            (Penman-Monteith) para calcular el requerimiento fisiológico
+                            diario del cultivo \( (ET_c = K_c \times ET_o) \). Permite
+                            capturar la demanda dinámica de agua de la planta a lo largo
+                            de su desarrollo.
                         </p>
                     </div>
 
                     <!-- Parámetro 3 -->
-                    <div class="card" style="border-left: 4px solid var(--accent-orange);">
-                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-orange);"><i class="fa-solid fa-faucet-drip"></i> Lámina de Riego Técnica Recomendada (INIFAP, mm)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
-                            <strong>Definición:</strong> El volumen total acumulado de riego recomendado para aplicarse en parcela bajo prácticas de riego tradicionales de la región.
+                    <div
+                        class="card"
+                        style="border-left: 4px solid var(--accent-orange)"
+                    >
+                        <div
+                            class="card-title"
+                            style="font-size: 1.15rem; color: var(--accent-orange)"
+                        >
+                            <i class="fa-solid fa-faucet-drip"></i> Lámina de Riego
+                            Técnica Recomendada (INIFAP, mm)
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem">
+                            <strong>Definición:</strong> El volumen total acumulado de
+                            riego recomendado para aplicarse en parcela bajo prácticas
+                            de riego tradicionales de la región.
                         </p>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
-                            <strong>Rol en el cálculo:</strong> Sirve como la demanda aplicada de diseño \( (L_{riego}) \). Se contrasta contra la evapotranspiración neta real del modelo para cuantificar la eficiencia de aplicación del riego y estimar los ahorros volumétricos potenciales.
+                        <p
+                            style="
+                                margin-top: 0.5rem;
+                                font-size: 0.95rem;
+                                color: var(--text-secondary);
+                            "
+                        >
+                            <strong>Rol en el cálculo:</strong> Sirve como la demanda
+                            aplicada de diseño \( (L_{riego}) \). Se contrasta contra la
+                            evapotranspiración neta real del modelo para cuantificar la
+                            eficiencia de aplicación del riego y estimar los ahorros
+                            volumétricos potenciales.
                         </p>
                     </div>
 
                     <!-- Parámetro 4 -->
-                    <div class="card" style="border-left: 4px solid var(--accent-green);">
-                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-green);"><i class="fa-solid fa-weight-scale"></i> Rendimiento Físico Esperado (Ton/Ha)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
-                            <strong>Definición:</strong> La productividad de cosecha comercial obtenida por unidad de superficie sembrada.
+                    <div
+                        class="card"
+                        style="border-left: 4px solid var(--accent-green)"
+                    >
+                        <div
+                            class="card-title"
+                            style="font-size: 1.15rem; color: var(--accent-green)"
+                        >
+                            <i class="fa-solid fa-weight-scale"></i> Rendimiento Físico
+                            Esperado (Ton/Ha)
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem">
+                            <strong>Definición:</strong> La productividad de cosecha
+                            comercial obtenida por unidad de superficie sembrada.
                         </p>
-                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
-                            <strong>Rol en el cálculo:</strong> Es el denominador en la ecuación de la Huella Hídrica \( (HH = UAC / \text{Rendimiento}) \). Permite transformar la variable física del agua consumida \( (m^3/\text{Ha}) \) en una métrica de productividad física del recurso \( (m^3/\text{Ton}) \), que es la base del análisis de eficiencia.
+                        <p
+                            style="
+                                margin-top: 0.5rem;
+                                font-size: 0.95rem;
+                                color: var(--text-secondary);
+                            "
+                        >
+                            <strong>Rol en el cálculo:</strong> Es el denominador en la
+                            ecuación de la Huella Hídrica \( (HH = UAC /
+                            \text{Rendimiento}) \). Permite transformar la variable
+                            física del agua consumida \( (m^3/\text{Ha}) \) en una
+                            métrica de productividad física del recurso \(
+                            (m^3/\text{Ton}) \), que es la base del análisis de
+                            eficiencia.
                         </p>
                     </div>
                 </div>
 
                 <h2>2. Condiciones de Contorno, REPNA y Tecnificación</h2>
                 <p>
-                    El modelado de reconversión productiva no opera en el vacío, sino que está acotado por condiciones físicas meteorológicas, límites legales de concesión y eficiencias de los sistemas de riego:
+                    El modelado de reconversión productiva no opera en el vacío, sino
+                    que está acotado por condiciones físicas meteorológicas, límites
+                    legales de concesión y eficiencias de los sistemas de riego:
                 </p>
 
                 <h3>1. El Cultivo de Referencia de la FAO-56 (Base de \( ET_o \))</h3>
                 <p>
-                    La evapotranspiración de referencia \( (ET_o) \) representa el flujo de agua evaporada por un cultivo teórico de referencia. El estándar internacional FAO-56 define este cultivo con características biofísicas fijas:
+                    La evapotranspiración de referencia \( (ET_o) \) representa el flujo
+                    de agua evaporada por un cultivo teórico de referencia. El estándar
+                    internacional FAO-56 define este cultivo con características
+                    biofísicas fijas:
                 </p>
-                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
-                    <li><strong>Altura Uniforme:</strong> Asume una altura fija de \( 0.12 \) metros.</li>
-                    <li><strong>Albedo:</strong> Coeficiente de reflexión de radiación solar fijado en \( 0.23 \).</li>
-                    <li><strong>Resistencia Superficial:</strong> Fijada en \( 70 \) s/m, lo que emula una superficie extensa de pasto verde, activo, denso y adecuadamente provisto de agua.</li>
+                <ul
+                    class="list-premium"
+                    style="
+                        font-size: 0.95rem;
+                        margin-bottom: 2rem;
+                        padding-left: 1.5rem;
+                    "
+                >
+                    <li>
+                        <strong>Altura Uniforme:</strong> Asume una altura fija de \(
+                        0.12 \) metros.
+                    </li>
+                    <li>
+                        <strong>Albedo:</strong> Coeficiente de reflexión de radiación
+                        solar fijado en \( 0.23 \).
+                    </li>
+                    <li>
+                        <strong>Resistencia Superficial:</strong> Fijada en \( 70 \)
+                        s/m, lo que emula una superficie extensa de pasto verde, activo,
+                        denso y adecuadamente provisto de agua.
+                    </li>
                 </ul>
-                <p style="margin-bottom: 2rem;">
-                    Al fijar estas variables biológicas, la variabilidad de la \( ET_o \) depende exclusivamente de los factores climáticos. Esto justifica la introducción de los coeficientes de cultivo \( (K_c) \), que actúan como factores de escala para adaptar esta demanda de referencia a la fenología, estructura y necesidades reales de los cultivos en Sonora.
+                <p style="margin-bottom: 2rem">
+                    Al fijar estas variables biológicas, la variabilidad de la \( ET_o
+                    \) depende exclusivamente de los factores climáticos. Esto justifica
+                    la introducción de los coeficientes de cultivo \( (K_c) \), que
+                    actúan como factores de escala para adaptar esta demanda de
+                    referencia a la fenología, estructura y necesidades reales de los
+                    cultivos en Sonora.
                 </p>
 
                 <h3>2. Condiciones Físicas y Ambientales (NASA POWER)</h3>
                 <p>
-                    Las simulaciones de evapotranspiración de referencia \( (ET_o) \) se realizan a escala diaria para el periodo 2003-2024 utilizando los datos climatológicos de la NASA POWER a nivel de centroide municipal:
+                    Las simulaciones de evapotranspiración de referencia \( (ET_o) \) se
+                    realizan a escala diaria para el periodo 2003-2024 utilizando los
+                    datos climatológicos de la NASA POWER a nivel de centroide
+                    municipal:
                 </p>
-                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
-                    <li><strong>Radiación Solar Global \( (R_s) \):</strong> Aporta la energía física necesaria para el proceso de evapotranspiración.</li>
-                    <li><strong>Humedad Relativa y Viento \( (u_2) \):</strong> Regulan el gradiente de presión de vapor y el poder desecante de la atmósfera.</li>
-                    <li><strong>Temperatura Máxima, Mínima y Media:</strong> Regulan el desarrollo fenológico y los umbrales de estrés agroclimático por helada \( (< 0^\circ\text{C}) \) o calor extremo \( (> 40^\circ\text{C}) \).</li>
+                <ul
+                    class="list-premium"
+                    style="
+                        font-size: 0.95rem;
+                        margin-bottom: 2rem;
+                        padding-left: 1.5rem;
+                    "
+                >
+                    <li>
+                        <strong>Radiación Solar Global \( (R_s) \):</strong> Aporta la
+                        energía física necesaria para el proceso de evapotranspiración.
+                    </li>
+                    <li>
+                        <strong>Humedad Relativa y Viento \( (u_2) \):</strong> Regulan
+                        el gradiente de presión de vapor y el poder desecante de la
+                        atmósfera.
+                    </li>
+                    <li>
+                        <strong>Temperatura Máxima, Mínima y Media:</strong> Regulan el
+                        desarrollo fenológico y los umbrales de estrés agroclimático por
+                        helada \( (< 0^\circ\text{C}) \) o calor extremo \( (>
+                        40^\circ\text{C}) \).
+                    </li>
                 </ul>
 
                 <h3>3. Derechos de Concesión (REPNA) como Límite del Modelo</h3>
                 <p>
-                    El Registro Público de Derechos de Agua (REPNA) de CONAGUA actúa como una restricción legal y volumétrica de primer orden:
+                    El Registro Público de Derechos de Agua (REPNA) de CONAGUA actúa
+                    como una restricción legal y volumétrica de primer orden:
                 </p>
-                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
-                    <li><strong>Criterio de Restricción:</strong> Ninguna propuesta de reconversión de cultivos puede recomendar una demanda agregada de agua de riego que supere el volumen concesionado registrado en el REPNA para el municipio o Distrito de Riego.</li>
-                    <li><strong>Rol en los cálculos:</strong> El volumen total de concesión establece el techo de demanda hídrica permisible. Si un cultivo requiere una lámina que al multiplicarse por la superficie cultivada supera este techo, el modelo descarta la viabilidad de la superficie completa o fuerza la sustitución inmediata por cultivos de bajo consumo.</li>
+                <ul
+                    class="list-premium"
+                    style="
+                        font-size: 0.95rem;
+                        margin-bottom: 2rem;
+                        padding-left: 1.5rem;
+                    "
+                >
+                    <li>
+                        <strong>Criterio de Restricción:</strong> Ninguna propuesta de
+                        reconversión de cultivos puede recomendar una demanda agregada
+                        de agua de riego que supere el volumen concesionado registrado
+                        en el REPNA para el municipio o Distrito de Riego.
+                    </li>
+                    <li>
+                        <strong>Rol en los cálculos:</strong> El volumen total de
+                        concesión establece el techo de demanda hídrica permisible. Si
+                        un cultivo requiere una lámina que al multiplicarse por la
+                        superficie cultivada supera este techo, el modelo descarta la
+                        viabilidad de la superficie completa o fuerza la sustitución
+                        inmediata por cultivos de bajo consumo.
+                    </li>
                 </ul>
 
-                <h3>4. Diagnóstico de la Tecnificación Real en Sonora (SAGARPA/UNISON)</h3>
+                <h3>
+                    4. Diagnóstico de la Tecnificación Real en Sonora (SAGARPA/UNISON)
+                </h3>
                 <p>
-                    Para calibrar el modelo con la realidad del campo sonorense, se integró el estudio de actualización de la delegación estatal de SAGARPA y la Universidad de Sonora, el cual revela una baja tecnificación generalizada en los distritos:
+                    Para calibrar el modelo con la realidad del campo sonorense, se
+                    integró el estudio de actualización de la delegación estatal de
+                    SAGARPA y la Universidad de Sonora, el cual revela una baja
+                    tecnificación generalizada en los distritos:
                 </p>
-                <div class="card" style="border-left: 4px solid var(--accent-green); margin-bottom: 2rem;">
-                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">
-                        <strong>Promedio Estatal:</strong> De las 531,701 hectáreas en operación agrícola en el estado, solo <strong>106,418 hectáreas están tecnificadas</strong>, lo que representa apenas el <strong>20.0%</strong> de tecnificación general. El 80.0% restante depende de riego por gravedad tradicional con altas tasas de pérdida.
+                <div
+                    class="card"
+                    style="
+                        border-left: 4px solid var(--accent-green);
+                        margin-bottom: 2rem;
+                    "
+                >
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem">
+                        <strong>Promedio Estatal:</strong> De las 531,701 hectáreas en
+                        operación agrícola en el estado, solo
+                        <strong>106,418 hectáreas están tecnificadas</strong>, lo que
+                        representa apenas el <strong>20.0%</strong> de tecnificación
+                        general. El 80.0% restante depende de riego por gravedad
+                        tradicional con altas tasas de pérdida.
                     </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                    <div
+                        style="
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            gap: 1rem;
+                            margin-top: 1rem;
+                            border-top: 1px solid var(--border-color);
+                            padding-top: 1rem;
+                        "
+                    >
                         <div>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Guaymas</span>
-                            <strong style="font-size: 1.25rem; color: var(--accent-green);">78.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                            <span
+                                style="
+                                    font-size: 0.85rem;
+                                    color: var(--text-secondary);
+                                    display: block;
+                                "
+                                >DDR Guaymas</span
+                            >
+                            <strong
+                                style="font-size: 1.25rem; color: var(--accent-green)"
+                                >78.0%
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        font-weight: normal;
+                                        color: var(--text-secondary);
+                                    "
+                                    >tecnificado</span
+                                ></strong
+                            >
                         </div>
                         <div>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Caborca</span>
-                            <strong style="font-size: 1.25rem; color: var(--accent-green);">70.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                            <span
+                                style="
+                                    font-size: 0.85rem;
+                                    color: var(--text-secondary);
+                                    display: block;
+                                "
+                                >DDR Caborca</span
+                            >
+                            <strong
+                                style="font-size: 1.25rem; color: var(--accent-green)"
+                                >70.0%
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        font-weight: normal;
+                                        color: var(--text-secondary);
+                                    "
+                                    >tecnificado</span
+                                ></strong
+                            >
                         </div>
                         <div>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Hermosillo</span>
-                            <strong style="font-size: 1.25rem; color: var(--accent-blue);">47.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                            <span
+                                style="
+                                    font-size: 0.85rem;
+                                    color: var(--text-secondary);
+                                    display: block;
+                                "
+                                >DDR Hermosillo</span
+                            >
+                            <strong
+                                style="font-size: 1.25rem; color: var(--accent-blue)"
+                                >47.0%
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        font-weight: normal;
+                                        color: var(--text-secondary);
+                                    "
+                                    >tecnificado</span
+                                ></strong
+                            >
                         </div>
                         <div>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Navojoa (Mayo)</span>
-                            <strong style="font-size: 1.25rem; color: var(--accent-orange);">13.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                            <span
+                                style="
+                                    font-size: 0.85rem;
+                                    color: var(--text-secondary);
+                                    display: block;
+                                "
+                                >DDR Navojoa (Mayo)</span
+                            >
+                            <strong
+                                style="font-size: 1.25rem; color: var(--accent-orange)"
+                                >13.0%
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        font-weight: normal;
+                                        color: var(--text-secondary);
+                                    "
+                                    >tecnificado</span
+                                ></strong
+                            >
                         </div>
                         <div>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Cajeme (Yaqui)</span>
-                            <strong style="font-size: 1.25rem; color: var(--accent-orange);">8.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                            <span
+                                style="
+                                    font-size: 0.85rem;
+                                    color: var(--text-secondary);
+                                    display: block;
+                                "
+                                >DDR Cajeme (Yaqui)</span
+                            >
+                            <strong
+                                style="font-size: 1.25rem; color: var(--accent-orange)"
+                                >8.0%
+                                <span
+                                    style="
+                                        font-size: 0.85rem;
+                                        font-weight: normal;
+                                        color: var(--text-secondary);
+                                    "
+                                    >tecnificado</span
+                                ></strong
+                            >
                         </div>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                        <strong>Agricultura Protegida:</strong> Se registran únicamente 2,872 hectáreas bajo agricultura protegida (1,370 Ha de invernaderos y 1,501 Ha de malla sombra), de las cuales el 65% se concentran en los distritos de Cajeme y Hermosillo. Esto demuestra que la reconversión productiva debe ir ligada a programas agresivos de tecnificación, sobre todo en los valles del sur (Yaqui y Mayo) que concentran la mayor superficie pero con eficiencias críticas.
+                    <p
+                        style="
+                            font-size: 0.9rem;
+                            color: var(--text-secondary);
+                            margin-top: 1rem;
+                            border-top: 1px solid var(--border-color);
+                            padding-top: 1rem;
+                        "
+                    >
+                        <strong>Agricultura Protegida:</strong> Se registran únicamente
+                        2,872 hectáreas bajo agricultura protegida (1,370 Ha de
+                        invernaderos y 1,501 Ha de malla sombra), de las cuales el 65%
+                        se concentran en los distritos de Cajeme y Hermosillo. Esto
+                        demuestra que la reconversión productiva debe ir ligada a
+                        programas agresivos de tecnificación, sobre todo en los valles
+                        del sur (Yaqui y Mayo) que concentran la mayor superficie pero
+                        con eficiencias críticas.
                     </p>
                 </div>
 
-                <div class="figure-title" style="margin-top: 2.5rem;">
+                <div class="figure-title" style="margin-top: 2.5rem">
                     Distribución de la Tecnificación del Riego por DDR en Sonora
                 </div>
                 <div
@@ -1718,134 +2163,20 @@ def calculate_wf_uac(
                 <div id="estadisticas-content"></div>
             </section>
 
-            <!-- Footer con Datasets Utilizados -->
+            <!-- Footer con Copyright/Institucional -->
             <footer
-                class="footer-datasets"
                 style="
                     margin-top: 4rem;
                     padding-top: 2rem;
                     border-top: 1px solid var(--card-border);
                     text-align: center;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
+                    font-size: 0.8rem;
+                    color: var(--text-muted);
+                    padding-bottom: 2rem;
                 "
             >
-                <h3>Datasets y Fuentes de Información Utilizados</h3>
-                <p
-                    style="
-                        margin-bottom: 1.5rem;
-                        max-width: 800px;
-                        margin-left: auto;
-                        margin-right: auto;
-                    "
-                >
-                    Este proyecto consolida datos de múltiples fuentes oficiales e
-                    institucionales para modelar la reconversión de manera rigurosa:
-                </p>
-                <div
-                    class="card-grid"
-                    style="
-                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                        gap: 1.5rem;
-                        text-align: left;
-                        margin-bottom: 2rem;
-                    "
-                >
-                    <div
-                        class="card"
-                        style="padding: 1rem; border-top: 3px solid var(--accent-green)"
-                    >
-                        <strong style="color: var(--accent-green)"
-                            ><i class="fa-solid fa-cloud-sun-rain"></i> NASA POWER
-                            API</strong
-                        >
-                        <p
-                            style="
-                                font-size: 0.85rem;
-                                margin-top: 0.5rem;
-                                line-height: 1.4;
-                            "
-                        >
-                            Series históricas meteorológicas de temperatura, radiación
-                            solar, humedad relativa, velocidad del viento y
-                            precipitación total para cada municipio de Sonora.
-                        </p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
-                            padding: 1rem;
-                            border-top: 3px solid var(--accent-orange);
-                        "
-                    >
-                        <strong style="color: var(--accent-orange)"
-                            ><i class="fa-solid fa-droplet"></i> Monitor de Sequía
-                            (CONAGUA)</strong
-                        >
-                        <p
-                            style="
-                                font-size: 0.85rem;
-                                margin-top: 0.5rem;
-                                line-height: 1.4;
-                            "
-                        >
-                            Registros de intensidad de sequía a escala municipal
-                            (2003-2026) utilizados para construir el Índice ISAG y
-                            evaluar la recurrencia regional.
-                        </p>
-                    </div>
-                    <div
-                        class="card"
-                        style="padding: 1rem; border-top: 3px solid var(--accent-blue)"
-                    >
-                        <strong style="color: var(--accent-blue)"
-                            ><i class="fa-solid fa-wheat-awn"></i> SIAP (Producción
-                            Agrícola)</strong
-                        >
-                        <p
-                            style="
-                                font-size: 0.85rem;
-                                margin-top: 0.5rem;
-                                line-height: 1.4;
-                            "
-                        >
-                            Series de tiempo municipales de producción, superficies
-                            sembradas/cosechadas, rendimientos físicos y Precios Medios
-                            Rurales (PMR) (2003-2024).
-                        </p>
-                    </div>
-                    <div
-                        class="card"
-                        style="padding: 1rem; border-top: 3px solid var(--accent-green)"
-                    >
-                        <strong style="color: var(--accent-green)"
-                            ><i class="fa-solid fa-file-contract"></i> REPNA
-                            (CONAGUA)</strong
-                        >
-                        <p
-                            style="
-                                font-size: 0.85rem;
-                                margin-top: 0.5rem;
-                                line-height: 1.4;
-                            "
-                        >
-                            Títulos oficiales de concesión y asignación de derechos de
-                            extracción de aguas nacionales, permitiendo cuantificar los
-                            volúmenes anuales autorizados de pozos agrícolas.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    style="
-                        font-size: 0.8rem;
-                        color: var(--text-muted);
-                        margin-top: 1rem;
-                        padding-bottom: 2rem;
-                    "
-                >
-                    © 2026 Seminario de Inteligencia Artificial - Reconversión
-                    Productiva. LCC, Universidad de Sonora.
-                </div>
+                © 2026 Seminario de Inteligencia Artificial - Reconversión Productiva.
+                LCC, Universidad de Sonora.
             </footer>
         </main>
 
