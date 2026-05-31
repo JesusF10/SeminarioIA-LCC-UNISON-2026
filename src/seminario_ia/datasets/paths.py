@@ -16,18 +16,14 @@ CONFIG_DATA_DIR = DATA_DIR / "config"
 
 # Rutas a datasets específicos en el directorio raw
 SEQUIA_DIR = RAW_DIR / "datos-sequia"
-DATOS_ABIERTOS_SONORA_DIR = RAW_DIR / "datos-abiertos"
 SIAP_DIR = RAW_DIR / "siap-produccion-agricola"
-SIACON_DIR = RAW_DIR / "siacon"
 PROPORCIONADOS_DIR = RAW_DIR / "datos_proporcionados"
 DATOS_CONAGUA = RAW_DIR / "conagua"
 
 # Diccionario de datasets en raw
 RAW_DATASETS: dict[str, Path] = {
     "datos-sequia": SEQUIA_DIR,
-    "datos-abiertos": DATOS_ABIERTOS_SONORA_DIR,
     "siap-produccion-agricola": SIAP_DIR,
-    "siacon": SIACON_DIR,
     "datos_proporcionados": PROPORCIONADOS_DIR,
     "conagua": DATOS_CONAGUA,
 }

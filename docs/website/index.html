@@ -1384,6 +1384,114 @@
     def add_crop(self, crop: Crop) -> None:
         """Agrega un cultivo a la región geográfica."""
         self.crops.append(crop)</code></pre>
+
+                <h2>Algoritmos de Cálculo y Fórmulas en Python (<code>eto.py</code>)</h2>
+                <p>
+                    Las ecuaciones del estándar FAO-56 se implementan de forma modular
+                    dentro de la librería en el archivo <code>src/seminario_ia/utils/eto.py</code>.
+                    A continuación se detallan los bloques algorítmicos principales de cálculo diario:
+                </p>
+
+                <h3>Evapotranspiración de Referencia ($E T_o$ - Penman-Monteith)</h3>
+                <p>
+                    El cálculo principal diario de la evapotranspiración de referencia, integrando
+                    todas las derivaciones de radiación neta de onda corta y larga y las constantes psicrométricas:
+                </p>
+                <pre><code class="language-python">def eto_fao56_mm(
+    tmax, tmin, rh_pct, u2_ms, rs_mjm2d, lat_deg, z_m, doy, g_mjm2d: float = 0.0
+):
+    """
+    ETo [mm/día] — FAO-56 Penman-Monteith (Eq. 6) diario (G=0 por defecto).
+    Usa es, ea (de T y HR), delta(Tmean), gamma(z) y Rn = Rns - Rnl (Rnl FAO-56 Eq. 39)
+    """
+    tmean = (tmax + tmin) / 2.0
+    es = (es_kpa(tmax) + es_kpa(tmin)) / 2.0
+    ea = es * (rh_pct / 100.0)
+    delta = delta_kpa_per_c(tmean)
+    p = atm_pressure_kpa(z_m)
+    gamma = psychrometric_constant_kpa_per_c(p)
+
+    rso = extraterrestrial_radiation_mj_m2d(lat_deg, doy)
+    rns = net_shortwave_rns(rs_mjm2d=rs_mjm2d, albedo=ALBEDO)
+    rnl = net_longwave_rnl_fao56(tmax, tmin, ea, rs_mjm2d, rso)
+    rn = rns - rnl
+    
+    num = 0.408 * delta * (rn - g_mjm2d) + gamma * (900.0 / (tmean + 273.0)) * u2_ms * (es - ea)
+    den = delta + gamma * (1.0 + 0.34 * u2_ms)
+    eto = max(0.0, num / den)
+    return {
+        "Tmean_": tmean, "es_": es, "ea_": ea, "delta_": delta, "P_": p, "gamma_": gamma,
+        "Rso_": rso, "Rns_": rns, "Rnl_": rnl, "Rn_": rn, "ET0": eto
+    }</code></pre>
+
+                <h3>Construcción de la Curva Diaria de Coeficiente de Cultivo ($K_c$)</h3>
+                <p>
+                    Calcula los coeficientes diarios correspondientes a las fases vegetativas del cultivo:
+                </p>
+                <pre><code class="language-python">def daily_kc_curve(
+    fechas_idx: pd.DatetimeIndex,
+    kc_ini: float,
+    kc_mid: float,
+    kc_end: float,
+    dur,  # (d_ini, d_des, d_mid, d_fin)
+) -> pd.Series:
+    """
+    Calcula la curva de Kc diaria asignando valores constantes por etapa fenológica.
+    """
+    d_ini, d_des, d_mid, d_fin = dur
+    n = len(fechas_idx)
+
+    kc_ini_arr = np.full(d_ini, kc_ini)
+    kc_des_arr = np.full(d_des, kc_mid)
+    kc_mid_arr = np.full(d_mid, kc_mid)
+    kc_fin_arr = np.full(d_fin, kc_end)
+
+    kc_full = np.concatenate([kc_ini_arr, kc_des_arr, kc_mid_arr, kc_fin_arr])
+
+    if len(kc_full) >= n:
+        kc_full = kc_full[:n]
+    else:
+        kc_full = np.concatenate([kc_full, np.full(n - len(kc_full), kc_end)])
+
+    return pd.Series(kc_full, index=fechas_idx, name="Kc_")</code></pre>
+
+                <h3>Precipitación Efectiva ($P_"ef"$) y Huella Hídrica Total</h3>
+                <p>
+                    Módulos para estimar la fracción pluvial aprovechada en parcela y los componentes azul y verde de la huella hídrica:
+                </p>
+                <pre><code class="language-python">def pef_simple_fao_per_day(ptot_series_mm: pd.Series) -> pd.Series:
+    """Calcula Pef aplicando un factor (0.8 o 0.6) según el volumen de lluvia del ciclo."""
+    ptotal = ptot_series_mm.fillna(0).sum()
+    f = 0.8 if ptotal < 250.0 else 0.6
+    return ptot_series_mm.fillna(0) * f
+
+def calculate_wf_uac(
+    green_et_series_mm: pd.Series,
+    blue_et_series_mm: pd.Series,
+    performance_ton_ha: float,
+) -> dict:
+    """Calcula Consumo Unitario de Agua (UAC en m³/Ha) y Huella Hídrica (HH en m³/Ton)."""
+    total_green_et_mm = float(pd.Series(green_et_series_mm).fillna(0).sum())
+    total_blue_et_mm = float(pd.Series(blue_et_series_mm).fillna(0).sum())
+
+    green_uac_m3_ha = total_green_et_mm * 10.0
+    blue_uac_m3_ha = total_blue_et_mm * 10.0
+
+    if (performance_ton_ha is not None) and (performance_ton_ha > 0):
+        green_wf_m3_ton = green_uac_m3_ha / performance_ton_ha
+        blue_wf_m3_ton = blue_uac_m3_ha / performance_ton_ha
+    else:
+        green_wf_m3_ton = float("nan")
+        blue_wf_m3_ton = float("nan")
+
+    return {
+        "ETverde_total_mm": total_green_et_mm,
+        "ETazul_total_mm": total_blue_et_mm,
+        "UACverde_m3_ha": green_uac_m3_ha,
+        "UACazul_m3_ha": blue_uac_m3_ha,
+        "HHverde_m3_ton": green_wf_m3_ton,
+        "HHazul_m3_ton": blue_wf_m3_ton,
+    }</code></pre>
             </section>
 
             <!-- Sección: Especificaciones del Modelo y Cultivos -->
