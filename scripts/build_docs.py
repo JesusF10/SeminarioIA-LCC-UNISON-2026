@@ -127,6 +127,9 @@ def clean_typst_math_to_latex(math_expr: str) -> str:
     expr = re.sub(r"sum_\"(.*?)\"", lambda m: f"\\sum_{{\\text{{{m.group(1)}}}}}", expr)
     expr = re.sub(r"\"(.*?)\"", lambda m: f"\\text{{{m.group(1)}}}", expr)
 
+    # Limpiar paréntesis en exponentes: ^{(...)} → ^{...}
+    expr = re.sub(r"\^\{?\(([^()]*)\)\}?", lambda m: f"^{{{m.group(1)}}}", expr)
+
     # Reemplazos literales simples (no regex)
     literal_replacements = [
         ("approx", r"\approx"),
@@ -213,8 +216,8 @@ def parse_typst_tables(content: str) -> str:
         return html
 
     # Regex para capturar bloques de #table(...)
-    # Soporta paréntesis anidados simples
-    table_pattern = r"#table\((.*?)\n\)"
+    # Soporta paréntesis anidados simples e indentación al cierre
+    table_pattern = r"#table\((.*?)\n\s*\)"
     return re.sub(table_pattern, table_replacer, content, flags=re.DOTALL)
 
 
@@ -371,6 +374,18 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             flush_paragraph()
             continue
 
+        # 4b. Continuación de item de lista con sangría
+        if (line.startswith(" ") or line.startswith("\t")) and stripped and current_section["blocks"] and current_section["blocks"][-1]["type"] == "list-item" and not pending_paragraph:
+            def inline_math_replacer(match):
+                math_expr = match.group(1)
+                latex = clean_typst_math_to_latex(math_expr)
+                return f"\\({latex}\\)"
+
+            clean_text = re.sub(r"\$([^\$]+)\$", inline_math_replacer, stripped)
+            clean_text = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", clean_text)
+            current_section["blocks"][-1]["content"] += " " + clean_text
+            continue
+
         # 5. Manejo de encabezados (e.g. "= Introducción" o "== NASA POWER")
         heading_match = re.match(r"^(=+)\s+(.*)$", stripped)
         if heading_match:
@@ -401,18 +416,26 @@ def parse_typst_file(filepath: Path) -> list[dict]:
             current_section["blocks"].append({"type": "math-block", "content": latex_math})
             continue
 
-        # 7. Listas
-        if stripped.startswith("- "):
+        # 7. Listas (viñetas y numeradas)
+        list_match = re.match(r"^(?:-\s+|\d+\.\s+)(.*)$", stripped)
+        if list_match:
             flush_paragraph()
-            # Formatear el item de la lista
+            item_text = list_match.group(1)
             def inline_math_replacer(match):
                 math_expr = match.group(1)
                 latex = clean_typst_math_to_latex(math_expr)
                 return f"\\({latex}\\)"
 
-            item_text = re.sub(r"\$([^\$]+)\$", inline_math_replacer, stripped[2:])
+            item_text = re.sub(r"\$([^\$]+)\$", inline_math_replacer, item_text)
             item_text = re.sub(r"\*(.*?)\*", r"<strong>\1</strong>", item_text)
-            current_section["blocks"].append({"type": "list-item", "content": item_text})
+            
+            num_match = re.match(r"^(\d+)\.\s+", stripped)
+            prefix = f"{num_match.group(1)}. " if num_match else ""
+            
+            current_section["blocks"].append({
+                "type": "list-item",
+                "content": prefix + item_text
+            })
             continue
 
         # 8. Acumular texto para párrafo
@@ -452,12 +475,20 @@ def main():
         with open(codificaciones_path, encoding="utf-8") as f:
             codificaciones_data = json.load(f)
 
+    # Cargar resumen de sequía
+    resumen_sequia_path = BASE_DIR / "data/processed/resumen_sequia.json"
+    resumen_sequia_data = {}
+    if resumen_sequia_path.exists():
+        with open(resumen_sequia_path, encoding="utf-8") as f:
+            resumen_sequia_data = json.load(f)
+
     # Consolidar toda la base de datos de contenido
     compiled_data = {
         "reporte_hh": sections_hh,
         "reporte_est": sections_est,
         "cultivos": cultivos_data,
         "codificaciones": codificaciones_data,
+        "resumen_sequia": resumen_sequia_data,
         "meta": {
             "title": "Seminario IA - Reconversión Productiva Sonora 2026",
             "version": "1.0.0",

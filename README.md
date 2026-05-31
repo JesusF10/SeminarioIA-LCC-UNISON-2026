@@ -233,19 +233,16 @@ lectura de estos se centraliza a través del submódulo `seminario_ia.datasets`.
 
 ### Datos Crudos (data/raw/)
 
-- `conagua/`: Títulos de concesión (REPDA) y almacenamiento de presas.
-- `datos-abiertos/`: Agricultura y recursos hídricos en Sonora (Gobierno).
 - `datos-sequia/`: Registros históricos del Monitor de Sequía de la CONAGUA.
-- `datos_proporcionados/`: Información general provista al inicio del proyecto.
+- `datos_proporcionados/`: Información general provista al inicio del proyecto (concesiones REPNA y tecnificación).
 - `sader/`: Datos de Distritos de Desarrollo Rural (DDR) y oficinas del estado.
-- `siacon/`: Archivos del Sistema de Información Agroalimentaria y Pesquera.
 - `siap-produccion-agricola/`: Estadísticas de producción municipal e histórica.
 
 ### Datos Procesados (data/processed/)
 
 - `SonoraLatLongAlt.csv`: Ubicaciones geográficas y altitud por municipio.
-- `monitor_sequia_sonora.csv`: Historial depurado de sequía municipal en Sonora.
-- `sequia_indices_sonora.csv`: Índices de recurrencia y severidad de sequía.
+- `monitor_sequia_sonora.csv`: Bitácora histórica transaccional detallada de sequía municipal (quincenal/mensual, 2003-2026).
+- `sequia_indices_sonora.csv`: Matriz atemporal de indicadores agregados por municipio (recurrencia, severidad, consecutividad) para los ciclos Primavera-Verano (`_PV`) y Otoño-Invierno (`_OI`).
 - `analisis_municipal_sonora_2010_2024.csv`: Datos consolidados multivariables.
 - `nasa_power/`: Datos climáticos diarios del servicio NASA POWER (2003-2024) organizados en formato
   CSV por municipio y año.
@@ -312,5 +309,4 @@ desarrollo interactivo de nuevas funciones.
 - [FIRA - Agrocostos (Costos de Producción 2024-2025)](https://www.fira.gob.mx/InfraestructuraWeb/AnexosStatico.jsp?IdAnexo=7372)
 - [INIFAP - Paquetes Tecnológicos y Requerimientos Hídricos](https://www.gob.mx/inifap)
 - [CONAGUA - Almacenamiento de Presas](https://www.gob.mx/conagua)
-- [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430)
 - [NASAPOWER](https://power.larc.nasa.gov/api/pages/)

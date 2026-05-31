@@ -29,9 +29,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
         />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
-        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
         <!-- Chart.js para Visualizaciones Gráficas -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -109,6 +107,11 @@
                         ><i class="fa-solid fa-sliders"></i> Calculadora FAO-56</a
                     >
                 </li>
+                <li class="nav-item" data-section="hidrico">
+                    <a href="#hidrico"
+                        ><i class="fa-solid fa-droplet"></i> Situación Hídrica</a
+                    >
+                </li>
                 <li class="nav-item" data-section="datos">
                     <a href="#datos"
                         ><i class="fa-solid fa-database"></i> Inventario Datos</a
@@ -117,6 +120,11 @@
                 <li class="nav-item" data-section="arquitectura">
                     <a href="#arquitectura"
                         ><i class="fa-solid fa-sitemap"></i> Arquitectura Código</a
+                    >
+                </li>
+                <li class="nav-item" data-section="especificaciones">
+                    <a href="#especificaciones"
+                        ><i class="fa-solid fa-seedling"></i> Especificaciones Condiciones</a
                     >
                 </li>
                 <li class="nav-item" data-section="estadisticas">
@@ -147,8 +155,7 @@
                         >Ciencias de la Computación de la Universidad de Sonora</strong
                     >, tiene como objetivo proponer alternativas viables de
                     <strong>reconversión de cultivos</strong> para optimizar el uso de
-                    los recursos hídricos y aumentar la rentabilidad agrícola frente a
-                    la sequía en Sonora.
+                    los recursos hídricos y aumentar la rentabilidad agrícola en Sonora.
                 </p>
 
                 <div class="card-grid">
@@ -161,11 +168,11 @@
                                 class="fa-solid fa-droplet"
                                 style="color: var(--accent-blue)"
                             ></i>
-                            Eje Hídrico
+                            Recurso Hídrico
                         </div>
                         <p style="font-size: 0.95rem; margin-bottom: 0">
-                            Análisis y cálculo de evapotranspiración de referencia (ETo)
-                            y evapotranspiración del cultivo (ETc) bajo el estándar
+                            Análisis y cálculo de evapotranspiración del cultivo (ETc) y
+                            la huella hídrica (HH) del cultivo bajo el estándar
                             internacional FAO-56.
                         </p>
                     </div>
@@ -409,6 +416,898 @@
                     </div>
                 </div>
             </section>
+            <!-- Sección: Diagnóstico Hídrico y Sequía -->
+            <section id="hidrico" class="section">
+                <h1>Diagnóstico Hídrico y Riesgo por Sequía en Sonora</h1>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem">
+                    Monitoreo y evaluación espacial del estrés hídrico a tres niveles
+                    territoriales (Estatal, DDR y Municipal) combinando datos históricos
+                    del Monitor de Sequía de la CONAGUA con mapas de calor.
+                </p>
+
+                <!-- Resumen de Métricas de Sequía y Balance -->
+                <div
+                    class="card-grid"
+                    style="
+                        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                        margin-bottom: 2.5rem;
+                    "
+                >
+                    <div
+                        class="card"
+                        style="
+                            text-align: center;
+                            border-left: 4px solid var(--accent-orange);
+                        "
+                    >
+                        <div
+                            class="card-title"
+                            id="stat-drought-freq"
+                            style="
+                                font-size: 2rem;
+                                font-weight: bold;
+                                margin: 0.5rem 0;
+                                color: var(--accent-orange);
+                            "
+                        >
+                            --%
+                        </div>
+                        <p style="font-size: 0.9rem">
+                            Porcentaje del tiempo que Sonora ha estado bajo condiciones
+                            de sequía de moderada a excepcional (D1-D4) desde 2003.
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="
+                            text-align: center;
+                            border-left: 4px solid var(--accent-blue);
+                        "
+                    >
+                        <div
+                            class="card-title"
+                            id="stat-max-deficit"
+                            style="
+                                font-size: 2rem;
+                                font-weight: bold;
+                                margin: 0.5rem 0;
+                                color: var(--accent-blue);
+                            "
+                        >
+                            -- mm
+                        </div>
+                        <p style="font-size: 0.9rem">
+                            El municipio de
+                            <strong id="stat-max-deficit-mun">--</strong> registra el
+                            mayor déficit climatológico acumulado anual.
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="
+                            text-align: center;
+                            border-left: 4px solid var(--accent-green);
+                        "
+                    >
+                        <div
+                            class="card-title"
+                            id="stat-frac-azul"
+                            style="
+                                font-size: 2rem;
+                                font-weight: bold;
+                                margin: 0.5rem 0;
+                                color: var(--accent-green);
+                            "
+                        >
+                            --%
+                        </div>
+                        <p style="font-size: 0.9rem">
+                            Fracción de agua azul (riego de presas/pozos) promedio requerida
+                            para la evapotranspiración de los cultivos en Sonora.
+                        </p>
+                    </div>
+                </div>
+
+                <h2>1. Evolución Temporal de la Sequía en Sonora (2003-2026)</h2>
+                <p>
+                    Para proponer una reconversión productiva efectiva y sustentable en
+                    el estado, primero es crucial evaluar el comportamiento histórico de
+                    largo plazo de la escasez de agua. Este análisis retrospectivo de
+                    área apilada clasifica la porción del territorio municipal sonorense
+                    afectado por diferentes niveles de severidad de sequía en las
+                    últimas dos décadas.
+                </p>
+                <div class="figure-title">
+                    Evolución Histórica de la Sequía en Sonora (2003-2026)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2rem;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/evolucion_sequia_historica.png"
+                        alt="Evolución de Sequía"
+                        style="
+                            max-width: 95%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    La gráfica revela una condición crónica y estructural: Sonora
+                    experimenta sequías recurrentes con picos devastadores en 2011-2012,
+                    2020-2021 y un repunte alarmante que inició en 2023 y continúa hacia
+                    2026, donde casi el 90% del territorio agrícola ha estado bajo
+                    alguna categoría de sequía. La persistente presencia de sequía
+                    Extrema (D3) y Excepcional (D4) justifica que no se puede planificar
+                    la agricultura estatal basada en años "promedio", y que sostener
+                    cultivos perennes de ciclo largo (como alfalfa o nogal) expone a los
+                    productores a pérdidas catastróficas debido al inminente colapso en
+                    la disponibilidad de agua en las fuentes de abasto.
+                </p>
+
+                <h2>
+                    2. Tendencia de Precipitación y Temperatura Promedio (2010-2023)
+                </h2>
+                <p>
+                    Este análisis de tendencia evalúa de manera conjunta la
+                    precipitación pluvial acumulada anual y la temperatura media
+                    promedio registrada durante los ciclos agrícolas, permitiendo
+                    identificar si el déficit de agua se ve agravado por factores
+                    térmicos.
+                </p>
+                <div class="figure-title">
+                    Tendencia de Precipitación y Temperatura en Sonora (2010-2023)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/tendencia_climatica_anual.png"
+                        alt="Tendencia Climática"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    Se observa una tendencia de precipitación media anual a la baja, con
+                    una alta variabilidad interanual típica del desierto, acompañada de
+                    un incremento sostenido en la temperatura media. Este patrón de
+                    calentamiento incrementa de forma directa la evapotranspiración de
+                    referencia (\(ET_o\)), lo que significa que los cultivos demandan
+                    hoy más agua simplemente para sobrevivir y transpirar de la que
+                    necesitaban hace una década. Esta creciente brecha entre la oferta
+                    de lluvia que disminuye y el consumo fisiológico que aumenta hace
+                    imperativo reconvertir la producción hacia cultivos eficientes.
+                </p>
+
+                <h2>
+                    3. Eficiencia de la Lluvia: Precipitación Total vs. Precipitación
+                    Efectiva
+                </h2>
+                <p>
+                    Representa la fracción del volumen de lluvia acumulada que logra
+                    penetrar y almacenarse en la zona radicular del suelo (lluvia
+                    efectiva, \(P_{ef}\)) contra las pérdidas generadas por escorrentía
+                    rápida o evaporación directa.
+                </p>
+                <div class="figure-title">
+                    Comparativa de Lluvia Total vs. Lluvia Efectiva por Municipio
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/eficiencia_lluvia_municipios.png"
+                        alt="Eficiencia de Lluvia por Municipio"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    El análisis revela que en municipios serranos y del sur (Álamos,
+                    Yécora, Quiriego), a pesar de registrar precipitaciones totales
+                    considerables por el monzón, la lluvia efectiva es proporcionalmente
+                    baja. El relieve montañoso y la falta de cobertura vegetal provocan
+                    escurrimientos rápidos e inundaciones torrenciales que no recargan
+                    el suelo agrícola. Esto justifica que la planificación agrícola en
+                    la sierra no deba sobreestimar la lluvia total, requiriendo
+                    prácticas de labranza de conservación y obras de retención de agua
+                    en parcelas.
+                </p>
+
+                <h2>4. Distribución de Días de Lluvia Significativa en el Ciclo</h2>
+                <p>
+                    Muestra el número promedio de días en los que se registran
+                    precipitaciones iguales o mayores a 1 mm y 5 mm, permitiendo
+                    contrastar lluvias de distribución constante contra eventos aislados
+                    y torrenciales del monzón.
+                </p>
+                <div class="figure-title">
+                    Días Promedio de Lluvia Significativa por Municipio
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/dias_lluvia_municipios.png"
+                        alt="Días de Lluvia por Municipio"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    La mayoría de los municipios registran menos de 15 días de lluvia
+                    significativa (\(\ge 5\) mm) en todo el ciclo. El agua pluvial cae
+                    en eventos muy concentrados, dejando largos periodos intermedios sin
+                    humedad en el suelo. Esto confirma la fragilidad pluvial del estado:
+                    los cultivos pluviales tradicionales sufren estrés crónico
+                    intermedio, sustentando la necesidad de reconvertir hacia cultivos
+                    tolerantes a sequías intermitentes o introducir sistemas de
+                    micro-riego complementario.
+                </p>
+
+                <h2>5. Impacto por Sequía Acumulada Municipal (ISAG) por Ciclo</h2>
+                <p>
+                    Los siguientes mapas vectoriales representan el Índice de Impacto
+                    por Sequía Acumulada Georeferenciada (ISAG) clasificado por niveles
+                    de vulnerabilidad para los ciclos Primavera-Verano e Otoño-Invierno.
+                    Se observa que la distribución del riesgo hídrico varía de forma
+                    drástica según la época del año.
+                </p>
+                <div
+                    class="card-grid"
+                    style="grid-template-columns: 1fr 1fr; margin-bottom: 2.5rem"
+                >
+                    <div>
+                        <div class="figure-title" style="margin-top: 0">
+                            Ciclo Primavera-Verano (P-V)
+                        </div>
+                        <div class="card" style="text-align: center">
+                            <img
+                                src="images/mapa_isag_primavera-verano.png"
+                                alt="Mapa ISAG PV"
+                                style="
+                                    max-width: 100%;
+                                    border-radius: var(--border-radius);
+                                    border: 1px solid var(--card-border);
+                                "
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="figure-title" style="margin-top: 0">
+                            Ciclo Otoño-Invierno (O-I)
+                        </div>
+                        <div class="card" style="text-align: center">
+                            <img
+                                src="images/mapa_isag_otoño-invierno.png"
+                                alt="Mapa ISAG OI"
+                                style="
+                                    max-width: 100%;
+                                    border-radius: var(--border-radius);
+                                    border: 1px solid var(--card-border);
+                                "
+                            />
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    El mapa espacial demuestra que en el ciclo Primavera-Verano,
+                    prácticamente todo el territorio presenta una vulnerabilidad extrema
+                    alta. Las altas temperaturas veraniegas evaporan el agua del suelo
+                    con rapidez. En Otoño-Invierno, la vulnerabilidad disminuye
+                    ligeramente en los valles costeros, concentrándose el riesgo en el
+                    norte y la zona serrana. Esto justifica que la estrategia de
+                    reconversión deba ser estacional: el ciclo Primavera-Verano requiere
+                    una sustitución total e inmediata de cultivos de alta demanda por
+                    forrajes rústicos (sorgo, garbanzo) o la suspensión selectiva de
+                    siembras.
+                </p>
+
+                <h2>6. Estrés Agroclimático por Temperaturas Extremas</h2>
+                <p>
+                    Muestra el promedio anual de días por ciclo en que el cultivo sufre
+                    estrés por temperaturas máximas extremas (calor superior a los
+                    límites fisiológicos) o temperaturas mínimas (riesgo físico de
+                    helada perjudicial).
+                </p>
+                <div class="figure-title">
+                    Días Promedio de Estrés por Calor y Riesgo de Helada
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/estres_termico_municipios.png"
+                        alt="Estrés Térmico por Municipio"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    Sonora presenta una segmentación térmica muy marcada: los municipios
+                    de la sierra registran un alto número de días con riesgo de heladas,
+                    limitando el cultivo de perennes sensibles, mientras que las
+                    planicies costeras experimentan más de 90 días de calor extremo.
+                    Este calor excesivo provoca el aborto de floración en hortalizas y
+                    aumenta la demanda de agua de transpiración. La reconversión
+                    productiva debe cruzar estos umbrales térmicos para evitar
+                    establecer cultivos que sufran estrés destructivo en su etapa
+                    crítica de desarrollo.
+                </p>
+
+                <h2>7. Distribución Espacial de Temperaturas por Municipio</h2>
+                <p>
+                    Zonificación geográfica de las temperaturas media, máxima y mínima
+                    registradas durante los ciclos productivos en el estado, sirviendo
+                    como mapa base para seleccionar cultivos viables según sus
+                    requerimientos térmicos:
+                </p>
+                <div
+                    class="card-grid"
+                    style="grid-template-columns: 1fr 1fr; margin-bottom: 2rem"
+                >
+                    <div>
+                        <div class="figure-title" style="margin-top: 0">
+                            Temperatura Media Promedio
+                        </div>
+                        <div class="card" style="text-align: center">
+                            <img
+                                src="images/mapa_temperatura_media.png"
+                                alt="Temperatura Media"
+                                style="
+                                    max-width: 100%;
+                                    border-radius: var(--border-radius);
+                                    border: 1px solid var(--card-border);
+                                "
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="figure-title" style="margin-top: 0">
+                            Temperatura Máxima Promedio
+                        </div>
+                        <div class="card" style="text-align: center">
+                            <img
+                                src="images/mapa_temperatura_maxima.png"
+                                alt="Temperatura Máxima"
+                                style="
+                                    max-width: 100%;
+                                    border-radius: var(--border-radius);
+                                    border: 1px solid var(--card-border);
+                                "
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="figure-title">Temperatura Mínima Promedio</div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/mapa_temperatura_minima.png"
+                        alt="Temperatura Mínima"
+                        style="
+                            max-width: 80%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    Los mapas cartográficos reflejan que la llanura costera del Golfo y
+                    el desierto del noroeste son áreas de acumulación de calor extremo,
+                    ideales para cultivos de alta termotolerancia (como dátil o sorgo)
+                    pero inviables para especies templadas. Al contrario, las zonas
+                    serranas altas del noreste concentran inviernos fríos idóneos para
+                    frutales que requieren acumular horas-frío. Esta zonificación
+                    orienta geográficamente el destino de cada propuesta de
+                    reconversión.
+                </p>
+
+                <h2>
+                    8. Láminas de Riego y Capacidades por Cultivo (Manual INIFAP/FIRA)
+                </h2>
+                <p>
+                    Los requerimientos de agua teóricos para los principales cultivos en
+                    Sonora muestran la gran brecha de consumo entre los cultivos
+                    agrícolas tradicionales y las alternativas recomendadas:
+                </p>
+                <div class="table-responsive">
+                    <table class="table-premium">
+                        <thead>
+                            <tr>
+                                <th>Cultivo</th>
+                                <th>Tipo</th>
+                                <th>Lámina de Riego (mm)</th>
+                                <th>Costo de Producción (MXN/Ha)</th>
+                                <th>Duración (Días)</th>
+                                <th>Rendimiento Promedio (Ton/Ha)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alfalfa</td>
+                                <td>Forraje (Perenne)</td>
+                                <td><strong>1,650 mm</strong></td>
+                                <td>$52,000</td>
+                                <td>365</td>
+                                <td>15.0</td>
+                            </tr>
+                            <tr>
+                                <td>Nogal Pecanero</td>
+                                <td>Frutal (Perenne)</td>
+                                <td><strong>1,350 mm</strong></td>
+                                <td>$85,000</td>
+                                <td>365</td>
+                                <td>2.1</td>
+                            </tr>
+                            <tr>
+                                <td>Dátil</td>
+                                <td>Frutal (Perenne)</td>
+                                <td><strong>1,850 mm</strong></td>
+                                <td>$95,000</td>
+                                <td>365</td>
+                                <td>8.5</td>
+                            </tr>
+                            <tr>
+                                <td>Maíz Grano</td>
+                                <td>Grano</td>
+                                <td><strong>800 mm</strong></td>
+                                <td>$55,000</td>
+                                <td>150</td>
+                                <td>10.5</td>
+                            </tr>
+                            <tr>
+                                <td>Trigo Grano</td>
+                                <td>Grano</td>
+                                <td><strong>650 mm</strong></td>
+                                <td>$35,000</td>
+                                <td>160</td>
+                                <td>6.5</td>
+                            </tr>
+                            <tr>
+                                <td>Tomate Rojo</td>
+                                <td>Hortaliza</td>
+                                <td><strong>725 mm</strong></td>
+                                <td>$365,000</td>
+                                <td>140</td>
+                                <td>80.0</td>
+                            </tr>
+                            <tr>
+                                <td>Garbanzo Grano</td>
+                                <td>Leguminosa</td>
+                                <td><strong>375 mm</strong></td>
+                                <td>$28,000</td>
+                                <td>150</td>
+                                <td>2.3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    Se hace evidente que cultivos perennes como la alfalfa (1,650 mm) o
+                    el dátil (1,850 mm) ejercen una presión hídrica continua los 365
+                    días del año. Los granos tradicionales como maíz y trigo demandan
+                    láminas considerables de 650 a 800 mm por ciclo de 150 días. En
+                    contraste, cultivos de bajo requerimiento como el garbanzo (375 mm)
+                    y ciertas hortalizas representan alternativas idóneas de bajo
+                    consumo hídrico por ciclo agrícola.
+                </p>
+
+                <h2>9. Balance de Déficit Hídrico Climatológico por Municipio</h2>
+                <p>
+                    El déficit hídrico climatológico (\(ET_o - P_{ef}\)) representa la
+                    diferencia física entre lo que el ambiente evapotranspira y lo que
+                    la lluvia aporta de manera efectiva al suelo, determinando la
+                    necesidad real de riego suplementario.
+                </p>
+                <div class="figure-title">
+                    Municipios con Mayor Déficit Climatológico Anual (mm)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/deficit_hidrico_municipios.png"
+                        alt="Déficit Hídrico por Municipio"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <div class="figure-title">Mapa de Distribución del Déficit Hídrico</div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/mapa_deficit_hidrico.png"
+                        alt="Mapa de Déficit Hídrico"
+                        style="
+                            max-width: 80%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    El municipio de Naco registra el mayor déficit climatológico anual
+                    acumulado con 1,240.24 mm, seguido de cerca por Arizpe y Bacoachi.
+                    Hermosillo y Cajeme también presentan cifras sumamente altas. En
+                    estos territorios, cualquier cultivo establecido requerirá bombear
+                    volúmenes masivos de agua subterránea o superficial para sobrevivir,
+                    elevando drásticamente los costos operativos por energía y
+                    acelerando la sobreexplotación de los recursos locales. Esto hace de
+                    la reconversión a bajas láminas una necesidad económica y ambiental
+                    urgente.
+                </p>
+
+                <h2>10. Dependencia de Riego vs. Lluvia (Fracción Azul vs. Verde)</h2>
+                <p>
+                    Este análisis calcula la porción de agua evapotranspirada por la
+                    actividad agrícola que proviene directamente del riego de presas y
+                    pozos (agua azul) contra el agua que provee la lluvia efectiva en el
+                    suelo (agua verde).
+                </p>
+                <div class="figure-title">
+                    Dependencia de Riego (Fracción Azul) vs. Lluvia (Fracción Verde)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/fraccion_azul_verde_municipios.png"
+                        alt="Fracción Azul vs Verde"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    La fracción de agua azul supera el 90% en la mayor parte del estado,
+                    confirmando que la viabilidad de la agricultura sonorense está
+                    ligada casi en su totalidad al uso eficiente del riego. Este
+                    resultado descarta la posibilidad de transicionar hacia una
+                    agricultura de temporal en el desierto, y ratifica que la única vía
+                    para disminuir la presión hídrica es la reconversión y tecnificación
+                    del riego (agua azul) a escala municipal.
+                </p>
+
+                <h2>11. Presión Hídrica: Demanda por Concesiones Agrícolas (REPNA)</h2>
+                <p>
+                    El análisis de los títulos de concesión del Registro Público de
+                    Derechos de Agua (REPNA) de la CONAGUA revela la severa presión
+                    legal de extracción que ejerce la agricultura comercial sobre las
+                    cuencas del estado. El caso más crítico se encuentra en el
+                    <strong>DDR Hermosillo (Costa de Hermosillo DR-051)</strong>, el
+                    cual concentra títulos de extracción agrícola subterránea que
+                    superan los <strong>320 millones de m³/año</strong>. Esta demanda
+                    física continua, combinada con una recurrencia de sequía de 16.8% en
+                    dicho distrito, ha provocado una severa sobreexplotación del
+                    acuífero con problemas severos de intrusión salina. Esto demuestra
+                    la necesidad de aplicar programas urgentes de reconversión hacia
+                    cultivos de bajo consumo para rescatar y estabilizar el acuífero
+                    costero.
+                </p>
+
+                <h2>12. Balance de Volumen de Riego por Distrito de Riego (CONAGUA)</h2>
+                <p>
+                    Serie histórica (1998-2024) del volumen bruto de agua utilizado para
+                    riego en los cinco Distritos de Riego (DR) de Sonora. Este análisis
+                    cuantitativo dimensiona la demanda real y física de agua que la
+                    agricultura ejerce sobre las presas y acuíferos del estado.
+                </p>
+                <div class="figure-title">
+                    Evolución del Volumen Bruto de Riego por DR (1998-2024)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2rem;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/evolucion_volumen_dr.png"
+                        alt="Evolución Volumen DR"
+                        style="
+                            max-width: 95%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <div class="figure-title">
+                    Volumen Total de Agua Agrícola Acumulado por DR en Sonora
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/volumen_total_apilado_dr.png"
+                        alt="Volumen Total Apilado DR"
+                        style="
+                            max-width: 95%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    El <strong>DR-041 Río Yaqui</strong> domina el consumo hídrico
+                    estatal con volúmenes que oscilan entre 455 y 2,400 Mm³/año,
+                    reflejando su dependencia directa de las presas superficiales de la
+                    cuenca del Yaqui. En años secos, como en 2004, el abasto del Yaqui
+                    colapsó a solo 454 Mm³, reduciendo drásticamente las siembras de
+                    trigo y maíz. En contraste, el
+                    <strong>DR-051 Costa de Hermosillo</strong> mantiene una extracción
+                    estable (~350-500 Mm³/año) extraída al 100% de pozos, lo que
+                    representa una presión constante e independiente del clima que
+                    acelera la sobreexplotación del acuífero. En conjunto, los distritos
+                    desvían entre 2,000 y 4,500 Mm³ de agua anuales; una reducción de
+                    apenas el 10% mediante reconversión liberaría enormes volúmenes para
+                    conservación y consumo humano municipal.
+                </p>
+
+                <h2>13. Índice Compuesto de Vulnerabilidad Hídrica Municipal (IVH)</h2>
+                <p>
+                    Para integrar los 12 indicadores anteriores en una herramienta de
+                    planificación para SAGARPA y el Gobierno de Sonora, se calculó un
+                    índice compuesto normalizado [0, 1] que pondera los diferentes
+                    factores de riesgo:
+                </p>
+                <div
+                    class="table-responsive"
+                    style="max-width: 700px; margin: 0 auto 2rem auto"
+                >
+                    <table class="table-premium">
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Peso</th>
+                                <th>Fuente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Déficit Hídrico (ET₀ − Pef)</td>
+                                <td><strong>0.35</strong></td>
+                                <td>NASA POWER</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerabilidad ISAG</td>
+                                <td><strong>0.20</strong></td>
+                                <td>MSM / SMN</td>
+                            </tr>
+                            <tr>
+                                <td>Dependencia de Riego (frac. azul)</td>
+                                <td><strong>0.35</strong></td>
+                                <td>Modelo HH</td>
+                            </tr>
+                            <tr>
+                                <td>Estrés Térmico (calor + helada)</td>
+                                <td><strong>0.10</strong></td>
+                                <td>NASA POWER</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="figure-title">
+                    Mapa de Vulnerabilidad Hídrica Integral (IVH)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/mapa_vulnerabilidad_compuesta.png"
+                        alt="Mapa IVH"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+
+                <div class="figure-title">
+                    Top 15 Municipios — Mayor Vulnerabilidad (IVH)
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/vulnerabilidad_ranking_municipios.png"
+                        alt="Ranking IVH"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+
+                <div class="figure-title">
+                    Desglose de Vulnerabilidad por Componente — Top 5 Municipios
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 900px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/vulnerabilidad_desglose_top5.png"
+                        alt="Desglose IVH Top 5"
+                        style="
+                            max-width: 90%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+                <p>
+                    El desglose por componente revela la <strong>causa raíz</strong> de
+                    la vulnerabilidad, permitiendo diseñar intervenciones localizadas a
+                    la medida. Por ejemplo, en <strong>San Luis Río Colorado</strong> el
+                    riesgo se debe en su totalidad al déficit hídrico del clima
+                    desértico, requiriendo cultivos extremadamente rústicos. En
+                    <strong>Hermosillo</strong> la vulnerabilidad está dictada
+                    principalmente por la dependencia extrema de riego (fracción azul)
+                    sobre un acuífero explotado, lo que exige tecnificación y
+                    reconversión hortícola rápida para reducir los bombeos.
+                </p>
+
+                <div
+                    class="card"
+                    style="
+                        border-left: 4px solid var(--accent-orange);
+                        margin-top: 2rem;
+                        margin-bottom: 2rem;
+                    "
+                >
+                    <div class="card-title">Clasificación IVH</div>
+                    <ul class="list-premium">
+                        <li>
+                            <span style="color: #dc2626; font-weight: bold"
+                                >● Crítica (IVH ≥ 0.70):</span
+                            >
+                            Municipios prioritarios para reconversión productiva
+                            inmediata (San Luis Río Colorado, Puerto Peñasco, Plutarco
+                            Elías Calles, Hermosillo, Caborca).
+                        </li>
+                        <li>
+                            <span style="color: #f59e0b; font-weight: bold"
+                                >● Alta (0.50 ≤ IVH < 0.70):</span
+                            >
+                            Zonas de intervención prioritaria y tecnificación intensiva
+                            (Cajeme, Guaymas, Empalme, Navojoa).
+                        </li>
+                        <li>
+                            <span style="color: #22c55e; font-weight: bold"
+                                >● Moderada (0.30 ≤ IVH < 0.50):</span
+                            >
+                            Riesgo intermedio manejable con rotación y diversificación
+                            de cultivos.
+                        </li>
+                        <li>
+                            <span style="color: #3b82f6; font-weight: bold"
+                                >● Baja (IVH < 0.30):</span
+                            >
+                            Municipios serranos estables, aptos para conservación
+                            ecológica y forrajes de temporal.
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
             <!-- Sección: Inventario de Datos -->
             <section id="datos" class="section">
@@ -487,6 +1386,201 @@
         self.crops.append(crop)</code></pre>
             </section>
 
+            <!-- Sección: Especificaciones del Modelo y Cultivos -->
+            <section id="especificaciones" class="section">
+                <h1>Especificaciones de Cultivos y Condiciones de Contorno</h1>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem">
+                    Especificaciones técnicas de los cultivos clave y las condiciones físicas bajo las cuales opera el modelo de simulación de reconversión agrícola en Sonora.
+                </p>
+
+                <h2>1. Ficha Técnica y Especificaciones de los Cultivos</h2>
+                <p>
+                    El modelo de simulación se alimenta de los parámetros fenológicos de la FAO-56 y los requerimientos técnicos oficiales del INIFAP. Los cultivos se dividen en tres categorías principales según su comportamiento y ciclo vegetativo:
+                </p>
+
+                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 2.5rem; gap: 1.5rem;">
+                    <!-- Card 1: Perennes -->
+                    <div class="card" style="border-top: 4px solid var(--accent-orange); text-align: center;">
+                        <div class="card-title"><i class="fa-solid fa-tree" style="color: var(--accent-orange); margin-right: 0.5rem;"></i> Cultivos Perennes</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                            Especies de ciclo continuo de 365 días o temporadas de desarrollo extensas con alta demanda acumulada.
+                        </p>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                            Alfalfa, Nuez (Nogal Pecanero) y Dátil
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Otoño-Invierno -->
+                    <div class="card" style="border-top: 4px solid var(--accent-blue); text-align: center;">
+                        <div class="card-title"><i class="fa-solid fa-snowflake" style="color: var(--accent-blue); margin-right: 0.5rem;"></i> Ciclo Otoño-Invierno (O-I)</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                            Cultivos establecidos en la época fría para aprovechar menores tasas de evapotranspiración de referencia (ETo).
+                        </p>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                            Trigo Grano y Garbanzo Grano
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Primavera-Verano -->
+                    <div class="card" style="border-top: 4px solid var(--accent-green); text-align: center;">
+                        <div class="card-title"><i class="fa-solid fa-sun" style="color: var(--accent-green); margin-right: 0.5rem;"></i> Ciclo Primavera-Verano (P-V)</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                            Cultivos de ciclo cálido expuestos a la máxima radiación solar y tasas pico de evapotranspiración.
+                        </p>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--text-primary);">
+                            Maíz Grano
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Parámetros de Entrada del Modelo y su Rol en el Cálculo</h2>
+                <p>
+                    Para realizar la simulación física de la evapotranspiración y el posterior modelado de la huella hídrica y reconversión, se utilizan los siguientes parámetros clave:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem;">
+                    <!-- Parámetro 1 -->
+                    <div class="card" style="border-left: 4px solid var(--accent-green);">
+                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-green);"><i class="fa-solid fa-calendar-days"></i> Duración del Ciclo Vegetativo (días)</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+                            <strong>Definición:</strong> El número de días desde la siembra o brote hasta la cosecha.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                            <strong>Rol en el cálculo:</strong> Define el rango temporal de integración diaria. La evapotranspiración \( (ET_c) \) y la lluvia efectiva \( (P_{ef}) \) se calculan y acumulan día con día a lo largo de este ciclo específico para determinar el volumen total de agua consumido en el ciclo \( (UAC) \).
+                        </p>
+                    </div>
+
+                    <!-- Parámetro 2 -->
+                    <div class="card" style="border-left: 4px solid var(--accent-blue);">
+                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-blue);"><i class="fa-solid fa-compass-drafting"></i> Coeficiente de Cultivo (Kc)</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+                            <strong>Definición:</strong> Factor adimensional que relaciona la demanda evapotranspirativa del cultivo con la de un cultivo de referencia (pasto) bajo el mismo clima. Varía en las etapas inicial, media y final.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                            <strong>Rol en el cálculo:</strong> Se multiplica por la evapotranspiración de referencia \( (ET_o) \) diaria (Penman-Monteith) para calcular el requerimiento fisiológico diario del cultivo \( (ET_c = K_c \times ET_o) \). Permite capturar la demanda dinámica de agua de la planta a lo largo de su desarrollo.
+                        </p>
+                    </div>
+
+                    <!-- Parámetro 3 -->
+                    <div class="card" style="border-left: 4px solid var(--accent-orange);">
+                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-orange);"><i class="fa-solid fa-faucet-drip"></i> Lámina de Riego Técnica Recomendada (INIFAP, mm)</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+                            <strong>Definición:</strong> El volumen total acumulado de riego recomendado para aplicarse en parcela bajo prácticas de riego tradicionales de la región.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                            <strong>Rol en el cálculo:</strong> Sirve como la demanda aplicada de diseño \( (L_{riego}) \). Se contrasta contra la evapotranspiración neta real del modelo para cuantificar la eficiencia de aplicación del riego y estimar los ahorros volumétricos potenciales.
+                        </p>
+                    </div>
+
+                    <!-- Parámetro 4 -->
+                    <div class="card" style="border-left: 4px solid var(--accent-green);">
+                        <div class="card-title" style="font-size: 1.15rem; color: var(--accent-green);"><i class="fa-solid fa-weight-scale"></i> Rendimiento Físico Esperado (Ton/Ha)</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">
+                            <strong>Definición:</strong> La productividad de cosecha comercial obtenida por unidad de superficie sembrada.
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                            <strong>Rol en el cálculo:</strong> Es el denominador en la ecuación de la Huella Hídrica \( (HH = UAC / \text{Rendimiento}) \). Permite transformar la variable física del agua consumida \( (m^3/\text{Ha}) \) en una métrica de productividad física del recurso \( (m^3/\text{Ton}) \), que es la base del análisis de eficiencia.
+                        </p>
+                    </div>
+                </div>
+
+                <h2>2. Condiciones de Contorno, REPNA y Tecnificación</h2>
+                <p>
+                    El modelado de reconversión productiva no opera en el vacío, sino que está acotado por condiciones físicas meteorológicas, límites legales de concesión y eficiencias de los sistemas de riego:
+                </p>
+
+                <h3>1. El Cultivo de Referencia de la FAO-56 (Base de \( ET_o \))</h3>
+                <p>
+                    La evapotranspiración de referencia \( (ET_o) \) representa el flujo de agua evaporada por un cultivo teórico de referencia. El estándar internacional FAO-56 define este cultivo con características biofísicas fijas:
+                </p>
+                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
+                    <li><strong>Altura Uniforme:</strong> Asume una altura fija de \( 0.12 \) metros.</li>
+                    <li><strong>Albedo:</strong> Coeficiente de reflexión de radiación solar fijado en \( 0.23 \).</li>
+                    <li><strong>Resistencia Superficial:</strong> Fijada en \( 70 \) s/m, lo que emula una superficie extensa de pasto verde, activo, denso y adecuadamente provisto de agua.</li>
+                </ul>
+                <p style="margin-bottom: 2rem;">
+                    Al fijar estas variables biológicas, la variabilidad de la \( ET_o \) depende exclusivamente de los factores climáticos. Esto justifica la introducción de los coeficientes de cultivo \( (K_c) \), que actúan como factores de escala para adaptar esta demanda de referencia a la fenología, estructura y necesidades reales de los cultivos en Sonora.
+                </p>
+
+                <h3>2. Condiciones Físicas y Ambientales (NASA POWER)</h3>
+                <p>
+                    Las simulaciones de evapotranspiración de referencia \( (ET_o) \) se realizan a escala diaria para el periodo 2003-2024 utilizando los datos climatológicos de la NASA POWER a nivel de centroide municipal:
+                </p>
+                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
+                    <li><strong>Radiación Solar Global \( (R_s) \):</strong> Aporta la energía física necesaria para el proceso de evapotranspiración.</li>
+                    <li><strong>Humedad Relativa y Viento \( (u_2) \):</strong> Regulan el gradiente de presión de vapor y el poder desecante de la atmósfera.</li>
+                    <li><strong>Temperatura Máxima, Mínima y Media:</strong> Regulan el desarrollo fenológico y los umbrales de estrés agroclimático por helada \( (< 0^\circ\text{C}) \) o calor extremo \( (> 40^\circ\text{C}) \).</li>
+                </ul>
+
+                <h3>3. Derechos de Concesión (REPNA) como Límite del Modelo</h3>
+                <p>
+                    El Registro Público de Derechos de Agua (REPNA) de CONAGUA actúa como una restricción legal y volumétrica de primer orden:
+                </p>
+                <ul class="list-premium" style="font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem;">
+                    <li><strong>Criterio de Restricción:</strong> Ninguna propuesta de reconversión de cultivos puede recomendar una demanda agregada de agua de riego que supere el volumen concesionado registrado en el REPNA para el municipio o Distrito de Riego.</li>
+                    <li><strong>Rol en los cálculos:</strong> El volumen total de concesión establece el techo de demanda hídrica permisible. Si un cultivo requiere una lámina que al multiplicarse por la superficie cultivada supera este techo, el modelo descarta la viabilidad de la superficie completa o fuerza la sustitución inmediata por cultivos de bajo consumo.</li>
+                </ul>
+
+                <h3>4. Diagnóstico de la Tecnificación Real en Sonora (SAGARPA/UNISON)</h3>
+                <p>
+                    Para calibrar el modelo con la realidad del campo sonorense, se integró el estudio de actualización de la delegación estatal de SAGARPA y la Universidad de Sonora, el cual revela una baja tecnificación generalizada en los distritos:
+                </p>
+                <div class="card" style="border-left: 4px solid var(--accent-green); margin-bottom: 2rem;">
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                        <strong>Promedio Estatal:</strong> De las 531,701 hectáreas en operación agrícola en el estado, solo <strong>106,418 hectáreas están tecnificadas</strong>, lo que representa apenas el <strong>20.0%</strong> de tecnificación general. El 80.0% restante depende de riego por gravedad tradicional con altas tasas de pérdida.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Guaymas</span>
+                            <strong style="font-size: 1.25rem; color: var(--accent-green);">78.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Caborca</span>
+                            <strong style="font-size: 1.25rem; color: var(--accent-green);">70.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Hermosillo</span>
+                            <strong style="font-size: 1.25rem; color: var(--accent-blue);">47.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Navojoa (Mayo)</span>
+                            <strong style="font-size: 1.25rem; color: var(--accent-orange);">13.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block;">DDR Cajeme (Yaqui)</span>
+                            <strong style="font-size: 1.25rem; color: var(--accent-orange);">8.0% <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-secondary);">tecnificado</span></strong>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <strong>Agricultura Protegida:</strong> Se registran únicamente 2,872 hectáreas bajo agricultura protegida (1,370 Ha de invernaderos y 1,501 Ha de malla sombra), de las cuales el 65% se concentran en los distritos de Cajeme y Hermosillo. Esto demuestra que la reconversión productiva debe ir ligada a programas agresivos de tecnificación, sobre todo en los valles del sur (Yaqui y Mayo) que concentran la mayor superficie pero con eficiencias críticas.
+                    </p>
+                </div>
+
+                <div class="figure-title" style="margin-top: 2.5rem;">
+                    Distribución de la Tecnificación del Riego por DDR en Sonora
+                </div>
+                <div
+                    class="card"
+                    style="
+                        text-align: center;
+                        margin-bottom: 2.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    <img
+                        src="images/tecnificacion_riego_ddr.png"
+                        alt="Mapa de Tecnificación del Riego por DDR"
+                        style="
+                            max-width: 95%;
+                            border-radius: var(--border-radius);
+                            border: 1px solid var(--card-border);
+                        "
+                    />
+                </div>
+            </section>
+
             <!-- Sección: Estadísticas de Eficiencia (Dinámico desde JSON) -->
             <section id="estadisticas" class="section">
                 <h1>Análisis Estadístico y Eficiencia Hídrica</h1>
@@ -515,6 +1609,136 @@
 
                 <div id="estadisticas-content"></div>
             </section>
+
+            <!-- Footer con Datasets Utilizados -->
+            <footer
+                class="footer-datasets"
+                style="
+                    margin-top: 4rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid var(--card-border);
+                    text-align: center;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                "
+            >
+                <h3>Datasets y Fuentes de Información Utilizados</h3>
+                <p
+                    style="
+                        margin-bottom: 1.5rem;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    "
+                >
+                    Este proyecto consolida datos de múltiples fuentes oficiales e
+                    institucionales para modelar la reconversión de manera rigurosa:
+                </p>
+                <div
+                    class="card-grid"
+                    style="
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 1.5rem;
+                        text-align: left;
+                        margin-bottom: 2rem;
+                    "
+                >
+                    <div
+                        class="card"
+                        style="padding: 1rem; border-top: 3px solid var(--accent-green)"
+                    >
+                        <strong style="color: var(--accent-green)"
+                            ><i class="fa-solid fa-cloud-sun-rain"></i> NASA POWER
+                            API</strong
+                        >
+                        <p
+                            style="
+                                font-size: 0.85rem;
+                                margin-top: 0.5rem;
+                                line-height: 1.4;
+                            "
+                        >
+                            Series históricas meteorológicas de temperatura, radiación
+                            solar, humedad relativa, velocidad del viento y
+                            precipitación total para cada municipio de Sonora.
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="
+                            padding: 1rem;
+                            border-top: 3px solid var(--accent-orange);
+                        "
+                    >
+                        <strong style="color: var(--accent-orange)"
+                            ><i class="fa-solid fa-droplet"></i> Monitor de Sequía
+                            (CONAGUA)</strong
+                        >
+                        <p
+                            style="
+                                font-size: 0.85rem;
+                                margin-top: 0.5rem;
+                                line-height: 1.4;
+                            "
+                        >
+                            Registros de intensidad de sequía a escala municipal
+                            (2003-2026) utilizados para construir el Índice ISAG y
+                            evaluar la recurrencia regional.
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="padding: 1rem; border-top: 3px solid var(--accent-blue)"
+                    >
+                        <strong style="color: var(--accent-blue)"
+                            ><i class="fa-solid fa-wheat-awn"></i> SIAP (Producción
+                            Agrícola)</strong
+                        >
+                        <p
+                            style="
+                                font-size: 0.85rem;
+                                margin-top: 0.5rem;
+                                line-height: 1.4;
+                            "
+                        >
+                            Series de tiempo municipales de producción, superficies
+                            sembradas/cosechadas, rendimientos físicos y Precios Medios
+                            Rurales (PMR) (2003-2024).
+                        </p>
+                    </div>
+                    <div
+                        class="card"
+                        style="padding: 1rem; border-top: 3px solid var(--accent-green)"
+                    >
+                        <strong style="color: var(--accent-green)"
+                            ><i class="fa-solid fa-file-contract"></i> REPNA
+                            (CONAGUA)</strong
+                        >
+                        <p
+                            style="
+                                font-size: 0.85rem;
+                                margin-top: 0.5rem;
+                                line-height: 1.4;
+                            "
+                        >
+                            Títulos oficiales de concesión y asignación de derechos de
+                            extracción de aguas nacionales, permitiendo cuantificar los
+                            volúmenes anuales autorizados de pozos agrícolas.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    style="
+                        font-size: 0.8rem;
+                        color: var(--text-muted);
+                        margin-top: 1rem;
+                        padding-bottom: 2rem;
+                    "
+                >
+                    © 2026 Seminario de Inteligencia Artificial - Reconversión
+                    Productiva. LCC, Universidad de Sonora.
+                </div>
+            </footer>
         </main>
 
         <!-- Lógica de Control JavaScript -->

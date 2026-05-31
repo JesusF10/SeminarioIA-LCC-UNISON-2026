@@ -268,6 +268,16 @@ strong {
   color: var(--text-primary);
 }
 
+.figure-title {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
 .card-tag {
   display: inline-block;
   align-self: flex-start;
@@ -487,6 +497,10 @@ code {
   left: 0;
   color: var(--accent-green);
   font-weight: bold;
+}
+
+.list-premium.ordered li::before {
+  content: none;
 }
 
 /* --- Visor de Arquitectura del Código --- */

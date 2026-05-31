@@ -37,21 +37,7 @@ siap-produccion-agricola/
     └── NoSeguimiento_diccionario_agricola_2020_a_2021.xlsx
 ```
 
-### 3. Datos Abiertos de Sonora (`data/raw/datos-abiertos/`)
-
-Información gubernamental estatal. Origen: [Portal Datos Sonora](https://www.sonora.gob.mx/datos).
-
-```bash
-datos-abiertos/
-├── agricultura/
-│   └── datos/
-│       └── Agricultura Sonora año 1999..2023.xlsx # Anuarios estatales
-└── recursos-hidricos/
-    └── datos/
-        └── Datos hídricos 1941..2024.xlsx # Almacenamiento de presas
-```
-
-### 4. Datos de Sequía (`data/raw/datos-sequia/`)
+### 3. Datos de Sequía (`data/raw/datos-sequia/`)
 
 Información geoespacial municipalizada. Origen: [Datos Abiertos Gob Mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4).
 
@@ -61,26 +47,18 @@ datos-sequia/
 └── impacto_sequia.shx, .dbf, .prj, .cpg # Archivos de soporte SIG
 ```
 
-### 5. SIACON (`data/raw/siacon/`)
+*   **monitor_sequia_sonora.csv (Procesado):** Historial transaccional quincenal/mensual detallado por municipio (2003-2026) con intensidades de sequía.
+*   **sequia_indices_sonora.csv (Procesado):** Matriz atemporal de indicadores estáticos agregados por municipio que calcula la recurrencia, consecutividad y severidad de la sequía para los dos ciclos principales de cultivo (`_PV` y `_OI`).
 
-Información sobre cultivos. Origen: [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430).
-
-```bash
-siacon
-├── AgriculturaEscalaEstatal.txt
-└── AgriculturaEscalaMunicipalSonora.txt
-```
 
 ## Resumen de Fuentes Principales
 
 | Dataset       | Periodo   | Origen                                                                      | Variables Clave                   |
 | :------------ | :-------- | :-------------------------------------------------------------------------- | :-------------------------------- |
 | **SIAP Mun.** | 2003-2024 | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)          | Sembrada, Cosechada, PMR, Valor.  |
-| **Hídricos**  | 1941-2024 | [Sonora](https://www.sonora.gob.mx/datos)                                   | Almacenamiento (hm3), Fecha.      |
 | **REPNA**     | Actual    | [SIAP](https://nube.agricultura.gob.mx/datosAbiertos/Agricola.php)          | Volumen Extracción (Sup/Sub).     |
 | **Manual**    | 2024      | [INIFAP](https://www.gob.mx/inifap)                                         | Lámina (mm), Costo ($/ha), Ciclo. |
 | **Sequía**    | Reciente  | [Gob.mx](https://www.datos.gob.mx/dataset/?groups=agricultura&page=4)       | Impacto (ISAG), Geometría (SHP).  |
-| **SIACON**    | 1980-2024 | [SIACON](https://www.gob.mx/agricultura/dgsiap/documentos/siacon-ng-161430) | Cultivos emergentes, Superficie.  |
 
 ## Guía de Uso
 
