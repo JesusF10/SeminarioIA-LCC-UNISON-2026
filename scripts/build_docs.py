@@ -450,6 +450,376 @@ def parse_typst_file(filepath: Path) -> list[dict]:
     return sections
 
 
+def generate_dashboard_data(base_dir: Path, website_dir: Path):
+    """
+    Lee el archivo CSV del pipeline maestro y genera un JSON
+    agregado y optimizado para el dashboard interactivo de estadísticas,
+    incorporando el mapeo del REPNA, eficiencias físicas y económicas.
+    """
+    csv_path = base_dir / "data/processed/analisis_municipal_sonora_2010_2024.csv"
+    codif_path = base_dir / "data/config/codificacion.json"
+    
+    if not csv_path.exists():
+        print(f"Advertencia: No se encontró el dataset del pipeline en {csv_path}")
+        return
+
+    import pandas as pd
+    import numpy as np
+
+    # Cargar datos
+    df = pd.read_csv(csv_path)
+
+    # Limpiar columnas de texto
+    df['Municipio'] = df['Municipio'].str.strip()
+    df['DDR'] = df['DDR'].str.strip()
+    df['Cultivo'] = df['Cultivo'].str.strip()
+
+    # Catálogos únicos
+    municipios = sorted(df['Municipio'].dropna().unique().tolist())
+    ddrs = sorted(df['DDR'].dropna().unique().tolist())
+    cultivos = sorted(df['Cultivo'].dropna().unique().tolist())
+
+    # Relación DDR -> Municipios
+    relacion_ddr_mun = {}
+    for ddr in ddrs:
+        muns_in_ddr = sorted(df[df['DDR'] == ddr]['Municipio'].dropna().unique().tolist())
+        relacion_ddr_mun[ddr] = muns_in_ddr
+
+    # Cargar codificaciones
+    codif = {}
+    if codif_path.exists():
+        with open(codif_path, encoding="utf-8") as f:
+            codif = json.load(f)
+
+    # --- PROCESAMIENTO DE CONCESIONES REPNA ---
+    concesiones_repna = {
+        "estatal": {"Estatal": 0.0},
+        "ddr": {},
+        "municipio": {}
+    }
+
+    # Inicializar con 0
+    for mun in municipios:
+        concesiones_repna["municipio"][mun] = 0.0
+    for ddr in ddrs:
+        concesiones_repna["ddr"][ddr] = 0.0
+
+    repna1_path = base_dir / "data/raw/datos_proporcionados/reporte-repna-1.csv"
+    repna2_path = base_dir / "data/raw/datos_proporcionados/reporte-repna-2.csv"
+
+    # Mapeo manual de municipios a DDRs
+    mun_to_ddr = df.set_index('Municipio')['DDR'].to_dict()
+
+    # Procesar reporte-repna-1 (Distritos de Riego Colectivos)
+    if repna1_path.exists():
+        try:
+            df1 = pd.read_csv(repna1_path)
+            vol_col1 = "Volumen de extracción de aguas nacionales" if "Volumen de extracción de aguas nacionales" in df1.columns else df1.columns[5]
+            for _, row in df1.iterrows():
+                titular = str(row["Titular"]).upper()
+                vol = str(row[vol_col1]).replace(" ", "").replace(",", "")
+                vol_val = pd.to_numeric(vol, errors="coerce")
+                if pd.isna(vol_val): vol_val = 0.0
+
+                # Sumar a total estatal
+                concesiones_repna["estatal"]["Estatal"] += vol_val
+
+                # Asignar a municipio núcleo del DR
+                assigned_mun = None
+                if "COSTA DE HERMOSILLO" in titular or "051" in titular:
+                    assigned_mun = "Hermosillo"
+                elif "ALTAR-PITIQUITO-CABORCA" in titular or "037" in titular or "CABORCA" in titular:
+                    assigned_mun = "Caborca"
+                elif "YAQUI" in titular or "041" in titular:
+                    assigned_mun = "Cajeme"
+                elif "MAYO" in titular or "038" in titular:
+                    assigned_mun = "Navojoa"
+                elif "COLORADO" in titular or "014" in titular:
+                    assigned_mun = "San Luis Río Colorado"
+
+                if assigned_mun and assigned_mun in concesiones_repna["municipio"]:
+                    concesiones_repna["municipio"][assigned_mun] += vol_val
+                    ddr_assigned = mun_to_ddr.get(assigned_mun)
+                    if ddr_assigned and ddr_assigned in concesiones_repna["ddr"]:
+                        concesiones_repna["ddr"][ddr_assigned] += vol_val
+        except Exception as e:
+            print(f"Error procesando reporte-repna-1: {e}")
+
+    # Procesar reporte-repna-2 (Individuales)
+    if repna2_path.exists():
+        try:
+            df2 = pd.read_csv(repna2_path)
+            vol_col2 = "Volumen de extracción de aguas nacionales (m3/año)" if "Volumen de extracción de aguas nacionales (m3/año)" in df2.columns else df2.columns[5]
+            for _, row in df2.iterrows():
+                titulo = str(row["Título"])
+                titular = str(row["Titular"]).upper()
+                vol = str(row[vol_col2]).replace(" ", "").replace(",", "")
+                vol_val = pd.to_numeric(vol, errors="coerce")
+                if pd.isna(vol_val): vol_val = 0.0
+
+                # Sumar al estatal
+                concesiones_repna["estatal"]["Estatal"] += vol_val
+
+                # Extraer código municipal del título de concesión (ej: .../09AMDA25 -> CveMun 25)
+                match = re.search(r'/0\d[A-Z]+(\d{2})$', titulo)
+                if match:
+                    mun_code = match.group(1)
+                    # Traducir código a nombre de municipio
+                    if "codigos_municipios" in codif:
+                        mun_name = codif["codigos_municipios"].get(mun_code)
+                        if mun_name and mun_name in concesiones_repna["municipio"]:
+                            concesiones_repna["municipio"][mun_name] += vol_val
+                            ddr_assigned = mun_to_ddr.get(mun_name)
+                            if ddr_assigned and ddr_assigned in concesiones_repna["ddr"]:
+                                concesiones_repna["ddr"][ddr_assigned] += vol_val
+                else:
+                    # Intento alternativo: buscar el municipio en el nombre del titular
+                    for mun in municipios:
+                        if mun.upper() in titular:
+                            concesiones_repna["municipio"][mun] += vol_val
+                            ddr_assigned = mun_to_ddr.get(mun)
+                            if ddr_assigned and ddr_assigned in concesiones_repna["ddr"]:
+                                concesiones_repna["ddr"][ddr_assigned] += vol_val
+                            break
+        except Exception as e:
+            print(f"Error procesando reporte-repna-2: {e}")
+
+    # Redondear valores del REPNA
+    concesiones_repna["estatal"]["Estatal"] = round(concesiones_repna["estatal"]["Estatal"], 1)
+    for mun in concesiones_repna["municipio"]:
+        concesiones_repna["municipio"][mun] = round(concesiones_repna["municipio"][mun], 1)
+    for ddr in concesiones_repna["ddr"]:
+        concesiones_repna["ddr"][ddr] = round(concesiones_repna["ddr"][ddr], 1)
+
+    # Inicializar contenedores de resultados
+    historico_anual = {
+        "estatal": {},
+        "ddr": {},
+        "municipio": {}
+    }
+    
+    promedios_cultivos = {
+        "estatal": {},
+        "ddr": {},
+        "municipio": {}
+    }
+
+    # Definir la función auxiliar de agregación con las nuevas métricas
+    def aggregate_group(group):
+        sup_cos = group['SupCosechadaTotal_ha'].sum()
+        vol_prod = group['VolumenTotal_t'].sum()
+        
+        # Volumen de agua en m3 (UAC es m3/ha, por tanto UAC * SupCosechada da el total de m3)
+        vol_agua_verde = (group['UACverde_m3_ha'] * group['SupCosechadaTotal_ha']).sum()
+        vol_agua_azul = (group['UACazul_m3_ha'] * group['SupCosechadaTotal_ha']).sum()
+        vol_agua_total = vol_agua_verde + vol_agua_azul
+        
+        rend = vol_prod / sup_cos if sup_cos > 0 else 0.0
+        
+        # Huella Hídrica (m3/t)
+        hh_verde = vol_agua_verde / vol_prod if vol_prod > 0 else 0.0
+        hh_azul = vol_agua_azul / vol_prod if vol_prod > 0 else 0.0
+        hh_total = hh_verde + hh_azul
+        
+        # UAC promedio ponderado (m3/ha)
+        uac_total = vol_agua_total / sup_cos if sup_cos > 0 else 0.0
+        
+        # Eficiencia física (Ton/m3)
+        eficiencia_fisica = 1.0 / hh_total if hh_total > 0 else 0.0
+        
+        # PMR promedio ponderado por producción
+        if vol_prod > 0:
+            pmr_val = (group['PMR'] * group['VolumenTotal_t']).sum() / vol_prod
+        else:
+            pmr_val = group['PMR'].mean()
+        if pd.isna(pmr_val): pmr_val = 0.0
+        
+        # Productividad económica (MXN/m3)
+        prod_economica = pmr_val / hh_total if hh_total > 0 else 0.0
+
+        # Sequía promedio ponderada por superficie
+        if sup_cos > 0:
+            sequia_isag = (group['indice_estres_sequia_acumulado'] * group['SupCosechadaTotal_ha']).sum() / sup_cos
+            if 'max_intensidad_sequia' in group.columns:
+                intensidad_sequia = (group['max_intensidad_sequia'] * group['SupCosechadaTotal_ha']).sum() / sup_cos
+            elif 'max_inte_sequia' in group.columns:
+                intensidad_sequia = (group['max_inte_sequia'] * group['SupCosechadaTotal_ha']).sum() / sup_cos
+            else:
+                intensidad_sequia = 0.0
+        else:
+            sequia_isag = group['indice_estres_sequia_acumulado'].mean()
+            if 'max_intensidad_sequia' in group.columns:
+                intensidad_sequia = group['max_intensidad_sequia'].mean()
+            elif 'max_inte_sequia' in group.columns:
+                intensidad_sequia = group['max_inte_sequia'].mean()
+            else:
+                intensidad_sequia = 0.0
+
+        # Reemplazar NaN o valores no válidos
+        if pd.isna(sequia_isag): sequia_isag = 0.0
+        if pd.isna(intensidad_sequia): intensidad_sequia = 0.0
+        if pd.isna(prod_economica) or np.isinf(prod_economica): prod_economica = 0.0
+        if pd.isna(eficiencia_fisica) or np.isinf(eficiencia_fisica): eficiencia_fisica = 0.0
+        
+        # Precipitación promedio en mm ponderada por superficie
+        if sup_cos > 0:
+            ptot_mm = (group['Ptot_total_mm'] * group['SupCosechadaTotal_ha']).sum() / sup_cos
+            pef_mm = (group['Pef_total_mm'] * group['SupCosechadaTotal_ha']).sum() / sup_cos
+        else:
+            ptot_mm = group['Ptot_total_mm'].mean()
+            pef_mm = group['Pef_total_mm'].mean()
+        if pd.isna(ptot_mm): ptot_mm = 0.0
+        if pd.isna(pef_mm): pef_mm = 0.0
+        
+        return {
+            "rendimiento": round(float(rend), 3),
+            "hh_total": round(float(hh_total), 1),
+            "hh_azul": round(float(hh_azul), 1),
+            "hh_verde": round(float(hh_verde), 1),
+            "uac_total": round(float(uac_total), 1),
+            "eficiencia_fisica": round(float(eficiencia_fisica), 5),
+            "pmr": round(float(pmr_val), 2),
+            "productividad_economica": round(float(prod_economica), 4),
+            "consumo_agua_total": round(float(vol_agua_total), 1),
+            "ptot_total_mm": round(float(ptot_mm), 1),
+            "pef_total_mm": round(float(pef_mm), 1),
+            "sequia_isag": round(float(sequia_isag), 3),
+            "max_intensidad_sequia": round(float(intensidad_sequia), 2),
+            "superficie_cosechada": round(float(sup_cos), 1),
+            "volumen_produccion": round(float(vol_prod), 1)
+        }
+
+    # Agregar "Todos los cultivos" al catálogo
+    cultivos = ["Todos los cultivos"] + cultivos
+
+    # --- 1. AGREGACIÓN ESTATAL ---
+    # Histórico Anual Estatal por Cultivo
+    df_estatal_grouped = df.groupby(['Cultivo', 'Anio'])
+    for (cultivo, anio), group in df_estatal_grouped:
+        if "Estatal" not in historico_anual["estatal"]:
+            historico_anual["estatal"]["Estatal"] = {}
+        if cultivo not in historico_anual["estatal"]["Estatal"]:
+            historico_anual["estatal"]["Estatal"][cultivo] = {}
+        
+        historico_anual["estatal"]["Estatal"][cultivo][str(anio)] = aggregate_group(group)
+
+    # Histórico Anual Estatal - Todos los cultivos
+    df_estatal_all_grouped = df.groupby(['Anio'])
+    for anio, group in df_estatal_all_grouped:
+        anio_str = str(anio[0]) if isinstance(anio, tuple) else str(anio)
+        if "Estatal" not in historico_anual["estatal"]:
+            historico_anual["estatal"]["Estatal"] = {}
+        if "Todos los cultivos" not in historico_anual["estatal"]["Estatal"]:
+            historico_anual["estatal"]["Estatal"]["Todos los cultivos"] = {}
+        
+        historico_anual["estatal"]["Estatal"]["Todos los cultivos"][anio_str] = aggregate_group(group)
+
+    # Promedios Históricos Estatales por Cultivo
+    df_estatal_crop = df.groupby('Cultivo')
+    for cultivo, group in df_estatal_crop:
+        cultivo_str = cultivo[0] if isinstance(cultivo, tuple) else cultivo
+        if "Estatal" not in promedios_cultivos["estatal"]:
+            promedios_cultivos["estatal"]["Estatal"] = {}
+        promedios_cultivos["estatal"]["Estatal"][cultivo_str] = aggregate_group(group)
+
+    # Promedios Históricos Estatales - Todos los cultivos
+    if "Estatal" not in promedios_cultivos["estatal"]:
+        promedios_cultivos["estatal"]["Estatal"] = {}
+    promedios_cultivos["estatal"]["Estatal"]["Todos los cultivos"] = aggregate_group(df)
+
+    # --- 2. AGREGACIÓN POR DDR ---
+    # Histórico Anual por DDR y Cultivo
+    df_ddr_grouped = df.groupby(['DDR', 'Cultivo', 'Anio'])
+    for (ddr, cultivo, anio), group in df_ddr_grouped:
+        if ddr not in historico_anual["ddr"]:
+            historico_anual["ddr"][ddr] = {}
+        if cultivo not in historico_anual["ddr"][ddr]:
+            historico_anual["ddr"][ddr][cultivo] = {}
+        
+        historico_anual["ddr"][ddr][cultivo][str(anio)] = aggregate_group(group)
+
+    # Histórico Anual por DDR - Todos los cultivos
+    df_ddr_all_grouped = df.groupby(['DDR', 'Anio'])
+    for (ddr, anio), group in df_ddr_all_grouped:
+        if ddr not in historico_anual["ddr"]:
+            historico_anual["ddr"][ddr] = {}
+        if "Todos los cultivos" not in historico_anual["ddr"][ddr]:
+            historico_anual["ddr"][ddr]["Todos los cultivos"] = {}
+        
+        historico_anual["ddr"][ddr]["Todos los cultivos"][str(anio)] = aggregate_group(group)
+
+    # Promedios Históricos por DDR y Cultivo
+    df_ddr_crop = df.groupby(['DDR', 'Cultivo'])
+    for (ddr, cultivo), group in df_ddr_crop:
+        if ddr not in promedios_cultivos["ddr"]:
+            promedios_cultivos["ddr"][ddr] = {}
+        promedios_cultivos["ddr"][ddr][cultivo] = aggregate_group(group)
+
+    # Promedios Históricos por DDR - Todos los cultivos
+    df_ddr_all = df.groupby('DDR')
+    for ddr, group in df_ddr_all:
+        ddr_str = ddr[0] if isinstance(ddr, tuple) else ddr
+        if ddr_str not in promedios_cultivos["ddr"]:
+            promedios_cultivos["ddr"][ddr_str] = {}
+        promedios_cultivos["ddr"][ddr_str]["Todos los cultivos"] = aggregate_group(group)
+
+    # --- 3. AGREGACIÓN POR MUNICIPIO ---
+    # Histórico Anual por Municipio y Cultivo
+    df_mun_grouped = df.groupby(['Municipio', 'Cultivo', 'Anio'])
+    for (mun, cultivo, anio), group in df_mun_grouped:
+        if mun not in historico_anual["municipio"]:
+            historico_anual["municipio"][mun] = {}
+        if cultivo not in historico_anual["municipio"][mun]:
+            historico_anual["municipio"][mun][cultivo] = {}
+        
+        historico_anual["municipio"][mun][cultivo][str(anio)] = aggregate_group(group)
+
+    # Histórico Anual por Municipio - Todos los cultivos
+    df_mun_all_grouped = df.groupby(['Municipio', 'Anio'])
+    for (mun, anio), group in df_mun_all_grouped:
+        if mun not in historico_anual["municipio"]:
+            historico_anual["municipio"][mun] = {}
+        if "Todos los cultivos" not in historico_anual["municipio"][mun]:
+            historico_anual["municipio"][mun]["Todos los cultivos"] = {}
+        
+        historico_anual["municipio"][mun]["Todos los cultivos"][str(anio)] = aggregate_group(group)
+
+    # Promedios Históricos por Municipio y Cultivo
+    df_mun_crop = df.groupby(['Municipio', 'Cultivo'])
+    for (mun, cultivo), group in df_mun_crop:
+        if mun not in promedios_cultivos["municipio"]:
+            promedios_cultivos["municipio"][mun] = {}
+        promedios_cultivos["municipio"][mun][cultivo] = aggregate_group(group)
+
+    # Promedios Históricos por Municipio - Todos los cultivos
+    df_mun_all = df.groupby('Municipio')
+    for mun, group in df_mun_all:
+        mun_str = mun[0] if isinstance(mun, tuple) else mun
+        if mun_str not in promedios_cultivos["municipio"]:
+            promedios_cultivos["municipio"][mun_str] = {}
+        promedios_cultivos["municipio"][mun_str]["Todos los cultivos"] = aggregate_group(group)
+
+    # Ensamblar base de datos del dashboard
+    dashboard_data = {
+        "catalogos": {
+            "municipios": municipios,
+            "ddrs": ddrs,
+            "cultivos": cultivos,
+            "relacion_ddr_municipio": relacion_ddr_mun
+        },
+        "concesiones_repna": concesiones_repna,
+        "historico_anual": historico_anual,
+        "promedios_cultivos": promedios_cultivos
+    }
+
+    # Guardar en archivo JSON
+    output_path = website_dir / "dashboard_data.json"
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(dashboard_data, f, ensure_ascii=False, indent=2)
+
+    print(f"Archivo de datos del dashboard generado con éxito: {output_path} (Size: {output_path.stat().st_size / 1024:.1f} KB)")
+
+
 def main():
     print("Compilando reportes técnicos a formato web JSON...")
 
@@ -518,8 +888,12 @@ def main():
         for img_file in report_images_src.glob("*.png"):
             shutil.copy(img_file, images_dest)
 
+    # Generar la base de datos para el dashboard interactivo
+    generate_dashboard_data(BASE_DIR, WEBSITE_DIR)
+
     print(f"Compilación terminada con éxito. Archivo escrito en: {output_path}")
 
 
 if __name__ == "__main__":
     main()
+

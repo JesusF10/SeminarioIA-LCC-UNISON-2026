@@ -24,6 +24,25 @@ FROST_THRESHOLD = 5.0
 OUTPUT_DIR = Path("data/processed/analisis_municipal")
 YEARS_RANGE = "2010-2024"
 
+# Ingesta perezosa del monitor de sequía
+_drought_data = None
+
+
+def get_drought_data():
+    global _drought_data
+    if _drought_data is None:
+        path = Path("data/processed/monitor_sequia_sonora.csv")
+        if path.exists():
+            try:
+                _drought_data = pd.read_csv(path)
+                _drought_data["Fecha"] = pd.to_datetime(_drought_data["Fecha"])
+            except Exception as e:
+                logger.error(f"Error cargando monitor de sequía: {e}")
+                _drought_data = pd.DataFrame(columns=["NOMBRE_MUN", "Fecha", "Intensidad"])
+        else:
+            _drought_data = pd.DataFrame(columns=["NOMBRE_MUN", "Fecha", "Intensidad"])
+    return _drought_data
+
 
 def run_municipality_pipeline(
     region: Region, crops: dict[str, Crop], all_prod_data: pd.DataFrame, year_range: str
@@ -134,6 +153,23 @@ def run_municipality_pipeline(
             id_ddr = int(prod_year["Idddr"].iloc[0])
             nom_ddr = get_ddr_code(id_ddr)
 
+            # Calcular variables de sequía para el ciclo de cultivo
+            df_seq = get_drought_data()
+            df_seq_mun = df_seq[df_seq["NOMBRE_MUN"] == mun_name]
+            df_seq_cycle = df_seq_mun[
+                (df_seq_mun["Fecha"] >= start_dt) & (df_seq_mun["Fecha"] <= end_dt)
+            ]
+
+            if not df_seq_cycle.empty:
+                max_seq = int(df_seq_cycle["Intensidad"].max())
+                mean_seq = float(df_seq_cycle["Intensidad"].mean())
+                severas = (df_seq_cycle["Intensidad"] >= 3).sum()  # D2, D3, D4
+                frac_seq_sev = float(severas / len(df_seq_cycle))
+            else:
+                max_seq = 0
+                mean_seq = 0.0
+                frac_seq_sev = 0.0
+
             # Estadísticas
             metrics = {
                 # Datos region
@@ -148,6 +184,10 @@ def run_municipality_pipeline(
                 "Lat": region.latitude,
                 "Lon": region.longitude,
                 "Z_m": region.altitude,
+                # Variables de sequía
+                "max_intensidad_sequia": max_seq,
+                "indice_estres_sequia_acumulado": mean_seq,
+                "fraccion_quincenas_sequia_severa": frac_seq_sev,
                 # ET0
                 "ET0_total_mm": processed_daily["ET0"].sum(),
                 "ET0_mean_mm_d": processed_daily["ET0"].mean(),

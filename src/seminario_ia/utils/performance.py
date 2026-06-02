@@ -207,13 +207,10 @@ def process_file_per_region_crop(
     kc = crop_obj.kc
     dur = crop_obj.durations
 
-    # --- Rendimiento (ton/ha) según año(s) presentes en el archivo ---
-    performance_map = calculate_performance_per_file(
-        data_nasa, region.name, prod_data, crop_name
-    )
-
-    if not performance_map:
+    # --- Rendimiento (ton/ha) del ciclo ---
+    if prod_data.empty:
         return pd.DataFrame()
+    rend = float(prod_data["Rendimiento"].astype(float).mean())
 
     # Fechas y orden
     dates = data_nasa["Date"]
@@ -261,26 +258,13 @@ def process_file_per_region_crop(
     out["ET_v"] = green_et
     out["ET_a"] = blue_et
 
-    # Calcular HH y UAC por año
-    out["Year_tmp"] = out["Date"].dt.year
-    out["UAC_v"] = 0.0
-    out["UAC_a"] = 0.0
-    out["HH_v"] = 0.0
-    out["HH_a"] = 0.0
+    # Calcular HH y UAC para el ciclo completo
+    summary = calculate_wf_wc(green_et, blue_et, rend)
 
-    for year, rend in performance_map.items():
-        mask = out["Year_tmp"] == year
-        if not mask.any():
-            continue
-
-        # Resumen del año/periodo
-        summary = calculate_wf_wc(green_et[mask], blue_et[mask], rend)
-
-        # Asignar a las filas correspondientes
-        out.loc[mask, "UAC_v"] = summary["UACverde_m3_ha"]
-        out.loc[mask, "UAC_a"] = summary["UACazul_m3_ha"]
-        out.loc[mask, "HH_v"] = summary["HHverde_m3_ton"]
-        out.loc[mask, "HH_a"] = summary["HHazul_m3_ton"]
+    out["UAC_v"] = summary["UACverde_m3_ha"]
+    out["UAC_a"] = summary["UACazul_m3_ha"]
+    out["HH_v"] = summary["HHverde_m3_ton"]
+    out["HH_a"] = summary["HHazul_m3_ton"]
 
     # Columnas finales deseadas
     keep_cols = [

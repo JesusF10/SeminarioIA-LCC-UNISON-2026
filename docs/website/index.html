@@ -119,6 +119,11 @@
                         Eficiencia</a
                     >
                 </li>
+                <li class="nav-item" data-section="dashboard">
+                    <a href="#dashboard"
+                        ><i class="fa-solid fa-chart-column"></i> Dashboard Regional</a
+                    >
+                </li>
                 <li class="nav-item" data-section="calculadora">
                     <a href="#calculadora"
                         ><i class="fa-solid fa-sliders"></i> Calculadora FAO-56</a
@@ -2126,7 +2131,7 @@ def net_longwave_rnl_fao56(
                 </div>
             </section>
 
-            <!-- Sección: Estadísticas de Eficiencia (Dinámico desde JSON) -->
+            <!-- Sección: Estadísticas de Eficiencia (Estático original) -->
             <section id="estadisticas" class="section">
                 <h1>Análisis Estadístico y Eficiencia Hídrica</h1>
                 <p>
@@ -2153,6 +2158,399 @@ def net_longwave_rnl_fao56(
                 </div>
 
                 <div id="estadisticas-content"></div>
+            </section>
+
+            <!-- Sección: Dashboard de Recursos Hídricos e Interactividad (Nuevo) -->
+            <section id="dashboard" class="section">
+                <h1>Dashboard de Recursos Hídricos y Eficiencia Agrícola</h1>
+                <p style="margin-bottom: 2rem">
+                    Herramienta interactiva para explorar la huella hídrica, rendimiento
+                    e impacto de sequías en Sonora. Selecciona el nivel territorial, la
+                    región y el cultivo para graficar los datos del pipeline.
+                </p>
+
+                <!-- Panel de Controles y Filtros -->
+                <div class="dashboard-controls-card">
+                    <div class="control-group">
+                        <label>Nivel Territorial</label>
+                        <div class="segmented-control" id="db-level-tabs">
+                            <button class="segment-btn active" data-level="estatal">
+                                Estatal
+                            </button>
+                            <button class="segment-btn" data-level="ddr">DDR</button>
+                            <button class="segment-btn" data-level="municipio">
+                                Municipio
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="control-group"
+                        id="db-region-group"
+                        style="display: none"
+                    >
+                        <label for="db-region-select">Seleccionar Región</label>
+                        <select id="db-region-select" class="form-select">
+                            <!-- Se poblará dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="db-crop-select">Seleccionar Cultivo</label>
+                        <select id="db-crop-select" class="form-select">
+                            <!-- Se poblará dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="control-group" style="flex: 0.66; min-width: 145px;">
+                        <label for="db-year-start">Año Inicio</label>
+                        <select id="db-year-start" class="form-select">
+                            <!-- Se poblará dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="control-group" style="flex: 0.66; min-width: 145px;">
+                        <label for="db-year-end">Año Fin</label>
+                        <select id="db-year-end" class="form-select">
+                            <!-- Se poblará dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="db-analysis-select">Tipo de Análisis</label>
+                        <select id="db-analysis-select" class="form-select">
+                            <option value="balance_produccion" selected>
+                                Balance e Histórico de Producción
+                            </option>
+                            <option value="agua_concesiones">
+                                Disponibilidad de Agua y Concesiones
+                            </option>
+                            <option value="eficiencia_fisica_economica">
+                                Eficiencia Hídrica (Física y Económica)
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de KPIs (Indicadores Clave) -->
+                <div class="kpi-grid">
+                    <div
+                        class="kpi-card"
+                        style="border-left: 4px solid var(--accent-blue)"
+                    >
+                        <div class="kpi-title" id="kpi-1-title">
+                            Huella Hídrica Total
+                        </div>
+                        <div class="kpi-value" id="kpi-hh-total">-- m³/Ton</div>
+                        <div class="kpi-sub" id="kpi-hh-desglose">
+                            Verde: --% | Azul: --%
+                        </div>
+                    </div>
+                    <div
+                        class="kpi-card"
+                        style="border-left: 4px solid var(--accent-green)"
+                    >
+                        <div class="kpi-title" id="kpi-2-title">
+                            Rendimiento Promedio
+                        </div>
+                        <div class="kpi-value" id="kpi-rendimiento">-- Ton/Ha</div>
+                        <div class="kpi-sub" id="kpi-produccion-total">
+                            Producción: -- Ton
+                        </div>
+                    </div>
+                    <div
+                        class="kpi-card"
+                        style="border-left: 4px solid var(--accent-orange)"
+                    >
+                        <div class="kpi-title" id="kpi-3-title">
+                            Estrés por Sequía (ISAG)
+                        </div>
+                        <div class="kpi-value text-orange" id="kpi-sequia">--</div>
+                        <div class="kpi-sub" id="kpi-sequia-desc">
+                            Nivel de vulnerabilidad promedio
+                        </div>
+                    </div>
+                    <div
+                        class="kpi-card"
+                        style="border-left: 4px solid var(--text-secondary)"
+                    >
+                        <div class="kpi-title" id="kpi-4-title">
+                            Superficie Cosechada
+                        </div>
+                        <div class="kpi-value" id="kpi-superficie">-- Ha</div>
+                        <div class="kpi-sub" id="kpi-4-sub">
+                            Total acumulado en el ciclo
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visualización de Gráficos -->
+                <div class="dashboard-charts-grid">
+                    <div class="card chart-container-card" id="db-chart-a-container">
+                        <div class="card-title" id="chart-a-title">
+                            Evolución Histórica (2010-2024)
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-history"></canvas>
+                        </div>
+                    </div>
+                    <div class="card chart-container-card" id="db-chart-a2-container" style="display: none;">
+                        <div class="card-title" id="chart-a2-title">
+                            Evolución Histórica Secundaria (2010-2024)
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-history-secondary"></canvas>
+                        </div>
+                    </div>
+                    <div class="card chart-container-card" id="db-chart-b-container">
+                        <div class="card-title" id="chart-b-title">
+                            Comparativa de Huella Hídrica por Cultivo
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-compare"></canvas>
+                        </div>
+                    </div>
+                    <div class="card chart-container-card" id="db-chart-b2-container" style="display: none;">
+                        <div class="card-title" id="chart-b2-title">
+                            Productividad Económica por Cultivo
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-compare-secondary"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor para Tabla de Datos Detallada -->
+                <div
+                    class="card table-container-card"
+                    id="db-table-container"
+                    style="display: none; margin-top: 1.5rem; padding: 1.5rem"
+                >
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div class="card-title" id="db-table-title" style="margin-bottom: 0;">
+                            Resultados Detallados por Cultivo
+                        </div>
+                        <button id="db-download-csv" class="theme-toggle-btn" style="border-radius: 6px; padding: 0.5rem 0.85rem; font-weight: 600;">
+                            <i class="fa-solid fa-file-csv" style="color: var(--accent-green);"></i> Descargar CSV
+                        </button>
+                    </div>
+                    <div
+                        class="table-responsive"
+                        style="max-height: 450px; overflow-y: auto;"
+                    >
+                        <table class="table-premium" id="db-data-table">
+                            <thead id="db-table-header">
+                                <!-- Se poblará dinámicamente -->
+                            </thead>
+                            <tbody id="db-table-body">
+                                <!-- Se poblará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Glosario del Dashboard -->
+                <div
+                    class="card glosario-card"
+                    style="margin-top: 2rem; padding: 1.5rem"
+                >
+                    <div class="card-title" style="margin-bottom: 0.5rem">
+                        Glosario de Conceptos Agrícolas e Hídricos
+                    </div>
+                    <p
+                        style="
+                            color: var(--text-secondary);
+                            font-size: 0.9rem;
+                            margin-bottom: 1.5rem;
+                        "
+                    >
+                        Definiciones de los términos técnicos y económicos utilizados en
+                        esta sección.
+                    </p>
+                    <div
+                        class="glosario-grid"
+                        style="display: grid; grid-template-columns: 1fr; gap: 1.25rem"
+                    >
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--accent-blue);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >Eficiencia Física (Ton/m³)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                Relación física que indica cuántas toneladas de producto
+                                cosechado se obtienen por cada metro cúbico ($m^3$) de
+                                agua evaporado o transpirado. Se calcula como la inversa
+                                de la Huella Hídrica Total ($1 /
+                                \text{HH}_{\text{total}}$).
+                            </span>
+                        </div>
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--accent-green);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >Productividad Económica del Agua (MXN/m³)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                Valor monetario bruto que genera el cultivo por cada
+                                metro cúbico ($m^3$) de agua evaporado o transpirado.
+                                Indica el retorno financiero del recurso hídrico
+                                empleado y se calcula multiplicando la eficiencia física
+                                por el Precio Medio Rural (PMR).
+                            </span>
+                        </div>
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--accent-orange);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >Huella Hídrica Total (m³/Ton)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                Volumen de agua dulce necesario para producir una
+                                tonelada de cultivo. Se compone de la
+                                <strong>Huella Hídrica Verde</strong> (agua de lluvia
+                                absorbida por el suelo y evaporada en el ciclo) y la
+                                <strong>Huella Hídrica Azul</strong> (agua de riego
+                                superficial de presas o extraída de acuíferos
+                                subterráneos).
+                            </span>
+                        </div>
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--text-secondary);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >UAC (Uso de Agua del Cultivo, m³/Ha)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                Volumen de agua por hectárea que el cultivo consume
+                                directamente durante todo su ciclo vegetativo por
+                                evapotranspiración (bajo la metodología de balance de la
+                                FAO-56).
+                            </span>
+                        </div>
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--accent-purple);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >Concesión Hídrica Agrícola (REPNA)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                Límite legal volumétrico de extracción de agua
+                                (superficial o subterránea) asignado por CONAGUA a
+                                distritos de riego, unidades de riego o pozos privados
+                                de productores para fines agrícolas. Define el techo
+                                máximo de viabilidad jurídica del modelo.
+                            </span>
+                        </div>
+                        <div
+                            class="glosario-item"
+                            style="
+                                border-left: 3px solid var(--accent-orange);
+                                padding-left: 1rem;
+                            "
+                        >
+                            <strong
+                                style="
+                                    color: var(--text-primary);
+                                    display: block;
+                                    margin-bottom: 0.25rem;
+                                    font-size: 0.95rem;
+                                "
+                                >Estrés por Sequía (ISAG)</strong
+                            >
+                            <span
+                                style="
+                                    color: var(--text-secondary);
+                                    font-size: 0.85rem;
+                                    display: block;
+                                    line-height: 1.4;
+                                "
+                            >
+                                El Índice de Severidad de Sequía Agrícola (ISAG) cuantifica el grado de afectación acumulada por sequía sobre la actividad agrícola municipal. Se calcula ponderando la duración e intensidad de los niveles de sequía registrados en el Monitor de Sequía de México (MSM) de la CONAGUA (categorías D0 a D4) sobre la superficie cosechable expuesta de cada municipio para cada ciclo productivo (P-V y O-I). Los valores resultantes se promedian en una escala de 0.0 (óptimo / sin afectación) a 4.0 o superior (estrés severo / sequía excepcional recurrente).
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Footer con Copyright/Institucional -->

@@ -80,7 +80,7 @@ def map_municipal_isag(gdf, df_indices):
     color_map = {1: "#d9534f", 2: "#f0ad4e", 3: "#5cb85c"}
     labels_map = {1: "Alta", 2: "Media", 3: "Baja"}
 
-    for ciclo, col_isag, col_label in [
+    for ciclo, col_isag, _ in [
         ("Primavera-Verano (P-V)", "ISAG_PV", "ISAG_PV_label"),
         ("Otoño-Invierno (O-I)", "ISAG_OI", "ISAG_OI_label"),
     ]:
@@ -1124,7 +1124,12 @@ def generate_ddr_technification_map(gdf, df_indices):
             color="#0f172a",
             ha="center",
             va="center",
-            bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.7, ec="none"),
+            bbox={
+                "boxstyle": "round,pad=0.2",
+                "fc": "white",
+                "alpha": 0.7,
+                "ec": "none",
+            },
         )
 
     ax.set_title(

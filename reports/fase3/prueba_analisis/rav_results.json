@@ -1,0 +1,2796 @@
+{
+  "ddr_crops": {
+    "Agua Prieta": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 35.095111719370585
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 53.56381840369136
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 60.71826100555104
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1213.0718215022082
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1011.5088115807526
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 605.1372238639243
+        }
+      ]
+    },
+    "Caborca": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 9.600662622410548
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 10.717858596964755
+        },
+        {
+          "Cultivo": "Col de bruselas",
+          "RAV_L_mxn": 14.939260535719587
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 859.4674394117917
+        },
+        {
+          "Cultivo": "Semilla de flores",
+          "RAV_L_mxn": 844.1512603235686
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 713.1656454968175
+        }
+      ]
+    },
+    "Cajeme": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 11.442923402868507
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 19.075285763864446
+        },
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 24.089739466972325
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 3382.6361288605613
+        },
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1293.6271389833628
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 750.893521836177
+        }
+      ]
+    },
+    "Guaymas": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 10.299128659295821
+        },
+        {
+          "Cultivo": "Uva",
+          "RAV_L_mxn": 26.277136643641395
+        },
+        {
+          "Cultivo": "Semilla de papa",
+          "RAV_L_mxn": 27.00099797239662
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 2838.886423140032
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1204.3539599099754
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 827.6040222458566
+        }
+      ]
+    },
+    "Hermosillo": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 10.32952897354325
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 11.12120705063401
+        },
+        {
+          "Cultivo": "Berenjena",
+          "RAV_L_mxn": 16.33342892816373
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1041.8194130463996
+        },
+        {
+          "Cultivo": "Algodón hueso",
+          "RAV_L_mxn": 878.915277499087
+        },
+        {
+          "Cultivo": "Frutales varios",
+          "RAV_L_mxn": 781.2150234788472
+        }
+      ]
+    },
+    "Magdalena": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 4.594070898205164
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 7.029299663019077
+        },
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 16.665010084851147
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Cereza",
+          "RAV_L_mxn": 1074.0292841987186
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1034.0778958832607
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 897.8176365177046
+        }
+      ]
+    },
+    "Mazatán": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 80.46495497284872
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 139.57056145021932
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 570.232677605641
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2382.7150933357493
+        },
+        {
+          "Cultivo": "Naranja",
+          "RAV_L_mxn": 2060.2820692993437
+        },
+        {
+          "Cultivo": "Nopal forrajero",
+          "RAV_L_mxn": 1929.941988974797
+        }
+      ]
+    },
+    "Moctezuma": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 95.91644372936247
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 97.90712979728099
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 115.95756171999926
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2188.80395673705
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1163.099235487599
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1015.300101175445
+        }
+      ]
+    },
+    "Navojoa": {
+      "best": [
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 19.871655958922595
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 27.054229202089353
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 28.07582863648936
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 3756.989872863621
+        },
+        {
+          "Cultivo": "Haba verde",
+          "RAV_L_mxn": 1423.3604305991628
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1327.583872365446
+        }
+      ]
+    },
+    "Sahuaripa": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 46.42566545234355
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 59.36353533918503
+        },
+        {
+          "Cultivo": "Calabacita",
+          "RAV_L_mxn": 60.13852232318263
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1266.055084787991
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 908.8561667870665
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 889.1569386972492
+        }
+      ]
+    },
+    "San Luis Río Colorado": {
+      "best": [
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 17.46646205180387
+        },
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 20.0709852548307
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 23.426530521899114
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Varios",
+          "RAV_L_mxn": 1231.7391397766505
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 604.1692829598155
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 550.9928698012986
+        }
+      ]
+    },
+    "Ures": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 26.25139649721483
+        },
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 38.68030412369664
+        },
+        {
+          "Cultivo": "Col de bruselas",
+          "RAV_L_mxn": 46.41536455126841
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1167.2350377959401
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1083.6702793019174
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 596.9418472601924
+        }
+      ]
+    }
+  },
+  "mun_crops": {
+    "Aconchi": {
+      "best": [
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 9.561370222896507
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 21.456030332920438
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 54.3253594312482
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1217.9983602753787
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 988.320943173033
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 563.5683079756055
+        }
+      ]
+    },
+    "Agua Prieta": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 48.6871627759242
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 56.450271068008455
+        },
+        {
+          "Cultivo": "Chile verde",
+          "RAV_L_mxn": 118.25560513022192
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 918.4592153743047
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 591.7449816640533
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 499.1979214436327
+        }
+      ]
+    },
+    "Alamos": {
+      "best": [
+        {
+          "Cultivo": "Calabaza",
+          "RAV_L_mxn": 157.09164091111623
+        },
+        {
+          "Cultivo": "Naranja",
+          "RAV_L_mxn": 352.202034153483
+        },
+        {
+          "Cultivo": "Ajonjolí",
+          "RAV_L_mxn": 683.8682110171917
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 4311.148343360474
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 3459.38597475108
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1530.3121286380317
+        }
+      ]
+    },
+    "Altar": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 10.406859551580643
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 21.457113364226583
+        },
+        {
+          "Cultivo": "Col de bruselas",
+          "RAV_L_mxn": 28.61260326209792
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 951.4831369420674
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 572.720708901551
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 531.8795344394813
+        }
+      ]
+    },
+    "Arivechi": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 47.16454639290388
+        },
+        {
+          "Cultivo": "Cacahuate",
+          "RAV_L_mxn": 49.15158198917644
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 51.42986203343099
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sandía",
+          "RAV_L_mxn": 1065.3089235651087
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 956.3107500235927
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 950.439855843212
+        }
+      ]
+    },
+    "Arizpe": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 21.434716468053736
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 43.961255641471766
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 66.79005819141216
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1751.153211000376
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1117.0201721495819
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 575.8092334905825
+        }
+      ]
+    },
+    "Atil": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 7.878402047740212
+        },
+        {
+          "Cultivo": "Espárrago",
+          "RAV_L_mxn": 43.32549304350627
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 55.087165940527555
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 792.2168860611022
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 612.6560457270094
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 520.0075773757414
+        }
+      ]
+    },
+    "Bacadéhuachi": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 81.05218634653438
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 121.12197337826801
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 480.4557673025241
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1853.497328784632
+        },
+        {
+          "Cultivo": "Trigo forrajero verde",
+          "RAV_L_mxn": 1430.8490193884045
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1115.969823510036
+        }
+      ]
+    },
+    "Bacanora": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 70.1675194506788
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 100.69176094625604
+        },
+        {
+          "Cultivo": "Cacahuate",
+          "RAV_L_mxn": 161.9243381606277
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1378.6277105955626
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1299.0127270521705
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1189.1978317158373
+        }
+      ]
+    },
+    "Bacerac": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 78.33593951147924
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 109.68893481698947
+        },
+        {
+          "Cultivo": "Membrillo",
+          "RAV_L_mxn": 130.4895465699411
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1939.5767515289679
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1012.0526002178372
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 894.7714431897094
+        }
+      ]
+    },
+    "Bacoachi": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 61.761820706199124
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 63.937212837411664
+        },
+        {
+          "Cultivo": "Calabacita",
+          "RAV_L_mxn": 77.18458572946477
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 953.1633962939172
+        },
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 675.4784836695379
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 632.7657964438473
+        }
+      ]
+    },
+    "Banámichi": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 48.55615732740607
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 70.28564657313403
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 118.29311322781152
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1295.677276344256
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 918.9589549767823
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 606.0915923371821
+        }
+      ]
+    },
+    "Bavispe": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 74.1385368302968
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 90.76451992537326
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 121.75342795430632
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1368.18325204043
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1199.891536502239
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1135.8533918564162
+        }
+      ]
+    },
+    "Baviácora": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 30.917117437110146
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 62.6897396460764
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 66.0475257355359
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1254.009646444852
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1005.3882172650907
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 625.5823140372936
+        }
+      ]
+    },
+    "Benito Juárez": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 8.845882978027262
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 13.67676488496794
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 23.069710101795227
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1021.1037973409285
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 683.7311917659869
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 599.9533381389928
+        }
+      ]
+    },
+    "Benjamín Hill": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 15.252337501740435
+        },
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 49.043796337419955
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 55.61695705666522
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Trigo grano",
+          "RAV_L_mxn": 917.8504065818216
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 917.6368077324853
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 886.3907065063529
+        }
+      ]
+    },
+    "Bácum": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 11.718273146197737
+        },
+        {
+          "Cultivo": "Uva",
+          "RAV_L_mxn": 24.672370086148607
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 25.798397386381076
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 660.3564222122047
+        },
+        {
+          "Cultivo": "Soya",
+          "RAV_L_mxn": 632.6995016335429
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 555.6281759113637
+        }
+      ]
+    },
+    "Caborca": {
+      "best": [
+        {
+          "Cultivo": "Col de bruselas",
+          "RAV_L_mxn": 12.649846552874584
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 13.867748596228306
+        },
+        {
+          "Cultivo": "Chile verde",
+          "RAV_L_mxn": 20.10719416954844
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 872.2767303545969
+        },
+        {
+          "Cultivo": "Semilla de flores",
+          "RAV_L_mxn": 844.1512603235686
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 669.1801321011585
+        }
+      ]
+    },
+    "Cajeme": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 16.60811745714479
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 22.732313706079132
+        },
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 23.034552679966428
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Algodón hueso",
+          "RAV_L_mxn": 674.9827761897259
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 650.1788380797154
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 646.2580083317969
+        }
+      ]
+    },
+    "Cananea": {
+      "best": [
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 29.80303790679603
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 34.52789478238438
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 44.93585518641303
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 937.4260930115239
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 628.2442546268657
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 468.24029510901437
+        }
+      ]
+    },
+    "Carbó": {
+      "best": [
+        {
+          "Cultivo": "Uva",
+          "RAV_L_mxn": 25.263019379225746
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 32.23396004987808
+        },
+        {
+          "Cultivo": "Sandía",
+          "RAV_L_mxn": 34.68901031789448
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 571.7095693484869
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 499.48896427804885
+        },
+        {
+          "Cultivo": "Naranja",
+          "RAV_L_mxn": 324.7913178808541
+        }
+      ]
+    },
+    "Cucurpe": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 15.909947918847186
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 28.70262844972506
+        },
+        {
+          "Cultivo": "Cilantro",
+          "RAV_L_mxn": 35.90487181065043
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 852.8615959803692
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 844.205731187369
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 816.8010763054943
+        }
+      ]
+    },
+    "Cumpas": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 101.67048641715333
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 103.20057038093101
+        },
+        {
+          "Cultivo": "Calabacita",
+          "RAV_L_mxn": 147.1621982049252
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2545.2931131776068
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1207.2207930150018
+        },
+        {
+          "Cultivo": "Trigo forrajero verde",
+          "RAV_L_mxn": 1162.604396726008
+        }
+      ]
+    },
+    "Divisaderos": {
+      "best": [
+        {
+          "Cultivo": "Agave",
+          "RAV_L_mxn": 324.1823654965317
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 456.6244477537821
+        },
+        {
+          "Cultivo": "Trigo grano",
+          "RAV_L_mxn": 462.19622907008863
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2009.4402125947308
+        },
+        {
+          "Cultivo": "Trigo forrajero verde",
+          "RAV_L_mxn": 1441.3908765729475
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1424.4536556714352
+        }
+      ]
+    },
+    "Empalme": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 9.320261415388215
+        },
+        {
+          "Cultivo": "Semilla de papa",
+          "RAV_L_mxn": 27.00099797239662
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 27.312926532643605
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 2977.543079409948
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1136.767477474859
+        },
+        {
+          "Cultivo": "Cártamo",
+          "RAV_L_mxn": 1118.5623628380781
+        }
+      ]
+    },
+    "Etchojoa": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 9.844308316487732
+        },
+        {
+          "Cultivo": "Brócoli",
+          "RAV_L_mxn": 22.741928959726007
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 29.795848973220693
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1488.3438027266916
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 786.5055322481637
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 697.6777373060748
+        }
+      ]
+    },
+    "Fronteras": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 30.00724981964216
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 44.966307339739444
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 55.12806786842662
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1213.0718215022082
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 865.2546114771553
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 596.8713946888247
+        }
+      ]
+    },
+    "General Plutarco Elías Calles": {
+      "best": [
+        {
+          "Cultivo": "Espárrago",
+          "RAV_L_mxn": 34.854991576567144
+        },
+        {
+          "Cultivo": "Melón",
+          "RAV_L_mxn": 58.80750846584968
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 69.06318319986708
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1174.192324930669
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 669.6100239413535
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 663.7176858032652
+        }
+      ]
+    },
+    "Granados": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 103.49406150874731
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 341.1503367113843
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 605.3041524491
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1138.0429333480497
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1017.2716777829667
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 943.3644409198014
+        }
+      ]
+    },
+    "Guaymas": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 11.067248089880538
+        },
+        {
+          "Cultivo": "Uva",
+          "RAV_L_mxn": 25.265793176693727
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 27.021666959068014
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1290.0803966514272
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 933.4296654572731
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 853.2881740258282
+        }
+      ]
+    },
+    "Hermosillo": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 10.287897528369193
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 10.806928055832861
+        },
+        {
+          "Cultivo": "Berenjena",
+          "RAV_L_mxn": 16.33342892816373
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1041.8194130463996
+        },
+        {
+          "Cultivo": "Algodón hueso",
+          "RAV_L_mxn": 878.915277499087
+        },
+        {
+          "Cultivo": "Frutales varios",
+          "RAV_L_mxn": 781.2150234788472
+        }
+      ]
+    },
+    "Huachinera": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 69.78827434044315
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 94.79619134475685
+        },
+        {
+          "Cultivo": "Chile verde",
+          "RAV_L_mxn": 145.81529887488702
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1193.088112678006
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1056.346464623733
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 787.0959426573713
+        }
+      ]
+    },
+    "Huatabampo": {
+      "best": [
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 19.851711877342442
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 24.826848990495847
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 27.743735672369038
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1222.0352584644468
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1186.3920824263848
+        },
+        {
+          "Cultivo": "Varios",
+          "RAV_L_mxn": 788.1623118805559
+        }
+      ]
+    },
+    "Huásabas": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 104.52558144268323
+        },
+        {
+          "Cultivo": "Agave",
+          "RAV_L_mxn": 308.30168121814825
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 568.4017335886361
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1125.0453950438077
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 971.9435105207923
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 899.5086631033762
+        }
+      ]
+    },
+    "Huépac": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 54.70814551185059
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 63.72917922681952
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 71.45118350010769
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1282.3413460561474
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1079.6268292995062
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 579.4748785658502
+        }
+      ]
+    },
+    "Imuris": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 4.428680820899004
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 7.888213669853585
+        },
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 16.18337823089944
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Haba verde",
+          "RAV_L_mxn": 1694.113552553634
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1055.212549124619
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 825.2945537034093
+        }
+      ]
+    },
+    "La Colorada": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 88.05408219258322
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 139.679610528372
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 586.0583934305928
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2393.8451910221515
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 919.8273385322826
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 723.883946107195
+        }
+      ]
+    },
+    "Magdalena": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 4.956990292915093
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 5.604092205006373
+        },
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 16.180122506118522
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1149.7722762746089
+        },
+        {
+          "Cultivo": "Cereza",
+          "RAV_L_mxn": 1074.0292841987186
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 903.5696697798343
+        }
+      ]
+    },
+    "Mazatán": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 87.504659453806
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 581.555644327505
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 620.513181393084
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2595.694760291166
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 896.8341505956637
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 695.9947043325102
+        }
+      ]
+    },
+    "Moctezuma": {
+      "best": [
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 88.57058871513631
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 102.06193254169544
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 123.84826930125026
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2568.2736985710717
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1348.08907824628
+        },
+        {
+          "Cultivo": "Trigo forrajero verde",
+          "RAV_L_mxn": 1248.5692534872542
+        }
+      ]
+    },
+    "Naco": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 70.33413395530805
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 92.72758735557422
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 112.04952237539726
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1957.1789547299488
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 883.8810008919764
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 654.3098782333409
+        }
+      ]
+    },
+    "Navojoa": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 15.325124379630314
+        },
+        {
+          "Cultivo": "Brócoli",
+          "RAV_L_mxn": 18.28954638128941
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 28.39939165663096
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Haba verde",
+          "RAV_L_mxn": 1423.3604305991628
+        },
+        {
+          "Cultivo": "Higuerilla",
+          "RAV_L_mxn": 1248.1782450916232
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1004.3080424704558
+        }
+      ]
+    },
+    "Nogales": {
+      "best": [
+        {
+          "Cultivo": "Cebolla",
+          "RAV_L_mxn": 21.80396002537551
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 34.6674282876134
+        },
+        {
+          "Cultivo": "Col (repollo)",
+          "RAV_L_mxn": 50.055040943141954
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 845.7370009739919
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 826.3565331442437
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 814.5610719211018
+        }
+      ]
+    },
+    "Nácori Chico": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 73.45199265133344
+        },
+        {
+          "Cultivo": "Frijol",
+          "RAV_L_mxn": 441.9267023596631
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 484.44732427950214
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1538.7571941062117
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 876.6195203788141
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 844.8098617259844
+        }
+      ]
+    },
+    "Onavas": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 75.93701336669201
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 492.2593828190511
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 496.87891447340513
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2111.377601300823
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 796.6655616386416
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 601.2237130690423
+        }
+      ]
+    },
+    "Opodepe": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 44.795543892261726
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 89.60311884403346
+        },
+        {
+          "Cultivo": "Calabaza",
+          "RAV_L_mxn": 165.06298241513247
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1113.515253613906
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 903.6992896173305
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 575.3839926277707
+        }
+      ]
+    },
+    "Oquitoa": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 71.75849851206853
+        },
+        {
+          "Cultivo": "Cebolla",
+          "RAV_L_mxn": 98.44325467386233
+        },
+        {
+          "Cultivo": "Trigo grano",
+          "RAV_L_mxn": 253.67009741024327
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 972.2293227614605
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 757.546021561164
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 511.96677292489903
+        }
+      ]
+    },
+    "Pitiquito": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 8.161800265749562
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 8.71634646984327
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 21.680775741624547
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Varios",
+          "RAV_L_mxn": 2219.379745600532
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 822.8310919472206
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 547.3633864534038
+        }
+      ]
+    },
+    "Puerto Peñasco": {
+      "best": [
+        {
+          "Cultivo": "Espárrago",
+          "RAV_L_mxn": 37.99857048107035
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Espárrago",
+          "RAV_L_mxn": 37.99857048107035
+        }
+      ]
+    },
+    "Quiriego": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 105.62155854719279
+        },
+        {
+          "Cultivo": "Melón",
+          "RAV_L_mxn": 142.27209542246302
+        },
+        {
+          "Cultivo": "Sandía",
+          "RAV_L_mxn": 173.99508876113651
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 2068.235179357634
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 1946.760780159276
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1024.344263220205
+        }
+      ]
+    },
+    "Rayón": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 29.53190358672423
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 45.87244111277038
+        },
+        {
+          "Cultivo": "Col de bruselas",
+          "RAV_L_mxn": 46.41536455126841
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1309.734834708522
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1002.6604390722193
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 610.0942463880928
+        }
+      ]
+    },
+    "Rosario": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 95.55975703949959
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 169.89722272373336
+        },
+        {
+          "Cultivo": "Elote",
+          "RAV_L_mxn": 279.98702385272793
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 3382.6361288605613
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 2565.888361686648
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 1102.2880043971413
+        }
+      ]
+    },
+    "Sahuaripa": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 37.71596968920443
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 49.76287766188125
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 99.47473898089775
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 884.6712015300978
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 703.5052569634448
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 544.2143929591182
+        }
+      ]
+    },
+    "San Felipe de Jesús": {
+      "best": [
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 11.165628513431772
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 51.044699742139265
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 76.88519853426378
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1363.0132399224758
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1186.4955220403472
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 594.2914198221666
+        }
+      ]
+    },
+    "San Ignacio Río Muerto": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 8.433724571007147
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 15.261340481919342
+        },
+        {
+          "Cultivo": "Uva",
+          "RAV_L_mxn": 20.315732041587264
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 796.6800556607539
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 602.121282031819
+        },
+        {
+          "Cultivo": "Soya",
+          "RAV_L_mxn": 578.2615913141775
+        }
+      ]
+    },
+    "San Javier": {
+      "best": [
+        {
+          "Cultivo": "Nopal forrajero",
+          "RAV_L_mxn": 1929.941988974797
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 2211.894314711058
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 2211.894314711058
+        },
+        {
+          "Cultivo": "Nopal forrajero",
+          "RAV_L_mxn": 1929.941988974797
+        }
+      ]
+    },
+    "San Luis Río Colorado": {
+      "best": [
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 17.84253570708627
+        },
+        {
+          "Cultivo": "Apio",
+          "RAV_L_mxn": 21.795529499517478
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 23.65889158108106
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Varios",
+          "RAV_L_mxn": 1231.7391397766505
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 606.1018945175488
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 568.365884599027
+        }
+      ]
+    },
+    "San Miguel de Horcasitas": {
+      "best": [
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 13.38341314098021
+        },
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 14.657180573658373
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 26.037633925026427
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 557.6098609317919
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 531.3688090334689
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 530.9259419764234
+        }
+      ]
+    },
+    "San Pedro de La Cueva": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 34.53349846900459
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 145.64105157353794
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 530.2977778927751
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2337.138308394214
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 881.8893995435266
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 607.791484424789
+        }
+      ]
+    },
+    "Santa Ana": {
+      "best": [
+        {
+          "Cultivo": "Tomate rojo (jitomate)",
+          "RAV_L_mxn": 3.8182328392049225
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 6.99470651691664
+        },
+        {
+          "Cultivo": "Rábano",
+          "RAV_L_mxn": 18.266398434701422
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 947.9835441800566
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 908.3216145583768
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 714.1259967375212
+        }
+      ]
+    },
+    "Santa Cruz": {
+      "best": [
+        {
+          "Cultivo": "Tomate verde",
+          "RAV_L_mxn": 28.616511303936704
+        },
+        {
+          "Cultivo": "Calabaza",
+          "RAV_L_mxn": 28.902832873132297
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 30.635610018313777
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 782.2271131576709
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 774.1978497508733
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 749.3126349714175
+        }
+      ]
+    },
+    "Soyopa": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 81.84378533373922
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 137.85753030693755
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 521.7683506818252
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2088.864864937496
+        },
+        {
+          "Cultivo": "Naranja",
+          "RAV_L_mxn": 2060.2820692993437
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 833.741802722185
+        }
+      ]
+    },
+    "Suaqui Grande": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 89.263896758982
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 590.770997150724
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 638.4720102137643
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2315.675162060541
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 911.5303918983575
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 708.761075175436
+        }
+      ]
+    },
+    "Sáric": {
+      "best": [
+        {
+          "Cultivo": "Col (repollo)",
+          "RAV_L_mxn": 33.758908924139696
+        },
+        {
+          "Cultivo": "Calabacita",
+          "RAV_L_mxn": 57.310122672873845
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 60.752123266092404
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 840.187646071843
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 586.9597195930892
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 502.3716181979527
+        }
+      ]
+    },
+    "Tepache": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 114.78708233334825
+        },
+        {
+          "Cultivo": "Agave",
+          "RAV_L_mxn": 325.26307642685913
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 453.55519409007366
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2289.852508930679
+        },
+        {
+          "Cultivo": "Trigo forrajero verde",
+          "RAV_L_mxn": 1561.481563703447
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1411.908188162366
+        }
+      ]
+    },
+    "Trincheras": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 16.56564987079772
+        },
+        {
+          "Cultivo": "Lechuga",
+          "RAV_L_mxn": 35.76388061247924
+        },
+        {
+          "Cultivo": "Cebolla",
+          "RAV_L_mxn": 63.18564768189347
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1669.794822021943
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 1063.7436007357242
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 970.8248312112512
+        }
+      ]
+    },
+    "Tubutama": {
+      "best": [
+        {
+          "Cultivo": "Higo",
+          "RAV_L_mxn": 42.327462119265306
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 62.45355802823728
+        },
+        {
+          "Cultivo": "Melón",
+          "RAV_L_mxn": 67.12753102492492
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 830.0035396631212
+        },
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 628.4931827954459
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 537.0653687078336
+        }
+      ]
+    },
+    "Ures": {
+      "best": [
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 27.66683699560215
+        },
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 45.65478868282975
+        },
+        {
+          "Cultivo": "Hortalizas",
+          "RAV_L_mxn": 45.839743739779976
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz grano",
+          "RAV_L_mxn": 1112.291213713028
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 1061.1061162331582
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 607.6709877074798
+        }
+      ]
+    },
+    "Villa Hidalgo": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 98.22610810999517
+        },
+        {
+          "Cultivo": "Nuez",
+          "RAV_L_mxn": 129.30292329870488
+        },
+        {
+          "Cultivo": "Ajo",
+          "RAV_L_mxn": 139.83227384713803
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 992.9559301375951
+        },
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 929.7890900317966
+        },
+        {
+          "Cultivo": "Sorgo grano",
+          "RAV_L_mxn": 922.2539238906409
+        }
+      ]
+    },
+    "Villa Pesqueira": {
+      "best": [
+        {
+          "Cultivo": "Alfalfa achicalada",
+          "RAV_L_mxn": 95.22767751427865
+        },
+        {
+          "Cultivo": "Avena forrajera en verde",
+          "RAV_L_mxn": 580.4164395041345
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 629.9453378388012
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 2616.4115507814467
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1926.317286700758
+        },
+        {
+          "Cultivo": "Cebada forrajera en verde",
+          "RAV_L_mxn": 629.9453378388012
+        }
+      ]
+    },
+    "Yécora": {
+      "best": [
+        {
+          "Cultivo": "Calabacita",
+          "RAV_L_mxn": 60.13852232318263
+        },
+        {
+          "Cultivo": "Papa",
+          "RAV_L_mxn": 70.94223480657905
+        },
+        {
+          "Cultivo": "Pepino",
+          "RAV_L_mxn": 77.04562920319358
+        }
+      ],
+      "worst": [
+        {
+          "Cultivo": "Pastos y praderas",
+          "RAV_L_mxn": 4033.9734418254993
+        },
+        {
+          "Cultivo": "Maíz forrajero en verde",
+          "RAV_L_mxn": 1461.4476640655027
+        },
+        {
+          "Cultivo": "Sorgo forrajero en verde",
+          "RAV_L_mxn": 1146.0774275603685
+        }
+      ]
+    }
+  },
+  "ddr_rav": [
+    {
+      "DDR": "Guaymas",
+      "RAV_L_mxn": 48.35640819484972
+    },
+    {
+      "DDR": "Caborca",
+      "RAV_L_mxn": 49.92553775963136
+    },
+    {
+      "DDR": "Hermosillo",
+      "RAV_L_mxn": 69.0567907869158
+    },
+    {
+      "DDR": "San Luis Río Colorado",
+      "RAV_L_mxn": 86.33997198460246
+    },
+    {
+      "DDR": "Magdalena",
+      "RAV_L_mxn": 121.9859758366818
+    },
+    {
+      "DDR": "Cajeme",
+      "RAV_L_mxn": 172.24433461329244
+    },
+    {
+      "DDR": "Navojoa",
+      "RAV_L_mxn": 186.30909073683443
+    },
+    {
+      "DDR": "Ures",
+      "RAV_L_mxn": 221.1898320676888
+    },
+    {
+      "DDR": "Agua Prieta",
+      "RAV_L_mxn": 256.1590800851742
+    },
+    {
+      "DDR": "Sahuaripa",
+      "RAV_L_mxn": 267.40862027317434
+    },
+    {
+      "DDR": "Mazatán",
+      "RAV_L_mxn": 325.77402037868455
+    },
+    {
+      "DDR": "Moctezuma",
+      "RAV_L_mxn": 385.2488795134319
+    }
+  ],
+  "mun_rav": [
+    {
+      "Municipio": "San Miguel de Horcasitas",
+      "RAV_L_mxn": 33.54085979767481
+    },
+    {
+      "Municipio": "Puerto Peñasco",
+      "RAV_L_mxn": 37.99857048107035
+    },
+    {
+      "Municipio": "Pitiquito",
+      "RAV_L_mxn": 39.52629171683414
+    },
+    {
+      "Municipio": "Altar",
+      "RAV_L_mxn": 42.83571304603492
+    },
+    {
+      "Municipio": "Empalme",
+      "RAV_L_mxn": 44.08756222591092
+    },
+    {
+      "Municipio": "Caborca",
+      "RAV_L_mxn": 46.00308825534081
+    },
+    {
+      "Municipio": "Carbó",
+      "RAV_L_mxn": 48.514631103744016
+    },
+    {
+      "Municipio": "Guaymas",
+      "RAV_L_mxn": 67.50033884650597
+    },
+    {
+      "Municipio": "Imuris",
+      "RAV_L_mxn": 71.867622103568
+    },
+    {
+      "Municipio": "Hermosillo",
+      "RAV_L_mxn": 75.21550033948773
+    },
+    {
+      "Municipio": "San Luis Río Colorado",
+      "RAV_L_mxn": 88.35566725468263
+    },
+    {
+      "Municipio": "General Plutarco Elías Calles",
+      "RAV_L_mxn": 91.13441392832321
+    },
+    {
+      "Municipio": "Magdalena",
+      "RAV_L_mxn": 99.41309009209914
+    },
+    {
+      "Municipio": "Navojoa",
+      "RAV_L_mxn": 113.33528390616546
+    },
+    {
+      "Municipio": "Trincheras",
+      "RAV_L_mxn": 122.38242285060517
+    },
+    {
+      "Municipio": "Benjamín Hill",
+      "RAV_L_mxn": 123.0999874734931
+    },
+    {
+      "Municipio": "Arizpe",
+      "RAV_L_mxn": 130.77114788044386
+    },
+    {
+      "Municipio": "Santa Ana",
+      "RAV_L_mxn": 142.5059351952268
+    },
+    {
+      "Municipio": "Benito Juárez",
+      "RAV_L_mxn": 153.66893394958322
+    },
+    {
+      "Municipio": "Bácum",
+      "RAV_L_mxn": 156.45143075266847
+    },
+    {
+      "Municipio": "Huatabampo",
+      "RAV_L_mxn": 157.9079278089063
+    },
+    {
+      "Municipio": "Cajeme",
+      "RAV_L_mxn": 162.64152763047605
+    },
+    {
+      "Municipio": "Santa Cruz",
+      "RAV_L_mxn": 166.62523669188923
+    },
+    {
+      "Municipio": "San Ignacio Río Muerto",
+      "RAV_L_mxn": 167.94241384936885
+    },
+    {
+      "Municipio": "Cananea",
+      "RAV_L_mxn": 191.6222314667213
+    },
+    {
+      "Municipio": "Banámichi",
+      "RAV_L_mxn": 192.21365009868148
+    },
+    {
+      "Municipio": "Etchojoa",
+      "RAV_L_mxn": 194.09909298175847
+    },
+    {
+      "Municipio": "Huachinera",
+      "RAV_L_mxn": 201.5678011084848
+    },
+    {
+      "Municipio": "Bavispe",
+      "RAV_L_mxn": 217.41925226048326
+    },
+    {
+      "Municipio": "Bacerac",
+      "RAV_L_mxn": 217.86495701318782
+    },
+    {
+      "Municipio": "La Colorada",
+      "RAV_L_mxn": 219.54385348501623
+    },
+    {
+      "Municipio": "Huépac",
+      "RAV_L_mxn": 223.0641597095875
+    },
+    {
+      "Municipio": "Rayón",
+      "RAV_L_mxn": 224.03393769696075
+    },
+    {
+      "Municipio": "Yécora",
+      "RAV_L_mxn": 226.11950683411408
+    },
+    {
+      "Municipio": "Atil",
+      "RAV_L_mxn": 226.91882961750176
+    },
+    {
+      "Municipio": "Opodepe",
+      "RAV_L_mxn": 235.49893494419797
+    },
+    {
+      "Municipio": "Cucurpe",
+      "RAV_L_mxn": 236.07541213551127
+    },
+    {
+      "Municipio": "Fronteras",
+      "RAV_L_mxn": 238.90230241841442
+    },
+    {
+      "Municipio": "Bacoachi",
+      "RAV_L_mxn": 255.56316705154126
+    },
+    {
+      "Municipio": "Sahuaripa",
+      "RAV_L_mxn": 255.99870924704172
+    },
+    {
+      "Municipio": "Sáric",
+      "RAV_L_mxn": 257.48884495100896
+    },
+    {
+      "Municipio": "Ures",
+      "RAV_L_mxn": 259.0598511363476
+    },
+    {
+      "Municipio": "Baviácora",
+      "RAV_L_mxn": 277.65924527008815
+    },
+    {
+      "Municipio": "San Felipe de Jesús",
+      "RAV_L_mxn": 288.6098180873368
+    },
+    {
+      "Municipio": "Suaqui Grande",
+      "RAV_L_mxn": 293.09710996283906
+    },
+    {
+      "Municipio": "Arivechi",
+      "RAV_L_mxn": 296.08863672488104
+    },
+    {
+      "Municipio": "Aconchi",
+      "RAV_L_mxn": 298.98052795859616
+    },
+    {
+      "Municipio": "Agua Prieta",
+      "RAV_L_mxn": 313.3349024651716
+    },
+    {
+      "Municipio": "Nogales",
+      "RAV_L_mxn": 319.92065845696715
+    },
+    {
+      "Municipio": "Naco",
+      "RAV_L_mxn": 335.3294997631334
+    },
+    {
+      "Municipio": "Tubutama",
+      "RAV_L_mxn": 337.31524686277413
+    },
+    {
+      "Municipio": "Villa Hidalgo",
+      "RAV_L_mxn": 337.98982665320875
+    },
+    {
+      "Municipio": "Oquitoa",
+      "RAV_L_mxn": 345.0539019851952
+    },
+    {
+      "Municipio": "Granados",
+      "RAV_L_mxn": 363.8315071700642
+    },
+    {
+      "Municipio": "Huásabas",
+      "RAV_L_mxn": 375.5065032867988
+    },
+    {
+      "Municipio": "Bacanora",
+      "RAV_L_mxn": 403.9652817626232
+    },
+    {
+      "Municipio": "Mazatán",
+      "RAV_L_mxn": 437.21885297989195
+    },
+    {
+      "Municipio": "Soyopa",
+      "RAV_L_mxn": 479.2627737510054
+    },
+    {
+      "Municipio": "Tepache",
+      "RAV_L_mxn": 500.6204716907889
+    },
+    {
+      "Municipio": "Bacadéhuachi",
+      "RAV_L_mxn": 502.2072698203308
+    },
+    {
+      "Municipio": "Moctezuma",
+      "RAV_L_mxn": 579.4383401581126
+    },
+    {
+      "Municipio": "Cumpas",
+      "RAV_L_mxn": 622.9949072747704
+    },
+    {
+      "Municipio": "Nácori Chico",
+      "RAV_L_mxn": 671.2480384940328
+    },
+    {
+      "Municipio": "Rosario",
+      "RAV_L_mxn": 893.355428722497
+    },
+    {
+      "Municipio": "Quiriego",
+      "RAV_L_mxn": 967.168587572188
+    },
+    {
+      "Municipio": "Divisaderos",
+      "RAV_L_mxn": 1132.1107837522482
+    },
+    {
+      "Municipio": "Villa Pesqueira",
+      "RAV_L_mxn": 1481.6368048089848
+    },
+    {
+      "Municipio": "San Javier",
+      "RAV_L_mxn": 2209.968132844963
+    }
+  ]
+}

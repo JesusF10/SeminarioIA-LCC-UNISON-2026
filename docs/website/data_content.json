@@ -1045,6 +1045,68 @@
       ]
     },
     {
+      "title": "Análisis de Ineficiencia Hídrica Relativa: Relación Agua-Valor (RAV)",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Para identificar qué regiones están consumiendo grandes volúmenes de agua pero generando un bajo retorno financiero, se introduce la <strong>Relación Agua-Valor (RAV)</strong>. Este indicador se define como la cantidad de litros de agua dulce consumida (evapotranspiración total acumulada) por cada peso mexicano (1.00 MXN) de valor bruto de la producción agrícola generado (\\(L / \\text{MXN}\\)):"
+        },
+        {
+          "type": "math-block",
+          "content": "\\text{RAV} = \\frac{\\text{Con\\sumo Hídrico Total } (L)}{\\text{Valor de la Producción Total } (\\text{MXN}})"
+        },
+        {
+          "type": "paragraph",
+          "content": "Un valor alto de RAV denota una baja productividad económica del agua (uso ineficiente y de bajo valor monetario), mientras que un RAV bajo representa un alto retorno económico del recurso hídrico."
+        }
+      ]
+    },
+    {
+      "title": "Distribución por Distrito de Desarrollo Rural (DDR)",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "El siguiente mapa muestra la distribución de la Relación Agua-Valor a nivel de DDR:"
+        },
+        {
+          "type": "html",
+          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/mapa_rav_ddr.png\" style=\"max-width: 85%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Relación Agua-Valor (RAV) por DDR (Litros de agua por peso producido)</figcaption></figure>"
+        },
+        {
+          "type": "paragraph",
+          "content": "A continuación se detalla la eficiencia media de cada DDR:"
+        },
+        {
+          "type": "html",
+          "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>DDR</th><th>RAV Promedio</th></tr></thead><tbody><tr><td>Guaymas</td><td>48.4 L/MXN</td></tr><tr><td>Caborca</td><td>49.9 L/MXN</td></tr><tr><td>Hermosillo</td><td>69.1 L/MXN</td></tr><tr><td>San Luis Río Colorado</td><td>86.3 L/MXN</td></tr><tr><td>Magdalena</td><td>122.0 L/MXN</td></tr><tr><td>Cajeme</td><td>172.2 L/MXN</td></tr><tr><td>Navojoa</td><td>186.3 L/MXN</td></tr><tr><td>Ures</td><td>221.2 L/MXN</td></tr><tr><td>Agua Prieta</td><td>256.2 L/MXN</td></tr><tr><td>Sahuaripa</td><td>267.4 L/MXN</td></tr><tr><td>Mazatán</td><td>325.8 L/MXN</td></tr><tr><td>Moctezuma</td><td>385.2 L/MXN</td></tr></tbody></table></div>"
+        }
+      ]
+    },
+    {
+      "title": "Distribución por Municipio",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "El siguiente mapa muestra la distribución de la Relación Agua-Valor a nivel municipal en Sonora:"
+        },
+        {
+          "type": "html",
+          "content": "<figure class=\"figure-premium\" style=\"text-align: center; margin: 2rem 0;\">  <img src=\"images/mapa_rav_municipio.png\" style=\"max-width: 85%; border-radius: var(--border-radius); border: 1px solid var(--card-border); box-shadow: var(--shadow-premium);\">  <figcaption style=\"color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.75rem; font-style: italic;\">Relación Agua-Valor (RAV) por Municipio (Litros de agua por peso producido)</figcaption></figure>"
+        },
+        {
+          "type": "paragraph",
+          "content": "A continuación se presenta la Relación Agua-Valor de todos los municipios de Sonora evaluados, estructurada en tres bloques paralelos para optimizar el espacio:"
+        },
+        {
+          "type": "html",
+          "content": "<div class=\"table-responsive\"><table class=\"table-premium\"><thead><tr><th>Municipio</th><th>RAV</th><th>Municipio</th><th>RAV</th><th>Municipio</th><th>RAV</th></tr></thead><tbody><tr><td>Aconchi</td><td>299.0 L/MXN</td><td>Empalme</td><td>44.1 L/MXN</td><td>Puerto Peñasco</td><td>38.0 L/MXN</td></tr><tr><td>Agua Prieta</td><td>313.3 L/MXN</td><td>Etchojoa</td><td>194.1 L/MXN</td><td>Quiriego</td><td>967.2 L/MXN</td></tr><tr><td>Altar</td><td>42.8 L/MXN</td><td>Fronteras</td><td>238.9 L/MXN</td><td>Rayón</td><td>224.0 L/MXN</td></tr><tr><td>Arivechi</td><td>296.1 L/MXN</td><td>General Plutarco Elías Calles</td><td>91.1 L/MXN</td><td>Rosario</td><td>893.4 L/MXN</td></tr><tr><td>Arizpe</td><td>130.8 L/MXN</td><td>Granados</td><td>363.8 L/MXN</td><td>Sahuaripa</td><td>256.0 L/MXN</td></tr><tr><td>Atil</td><td>226.9 L/MXN</td><td>Guaymas</td><td>67.5 L/MXN</td><td>San Felipe de Jesús</td><td>288.6 L/MXN</td></tr><tr><td>Bacadéhuachi</td><td>502.2 L/MXN</td><td>Hermosillo</td><td>75.2 L/MXN</td><td>San Ignacio Río Muerto</td><td>167.9 L/MXN</td></tr><tr><td>Bacanora</td><td>404.0 L/MXN</td><td>Huachinera</td><td>201.6 L/MXN</td><td>San Javier</td><td>2210.0 L/MXN</td></tr><tr><td>Bacerac</td><td>217.9 L/MXN</td><td>Huatabampo</td><td>157.9 L/MXN</td><td>San Luis Río Colorado</td><td>88.4 L/MXN</td></tr><tr><td>Bacoachi</td><td>255.6 L/MXN</td><td>Huásabas</td><td>375.5 L/MXN</td><td>San Miguel de Horcasitas</td><td>33.5 L/MXN</td></tr><tr><td>Banámichi</td><td>192.2 L/MXN</td><td>Huépac</td><td>223.1 L/MXN</td><td>Santa Ana</td><td>142.5 L/MXN</td></tr><tr><td>Bavispe</td><td>217.4 L/MXN</td><td>Imuris</td><td>71.9 L/MXN</td><td>Santa Cruz</td><td>166.6 L/MXN</td></tr><tr><td>Baviácora</td><td>277.7 L/MXN</td><td>La Colorada</td><td>219.5 L/MXN</td><td>Soyopa</td><td>479.3 L/MXN</td></tr><tr><td>Benito Juárez</td><td>153.7 L/MXN</td><td>Magdalena</td><td>99.4 L/MXN</td><td>Suaqui Grande</td><td>293.1 L/MXN</td></tr><tr><td>Benjamín Hill</td><td>123.1 L/MXN</td><td>Mazatán</td><td>437.2 L/MXN</td><td>Sáric</td><td>257.5 L/MXN</td></tr><tr><td>Bácum</td><td>156.5 L/MXN</td><td>Moctezuma</td><td>579.4 L/MXN</td><td>Tepache</td><td>500.6 L/MXN</td></tr><tr><td>Caborca</td><td>46.0 L/MXN</td><td>Naco</td><td>335.3 L/MXN</td><td>Trincheras</td><td>122.4 L/MXN</td></tr><tr><td>Cajeme</td><td>162.6 L/MXN</td><td>Navojoa</td><td>113.3 L/MXN</td><td>Tubutama</td><td>337.3 L/MXN</td></tr><tr><td>Cananea</td><td>191.6 L/MXN</td><td>Nogales</td><td>319.9 L/MXN</td><td>Ures</td><td>259.1 L/MXN</td></tr><tr><td>Carbó</td><td>48.5 L/MXN</td><td>Nácori Chico</td><td>671.2 L/MXN</td><td>Villa Hidalgo</td><td>338.0 L/MXN</td></tr><tr><td>Cucurpe</td><td>236.1 L/MXN</td><td>Opodepe</td><td>235.5 L/MXN</td><td>Villa Pesqueira</td><td>1481.6 L/MXN</td></tr><tr><td>Cumpas</td><td>623.0 L/MXN</td><td>Oquitoa</td><td>345.1 L/MXN</td><td>Yécora</td><td>226.1 L/MXN</td></tr><tr><td>Divisaderos</td><td>1132.1 L/MXN</td><td>Pitiquito</td><td>39.5 L/MXN</td><td></td><td></td></tr></tbody></table></div>"
+        }
+      ]
+    },
+    {
       "title": "Barreras de Viabilidad y Adopción del Modelo",
       "level": 1,
       "blocks": [

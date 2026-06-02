@@ -1,0 +1,90 @@
+
+= Análisis de Ineficiencia Hídrica Relativa: Relación Agua-Valor (RAV)
+
+Para identificar qué regiones están consumiendo grandes volúmenes de agua pero
+generando un bajo retorno financiero, se introduce la *Relación Agua-Valor (RAV)*.
+Este indicador se define como la cantidad de litros de agua dulce consumida
+(evapotranspiración total acumulada) por cada peso mexicano (1.00 MXN) de valor bruto de la
+producción agrícola generado ($L / "MXN"$):
+
+$ "RAV" = frac("Consumo Hídrico Total " (L), "Valor de la Producción Total " ("MXN")) $
+
+Un valor alto de RAV denota una baja productividad económica del agua (uso ineficiente y de bajo
+valor monetario), mientras que un RAV bajo representa un alto retorno económico del recurso hídrico.
+
+== Distribución por Distrito de Desarrollo Rural (DDR)
+
+El siguiente mapa muestra la distribución de la Relación Agua-Valor a nivel de DDR:
+
+#align(center)[
+  #figure(
+    image("../../reports/fase3/prueba_analisis/images/mapa_rav_ddr.png", width: 85%),
+    caption: [Relación Agua-Valor (RAV) por DDR (Litros de agua por peso producido)],
+  )
+]
+
+A continuación se detalla la eficiencia media de cada DDR:
+
+#align(center)[
+#table(
+  columns: (2.5fr, 1.5fr),
+  align: (left, center),
+  stroke: 0.5pt + gray,
+  [*DDR*], [*RAV Promedio*],
+  [Guaymas], [48.4 L/MXN],
+  [Caborca], [49.9 L/MXN],
+  [Hermosillo], [69.1 L/MXN],
+  [San Luis Río Colorado], [86.3 L/MXN],
+  [Magdalena], [122.0 L/MXN],
+  [Cajeme], [172.2 L/MXN],
+  [Navojoa], [186.3 L/MXN],
+  [Ures], [221.2 L/MXN],
+  [Agua Prieta], [256.2 L/MXN],
+  [Sahuaripa], [267.4 L/MXN],
+  [Mazatán], [325.8 L/MXN],
+  [Moctezuma], [385.2 L/MXN],
+)
+]
+
+== Distribución por Municipio
+
+El siguiente mapa muestra la distribución de la Relación Agua-Valor a nivel municipal en Sonora:
+
+#align(center)[
+  #figure(
+    image("../../reports/fase3/prueba_analisis/images/mapa_rav_municipio.png", width: 85%),
+    caption: [Relación Agua-Valor (RAV) por Municipio (Litros de agua por peso producido)],
+  )
+]
+
+A continuación se presenta la Relación Agua-Valor de todos los municipios de Sonora evaluados, estructurada en tres bloques paralelos para optimizar el espacio:
+
+#table(
+  columns: (1.5fr, 1fr, 1.5fr, 1fr, 1.5fr, 1fr),
+  align: (left, center, left, center, left, center),
+  stroke: 0.5pt + gray,
+  [*Municipio*], [*RAV*], [*Municipio*], [*RAV*], [*Municipio*], [*RAV*],
+  [Aconchi], [299.0 L/MXN], [Empalme], [44.1 L/MXN], [Puerto Peñasco], [38.0 L/MXN],
+  [Agua Prieta], [313.3 L/MXN], [Etchojoa], [194.1 L/MXN], [Quiriego], [967.2 L/MXN],
+  [Altar], [42.8 L/MXN], [Fronteras], [238.9 L/MXN], [Rayón], [224.0 L/MXN],
+  [Arivechi], [296.1 L/MXN], [General Plutarco Elías Calles], [91.1 L/MXN], [Rosario], [893.4 L/MXN],
+  [Arizpe], [130.8 L/MXN], [Granados], [363.8 L/MXN], [Sahuaripa], [256.0 L/MXN],
+  [Atil], [226.9 L/MXN], [Guaymas], [67.5 L/MXN], [San Felipe de Jesús], [288.6 L/MXN],
+  [Bacadéhuachi], [502.2 L/MXN], [Hermosillo], [75.2 L/MXN], [San Ignacio Río Muerto], [167.9 L/MXN],
+  [Bacanora], [404.0 L/MXN], [Huachinera], [201.6 L/MXN], [San Javier], [2210.0 L/MXN],
+  [Bacerac], [217.9 L/MXN], [Huatabampo], [157.9 L/MXN], [San Luis Río Colorado], [88.4 L/MXN],
+  [Bacoachi], [255.6 L/MXN], [Huásabas], [375.5 L/MXN], [San Miguel de Horcasitas], [33.5 L/MXN],
+  [Banámichi], [192.2 L/MXN], [Huépac], [223.1 L/MXN], [Santa Ana], [142.5 L/MXN],
+  [Bavispe], [217.4 L/MXN], [Imuris], [71.9 L/MXN], [Santa Cruz], [166.6 L/MXN],
+  [Baviácora], [277.7 L/MXN], [La Colorada], [219.5 L/MXN], [Soyopa], [479.3 L/MXN],
+  [Benito Juárez], [153.7 L/MXN], [Magdalena], [99.4 L/MXN], [Suaqui Grande], [293.1 L/MXN],
+  [Benjamín Hill], [123.1 L/MXN], [Mazatán], [437.2 L/MXN], [Sáric], [257.5 L/MXN],
+  [Bácum], [156.5 L/MXN], [Moctezuma], [579.4 L/MXN], [Tepache], [500.6 L/MXN],
+  [Caborca], [46.0 L/MXN], [Naco], [335.3 L/MXN], [Trincheras], [122.4 L/MXN],
+  [Cajeme], [162.6 L/MXN], [Navojoa], [113.3 L/MXN], [Tubutama], [337.3 L/MXN],
+  [Cananea], [191.6 L/MXN], [Nogales], [319.9 L/MXN], [Ures], [259.1 L/MXN],
+  [Carbó], [48.5 L/MXN], [Nácori Chico], [671.2 L/MXN], [Villa Hidalgo], [338.0 L/MXN],
+  [Cucurpe], [236.1 L/MXN], [Opodepe], [235.5 L/MXN], [Villa Pesqueira], [1481.6 L/MXN],
+  [Cumpas], [623.0 L/MXN], [Oquitoa], [345.1 L/MXN], [Yécora], [226.1 L/MXN],
+  [Divisaderos], [1132.1 L/MXN], [Pitiquito], [39.5 L/MXN], [], [],
+)
