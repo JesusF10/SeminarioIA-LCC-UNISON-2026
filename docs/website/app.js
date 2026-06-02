@@ -15,14 +15,22 @@ const AppState = {
         level: "estatal",
         region: "Estatal",
         crop: "",
-        analysis: "balance_produccion",
+        analysis: "produccion_agua",
         yearStart: 2010,
-        yearEnd: 2024
+        yearEnd: 2024,
+        expandedB: false,
+        expandedB2: false
     },
     tableSort: {
         column: "volumen_produccion",
         direction: "desc"
-    }
+    },
+    mapsTableSort: {
+        column: "ef",
+        direction: "desc"
+    },
+    zoomChartDataB: null,
+    zoomChartDataB2: null
 };
 
 // Inventario de Datos Estático (para complementar la UI)
@@ -648,6 +656,7 @@ function calculateRangeAverages(hist, yearStart, yearEnd) {
     if (years.length === 0) return null;
 
     let sup_cos = 0;
+    let sup_sem = 0;
     let vol_prod = 0;
     let vol_agua_total = 0;
     let vol_agua_verde = 0;
@@ -663,6 +672,7 @@ function calculateRangeAverages(hist, yearStart, yearEnd) {
         const yData = hist[String(yr)];
         if (yData) {
             sup_cos += yData.superficie_cosechada || 0;
+            sup_sem += yData.superficie_sembrada || 0;
             vol_prod += yData.volumen_produccion || 0;
             vol_agua_total += yData.consumo_agua_total || 0;
             
@@ -691,6 +701,9 @@ function calculateRangeAverages(hist, yearStart, yearEnd) {
     const pmr = sum_pmr / count;
     const productividad_economica = hh_total > 0 ? pmr / hh_total : 0;
     const uac_total = sup_cos > 0 ? vol_agua_total / sup_cos : 0;
+    const sup_sin = Math.max(0, sup_sem - sup_cos);
+    const pct_siniestralidad = sup_sem > 0 ? (sup_sin / sup_sem * 100) : 0;
+    const pct_cosechada = sup_sem > 0 ? (sup_cos / sup_sem * 100) : 0;
 
     return {
         rendimiento: rend,
@@ -706,6 +719,10 @@ function calculateRangeAverages(hist, yearStart, yearEnd) {
         pef_total_mm: sum_pef / count,
         sequia_isag: sum_sequia / count,
         superficie_cosechada: sup_cos,
+        superficie_sembrada: sup_sem,
+        superficie_siniestrada: sup_sin,
+        pct_siniestralidad: pct_siniestralidad,
+        pct_cosechada: pct_cosechada,
         volumen_produccion: vol_prod
     };
 }
@@ -856,6 +873,240 @@ function initDashboard() {
             updateDashboard();
         });
     }
+
+    // 7. Modal Zoom Close Listener
+    const btnCloseModal = document.getElementById("btn-close-modal");
+    const zoomModal = document.getElementById("chart-zoom-modal");
+    if (btnCloseModal && zoomModal) {
+        btnCloseModal.addEventListener("click", () => {
+            zoomModal.style.display = "none";
+            if (AppState.charts.zoom) {
+                AppState.charts.zoom.destroy();
+                AppState.charts.zoom = null;
+            }
+        });
+    }
+
+    // Configuración del botón de Ampliar/Compactar directamente en la página
+    const setupInPlaceExpansion = (btnId, bottomBtnId, expandedKey) => {
+        const btn = document.getElementById(btnId);
+        const bottomBtn = document.getElementById(bottomBtnId);
+        
+        const toggleExpansion = () => {
+            AppState.db[expandedKey] = !AppState.db[expandedKey];
+            updateDashboard();
+        };
+
+        if (btn) {
+            btn.addEventListener("click", toggleExpansion);
+        }
+        if (bottomBtn) {
+            bottomBtn.addEventListener("click", toggleExpansion);
+        }
+    };
+
+    setupInPlaceExpansion("btn-modal-chart-b", "btn-bottom-compact-b", "expandedB");
+    setupInPlaceExpansion("btn-modal-chart-b2", "btn-bottom-compact-b2", "expandedB2");
+
+    // PNG Export Listeners
+    const setupPngDownload = (btnId, dataKey, filename) => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+            btn.addEventListener("click", () => {
+                const chartData = AppState[dataKey];
+                if (!chartData) return;
+
+                // Crear un canvas temporal para renderizar el gráfico completo y exportarlo a PNG
+                const tempCanvas = document.createElement("canvas");
+                tempCanvas.width = 1200;
+                tempCanvas.height = Math.max(600, chartData.data.labels.length * 30 + 100);
+                tempCanvas.style.visibility = "hidden";
+                tempCanvas.style.position = "absolute";
+                tempCanvas.style.left = "-9999px";
+                document.body.appendChild(tempCanvas);
+
+                const tempChart = new Chart(tempCanvas.getContext("2d"), {
+                    type: chartData.type,
+                    data: chartData.data,
+                    options: {
+                        responsive: false,
+                        animation: { duration: 0 },
+                        indexAxis: chartData.options.indexAxis || "x",
+                        scales: {
+                            x: { stacked: chartData.options.scales?.x?.stacked || false, title: { display: !!chartData.options.scales?.x?.title?.text, text: chartData.options.scales?.x?.title?.text || "" } },
+                            y: { stacked: chartData.options.scales?.y?.stacked || false }
+                        },
+                        plugins: { legend: { display: !!chartData.options.plugins?.legend?.display } }
+                    }
+                });
+
+                // Trigger download
+                const link = document.createElement("a");
+                link.download = filename;
+                link.href = tempCanvas.toDataURL("image/png");
+                link.click();
+
+                tempChart.destroy();
+                document.body.removeChild(tempCanvas);
+            });
+        }
+    };
+
+    setupPngDownload("btn-png-chart-b", "zoomChartDataB", "grafico_comparativo.png");
+    setupPngDownload("btn-png-chart-b2", "zoomChartDataB2", "grafico_productividad.png");
+
+    // CSV Export Listeners for charts
+    const setupCsvDownload = (btnId, dataKey, filename) => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+            btn.addEventListener("click", () => {
+                const chartData = AppState[dataKey];
+                if (!chartData) return;
+
+                let csvContent = "Cultivo";
+                chartData.data.datasets.forEach(ds => {
+                    csvContent += `,${ds.label}`;
+                });
+                csvContent += "\n";
+
+                chartData.data.labels.forEach((label, idx) => {
+                    let row = `"${label}"`;
+                    chartData.data.datasets.forEach(ds => {
+                        row += `,${ds.data[idx]}`;
+                    });
+                    csvContent += row + "\n";
+                });
+
+                const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", filename);
+                link.style.visibility = "hidden";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        }
+    };
+
+    setupCsvDownload("btn-csv-chart-b", "zoomChartDataB", "datos_comparativos.csv");
+    setupCsvDownload("btn-csv-chart-b2", "zoomChartDataB2", "datos_productividad.csv");
+
+    // Maps Table Toggle
+    const btnToggleMapsTable = document.getElementById("btn-toggle-maps-table");
+    const mapsTableContainer = document.getElementById("db-maps-table-container");
+    if (btnToggleMapsTable && mapsTableContainer) {
+        btnToggleMapsTable.addEventListener("click", () => {
+            if (mapsTableContainer.style.display === "none") {
+                mapsTableContainer.style.display = "block";
+                btnToggleMapsTable.innerHTML = '<i class="fa-solid fa-table-cells-large"></i> Ocultar Tabla de Datos';
+                renderMapsTable();
+            } else {
+                mapsTableContainer.style.display = "none";
+                btnToggleMapsTable.innerHTML = '<i class="fa-solid fa-table"></i> Mostrar Tabla de Datos de Mapas';
+            }
+        });
+    }
+
+    // Maps CSV Download Listener
+    const btnDownloadMapsCsv = document.getElementById("btn-download-maps-csv");
+    if (btnDownloadMapsCsv) {
+        btnDownloadMapsCsv.addEventListener("click", () => {
+            const list = getMapsDataList();
+            let csvContent = "Municipio,Eficiencia Fisica (Ton/m3),Productividad Economica (MXN/m3)\n";
+            list.forEach(item => {
+                csvContent += `"${item.mun}",${item.ef.toFixed(5)},${item.pe.toFixed(2)}\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "eficiencia_productividad_municipios.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    // Maps Table Header Sorting
+    const mapsTableHeaders = document.querySelectorAll(".sortable-map");
+    mapsTableHeaders.forEach(th => {
+        th.addEventListener("click", () => {
+            const col = th.dataset.col;
+            if (AppState.mapsTableSort.column === col) {
+                AppState.mapsTableSort.direction = AppState.mapsTableSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                AppState.mapsTableSort.column = col;
+                AppState.mapsTableSort.direction = 'desc';
+            }
+            renderMapsTable();
+        });
+    });
+}
+
+function getMapsDataList() {
+    const data = AppState.dashboardData;
+    if (!data || !data.promedios_cultivos || !data.promedios_cultivos.municipio) return [];
+
+    const list = [];
+    Object.keys(data.promedios_cultivos.municipio).forEach(mun => {
+        const item = data.promedios_cultivos.municipio[mun]["Todos los cultivos"];
+        if (item) {
+            list.push({
+                mun: mun,
+                ef: item.eficiencia_fisica || 0.0,
+                pe: item.productividad_economica || 0.0
+            });
+        }
+    });
+    return list;
+}
+
+function renderMapsTable() {
+    const list = getMapsDataList();
+    const sortCol = AppState.mapsTableSort.column;
+    const sortDir = AppState.mapsTableSort.direction;
+
+    list.sort((a, b) => {
+        let valA = a[sortCol];
+        let valB = b[sortCol];
+
+        if (sortCol === 'mun') {
+            return sortDir === 'asc'
+                ? String(valA).localeCompare(String(valB))
+                : String(valB).localeCompare(String(valA));
+        }
+        return sortDir === 'asc' ? valA - valB : valB - valA;
+    });
+
+    const tbody = document.getElementById("db-maps-table-body");
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+    list.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${item.mun}</strong></td>
+            <td style="text-align: right; font-weight: 600; color: var(--accent-blue);">${item.ef.toFixed(5)}</td>
+            <td style="text-align: right; font-weight: 600; color: var(--accent-green);">$${item.pe.toFixed(2)}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    // Update sorting arrow indicator on headers
+    const mapsTableHeaders = document.querySelectorAll(".sortable-map");
+    mapsTableHeaders.forEach(th => {
+        const col = th.dataset.col;
+        let baseText = col === 'mun' ? 'Municipio' : (col === 'ef' ? 'Eficiencia Física (Ton/m³)' : 'Productividad Económica (MXN/m³)');
+        if (AppState.mapsTableSort.column === col) {
+            th.textContent = baseText + (AppState.mapsTableSort.direction === 'asc' ? ' ▲' : ' ▼');
+        } else {
+            th.textContent = baseText + ' ↕';
+        }
+    });
 }
 
 function updateDashboard() {
@@ -864,7 +1115,7 @@ function updateDashboard() {
 
     const level = AppState.db.level;
     const region = AppState.db.region;
-    const analysis = AppState.db.analysis || "balance_produccion";
+    const analysis = AppState.db.analysis || "produccion_agua";
     const yearStart = AppState.db.yearStart || 2010;
     const yearEnd = AppState.db.yearEnd || 2024;
 
@@ -944,70 +1195,44 @@ function updateDashboard() {
 
     if (prom) {
         // --- ACTUALIZAR KPIS DINÁMICAMENTE SEGÚN EL ANÁLISIS ---
-        if (analysis === "balance_produccion") {
+        if (analysis === "produccion_agua") {
+            k1Title.textContent = "Precipitación Promedio";
+            k1Val.textContent = `${Math.round(prom.ptot_total_mm)} mm`;
+            k1Sub.textContent = `Lluvia Efectiva: ${Math.round(prom.pef_total_mm)} mm`;
+
+            k2Title.textContent = "Consumo Hídrico Acumulado";
+            k2Val.textContent = `${(prom.consumo_agua_total / 1e6).toFixed(2)} Mm³`;
+            k2Sub.textContent = "Agua transpirada/evaporada";
+
+            k3Title.textContent = "Rendimiento Promedio";
+            k3Val.textContent = isAllCrops ? "Multi-cultivo" : `${prom.rendimiento.toFixed(2)} Ton/Ha`;
+            k3Sub.textContent = `Producción: ${Math.round(prom.volumen_produccion).toLocaleString()} Ton`;
+
+            k4Title.textContent = "Estrés por Sequía (ISAG)";
+            k4Val.textContent = prom.sequia_isag.toFixed(2);
+            let seqDescText = "Sin Estrés / Leve";
+            if (prom.sequia_isag > 3.0) seqDescText = "Severa a Extrema";
+            else if (prom.sequia_isag > 1.8) seqDescText = "Moderada";
+            k4Sub.textContent = seqDescText;
+
+        } else if (analysis === "eficiencia_hidrica") {
             k1Title.textContent = "Huella Hídrica Total";
             k1Val.textContent = `${Math.round(prom.hh_total).toLocaleString()} m³/Ton`;
             const pctVerde = prom.hh_total > 0 ? Math.round((prom.hh_verde / prom.hh_total) * 100) : 0;
             const pctAzul = prom.hh_total > 0 ? Math.round((prom.hh_azul / prom.hh_total) * 100) : 0;
             k1Sub.textContent = `Verde: ${pctVerde}% | Azul: ${pctAzul}%`;
 
-            k2Title.textContent = "Rendimiento Promedio";
-            k2Val.textContent = isAllCrops ? "Multi-cultivo" : `${prom.rendimiento.toFixed(2)} Ton/Ha`;
-            k2Sub.textContent = `Producción: ${Math.round(prom.volumen_produccion).toLocaleString()} Ton`;
+            k2Title.textContent = "Eficiencia Hídrica";
+            k2Val.textContent = `${prom.eficiencia_fisica.toFixed(5)} Ton/m³`;
+            k2Sub.textContent = "Masa producida por m³";
 
-            k3Title.textContent = "Estrés por Sequía (ISAG)";
-            k3Val.textContent = prom.sequia_isag.toFixed(2);
-            let seqDescText = "Sin Estrés / Leve";
-            if (prom.sequia_isag > 3.0) seqDescText = "Severa a Extrema";
-            else if (prom.sequia_isag > 1.8) seqDescText = "Moderada";
-            k3Sub.textContent = seqDescText;
+            k3Title.textContent = "Productividad Económica";
+            k3Val.textContent = `$${prom.productividad_economica.toFixed(2)} MXN/m³`;
+            k3Sub.textContent = "Retorno bruto del recurso";
 
-            k4Title.textContent = "Superficie Cosechada";
-            k4Val.textContent = `${Math.round(prom.superficie_cosechada).toLocaleString()} Ha`;
-            k4Sub.textContent = "Total acumulado en el ciclo";
-
-        } else if (analysis === "agua_concesiones") {
-            k1Title.textContent = "Consumo Hídrico Total";
-            k1Val.textContent = `${(prom.consumo_agua_total / 1e6).toFixed(2)} Mm³`;
-            k1Sub.textContent = "Demanda agrícola estimada";
-
-            k2Title.textContent = "Concesión Hídrica (REPNA)";
-            k2Val.textContent = repnaConcession > 0 ? `${(repnaConcession / 1e6).toFixed(2)} Mm³` : "Sin Límite Legal";
-            k2Sub.textContent = "Derechos de extracción Conagua";
-
-            k3Title.textContent = "Precipitación Promedio";
-            k3Val.textContent = `${Math.round(prom.ptot_total_mm)} mm`;
-            k3Sub.textContent = `Lluvia Efectiva: ${Math.round(prom.pef_total_mm)} mm`;
-
-            k4Title.textContent = "Presión de Extracción";
-            if (repnaConcession > 0) {
-                // BUG FIX: Dividir el consumo total acumulado entre el número de años para obtener el promedio anual vs la concesión anual.
-                const numYears = Math.max(1, yearEnd - yearStart + 1);
-                const avgConsumoAnual = prom.consumo_agua_total / numYears;
-                const pctPresion = (avgConsumoAnual / repnaConcession) * 100;
-                k4Val.textContent = `${pctPresion.toFixed(1)}%`;
-                k4Sub.textContent = "Consumo Anual vs Concesión";
-            } else {
-                k4Val.textContent = "0.0%";
-                k4Sub.textContent = "Sin concesiones registradas";
-            }
-
-        } else if (analysis === "eficiencia_fisica_economica") {
-            k1Title.textContent = "Eficiencia Física";
-            k1Val.textContent = `${prom.eficiencia_fisica.toFixed(5)} Ton/m³`;
-            k1Sub.textContent = "Masa producida por m³";
-
-            k2Title.textContent = "Productividad Económica";
-            k2Val.textContent = `$${prom.productividad_economica.toFixed(2)} MXN/m³`;
-            k2Sub.textContent = "Retorno bruto del recurso";
-
-            k3Title.textContent = "Precio Medio Rural (PMR)";
-            k3Val.textContent = `$${Math.round(prom.pmr).toLocaleString()} MXN`;
-            k3Sub.textContent = "Precio de mercado por Ton";
-
-            k4Title.textContent = "Consumo Hídrico Acumulado";
-            k4Val.textContent = `${(prom.consumo_agua_total / 1e6).toFixed(2)} Mm³`;
-            k4Sub.textContent = "Agua transpirada/evaporada";
+            k4Title.textContent = "PMR Promedio";
+            k4Val.textContent = `$${Math.round(prom.pmr).toLocaleString()} MXN`;
+            k4Sub.textContent = "Precio de mercado por Ton";
         }
     } else {
         k1Val.textContent = "--";
@@ -1031,6 +1256,8 @@ function updateDashboard() {
 function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConcession, analysis, isAllCrops, yearStart, yearEnd) {
     const canvasA = document.getElementById("chart-db-history");
     const canvasA2 = document.getElementById("chart-db-history-secondary");
+    const canvasA3 = document.getElementById("chart-db-history-three");
+    const canvasA4 = document.getElementById("chart-db-history-four");
     const canvasB = document.getElementById("chart-db-compare");
     const canvasB2 = document.getElementById("chart-db-compare-secondary");
     const titleA = document.getElementById("chart-a-title");
@@ -1038,7 +1265,10 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
     const titleB = document.getElementById("chart-b-title");
     const titleB2 = document.getElementById("chart-b2-title");
     const containerA2 = document.getElementById("db-chart-a2-container");
+    const containerA3 = document.getElementById("db-chart-a3-container");
+    const containerA4 = document.getElementById("db-chart-a4-container");
     const containerB2 = document.getElementById("db-chart-b2-container");
+    const mapsContainer = document.getElementById("db-maps-container");
 
     if (!canvasA || !canvasB || !canvasB2) return;
 
@@ -1048,12 +1278,17 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
 
     if (AppState.charts.history) AppState.charts.history.destroy();
     if (AppState.charts.historySecondary) AppState.charts.historySecondary.destroy();
+    if (AppState.charts.historyThree) AppState.charts.historyThree.destroy();
+    if (AppState.charts.historyFour) AppState.charts.historyFour.destroy();
     if (AppState.charts.compare) AppState.charts.compare.destroy();
     if (AppState.charts.compareSecondary) AppState.charts.compareSecondary.destroy();
 
     // Ocultar por defecto los contenedores de las segundas gráficas
     if (containerA2) containerA2.style.display = "none";
+    if (containerA3) containerA3.style.display = "none";
+    if (containerA4) containerA4.style.display = "none";
     if (containerB2) containerB2.style.display = "none";
+    if (mapsContainer) mapsContainer.style.display = "none";
 
     const isDark = document.documentElement.getAttribute("data-theme") !== "light";
     const textColor = isDark ? "#9ca3af" : "#4b5563";
@@ -1081,57 +1316,221 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
     // Calcular promedios del rango para todos los cultivos (utilizado para el gráfico comparativo B)
     const regionCropsAverages = calculateCropsAveragesForRange(data, level, region, yearStart, yearEnd);
 
-    // --- OPCIÓN 1: BALANCE E HISTÓRICO DE PRODUCCIÓN ---
-    if (analysis === "balance_produccion") {
+    // Helper para limitar a 10 elementos o expandir en la misma página
+    const configureCompareChart = (canvas, zoomDataKey, fullCropsList, configGenerator, isExpanded, bottomBtnContainerId, mainBtnId) => {
+        // Guardar lista completa en AppState por si acaso se exporta PNG/CSV
+        AppState[zoomDataKey] = configGenerator(fullCropsList);
+        
+        // Determinar qué lista renderizar
+        const listToRender = isExpanded ? fullCropsList : fullCropsList.slice(0, 10);
+        const config = configGenerator(listToRender);
+        
+        // Ajustar altura dinámica
+        const numCrops = listToRender.length;
+        canvas.parentElement.style.height = `${Math.max(350, numCrops * 35 + 50)}px`;
+        
+        // Sincronizar el texto del botón de arriba
+        const mainBtn = document.getElementById(mainBtnId);
+        if (mainBtn) {
+            if (isExpanded) {
+                mainBtn.innerHTML = '<i class="fa-solid fa-compress"></i> Compactar';
+                mainBtn.title = "Compactar gráfica a 10 registros";
+            } else {
+                mainBtn.innerHTML = '<i class="fa-solid fa-expand"></i> Ampliar';
+                mainBtn.title = "Ampliar para ver todos los cultivos";
+            }
+        }
+        
+        // Mostrar u ocultar el botón inferior de compactar
+        const bottomBtnContainer = document.getElementById(bottomBtnContainerId);
+        if (bottomBtnContainer) {
+            bottomBtnContainer.style.display = isExpanded ? "block" : "none";
+        }
+        
+        return new Chart(canvas.getContext("2d"), config);
+    };
+
+    if (analysis === "produccion_agua") {
         if (containerA2) containerA2.style.display = "block";
+        if (containerA3) containerA3.style.display = "block";
+        if (containerA4) containerA4.style.display = "block";
 
         titleA.textContent = isAllCrops
-            ? `Histórico de Consumo de Agua en ${region} (${yearStart}-${yearEnd})`
-            : `Evolución de la Huella Hídrica de ${crop} en ${region} (${yearStart}-${yearEnd})`;
+            ? `Evolución Histórica de Consumo Hídrico y Concesión en ${region} (${yearStart}-${yearEnd})`
+            : `Evolución Histórica de Consumo Hídrico para ${crop} en ${region} (${yearStart}-${yearEnd})`;
 
         titleA2.textContent = isAllCrops
-            ? `Histórico de Producción en ${region} (${yearStart}-${yearEnd})`
-            : `Evolución del Rendimiento de ${crop} en ${region} (${yearStart}-${yearEnd})`;
+            ? `Evolución Histórica de Producción y Rendimiento en ${region} (${yearStart}-${yearEnd})`
+            : `Evolución Histórica de Producción y Rendimiento para ${crop} en ${region} (${yearStart}-${yearEnd})`;
 
-        titleB.textContent = `Eficiencia Hídrica por Cultivo en ${region} (Promedio ${yearStart}-${yearEnd})`;
+        const titleA3El = document.getElementById("chart-a3-title");
+        if (titleA3El) titleA3El.textContent = `Evolución de Superficies Agrícolas en ${region} (${yearStart}-${yearEnd})`;
 
-        const hhVerde = [];
-        const hhAzul = [];
-        const rend = [];
+        const titleA4El = document.getElementById("chart-a4-title");
+        if (titleA4El) titleA4El.textContent = `Precipitación y Lluvia Efectiva Histórica en ${region} (${yearStart}-${yearEnd})`;
+
+        titleB.textContent = `Siniestralidad Promedio por Cultivo en ${region} (Promedio ${yearStart}-${yearEnd})`;
+
+        const consVerde = [];
+        const consAzul = [];
+        const concesionLine = [];
+        const produccionSeries = [];
+        const rendimientoSeries = [];
+        const supCosechada = [];
+        const supSiniestrada = [];
+        const tasaSiniestralidad = [];
+        const precipTotal = [];
+        const precipEfectiva = [];
 
         years.forEach(yr => {
-            if (isAllCrops) {
-                hhVerde.push(hist[yr].hh_verde * hist[yr].volumen_produccion);
-                hhAzul.push(hist[yr].hh_azul * hist[yr].volumen_produccion);
-                rend.push(hist[yr].volumen_produccion);
-            } else {
-                hhVerde.push(hist[yr].hh_verde);
-                hhAzul.push(hist[yr].hh_azul);
-                rend.push(hist[yr].rendimiento);
+            const yrData = hist[yr];
+            consVerde.push(yrData.hh_verde * yrData.volumen_produccion);
+            consAzul.push(yrData.hh_azul * yrData.volumen_produccion);
+            concesionLine.push(repnaConcession);
+
+            produccionSeries.push(yrData.volumen_produccion);
+            rendimientoSeries.push(yrData.rendimiento);
+
+            supCosechada.push(yrData.superficie_cosechada);
+            supSiniestrada.push(yrData.superficie_siniestrada);
+            tasaSiniestralidad.push(yrData.pct_siniestralidad);
+
+            precipTotal.push(yrData.ptot_total_mm);
+            precipEfectiva.push(yrData.pef_total_mm);
+        });
+
+        // 1. Chart A: Consumo Hídrico Histórico (stack Verde vs Azul) + Concesión Conagua
+        const datasetsA = [
+            {
+                label: "Consumo Verde (Lluvia m³)",
+                data: consVerde,
+                backgroundColor: "rgba(163, 230, 53, 0.65)",
+                borderColor: "#a3e635",
+                borderWidth: 1.5,
+                stack: "agua"
+            },
+            {
+                label: "Consumo Azul (Riego m³)",
+                data: consAzul,
+                backgroundColor: "rgba(56, 189, 248, 0.65)",
+                borderColor: "#38bdf8",
+                borderWidth: 1.5,
+                stack: "agua"
+            }
+        ];
+        if (isAllCrops && repnaConcession > 0) {
+            datasetsA.push({
+                label: "Concesión Conagua (REPNA m³)",
+                data: concesionLine,
+                type: "line",
+                borderColor: "rgba(239, 68, 68, 0.95)",
+                backgroundColor: "transparent",
+                borderWidth: 2.5,
+                borderDash: [6, 4],
+                pointStyle: 'none',
+                pointRadius: 0,
+                fill: false
+            });
+        }
+
+        AppState.charts.history = new Chart(canvasA.getContext("2d"), {
+            type: "bar",
+            data: {
+                labels: years,
+                datasets: datasetsA
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor } },
+                    y: {
+                        stacked: true,
+                        title: { display: true, text: "Volumen de Agua (m³)", color: textColor },
+                        grid: { color: gridColor }, ticks: { color: textColor }
+                    }
+                },
+                plugins: { legend: { labels: { color: textColor } } }
             }
         });
 
-        // Gráfico A (Consumo de Agua / Huella Hídrica)
-        AppState.charts.history = new Chart(canvasA.getContext("2d"), {
+        // 2. Chart A2: Producción y Rendimiento
+        AppState.charts.historySecondary = new Chart(canvasA2.getContext("2d"), {
             type: "bar",
             data: {
                 labels: years,
                 datasets: [
                     {
-                        label: isAllCrops ? "Consumo Verde (Lluvia m³)" : "HH Verde (Lluvia)",
-                        data: hhVerde,
-                        backgroundColor: "rgba(163, 230, 53, 0.65)",
-                        borderColor: "#a3e635",
+                        label: "Producción Total (Ton)",
+                        data: produccionSeries,
+                        backgroundColor: "rgba(251, 146, 60, 0.65)",
+                        borderColor: "#fb923c",
                         borderWidth: 1.5,
-                        stack: "agua"
+                        yAxisID: "y"
                     },
                     {
-                        label: isAllCrops ? "Consumo Azul (Riego m³)" : "HH Azul (Riego)",
-                        data: hhAzul,
-                        backgroundColor: "rgba(56, 189, 248, 0.65)",
-                        borderColor: "#38bdf8",
+                        label: "Rendimiento (Ton/Ha)",
+                        data: rendimientoSeries,
+                        type: "line",
+                        borderColor: "#8b5cf6",
+                        backgroundColor: "transparent",
+                        borderWidth: 3,
+                        tension: 0.3,
+                        yAxisID: "y2"
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor } },
+                    y: {
+                        position: "left",
+                        title: { display: true, text: "Producción (Ton)", color: textColor },
+                        grid: { color: gridColor }, ticks: { color: textColor }
+                    },
+                    y2: {
+                        position: "right",
+                        title: { display: true, text: "Rendimiento (Ton/Ha)", color: textColor },
+                        grid: { drawOnChartArea: false }, ticks: { color: textColor }
+                    }
+                },
+                plugins: { legend: { labels: { color: textColor } } }
+            }
+        });
+
+        // 3. Chart A3: Evolución de Superficies
+        AppState.charts.historyThree = new Chart(canvasA3.getContext("2d"), {
+            type: "bar",
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: "Superficie Cosechada (Ha)",
+                        data: supCosechada,
+                        backgroundColor: "rgba(34, 197, 94, 0.65)",
+                        borderColor: "#22c55e",
                         borderWidth: 1.5,
-                        stack: "agua"
+                        stack: "superficie"
+                    },
+                    {
+                        label: "Superficie Siniestrada (Ha)",
+                        data: supSiniestrada,
+                        backgroundColor: "rgba(239, 68, 68, 0.65)",
+                        borderColor: "#ef4444",
+                        borderWidth: 1.5,
+                        stack: "superficie"
+                    },
+                    {
+                        label: "Tasa de Siniestralidad (%)",
+                        data: tasaSiniestralidad,
+                        type: "line",
+                        borderColor: "#f59e0b",
+                        backgroundColor: "transparent",
+                        borderWidth: 3,
+                        tension: 0.3,
+                        yAxisID: "y2"
                     }
                 ]
             },
@@ -1142,28 +1541,43 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
                     x: { grid: { display: false }, ticks: { color: textColor } },
                     y: {
                         stacked: true,
-                        title: { display: true, text: isAllCrops ? "Consumo de Agua (m³)" : "Huella Hídrica (m³/Ton)", color: textColor },
+                        position: "left",
+                        title: { display: true, text: "Superficie (Ha)", color: textColor },
                         grid: { color: gridColor }, ticks: { color: textColor }
+                    },
+                    y2: {
+                        position: "right",
+                        title: { display: true, text: "Siniestralidad (%)", color: textColor },
+                        grid: { drawOnChartArea: false }, ticks: { color: textColor },
+                        min: 0,
+                        max: 100
                     }
                 },
                 plugins: { legend: { labels: { color: textColor } } }
             }
         });
 
-        // Gráfico A2 (Producción / Rendimiento)
-        AppState.charts.historySecondary = new Chart(canvasA2.getContext("2d"), {
-            type: "line",
+        // 4. Chart A4: Precipitación Histórica
+        AppState.charts.historyFour = new Chart(canvasA4.getContext("2d"), {
+            type: "bar",
             data: {
                 labels: years,
                 datasets: [
                     {
-                        label: isAllCrops ? "Producción Total (Ton)" : "Rendimiento (Ton/Ha)",
-                        data: rend,
-                        borderColor: "#fb923c",
-                        backgroundColor: "rgba(251, 146, 60, 0.15)",
+                        label: "Precipitación Total (mm)",
+                        data: precipTotal,
+                        backgroundColor: "rgba(59, 130, 246, 0.65)",
+                        borderColor: "#3b82f6",
+                        borderWidth: 1.5
+                    },
+                    {
+                        label: "Lluvia Efectiva (mm)",
+                        data: precipEfectiva,
+                        type: "line",
+                        borderColor: "#0d9488",
+                        backgroundColor: "transparent",
                         borderWidth: 3,
-                        tension: 0.35,
-                        fill: true
+                        tension: 0.3
                     }
                 ]
             },
@@ -1173,7 +1587,7 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
                 scales: {
                     x: { grid: { display: false }, ticks: { color: textColor } },
                     y: {
-                        title: { display: true, text: isAllCrops ? "Producción (Ton)" : "Rendimiento (Ton/Ha)", color: textColor },
+                        title: { display: true, text: "Lluvia (mm)", color: textColor },
                         grid: { color: gridColor }, ticks: { color: textColor }
                     }
                 },
@@ -1181,194 +1595,75 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
             }
         });
 
-        // Gráfico B (Comparación)
+        // 5. Chart B: Comparativa de cultivos por Tasa de Siniestralidad (%)
         const cropsList = [];
         Object.keys(regionCropsAverages).forEach(c => {
             if (c !== "Todos los cultivos") {
-                const hhT = regionCropsAverages[c].hh_total || 0;
-                if (hhT > 0) {
-                    cropsList.push({ 
-                        name: c, 
-                        hh_verde: regionCropsAverages[c].hh_verde, 
-                        hh_azul: regionCropsAverages[c].hh_azul, 
-                        hh_total: hhT 
-                    });
-                }
-            }
-        });
-        cropsList.sort((a, b) => a.hh_total - b.hh_total);
-
-        const names = cropsList.map(c => c.name);
-        const verde = cropsList.map(c => c.hh_verde);
-        const azul = cropsList.map(c => c.hh_azul);
-
-        const bgVerde = names.map(n => n === crop ? "rgba(163, 230, 53, 0.95)" : "rgba(163, 230, 53, 0.5)");
-        const bgAzul = names.map(n => n === crop ? "rgba(56, 189, 248, 0.95)" : "rgba(56, 189, 248, 0.5)");
-
-        // Ajustar altura dinámica del contenedor basado en la cantidad de cultivos
-        const numCrops = names.length;
-        const dynamicHeight = Math.max(350, numCrops * 35 + 50);
-        canvasB.parentElement.style.height = `${dynamicHeight}px`;
-
-        AppState.charts.compare = new Chart(canvasB.getContext("2d"), {
-            type: "bar",
-            data: {
-                labels: names,
-                datasets: [
-                    { label: "HH Verde (Lluvia)", data: verde, backgroundColor: bgVerde, borderColor: "#a3e635", borderWidth: 1 },
-                    { label: "HH Azul (Riego)", data: azul, backgroundColor: bgAzul, borderColor: "#38bdf8", borderWidth: 1 }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: "y",
-                scales: {
-                    x: { stacked: true, grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Huella Hídrica Total (m³/Ton)", color: textColor } },
-                    y: { stacked: true, grid: { display: false }, ticks: { color: textColor } }
-                },
-                plugins: { legend: { labels: { color: textColor } } }
-            }
-        });
-
-    // --- OPCIÓN 2: DISPONIBILIDAD DE AGUA Y CONCESIONES (REPNA) ---
-    } else if (analysis === "agua_concesiones") {
-        titleA.textContent = `Consumo de Agua vs. Oferta en ${region} (${yearStart}-${yearEnd})`;
-        titleB.textContent = `Desglose de Consumo Hídrico en ${region} (Promedio ${yearStart}-${yearEnd})`;
-
-        const consumoAgua = [];
-        const precipRegion = [];
-        const concesionRepnaLine = [];
-
-        years.forEach(yr => {
-            const cAgua = hist[yr].consumo_agua_total;
-            consumoAgua.push(cAgua);
-
-            // Precipitación regional estimada en m3: lluvia (mm) * superficie cosechada (ha) * 10 (conversión a m3)
-            const pMm = hist[yr].ptot_total_mm;
-            const supHa = hist[yr].superficie_cosechada;
-            precipRegion.push(pMm * supHa * 10.0);
-            
-            concesionRepnaLine.push(repnaConcession);
-        });
-
-        // Gráfico A (Consumo vs Oferta y Concesiones)
-        AppState.charts.history = new Chart(canvasA.getContext("2d"), {
-            type: "bar",
-            data: {
-                labels: years,
-                datasets: [
-                    {
-                        label: "Consumo Hídrico de Cultivos (m³)",
-                        data: consumoAgua,
-                        backgroundColor: "rgba(56, 189, 248, 0.75)",
-                        borderColor: "#38bdf8",
-                        borderWidth: 1.5,
-                        yAxisID: "y"
-                    },
-                    {
-                        label: "Precipitación Equivalente Recibida (m³)",
-                        data: precipRegion,
-                        type: "line",
-                        borderColor: "rgba(34, 197, 94, 0.8)",
-                        backgroundColor: "transparent",
-                        borderWidth: 2,
-                        yAxisID: "y",
-                        fill: false
-                    },
-                    {
-                        label: "Límite de Concesión Conagua (REPNA m³)",
-                        data: concesionRepnaLine,
-                        type: "line",
-                        borderColor: "rgba(239, 68, 68, 0.95)",
-                        backgroundColor: "transparent",
-                        borderWidth: 2.5,
-                        borderDash: [6, 4],
-                        pointStyle: 'none',
-                        pointRadius: 0,
-                        yAxisID: "y",
-                        fill: false
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { grid: { display: false }, ticks: { color: textColor } },
-                    y: {
-                        type: "linear",
-                        title: { display: true, text: "Volumen de Agua (m³)", color: textColor },
-                        grid: { color: gridColor }, ticks: { color: textColor }
-                    }
-                },
-                plugins: { legend: { labels: { color: textColor } } }
-            }
-        });
-
-        // Gráfico B (Consumo por tipo en promedio de cultivos)
-        const cropsList = [];
-        Object.keys(regionCropsAverages).forEach(c => {
-            if (c !== "Todos los cultivos") {
-                const cons = regionCropsAverages[c].consumo_agua_total || 0;
-                if (cons > 0) {
+                const sSem = regionCropsAverages[c].superficie_sembrada || 0;
+                if (sSem > 0) {
                     cropsList.push({
                         name: c,
-                        consumo: cons
+                        pct_siniestralidad: regionCropsAverages[c].pct_siniestralidad
                     });
                 }
             }
         });
-        cropsList.sort((a, b) => b.consumo - a.consumo);
+        cropsList.sort((a, b) => b.pct_siniestralidad - a.pct_siniestralidad); // Mayor siniestralidad primero
 
-        const names = cropsList.map(c => c.name);
-        const consumos = cropsList.map(c => c.consumo / 1e6); // En Mm3
-
-        // Ajustar altura dinámica del contenedor basado en la cantidad de cultivos
-        const numCrops = names.length;
-        const dynamicHeight = Math.max(350, numCrops * 35 + 50);
-        canvasB.parentElement.style.height = `${dynamicHeight}px`;
-
-        AppState.charts.compare = new Chart(canvasB.getContext("2d"), {
-            type: "bar",
-            data: {
-                labels: names,
-                datasets: [
-                    {
-                        label: "Consumo Hídrico Estimado (Mm³)",
-                        data: consumos,
-                        backgroundColor: names.map(n => n === crop ? "rgba(251, 146, 60, 0.95)" : "rgba(107, 114, 128, 0.6)"),
-                        borderColor: names.map(n => n === crop ? "#fb923c" : "#6b7280"),
+        const configGenB = (list) => {
+            const names = list.map(item => item.name);
+            const values = list.map(item => item.pct_siniestralidad);
+            const colors = names.map(n => n === crop ? "rgba(245, 158, 11, 0.95)" : "rgba(239, 68, 68, 0.6)");
+            
+            return {
+                type: "bar",
+                data: {
+                    labels: names,
+                    datasets: [{
+                        label: "Siniestralidad Promedio (%)",
+                        data: values,
+                        backgroundColor: colors,
+                        borderColor: names.map(n => n === crop ? "#d97706" : "#dc2626"),
                         borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: "y",
-                scales: {
-                    x: { grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Volumen de Agua Acumulado (Mm³)", color: textColor } },
-                    y: { grid: { display: false }, ticks: { color: textColor } }
+                    }]
                 },
-                plugins: { legend: { display: false } }
-            }
-        });
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: "y",
+                    scales: {
+                        x: { grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Tasa de Siniestralidad (%)", color: textColor }, min: 0, max: 100 },
+                        y: { grid: { display: false }, ticks: { color: textColor } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            };
+        };
 
-    // --- OPCIÓN 3: EFICIENCIA FÍSICA Y PRODUCTIVIDAD ---
-    } else if (analysis === "eficiencia_fisica_economica") {
-        titleA.textContent = `Evolución de la Eficiencia Física de ${isAllCrops ? "Cultivos" : crop} en ${region} (${yearStart}-${yearEnd})`;
-        titleB.textContent = `Eficiencia Física vs. Productividad del Agua (Promedio ${yearStart}-${yearEnd})`;
+        AppState.charts.compare = configureCompareChart(canvasB, "zoomChartDataB", cropsList, configGenB, AppState.db.expandedB, "btn-bottom-compact-b-container", "btn-modal-chart-b");
+
+    } else if (analysis === "eficiencia_hidrica") {
+        if (containerA2) containerA2.style.display = "block";
+        if (containerB2) containerB2.style.display = "block";
+        if (level === "estatal" && mapsContainer) mapsContainer.style.display = "block";
+
+        titleA.textContent = `Eficiencia Hídrica Física y Productividad de ${isAllCrops ? "Cultivos" : crop} en ${region}`;
+        titleA2.textContent = `Rentabilidad (PMR) vs. Eficiencia Física Histórica de ${isAllCrops ? "Cultivos" : crop} en ${region}`;
+        titleB.textContent = `Huella Hídrica Promedio por Cultivo en ${region} (Promedio ${yearStart}-${yearEnd})`;
+        titleB2.textContent = `Productividad Económica del Agua por Cultivo en ${region} (Promedio ${yearStart}-${yearEnd})`;
 
         const efFisica = [];
         const prodEcon = [];
+        const pmrSeries = [];
 
         years.forEach(yr => {
-            efFisica.push(hist[yr].eficiencia_fisica);
-            prodEcon.push(hist[yr].productividad_economica);
+            const yrData = hist[yr];
+            efFisica.push(yrData.eficiencia_fisica);
+            prodEcon.push(yrData.productividad_economica);
+            pmrSeries.push(yrData.pmr || 0);
         });
 
-        // Gráfico A (Evolución de Eficiencia Física)
+        // 1. Chart A: Eficiencia Hídrica Física y Económica
         AppState.charts.history = new Chart(canvasA.getContext("2d"), {
             type: "line",
             data: {
@@ -1412,137 +1707,7 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
             }
         });
 
-        // Gráfico B (Líderes y Menos Eficientes en barras horizontales)
-        const cropsList = [];
-        Object.keys(regionCropsAverages).forEach(c => {
-            if (c !== "Todos los cultivos") {
-                const efF = regionCropsAverages[c].eficiencia_fisica || 0;
-                if (efF > 0) {
-                    cropsList.push({
-                        name: c,
-                        ef_fisica: efF
-                    });
-                }
-            }
-        });
-        cropsList.sort((a, b) => b.ef_fisica - a.ef_fisica);
-
-        const names = cropsList.map(c => c.name);
-        const efs = cropsList.map(c => c.ef_fisica);
-
-        // Mapear colores: top 3 en verde fuerte, peores 3 en rojo/naranja, intermedios en azul/gris
-        const count = names.length;
-        const colors = names.map((n, idx) => {
-            if (n === crop) return "rgba(59, 130, 246, 0.95)"; // Selección activa en azul brillante
-            if (idx < 3) return "rgba(34, 197, 94, 0.75)"; // Líderes en verde
-            if (idx >= count - 3 && count > 3) return "rgba(239, 68, 68, 0.75)"; // Menos eficientes en rojo
-            return isDark ? "rgba(75, 85, 99, 0.5)" : "rgba(209, 213, 219, 0.7)"; // Intermedios
-        });
-
-        // Ajustar altura dinámica del contenedor basado en la cantidad de cultivos
-        const numCrops = names.length;
-        const dynamicHeight = Math.max(350, numCrops * 35 + 50);
-        canvasB.parentElement.style.height = `${dynamicHeight}px`;
-
-        AppState.charts.compare = new Chart(canvasB.getContext("2d"), {
-            type: "bar",
-            data: {
-                labels: names,
-                datasets: [
-                    {
-                        label: "Eficiencia Física (Ton/m³)",
-                        data: efs,
-                        backgroundColor: colors,
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: "y",
-                scales: {
-                    x: { grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Eficiencia Física (Ton/m³)", color: textColor } },
-                    y: { grid: { display: false }, ticks: { color: textColor } }
-                },
-                plugins: {
-                    legend: { display: false }
-                }
-            }
-        });
-
-        // Segundo gráfico de comparación: Productividad Económica ($/m3)
-        if (containerB2) containerB2.style.display = "block";
-        titleB2.textContent = `Productividad Económica por Cultivo en ${region} (Promedio ${yearStart}-${yearEnd})`;
-
-        const cropsListEcon = [];
-        Object.keys(regionCropsAverages).forEach(c => {
-            if (c !== "Todos los cultivos") {
-                const prodEc = regionCropsAverages[c].productividad_economica || 0;
-                if (prodEc > 0) {
-                    cropsListEcon.push({
-                        name: c,
-                        prod_econ: prodEc
-                    });
-                }
-            }
-        });
-        cropsListEcon.sort((a, b) => b.prod_econ - a.prod_econ);
-
-        const namesEcon = cropsListEcon.map(c => c.name);
-        const ecs = cropsListEcon.map(c => c.prod_econ);
-
-        const countEcon = namesEcon.length;
-        const colorsEcon = namesEcon.map((n, idx) => {
-            if (n === crop) return "rgba(59, 130, 246, 0.95)";
-            if (idx < 3) return "rgba(34, 197, 94, 0.75)";
-            if (idx >= countEcon - 3 && countEcon > 3) return "rgba(239, 68, 68, 0.75)";
-            return isDark ? "rgba(75, 85, 99, 0.5)" : "rgba(209, 213, 219, 0.7)";
-        });
-
-        // Ajustar altura dinámica
-        const numCropsEcon = namesEcon.length;
-        const dynamicHeightEcon = Math.max(350, numCropsEcon * 35 + 50);
-        canvasB2.parentElement.style.height = `${dynamicHeightEcon}px`;
-
-        AppState.charts.compareSecondary = new Chart(canvasB2.getContext("2d"), {
-            type: "bar",
-            data: {
-                labels: namesEcon,
-                datasets: [
-                    {
-                        label: "Productividad Económica (MXN/m³)",
-                        data: ecs,
-                        backgroundColor: colorsEcon,
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: "y",
-                scales: {
-                    x: { grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Productividad Económica (MXN/m³)", color: textColor } },
-                    y: { grid: { display: false }, ticks: { color: textColor } }
-                },
-                plugins: {
-                    legend: { display: false }
-                }
-            }
-        });
-
-        // --- AGREGAR GRÁFICA HISTÓRICA SECUNDARIA EN EFICIENCIA HÍDRICA (PMR VS EFICIENCIA) ---
-        if (containerA2) containerA2.style.display = "block";
-        titleA2.textContent = `Rentabilidad (PMR) vs. Eficiencia Física Histórica de ${isAllCrops ? "Cultivos" : crop} en ${region}`;
-
-        const pmrSeries = [];
-        const efFisicaHist = [];
-        years.forEach(yr => {
-            pmrSeries.push(hist[yr].pmr || 0);
-            efFisicaHist.push(hist[yr].eficiencia_fisica || 0);
-        });
-
+        // 2. Chart A2: PMR vs Eficiencia Física
         AppState.charts.historySecondary = new Chart(canvasA2.getContext("2d"), {
             type: "line",
             data: {
@@ -1559,7 +1724,7 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
                     },
                     {
                         label: "Eficiencia Física (Ton/m³)",
-                        data: efFisicaHist,
+                        data: efFisica,
                         borderColor: "#3b82f6",
                         backgroundColor: "rgba(59, 130, 246, 0.1)",
                         borderWidth: 3,
@@ -1587,6 +1752,109 @@ function renderChartsByAnalysis(data, level, region, crop, hist, prom, repnaConc
                 plugins: { legend: { labels: { color: textColor } } }
             }
         });
+
+        // 3. Chart B: Huella Hídrica por Cultivo (stack Verde vs Azul)
+        const cropsListHH = [];
+        Object.keys(regionCropsAverages).forEach(c => {
+            if (c !== "Todos los cultivos") {
+                const hhT = regionCropsAverages[c].hh_total || 0;
+                if (hhT > 0) {
+                    cropsListHH.push({
+                        name: c,
+                        hh_verde: regionCropsAverages[c].hh_verde,
+                        hh_azul: regionCropsAverages[c].hh_azul,
+                        hh_total: hhT
+                    });
+                }
+            }
+        });
+        cropsListHH.sort((a, b) => a.hh_total - b.hh_total); // Menor huella primero
+
+        const configGenHH = (list) => {
+            const names = list.map(item => item.name);
+            const verde = list.map(item => item.hh_verde);
+            const azul = list.map(item => item.hh_azul);
+            const bgVerde = names.map(n => n === crop ? "rgba(163, 230, 53, 0.95)" : "rgba(163, 230, 53, 0.5)");
+            const bgAzul = names.map(n => n === crop ? "rgba(56, 189, 248, 0.95)" : "rgba(56, 189, 248, 0.5)");
+
+            return {
+                type: "bar",
+                data: {
+                    labels: names,
+                    datasets: [
+                        { label: "HH Verde (Lluvia)", data: verde, backgroundColor: bgVerde, borderColor: "#a3e635", borderWidth: 1 },
+                        { label: "HH Azul (Riego)", data: azul, backgroundColor: bgAzul, borderColor: "#38bdf8", borderWidth: 1 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: "y",
+                    scales: {
+                        x: { stacked: true, grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Huella Hídrica Total (m³/Ton)", color: textColor } },
+                        y: { stacked: true, grid: { display: false }, ticks: { color: textColor } }
+                    },
+                    plugins: { legend: { labels: { color: textColor } } }
+                }
+            };
+        };
+
+        AppState.charts.compare = configureCompareChart(canvasB, "zoomChartDataB", cropsListHH, configGenHH, AppState.db.expandedB, "btn-bottom-compact-b-container", "btn-modal-chart-b");
+
+        // 4. Chart B2: Productividad Económica por Cultivo
+        const cropsListPE = [];
+        Object.keys(regionCropsAverages).forEach(c => {
+            if (c !== "Todos los cultivos") {
+                const pe = regionCropsAverages[c].productividad_economica || 0;
+                if (pe > 0) {
+                    cropsListPE.push({
+                        name: c,
+                        productividad_economica: pe
+                    });
+                }
+            }
+        });
+        cropsListPE.sort((a, b) => b.productividad_economica - a.productividad_economica); // Mayor rentabilidad primero
+
+        const configGenPE = (list) => {
+            const names = list.map(item => item.name);
+            const values = list.map(item => item.productividad_economica);
+            const colors = names.map(n => n === crop ? "rgba(59, 130, 246, 0.95)" : "rgba(16, 185, 129, 0.6)");
+
+            return {
+                type: "bar",
+                data: {
+                    labels: names,
+                    datasets: [{
+                        label: "Productividad Económica (MXN/m³)",
+                        data: values,
+                        backgroundColor: colors,
+                        borderColor: names.map(n => n === crop ? "#2563eb" : "#059669"),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: "y",
+                    scales: {
+                        x: { grid: { color: gridColor }, ticks: { color: textColor }, title: { display: true, text: "Productividad Económica (MXN/m³)", color: textColor } },
+                        y: { grid: { display: false }, ticks: { color: textColor } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            };
+        };
+
+        AppState.charts.compareSecondary = configureCompareChart(canvasB2, "zoomChartDataB2", cropsListPE, configGenPE, AppState.db.expandedB2, "btn-bottom-compact-b2-container", "btn-modal-chart-b2");
+
+        // Si se muestra el contenedor de mapas y está activa la tabla de mapas, forzar renderizado
+        if (mapsContainer && mapsContainer.style.display !== "none") {
+            const mapsTable = document.getElementById("db-maps-table-container");
+            if (mapsTable && mapsTable.style.display !== "none") {
+                renderMapsTable();
+            }
+        }
     }
 }
 

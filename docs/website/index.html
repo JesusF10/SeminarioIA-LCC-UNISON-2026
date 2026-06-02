@@ -2214,14 +2214,11 @@ def net_longwave_rnl_fao56(
                     <div class="control-group">
                         <label for="db-analysis-select">Tipo de Análisis</label>
                         <select id="db-analysis-select" class="form-select">
-                            <option value="balance_produccion" selected>
-                                Balance e Histórico de Producción
+                            <option value="produccion_agua" selected>
+                                Producción y Agua
                             </option>
-                            <option value="agua_concesiones">
-                                Disponibilidad de Agua y Concesiones
-                            </option>
-                            <option value="eficiencia_fisica_economica">
-                                Eficiencia Hídrica (Física y Económica)
+                            <option value="eficiencia_hidrica">
+                                Eficiencia Hídrica
                             </option>
                         </select>
                     </div>
@@ -2297,20 +2294,69 @@ def net_longwave_rnl_fao56(
                             <canvas id="chart-db-history-secondary"></canvas>
                         </div>
                     </div>
+                    <div class="card chart-container-card" id="db-chart-a3-container" style="display: none;">
+                        <div class="card-title" id="chart-a3-title">
+                            Evolución de Superficies
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-history-three"></canvas>
+                        </div>
+                    </div>
+                    <div class="card chart-container-card" id="db-chart-a4-container" style="display: none;">
+                        <div class="card-title" id="chart-a4-title">
+                            Evolución de Precipitación
+                        </div>
+                        <div style="height: 350px; position: relative">
+                            <canvas id="chart-db-history-four"></canvas>
+                        </div>
+                    </div>
                     <div class="card chart-container-card" id="db-chart-b-container">
-                        <div class="card-title" id="chart-b-title">
-                            Comparativa de Huella Hídrica por Cultivo
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                            <div class="card-title" id="chart-b-title" style="margin-bottom: 0;">
+                                Comparativa por Cultivo
+                            </div>
+                            <div class="chart-actions" style="display: flex; gap: 0.25rem;">
+                                <button id="btn-modal-chart-b" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Expandir/Compactar gráfico"><i class="fa-solid fa-expand"></i> Ampliar</button>
+                                <button id="btn-png-chart-b" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Descargar como imagen PNG"><i class="fa-solid fa-image"></i> PNG</button>
+                                <button id="btn-csv-chart-b" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Descargar datos en CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+                            </div>
                         </div>
                         <div style="height: 350px; position: relative">
                             <canvas id="chart-db-compare"></canvas>
                         </div>
+                        <div style="text-align: center; margin-top: 1rem; display: none;" id="btn-bottom-compact-b-container">
+                            <button id="btn-bottom-compact-b" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Compactar gráfica"><i class="fa-solid fa-compress"></i> Compactar</button>
+                        </div>
                     </div>
                     <div class="card chart-container-card" id="db-chart-b2-container" style="display: none;">
-                        <div class="card-title" id="chart-b2-title">
-                            Productividad Económica por Cultivo
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                            <div class="card-title" id="chart-b2-title" style="margin-bottom: 0;">
+                                Productividad Económica por Cultivo
+                            </div>
+                            <div class="chart-actions" style="display: flex; gap: 0.25rem;">
+                                <button id="btn-modal-chart-b2" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Expandir/Compactar gráfico"><i class="fa-solid fa-expand"></i> Ampliar</button>
+                                <button id="btn-png-chart-b2" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Descargar como imagen PNG"><i class="fa-solid fa-image"></i> PNG</button>
+                                <button id="btn-csv-chart-b2" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Descargar datos en CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+                            </div>
                         </div>
                         <div style="height: 350px; position: relative">
                             <canvas id="chart-db-compare-secondary"></canvas>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem; display: none;" id="btn-bottom-compact-b2-container">
+                            <button id="btn-bottom-compact-b2" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px;" title="Compactar gráfica"><i class="fa-solid fa-compress"></i> Compactar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para Gráfico Completo -->
+                <div id="chart-zoom-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(8px);">
+                    <div class="card" style="width: 90%; max-width: 900px; max-height: 90vh; display: flex; flex-direction: column; padding: 2rem; border-color: var(--accent-green); background-color: var(--bg-color);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 id="modal-chart-title" style="margin-top: 0; color: var(--accent-green);">Gráfico Ampliado</h3>
+                            <button id="btn-close-modal" class="theme-toggle-btn" style="border-radius: 50%; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div id="modal-chart-body" style="flex-grow: 1; min-height: 500px; max-height: 70vh; overflow-y: auto; position: relative;">
+                            <canvas id="chart-modal-zoom"></canvas>
                         </div>
                     </div>
                 </div>
@@ -2344,11 +2390,63 @@ def net_longwave_rnl_fao56(
                     </div>
                 </div>
 
-                <!-- Glosario del Dashboard -->
-                <div
-                    class="card glosario-card"
-                    style="margin-top: 2rem; padding: 1.5rem"
-                >
+                <!-- Contenedor para Mapas Municipales (Solo en Eficiencia Hídrica + Nivel Estatal) -->
+                <div class="card" id="db-maps-container" style="display: none; margin-top: 1.5rem; padding: 1.5rem;">
+                    <div class="card-title">Distribución Espacial de la Eficiencia Hídrica</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Mapas coropléticos de Sonora que ilustran la eficiencia física y la productividad económica del agua a nivel municipal.
+                    </p>
+                    
+                    <div class="maps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="card chart-container-card" style="text-align: center; border-color: var(--card-border); padding: 1.25rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                                <div class="card-title" style="margin-bottom: 0; font-size: 0.9rem; text-align: left;">Eficiencia Hídrica Física Municipal (Ton/m³)</div>
+                                <a href="images/mapa_eficiencia_fisica_municipal.png" download="mapa_eficiencia_fisica.png" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px; text-decoration: none;"><i class="fa-solid fa-download"></i> PNG</a>
+                            </div>
+                            <img src="images/mapa_eficiencia_fisica_municipal.png" alt="Mapa de Eficiencia Física" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--card-border);">
+                        </div>
+                        
+                        <div class="card chart-container-card" style="text-align: center; border-color: var(--card-border); padding: 1.25rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                                <div class="card-title" style="margin-bottom: 0; font-size: 0.9rem; text-align: left;">Productividad Económica del Agua Municipal (MXN/m³)</div>
+                                <a href="images/mapa_productividad_economica_municipal.png" download="mapa_productividad_economica.png" class="theme-toggle-btn" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; border-radius: 4px; text-decoration: none;"><i class="fa-solid fa-download"></i> PNG</a>
+                            </div>
+                            <img src="images/mapa_productividad_economica_municipal.png" alt="Mapa de Productividad Económica" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--card-border);">
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                        <button id="btn-toggle-maps-table" class="theme-toggle-btn" style="font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 8px;">
+                            <i class="fa-solid fa-table"></i> Mostrar Tabla de Datos de Mapas
+                        </button>
+                    </div>
+                    
+                    <!-- Tabla de datos de los mapas -->
+                    <div id="db-maps-table-container" style="display: none; border-top: 1px solid var(--card-border); padding-top: 1.5rem; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <div class="card-title" style="margin-bottom: 0; font-size: 1.1rem; color: var(--accent-green);">Eficiencia Hídrica y Productividad por Municipio (Promedio Histórico)</div>
+                            <button id="btn-download-maps-csv" class="theme-toggle-btn" style="border-radius: 6px; padding: 0.5rem 0.85rem; font-weight: 600;">
+                                <i class="fa-solid fa-file-csv" style="color: var(--accent-green);"></i> Descargar CSV
+                            </button>
+                        </div>
+                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                            <table class="table-premium" id="db-maps-data-table">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable-map" data-col="mun" style="cursor: pointer; user-select: none;">Municipio ↕</th>
+                                        <th class="sortable-map text-right" data-col="ef" style="cursor: pointer; user-select: none; text-align: right;">Eficiencia Física (Ton/m³) ↕</th>
+                                        <th class="sortable-map text-right" data-col="pe" style="cursor: pointer; user-select: none; text-align: right;">Productividad Económica (MXN/m³) ↕</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="db-maps-table-body">
+                                    <!-- Se poblará dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glosario-card" style="margin-top: 2rem; padding: 1.5rem">
                     <div class="card-title" style="margin-bottom: 0.5rem">
                         Glosario de Conceptos Agrícolas e Hídricos
                     </div>

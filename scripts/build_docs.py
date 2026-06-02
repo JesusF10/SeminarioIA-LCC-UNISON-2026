@@ -671,6 +671,11 @@ def generate_dashboard_data(base_dir: Path, website_dir: Path):
         if pd.isna(ptot_mm): ptot_mm = 0.0
         if pd.isna(pef_mm): pef_mm = 0.0
         
+        sup_sem = group['SupSembradaTotal_ha'].sum()
+        sup_sin = max(0.0, sup_sem - sup_cos)
+        pct_siniestralidad = (sup_sin / sup_sem * 100.0) if sup_sem > 0 else 0.0
+        pct_cosechada = (sup_cos / sup_sem * 100.0) if sup_sem > 0 else 0.0
+
         return {
             "rendimiento": round(float(rend), 3),
             "hh_total": round(float(hh_total), 1),
@@ -686,6 +691,10 @@ def generate_dashboard_data(base_dir: Path, website_dir: Path):
             "sequia_isag": round(float(sequia_isag), 3),
             "max_intensidad_sequia": round(float(intensidad_sequia), 2),
             "superficie_cosechada": round(float(sup_cos), 1),
+            "superficie_sembrada": round(float(sup_sem), 1),
+            "superficie_siniestrada": round(float(sup_sin), 1),
+            "pct_siniestralidad": round(float(pct_siniestralidad), 2),
+            "pct_cosechada": round(float(pct_cosechada), 2),
             "volumen_produccion": round(float(vol_prod), 1)
         }
 

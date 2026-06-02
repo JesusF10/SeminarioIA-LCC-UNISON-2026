@@ -1137,11 +1137,87 @@ def generate_ddr_technification_map(gdf, df_indices):
         pad=15,
         weight="bold",
     )
+def generate_efficiency_productivity_maps(gdf, df_indices):
+    """Genera mapas coropléticos municipales de eficiencia física y productividad económica."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+    df_maestro = df_maestro[df_maestro["SupCosechadaTotal_ha"] > 0].copy()
+    
+    # Calcular volumen de agua total
+    df_maestro["vol_agua"] = df_maestro["UACtotal_m3_ha"] * df_maestro["SupCosechadaTotal_ha"]
+    
+    df_mun = df_maestro.groupby("Municipio").agg({
+        "VolumenTotal_t": "sum",
+        "vol_agua": "sum",
+        "Valorproduccion": "sum"
+    }).reset_index()
+    
+    # Filtrar municipios con volumen de agua > 0
+    df_mun = df_mun[df_mun["vol_agua"] > 0].copy()
+    
+    # Eficiencia física (Ton/m3)
+    df_mun["eficiencia_fisica"] = df_mun["VolumenTotal_t"] / df_mun["vol_agua"]
+    # Productividad económica (MXN/m3)
+    df_mun["productividad_economica"] = df_mun["Valorproduccion"] / df_mun["vol_agua"]
+    
+    # Cruzar con CVE_MUN
+    mun_cve_map = df_indices[["Municipio", "CVE_MUN"]].drop_duplicates().copy()
+    df_mun["Municipio_clean"] = df_mun["Municipio"].str.strip()
+    mun_cve_map["Municipio_clean"] = mun_cve_map["Municipio"].str.strip()
+    
+    df_mun_mapped = df_mun.merge(mun_cve_map[["Municipio_clean", "CVE_MUN"]], on="Municipio_clean", how="left")
+    merged_gdf = gdf.merge(df_mun_mapped, on="CVE_MUN", how="inner")
+    
+    # 1. Mapa de Eficiencia Física
+    fig, ax = plt.subplots(1, 1, figsize=(10, 8), dpi=300)
+    merged_gdf.plot(
+        column="eficiencia_fisica",
+        cmap="YlGnBu",
+        legend=True,
+        legend_kwds={
+            "label": "Eficiencia Hídrica Física (Ton/m³)",
+            "orientation": "horizontal",
+            "pad": 0.05,
+            "shrink": 0.7,
+        },
+        edgecolor="black",
+        linewidth=0.4,
+        ax=ax,
+    )
+    ax.set_title(
+        "Eficiencia Hídrica Física Promedio por Municipio - Sonora",
+        pad=15,
+        weight="bold",
+    )
     ax.axis("off")
-    plt.tight_layout()
-    plt.savefig(OUTPUT_DIR / "tecnificacion_riego_ddr.png", bbox_inches="tight")
+    plt.savefig(OUTPUT_DIR / "mapa_eficiencia_fisica_municipal.png", bbox_inches="tight")
     plt.close()
-    print("Mapa de tecnificación del riego por DDR generado exitosamente.")
+    
+    # 2. Mapa de Productividad Económica
+    fig, ax = plt.subplots(1, 1, figsize=(10, 8), dpi=300)
+    merged_gdf.plot(
+        column="productividad_economica",
+        cmap="YlOrRd",
+        legend=True,
+        legend_kwds={
+            "label": "Productividad Económica (MXN/m³)",
+            "orientation": "horizontal",
+            "pad": 0.05,
+            "shrink": 0.7,
+        },
+        edgecolor="black",
+        linewidth=0.4,
+        ax=ax,
+    )
+    ax.set_title(
+        "Productividad Económica del Agua Promedio por Municipio - Sonora",
+        pad=15,
+        weight="bold",
+    )
+    ax.axis("off")
+    plt.savefig(OUTPUT_DIR / "mapa_productividad_economica_municipal.png", bbox_inches="tight")
+    plt.close()
+    
+    print("Mapas de eficiencia hídrica física y productividad económica generados exitosamente.")
 
 
 def main():
@@ -1153,6 +1229,7 @@ def main():
     run_extended_analysis(gdf, df_indices)
     analyze_dam_volumes()
     compute_composite_vulnerability(gdf, df_indices)
+    generate_efficiency_productivity_maps(gdf, df_indices)
     print("Análisis espacial completado exitosamente.")
 
 
