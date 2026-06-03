@@ -1,0 +1,622 @@
+// Presentacion Final — Reconversion de Cultivos en Sonora
+// Seminario de Inteligencia Artificial 2026
+// Tema Claro y Visualización Optimizada de Imágenes
+
+#set page(
+  paper: "presentation-16-9",
+  margin: (x: 1.2cm, top: 1.0cm, bottom: 1.2cm),
+  fill: rgb("#f8fafc"),
+  footer: context {
+    let page-num = counter(page).get().first()
+    if page-num > 1 {
+      set text(size: 10pt, fill: rgb("#475569"))
+      grid(
+        columns: (1fr, 1fr),
+        align(left)[Reconversión de Cultivos en Sonora], align(right)[#page-num / 22],
+      )
+    }
+  },
+)
+
+#set text(
+  font: "Nimbus Sans",
+  size: 14pt,
+  fill: rgb("#1e293b"),
+  lang: "es",
+)
+
+#let slide(title, body) = {
+  pagebreak(weak: true)
+  grid(
+    columns: (1fr, auto),
+    align(left + horizon)[
+      #text(20pt, weight: "bold", fill: rgb("#047857"))[#title]
+    ],
+    align(right + horizon)[
+      #text(10pt, fill: rgb("#64748b"))[Seminario IA 2026]
+    ],
+  )
+  v(-0.3em)
+  line(length: 100%, stroke: 1.5pt + rgb("#059669"))
+  v(0.4em)
+
+  body
+}
+
+// ===== DIAPOSITIVA 1: PORTADA =====
+
+#page(header: none, footer: none)[
+  #align(center + horizon)[
+    #text(14pt, weight: "bold", fill: rgb("#047857"))[UNIVERSIDAD DE SONORA]
+    #v(0.1cm)
+    #text(10pt, fill: rgb("#475569"))[
+      Licenciatura en Ciencias de la Computación \
+      Departamento de Matemáticas
+    ]
+    #v(0.8cm)
+    #text(26pt, weight: "bold", fill: rgb("#0f172a"))[
+      RECONVERSIÓN DE CULTIVOS EN SONORA
+    ]
+    #v(0.2cm)
+    #text(14pt, style: "italic", fill: rgb("#059669"))[
+      Análisis de Huella Hídrica y Viabilidad Productiva
+    ]
+    #v(1.0cm)
+    #text(11pt, fill: rgb("#0f172a"))[*Equipo de Investigación:*]
+    #v(0.1cm)
+    #text(10pt, fill: rgb("#1e293b"))[
+      Jesús Flores, Michell Altamirano, Orlando López, Sebastián Rodríguez
+    ]
+    #v(0.4cm)
+    #text(8pt, fill: rgb("#64748b"))[
+      En colaboración con SAGARHPA, Agencia de Transformación Digital y UNISON
+    ]
+    #v(0.4cm)
+    #text(10pt, fill: rgb("#475569"))[Hermosillo, Sonora — 2026]
+  ]
+]
+
+// ===== DIAPOSITIVA 2: RESUMEN Y CONTEXTO =====
+
+#slide("Resumen y Contexto")[
+  #grid(
+    columns: (1fr, 1.3fr),
+    gutter: 1.0cm,
+    [
+      #v(0.3em)
+      *Problemática de Sonora:*
+      - Estrés hídrico extremo: la agricultura demanda el 92.3% del agua dulce.
+      - Sequía recurrente y clima con tendencia al calentamiento.
+      - Alza de temperatura ($T$) y caída de lluvia ($P$) histórica.
+
+      *Solución y Datos:*
+      - Procesamiento de datos climáticos y hidrológicos.
+      - Análisis de datos de producción agrícola.
+      - Cálculo de deficit hídrico climatológico.
+      - Cálculo de la huella hídrica de los cultivos.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/mapa_deficit_hidrico.png", height: 72%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Déficit hídrico climatológico en Sonora.
+        ]
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 3: SEQUÍA =====
+
+#slide("Sequía y Balance Hídrico")[
+  #grid(
+    columns: (1fr, 1.4fr),
+    gutter: 1.0cm,
+    [
+      #v(0.5em)
+      *Monitor de Sequía (SMN):*
+      - *64.2% de las quincenas* en
+        2003-2026 presentaron sequía.
+      - Picos severos en 2011-12,
+        2020-21 y desde 2023.
+
+      *Déficit Climatológico:*
+      - Brecha anual entre demanda
+        ($E T_o$) y lluvia efectiva
+        ($P_"ef"$).
+      - Promedio: *745 mm* (récord
+        en 2023 de *825 mm*).
+      - Riego consume *92.3%* vs.
+        *7.7%* de lluvia.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/evolucion_sequia_historica.png", width: 100%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Historial de sequía en Sonora.
+        ]
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 5: OBJETIVOS DEL PROYECTO =====
+
+#slide("Objetivos del Proyecto")[
+  #grid(
+    columns: (1fr, 1.2fr),
+    gutter: 1.2cm,
+    [
+      #v(1.5em)
+      *Objetivo General:*
+      #block(
+        fill: rgb("#f0fdf4"),
+        inset: 0.8em,
+        radius: 0.4em,
+        stroke: 1pt + rgb("#059669"),
+        [
+          #text(12pt, fill: rgb("#1e293b"))[
+            Proponer alternativas viables de reconversión de cultivos en
+            Sonora que optimicen el uso del agua y aumenten la rentabilidad
+            agrícola, basándose en la huella hídrica y relación valor.
+          ]
+        ],
+      )
+    ],
+    [
+      #v(0.5em)
+      *Objetivos Específicos:*
+      - Calcular huella hídrica (verde/azul) para 72 municipios
+        (2003-24) usando FAO-56 Penman-Monteith.
+      - Jerarquizar cultivos eficientes a nivel municipal y de DDR.
+      - Cruzar rentabilidad y consumo con Relación Agua-Valor
+        (RAV en $L / "MXN"$).
+      - Desarrollar una herramienta interactiva para tomadores de decisiones.
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 8: MODELO DE EVAPOTRANSPIRACIÓN =====
+
+#slide("Modelo Matemático: Evapotranspiración de Refer")[
+  #grid(
+    columns: (1.2fr, 1fr),
+    gutter: 0.8cm,
+    [
+      #v(0.2em)
+      *Ecuación Penman-Monteith (FAO-56):*
+      $
+        E T_o = frac(
+          0.408 Delta (R_n - G) + gamma frac(900, T + 273) u_2 (e_s - e_a),
+          Delta + gamma (1 + 0.34 u_2)
+        )
+      $
+      #v(0.2em)
+      *Variables Calculadas Diariamente:*
+      - $Delta$: Pendiente curva presión vapor.
+      - $R_n$: Radiación solar neta en sup.
+      - $gamma$: Constante psicrométrica.
+      - $u_2$, $e_s - e_a$: Viento y déficit.
+      #v(0.4em)
+      #text(10pt, fill: rgb("#475569"))[
+        *Nota:* Código disponible en `eto_fao56_mm()`.
+      ]
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/mapa_temperatura_media.png", height: 72%)
+        #v(-0.3em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Temperatura media en Sonora.
+        ]
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 9: MODELO FENOLÓGICO =====
+
+#slide("Modelo de Cultivo y Curva Coeficiente (Kc)")[
+  #grid(
+    columns: (1fr, 1.2fr),
+    gutter: 1cm,
+    [
+      #v(0.5em)
+      *Consumo de Agua del Cultivo:*
+      $ E T_c = K_c dot E T_o $
+
+      *Dinámica Fenológica:*
+      - Coeficiente $K_c$ varía según fase: Inicial, Desarrollo, Medios
+        y Final.
+      - Simula transpiración y desarrollo foliar de forma dinámica.
+    ],
+    [
+      #v(0.2em)
+      *Caso: Trigo Grano (Otoño-Invierno)*
+      - Ciclo estándar: 30 de octubre al 19 de abril (125 días).
+      #v(0.2cm)
+      #align(center)[
+        #table(
+          columns: (1.5fr, 1.2fr, 1.5fr),
+          fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else { none },
+          stroke: 0.5pt + rgb("#cbd5e1"),
+          [*Fase*], [*Duración*], [*Coeficiente $K_c$*],
+          [Inicial], [31 días], [$K_(c, "ini") = 0.30$],
+          [Desarrollo], [31 días], [Transición lineal],
+          [Medios], [32 días], [$K_(c, "mid") = 1.15$],
+          [Final], [31 días], [$K_(c, "end") = 0.25$],
+        )
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 10: CÁLCULO DE HUELLA HÍDRICA =====
+
+#slide("Determinación de la Huella Hídrica")[
+  #grid(
+    columns: (1.1fr, 1fr),
+    gutter: 1cm,
+    [
+      #v(0.5em)
+      *Precipitación Efectiva ($P_"ef"$):*
+      - Método FAO: $0.80 dot P$ (si $P < 250$ mm) o $0.60 dot P$ (si
+        $P >= 250$ mm).
+
+      *Desglose Diario:*
+      - $E T_"verde" = min(E T_c, P_"ef")$
+      - $E T_"azul" = max(E T_c - P_"ef", 0)$
+
+      *Consumo Unitario y Huella:*
+      - $"UAC" = sum E T dot 10$ [m³/ha] (lámina a volumen).
+      - $"HH" = "UAC" / "Rendimiento"$ [m³/ton].
+    ],
+    [
+      #v(1.5em)
+      #block(
+        fill: rgb("#f0fdf4"),
+        inset: 1em,
+        radius: 0.5em,
+        stroke: 1pt + rgb("#059669"),
+        [
+          #text(12pt, fill: rgb("#047857"))[*Dominio Azul*]
+          #v(0.3em)
+          #text(10.5pt, fill: rgb("#1e293b"))[
+            La escasez de lluvia en Sonora provoca que el riego
+            ($HH_"azul"$) domine más del 92% del consumo unitario
+            agrícola, presionando presas y acuíferos.
+          ]
+        ],
+      )
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 8: HUELLA HÍDRICA ESTATAL =====
+
+#slide("Eficiencia de Huella Hídrica Estatal")[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1.0cm,
+    [
+      #align(center)[
+        #image("images/ranking_hh_top20.png", height: 52%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Top 20 cultivos de menor huella (eficientes).
+        ]
+      ]
+    ],
+    [
+      #align(center)[
+        #image("images/ranking_hh_bottom15.png", height: 52%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Bottom 15 cultivos de mayor huella (ineficientes).
+        ]
+      ]
+    ],
+  )
+]
+// ===== DIAPOSITIVA 9: HUELLA HÍDRICA CAJEME =====
+
+#slide("Huella Hídrica en el DDR Cajeme")[
+  #grid(
+    columns: (1fr, 1.4fr),
+    gutter: 1.0cm,
+    [
+      #v(0.5em)
+      *Caso de Estudio Regional:*
+      - Cajeme presenta cultivos tradicionales con alta demanda de riego azul.
+      - La alfalfa verde y el trigo grano dominan el volumen hídrico total.
+      - Hortalizas (chile, pepino, calabacita) muestran huellas hídricas
+        unitarias significativamente más bajas.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/cajeme_hh_cultivos.png", height: 52%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Comparativa de huella hídrica de cultivos en Cajeme.
+        ]
+      ]
+    ],
+  )
+]
+// ===== DIAPOSITIVA 10: VULNERABILIDAD MUNICIPAL =====
+
+#slide("Vulnerabilidad Hídrica Municipal (IVH)")[
+  #grid(
+    columns: (1fr, 1.4fr),
+    gutter: 1.0cm,
+    [
+      #v(0.5em)
+      *Definición del IVH:*
+      - El Índice de Vulnerabilidad Hídrica integra déficit, sequía (ISAG),
+        riego y estrés térmico.
+
+      #v(0.3em)
+      *Municipios Críticos:*
+      - Naco: *1,240 mm*, Puerto Peñasco: *1,150 mm*, Caborca: *946 mm*,
+        Cajeme: *836 mm*.
+      - Hermosillo y Cajeme son zonas críticas por sobreexplotación.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/mapa_vulnerabilidad_compuesta.png", height: 72%)
+        #v(-0.3em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Vulnerabilidad Hídrica Compuesta (IVH).
+        ]
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 11: PRODUCTIVIDAD POR DDR =====
+
+#slide("Productividad Económica y Eficiencia por DDR")[
+  #grid(
+    columns: (1.1fr, 1.4fr),
+    gutter: 1.0cm,
+    [
+      #v(0.3em)
+      *Relación Agua-Valor (RAV):*
+      - Litros consumidos por cada peso ($L / "MXN"$) generado.
+
+      #v(0.3em)
+      *Contraste Regional:*
+      - *Hermosillo:* Alta eficiencia (riego tecnificado al 47%,
+        uva/espárrago).
+      - *Sur (Cajeme/Navojoa):* Baja eficiencia (monocultivo trigo,
+        8%-13% riego tecnificado).
+      - *Mazatán/Ures:* Ineficiente por forrajes extensivos de bajo valor.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/mapa_rav_ddr.png", height: 72%)
+        #v(-0.3em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Relación Agua-Valor (RAV) por DDR.
+        ]
+      ]
+    ],
+  )
+]
+
+// ===== DIAPOSITIVA 12: TECNIFICACIÓN DE RIEGO =====
+
+#slide("Tecnificación de Riego por DDR")[
+  #grid(
+    columns: (1fr, 1.4fr),
+    gutter: 1.0cm,
+    [
+      #v(0.5em)
+      *Infraestructura de Riego:*
+      - Sonora presenta gran disparidad tecnológica entre sus distritos.
+      - Hermosillo lidera con el *47%* de su agricultura tecnificada
+        (goteo y aspersión).
+      - Cajeme (*8%*) y Navojoa (*13%*) mantienen riego por gravedad
+        de baja eficiencia.
+    ],
+    [
+      #align(center + horizon)[
+        #image("images/tecnificacion_riego_ddr.png", height: 72%)
+        #v(-0.2em)
+        #text(8pt, fill: rgb("#475569"))[
+          Figura: Porcentaje de tecnificación de riego por DDR.
+        ]
+      ]
+    ],
+  )
+]
+// ===== DIAPOSITIVA 12: CASO RENTABILIDAD VS EFICIENCIA =====
+
+#slide("Caso de Rentabilidad vs. Eficiencia Hídrica")[
+  #v(0.5em)
+  *Clasificación por Medianas:*
+  - Corte ($"HH"$: 871 m³/t, $"PMR"$: 5,816 MXN/t).
+
+  *1. Caso Ideal (Baja HH + Alto PMR):*
+  - Hortalizas de alto valor y bajo riego (tomate, pepino, papa).
+
+  *2. Caso Problemático (Alta HH + Bajo PMR):*
+  - Granos/forrajes tradicionales de bajo valor (trigo, maíz).
+  - Trigo produce 0.01 MXN/L; pepino genera 5.80 MXN/L.
+]
+
+// ===== DIAPOSITIVA 13: VISUALIZACIÓN CUADRANTE =====
+
+#slide("Visualización: Clasificación de Rentabilidad y Eficiencia")[
+  #align(center + horizon)[
+    #image("images/cuadrante_rentabilidad_eficiencia.png", height: 72%)
+    #v(0.2cm)
+    #text(10pt, fill: rgb("#475569"))[
+      *Figura:* Clasificación cruzada por medianas de los cultivos evaluados.
+    ]
+  ]
+]
+
+// ===== DIAPOSITIVA 6: CASO DE ESTUDIO TRIGO =====
+
+#slide("Caso de Estudio: Trigo Grano en Cajeme")[
+  #v(0.5em)
+  *La Paradoja del Trigo:*
+  - Principal cultivo del sur de Sonora (Valle del Yaqui).
+  - Consumo: *1,103 m³/t* ($"HH"$) y *6,881 m³/ha* ($"UAC"$).
+  - Fracción azul: *96.2%* (agua de presas y pozos).
+  - Retorno económico: *0.007 MXN/L* de agua consumida.
+
+  *Impacto de la Reconversión (15% de Área):*
+  - Transición hacia papa, pepino y lechuga.
+  - *Resultados:* Ahorro de *50 millones de m³* y aumento del *45%* en
+    el valor de producción regional.
+]
+
+// ===== DIAPOSITIVA 7: VISUALIZACIÓN TRIGO =====
+
+#slide("Visualización: Trigo Grano vs. Alternativas")[
+  #align(center + horizon)[
+    #image("images/trigo_vs_alternativas.png", height: 52%)
+    #v(0.2cm)
+    #text(10pt, fill: rgb("#475569"))[
+      *Figura:* Comparación de rentabilidad y consumo entre trigo y hortalizas.
+    ]
+  ]
+]
+
+// ===== DIAPOSITIVA 14: PLATAFORMA WEB: SECCIONES =====
+
+#slide("Plataforma Web")[
+  #v(0.5em)
+  - *Inicio:* Introducción, metas y justificación del proyecto de reconversión.
+  - *Situación Hídrica:* Historial de sequías y almacenamiento de presas.
+  - *Especificaciones:* Parámetros de Kc y etapas para 128 cultivos.
+  - *Estadísticas:* Huella hídrica y relación agua-valor por municipio y DDR.
+  - *Calculadora FAO-56:* Simulador interactivo de ETc y huella en el navegador.
+  - *Arquitectura:* Estructura del pipeline en Python, clases y tipados.
+]
+
+
+// ===== DIAPOSITIVA 19: CAPTURA DASHBOARD REGIONAL =====
+
+#slide("Captura: Plataforma Web - Dashboard Regional")[
+  #align(center + horizon)[
+    #image("images/dashboard_regional.png", height: 72%)
+    #v(0.2cm)
+    #text(10pt, fill: rgb("#475569"))[
+      *Figura:* Interfaz del Dashboard Regional de la plataforma.
+    ]
+  ]
+]
+
+// ===== DIAPOSITIVA 20: CAPTURA CALCULADORA FAO-56 =====
+
+#slide("Captura: Plataforma Web - Calculadora FAO-56")[
+  #align(center + horizon)[
+    #image("images/calculadora_fao56.png", height: 72%)
+    #v(0.2cm)
+    #text(10pt, fill: rgb("#475569"))[
+      *Figura:* Interfaz interactiva de la Calculadora FAO-56.
+    ]
+  ]
+]
+
+// ===== DIAPOSITIVA 21: RECOMENDACIONES (SAGARHPA) =====
+
+#slide("Recomendaciones")[
+  #v(0.5em)
+  - *Zonificación por IVH:* Focalizar programas de reconversión en Naco,
+    Caborca, Cajeme y Hermosillo usando los mapas de vulnerabilidad.
+  - *Sustitución de Trigo:* Transición gradual del 15% de trigo a papa, pepino y
+    lechuga en el sur para ahorrar *50 millones de m³* anuales.
+  - *Tecnificación de Riego:* Subsidiar sistemas de riego eficiente (goteo) en
+    Cajeme (8% tecnificado actual) y Navojoa (13%).
+  - *Regulación REPDA:* Alinear extracciones con recargas de acuíferos en costa.
+  - *Métricas Clave:* Adoptar oficialmente indicadores RAV ($L/"MXN"$) y HH.
+]
+
+// ===== DIAPOSITIVA 22: TRABAJO POR REALIZAR =====
+
+#slide("Trabajo por Realizar")[
+  #v(0.5em)
+  - *Huella Hídrica Gris:* Estimar volumen necesario para diluir agroquímicos
+    lixiviados en los valles del Yaqui y Mayo.
+  - *Cambio Climático:* Modelar la demanda futura de agua bajo escenarios CMIP6
+    (proyecciones a 2030 y 2050).
+  - *Validación Agronómica:* Cruzar huellas calculadas con datos in situ
+    y lisímetros en Sonora.
+  - *Modelos de Optimización:* Desarrollar algoritmos multiobjetivo para mezcla
+    óptima de cultivos bajo límites del REPDA.
+]
+
+// ===== DIAPOSITIVA 23: ANEXO: FUENTES DE DATOS =====
+
+#slide("Anexo: Fuentes de Datos")[
+  #v(0.2em)
+  #align(center)[
+    #table(
+      columns: (1.5fr, 2.5fr, 3.5fr),
+      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else { none },
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Dimensión*], [*Fuente*], [*Variables Clave e Integración*],
+      [Territorial],
+      [
+        UNISON \ (`SonoraLatLongAlt.csv`)
+      ],
+      [
+        Coordenadas y altitud de \ los 72 municipios.
+      ],
+
+      [Clima],
+      [
+        NASA POWER API \ (Diario 2003-24)
+      ],
+      [
+        Radiación ($R_s$), Temp, HR, \ Viento ($u_2$), Precip.
+      ],
+
+      [Productiva],
+      [
+        SIAP — SADER \ (Anual)
+      ],
+      [
+        Sup. sembrada/cosechada, \ rendimiento, PMR.
+      ],
+
+      [Hídrica],
+      [
+        CONAGUA / \ REPDA (REPNA)
+      ],
+      [
+        Derechos de extracción \ concesionados (pozos).
+      ],
+
+      [Tecnológica],
+      [
+        SAGARHPA \ (Base 2021)
+      ],
+      [
+        Porcentaje de tecnificación \ de riego por DDR.
+      ],
+
+      [Riesgo],
+      [
+        Monitor de \ Sequía SMN
+      ],
+      [
+        Índice ISAG e impacto \ geoespacial municipal.
+      ],
+
+      [Fenológica],
+      [
+        FAO-56 / INIFAP
+      ],
+      [
+        Coeficientes $K_c$ y etapas \ para 128 cultivos.
+      ],
+    )
+  ]
+]

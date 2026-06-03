@@ -1,0 +1,46 @@
+
+- - - - #
+
+1 Observo buen uso de color para destacar título, subtítulo y equipo de investigación.
+
+2 Remover cuadro "Enfoque Técnico y de Datos" 
+
+3 Integrar ese bullet point aislado a la diapositiva anterior, en vez de dedicarle toda una Slide.
+
+4 Conservar la sección "Monitor de Sequía". Describir qué significa déficit climatológico en el bullet point donde es mencionado. 
+
+5 Observo una buena división entre objetivo general y objetivos específicos. 
+
+6 Tratar "Fuentes de Datos Integradas" como se trataría una sección de referencias: hasta el final.
+
+7 Remover cuadro "Implementación en Python", pero dejar una nota "Consultar función eto_fao56_mm()"
+
+8 .
+
+9 Observo una diapositiva técnica para satisfacer la curiosidad respecto a las fórmulas utilizadas.
+
+10 Mover definición de IVH como primer párrafo. Conservar "Top Municipios..." como segundo párrafo. Remover sección de "Gradiente del Déficit Hídrico". 
+
+11 La diapositiva presenta únicamente datos en formato numérico... 
+   Esta Slide debe ser omitida. Si quieres conservarla, debemos buscar cómo transmitir más valor con esa información: quizá interpretar el resultado.
+
+12 Reformar la descripción. Enfocar a por qué existe un contraste regional. 
+
+13 Renombrar palabra cuadrante a caso. Reducir cantidad de palabras.
+
+14 Mover esto cerca de la diapositiva que habla sobre objetivo general u objetivos específicos.
+
+15 Remover cuadro "Visualizaciones dinámicas", pero incluir su descripción como bullet point resumido.
+   Cada bullet point que se extienda  hasta el final de la diapositiva; un bullet point por línea.
+   Además, pienso que estás omitiendo secciones clave de la herramienta creada. 
+
+16 Renombrar diapositiva. En la diapositiva se describe trabajo por realizar. Esto es una oportunidad para que SAGARHPA quiera seguir colaborando con nosotros,
+   si es que le interesa lo que proponemos como trabajo futuro. Para evitar que pierdan el enfoque, renombrar diapositiva a alguna variante de "Trabajo por realizar".
+
+- - - - #
+
+A) Tutorial de la herramienta creada, será excelente para stakeholders (capturas de pantalla).
+B) Trabajo futuro, sección para que SAGARHPA esté interesada en colaboración futura.
+
+
+

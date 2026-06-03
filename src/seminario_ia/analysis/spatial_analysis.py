@@ -20,6 +20,7 @@ REPNA1_CSV = BASE_DIR / "data" / "raw" / "datos_proporcionados" / "reporte-repna
 REPNA2_CSV = BASE_DIR / "data" / "raw" / "datos_proporcionados" / "reporte-repna-2.csv"
 CODIF_JSON = BASE_DIR / "data" / "config" / "codificacion.json"
 OUTPUT_DIR = BASE_DIR / "reports" / "fase3" / "prueba_analisis" / "images"
+REPORTS_DIR = BASE_DIR / "reports"
 MONITOR_CSV = BASE_DIR / "data" / "processed" / "monitor_sequia_sonora.csv"
 MAESTRO_CSV = (
     BASE_DIR / "data" / "processed" / "analisis_municipal_sonora_2010_2024.csv"
@@ -1220,6 +1221,350 @@ def generate_efficiency_productivity_maps(gdf, df_indices):
     print("Mapas de eficiencia hídrica física y productividad económica generados exitosamente.")
 
 
+def plot_ranking_hh():
+    """Genera gráfica de ranking de HH por cultivo (top eficientes y bottom ineficientes)."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+    crop_hh = (
+        df_maestro.groupby("Cultivo")
+        .agg(
+            {
+                "HHtotal_m3_ton": "mean",
+                "HHazul_m3_ton": "mean",
+                "HHverde_m3_ton": "mean",
+                "Rend_t_ha": "mean",
+                "PMR": "mean",
+                "VolumenTotal_t": "sum",
+            }
+        )
+        .reset_index()
+        .sort_values("HHtotal_m3_ton", ascending=True)
+    )
+    crop_hh = crop_hh[crop_hh["VolumenTotal_t"] > 0]
+
+    top_n = 20
+    bot_n = 15
+
+    top_crops = crop_hh.head(top_n).copy()
+    bot_crops = crop_hh.tail(bot_n).copy()
+    bot_crops = bot_crops.sort_values("HHtotal_m3_ton", ascending=False)
+
+    for label, data, filename in [
+        ("Top 20 Cultivos con Menor Huella Hídrica", top_crops, "ranking_hh_top20.png"),
+        ("Top 15 Cultivos con Mayor Huella Hídrica", bot_crops, "ranking_hh_bottom15.png"),
+    ]:
+        fig, ax = plt.subplots(figsize=(12, 7), dpi=300)
+        y_pos = range(len(data))
+        ax.barh(
+            y_pos,
+            data["HHazul_m3_ton"].values,
+            color="#38bdf8",
+            label="HH Azul (riego)",
+            alpha=0.9,
+        )
+        ax.barh(
+            y_pos,
+            data["HHverde_m3_ton"].values,
+            left=data["HHazul_m3_ton"].values,
+            color="#4ade80",
+            label="HH Verde (lluvia)",
+            alpha=0.9,
+        )
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(data["Cultivo"].values, fontsize=9)
+        ax.set_xlabel("Huella Hídrica Total (m³/ton)")
+        ax.set_title(label, pad=15, weight="bold")
+        ax.legend(loc="lower right", frameon=True, shadow=True)
+        ax.invert_yaxis()
+        plt.tight_layout()
+        plt.savefig(OUTPUT_DIR / filename, bbox_inches="tight")
+        plt.close()
+
+    print("Ranking de HH por cultivo generado exitosamente.")
+
+
+def compute_ddr_summary_table():
+    """Genera tabla resumen consolidada por DDR con métricas clave."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+    df_maestro = df_maestro[df_maestro["SupCosechadaTotal_ha"] > 0].copy()
+    df_maestro["vol_agua"] = df_maestro["UACtotal_m3_ha"] * df_maestro["SupCosechadaTotal_ha"]
+
+    ddr_agg = (
+        df_maestro.groupby("DDR")
+        .agg(
+            {
+                "HHtotal_m3_ton": "mean",
+                "HHazul_m3_ton": "mean",
+                "frac_azul": "mean",
+                "deficit_hidrico_mm": "mean",
+                "Rend_t_ha": "mean",
+                "VolumenTotal_t": "sum",
+                "Valorproduccion": "sum",
+                "vol_agua": "sum",
+                "SupCosechadaTotal_ha": "sum",
+                "PMR": "mean",
+            }
+        )
+        .reset_index()
+    )
+    ddr_agg["prod_economica_mxn_m3"] = ddr_agg["Valorproduccion"] / ddr_agg["vol_agua"]
+    ddr_agg["RAV_L_mxn"] = ddr_agg["vol_agua"] * 1000 / ddr_agg["Valorproduccion"]
+
+    tecnif_map = {
+        "Guaymas": 78.0, "Caborca": 70.0, "Hermosillo": 47.0,
+        "Mazatán": 16.0, "Magdalena": 14.0, "Navojoa": 13.0,
+        "San Luis Río Colorado": 12.0, "Ures": 12.0,
+        "Cajeme": 8.0, "Moctezuma": 7.0, "Agua Prieta": 3.0, "Sahuaripa": 2.0,
+    }
+    ddr_agg["tecnificacion_pct"] = ddr_agg["DDR"].map(tecnif_map)
+
+    ddr_agg = ddr_agg.sort_values("RAV_L_mxn", ascending=True)
+
+    output_csv = OUTPUT_DIR / "ddr_summary.csv"
+    ddr_agg.to_csv(output_csv, index=False, encoding="utf-8")
+    print(f"Tabla resumen DDR guardada en: {output_csv}")
+    return ddr_agg
+
+
+def plot_cuadrante_hh_pmr():
+    """Genera gráfica de cuadrante HH vs PMR para todos los cultivos."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+    crop_agg = (
+        df_maestro.groupby("Cultivo")
+        .agg({"HHtotal_m3_ton": "mean", "PMR": "mean", "VolumenTotal_t": "sum"})
+        .reset_index()
+    )
+    crop_agg = crop_agg[crop_agg["VolumenTotal_t"] > 0].copy()
+
+    hh_median = crop_agg["HHtotal_m3_ton"].median()
+    pmr_median = crop_agg["PMR"].median()
+
+    fig, ax = plt.subplots(figsize=(14, 10), dpi=300)
+
+    cuadrantes = {
+        "ideal": (crop_agg["HHtotal_m3_ton"] <= hh_median) & (crop_agg["PMR"] >= pmr_median),
+        "ineficiente": (crop_agg["HHtotal_m3_ton"] > hh_median) & (crop_agg["PMR"] < pmr_median),
+        "alta_hh_alto_pmr": (crop_agg["HHtotal_m3_ton"] > hh_median) & (crop_agg["PMR"] >= pmr_median),
+        "baja_hh_bajo_pmr": (crop_agg["HHtotal_m3_ton"] <= hh_median) & (crop_agg["PMR"] < pmr_median),
+    }
+
+    colors = {"ideal": "#22c55e", "ineficiente": "#ef4444", "alta_hh_alto_pmr": "#f59e0b", "baja_hh_bajo_pmr": "#3b82f6"}
+    labels_map = {
+        "ideal": "Baja HH + Alto PMR (Ideal)",
+        "ineficiente": "Alta HH + Bajo PMR (Problemático)",
+        "alta_hh_alto_pmr": "Alta HH + Alto PMR",
+        "baja_hh_bajo_pmr": "Baja HH + Bajo PMR",
+    }
+
+    for key, mask in cuadrantes.items():
+        subset = crop_agg[mask]
+        ax.scatter(
+            subset["HHtotal_m3_ton"], subset["PMR"],
+            c=colors[key], label=labels_map[key], alpha=0.7, s=50, edgecolors="#333", linewidths=0.5,
+        )
+
+    annotate_crops = [
+        "Trigo grano", "Maíz grano", "Pepino", "Tomate rojo (jitomate)", "Papa",
+        "Alfalfa achicalada", "Sorgo grano", "Frijol", "Uva", "Nuez", "Cártamo",
+        "Cebolla", "Espárrago", "Sandía", "Melón", "Naranja", "Agave",
+    ]
+    for crop in annotate_crops:
+        row = crop_agg[crop_agg["Cultivo"] == crop]
+        if not row.empty:
+            xx = row["HHtotal_m3_ton"].values[0]
+            yy = row["PMR"].values[0]
+            ax.annotate(
+                crop, (xx, yy), fontsize=7, fontweight="bold",
+                xytext=(5, 5), textcoords="offset points",
+                bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="gray", alpha=0.8),
+            )
+
+    ax.axvline(x=hh_median, color="gray", linestyle="--", alpha=0.5, label=f"Mediana HH = {hh_median:.0f}")
+    ax.axhline(y=pmr_median, color="gray", linestyle=":", alpha=0.5, label=f"Mediana PMR = ${pmr_median:,.0f}")
+    ax.set_xscale("log")
+    ax.set_xlabel("Huella Hídrica Total (m³/ton) — escala log", fontsize=11)
+    ax.set_ylabel("Precio Medio Rural ($/ton)", fontsize=11)
+    ax.set_title("Cuadrante Eficiencia Hídrica vs. Rentabilidad por Cultivo", pad=15, weight="bold", fontsize=13)
+    ax.legend(loc="upper left", frameon=True, shadow=True, fontsize=9)
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "cuadrante_rentabilidad_eficiencia.png", bbox_inches="tight")
+    plt.close()
+    print("Cuadrante HH vs PMR generado exitosamente.")
+
+
+def plot_ddr_cajeme_profile():
+    """Genera figuras del perfil hídrico-productivo del DDR Cajeme."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+
+    cajeme = df_maestro[df_maestro["Municipio"] == "Cajeme"].copy()
+    cajeme = cajeme[cajeme["VolumenTotal_t"] > 0]
+
+    # HH por cultivo en Cajeme (top 15)
+    crops_cajeme = (
+        cajeme.groupby("Cultivo")
+        .agg({
+            "HHtotal_m3_ton": "mean",
+            "HHazul_m3_ton": "mean",
+            "HHverde_m3_ton": "mean",
+            "VolumenTotal_t": "sum",
+            "PMR": "mean",
+        })
+        .sort_values("VolumenTotal_t", ascending=False)
+        .head(15)
+        .sort_values("HHtotal_m3_ton", ascending=True)
+    )
+
+    fig, ax = plt.subplots(figsize=(12, 7), dpi=300)
+    y_pos = range(len(crops_cajeme))
+    ax.barh(y_pos, crops_cajeme["HHazul_m3_ton"].values, color="#38bdf8", label="HH Azul", alpha=0.9)
+    ax.barh(
+        y_pos, crops_cajeme["HHverde_m3_ton"].values,
+        left=crops_cajeme["HHazul_m3_ton"].values, color="#4ade80", label="HH Verde", alpha=0.9,
+    )
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(crops_cajeme.index, fontsize=9)
+    ax.set_xlabel("Huella Hídrica (m³/ton)")
+    ax.set_title("Principales Cultivos en Cajeme: Huella Hídrica por Tonelada", pad=15, weight="bold")
+    ax.legend(loc="lower right", frameon=True, shadow=True)
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "cajeme_hh_cultivos.png", bbox_inches="tight")
+    plt.close()
+
+    # RAV por cultivo en Cajeme: top 10 best and worst
+    with open(REPORTS_DIR / "fase3" / "prueba_analisis" / "rav_results.json", encoding="utf-8") as f:
+        rav_data = json.load(f)
+    cajeme_rav = rav_data["ddr_crops"]["Cajeme"]
+    best = cajeme_rav["best"]
+    worst = cajeme_rav["worst"]
+
+    # Combine for a single horizontal bar chart
+    labels_rev = [d["Cultivo"] for d in reversed(best)] + [d["Cultivo"] for d in worst]
+    values_rev = [d["RAV_L_mxn"] for d in reversed(best)] + [d["RAV_L_mxn"] for d in worst]
+    colors_rev = ["#22c55e"] * len(best) + ["#ef4444"] * len(worst)
+
+    fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
+    y_pos = range(len(labels_rev))
+    ax.barh(y_pos, values_rev, color=colors_rev, alpha=0.9, edgecolor="#333", linewidth=0.5)
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(labels_rev, fontsize=9)
+    ax.set_xlabel("Relación Agua-Valor (L/MXN)")
+    ax.set_title("RAV por Cultivo en Cajeme: Más Eficientes (verde) vs. Menos Eficientes (rojo)", pad=15, weight="bold")
+
+    from matplotlib.patches import Patch
+    legend_elements = [
+        Patch(facecolor="#22c55e", edgecolor="black", label="Más Eficientes (Menor RAV)"),
+        Patch(facecolor="#ef4444", edgecolor="black", label="Menos Eficientes (Mayor RAV)"),
+    ]
+    ax.legend(handles=legend_elements, loc="lower right", frameon=True, shadow=True)
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "cajeme_rav_cultivos.png", bbox_inches="tight")
+    plt.close()
+
+    print("Perfil de Cajeme generado exitosamente.")
+
+
+def plot_trigo_vs_alternatives():
+    """Genera gráfica comparativa de trigo grano vs. cultivos alternativos con menor HH y PMR comparable."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+
+    crop_agg = (
+        df_maestro.groupby("Cultivo")
+        .agg({
+            "HHtotal_m3_ton": "mean",
+            "HHazul_m3_ton": "mean",
+            "Rend_t_ha": "mean",
+            "PMR": "mean",
+            "VolumenTotal_t": "sum",
+        })
+        .reset_index()
+    )
+    crop_agg = crop_agg[crop_agg["VolumenTotal_t"] > 1000].copy()
+
+    trigo_row = crop_agg[crop_agg["Cultivo"] == "Trigo grano"].iloc[0]
+    trigo_hh = trigo_row["HHtotal_m3_ton"]
+    trigo_pmr = trigo_row["PMR"]
+
+    # Cultivos con menor HH que el trigo y más de 1000 ton de producción
+    alternatives = crop_agg[crop_agg["HHtotal_m3_ton"] < trigo_hh].sort_values("HHtotal_m3_ton").head(10)
+    # Add trigo at the end
+    plot_data = pd.concat([alternatives, crop_agg[crop_agg["Cultivo"] == "Trigo grano"]], ignore_index=True)
+    plot_data = plot_data.sort_values("HHtotal_m3_ton", ascending=True)
+
+    fig, ax = plt.subplots(figsize=(13, 7), dpi=300)
+    x_pos = range(len(plot_data))
+    colors = ["#ef4444" if c == "Trigo grano" else "#3b82f6" for c in plot_data["Cultivo"]]
+    bars = ax.bar(x_pos, plot_data["HHtotal_m3_ton"], color=colors, alpha=0.9, edgecolor="#333", linewidth=0.5)
+
+    for i, (_, row) in enumerate(plot_data.iterrows()):
+        ahorro = trigo_hh - row["HHtotal_m3_ton"]
+        pct = ahorro / trigo_hh * 100
+        if row["Cultivo"] != "Trigo grano":
+            ax.annotate(
+                f"-{pct:.0f}%", (i, row["HHtotal_m3_ton"]),
+                textcoords="offset points", xytext=(0, 5), ha="center",
+                fontsize=8, color="#1e293b", fontweight="bold",
+            )
+
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(plot_data["Cultivo"], rotation=45, ha="right", fontsize=9)
+    ax.set_ylabel("Huella Hídrica Total (m³/ton)")
+    ax.set_title(
+        f"Comparativa: Cultivos Alternativos vs. Trigo Grano (HH = {trigo_hh:.0f} m³/ton)",
+        pad=15, weight="bold",
+    )
+    ax.axhline(y=trigo_hh, color="#ef4444", linestyle="--", alpha=0.6, label=f"Trigo grano ({trigo_hh:.0f} m³/ton)")
+
+    from matplotlib.patches import Patch
+    legend_elements = [
+        Patch(facecolor="#3b82f6", edgecolor="black", label="Cultivo alternativo"),
+        Patch(facecolor="#ef4444", edgecolor="black", label="Trigo grano (referencia)"),
+    ]
+    ax.legend(handles=legend_elements, loc="upper left", frameon=True, shadow=True)
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "trigo_vs_alternativas.png", bbox_inches="tight")
+    plt.close()
+
+    print("Comparativa trigo vs alternativas generada exitosamente.")
+
+
+def plot_trigo_variabilidad_municipal():
+    """Genera gráfica de variabilidad del HH del trigo grano en los top 10 municipios productores."""
+    df_maestro = pd.read_csv(MAESTRO_CSV)
+    trigo = df_maestro[df_maestro["Cultivo"] == "Trigo grano"].copy()
+
+    top_mun = (
+        trigo.groupby("Municipio")
+        .agg({"VolumenTotal_t": "sum", "HHtotal_m3_ton": "mean", "HHazul_m3_ton": "mean", "HHverde_m3_ton": "mean"})
+        .sort_values("VolumenTotal_t", ascending=False)
+        .head(10)
+        .sort_values("HHtotal_m3_ton", ascending=True)
+    )
+
+    fig, ax = plt.subplots(figsize=(12, 7), dpi=300)
+    y_pos = range(len(top_mun))
+    ax.barh(y_pos, top_mun["HHazul_m3_ton"].values, color="#38bdf8", label="HH Azul", alpha=0.9)
+    ax.barh(
+        y_pos, top_mun["HHverde_m3_ton"].values,
+        left=top_mun["HHazul_m3_ton"].values, color="#4ade80", label="HH Verde", alpha=0.9,
+    )
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(top_mun.index, fontsize=10)
+    ax.set_xlabel("Huella Hídrica Total (m³/ton)")
+    ax.set_title("Huella Hídrica del Trigo Grano en los 10 Principales Municipios Productores", pad=15, weight="bold")
+    ax.legend(loc="lower right", frameon=True, shadow=True)
+
+    for i, (mun, row) in enumerate(top_mun.iterrows()):
+        ax.annotate(
+            f'{row["HHtotal_m3_ton"]:.0f}', (row["HHtotal_m3_ton"], i),
+            textcoords="offset points", xytext=(5, 0), ha="left", fontsize=8,
+        )
+
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "trigo_hh_municipios.png", bbox_inches="tight")
+    plt.close()
+
+    print("Variabilidad del HH del trigo por municipio generada exitosamente.")
+
+
 def main():
     print("Iniciando análisis espacial de sequía y vulnerabilidad...")
     gdf, df_indices, repna = load_data()
@@ -1230,6 +1575,13 @@ def main():
     analyze_dam_volumes()
     compute_composite_vulnerability(gdf, df_indices)
     generate_efficiency_productivity_maps(gdf, df_indices)
+    # New functions for report figures
+    plot_ranking_hh()
+    compute_ddr_summary_table()
+    plot_cuadrante_hh_pmr()
+    plot_ddr_cajeme_profile()
+    plot_trigo_vs_alternatives()
+    plot_trigo_variabilidad_municipal()
     print("Análisis espacial completado exitosamente.")
 
 

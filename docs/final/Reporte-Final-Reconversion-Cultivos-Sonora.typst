@@ -3,13 +3,9 @@
 #set page(
   paper: "a4",
   margin: (x: 2.5cm, y: 2.5cm),
-  header: align(right, text(8pt, gray)[Reporte Final — Reconversión de Cultivos en Sonora]),
   footer: context [
     #set text(8pt, gray)
-    #grid(
-      columns: (1fr, 1fr),
-      [Seminario de Inteligencia Artificial 2026], align(right, counter(page).display()),
-    )
+    #align(right, counter(page).display())
   ],
 )
 
@@ -25,31 +21,60 @@
 // ===== PORTADA =====
 
 #align(center)[
-  #v(2cm)
-  #text(14pt, weight: "bold")[UNIVERSIDAD DE SONORA]
-  #v(0.3cm)
-  #text(11pt)[División de Ingeniería \ | \ Licenciatura en Ciencias de la Computación]
-  #v(0.3cm)
-  #text(11pt, style: "italic")[Seminario de Inteligencia Artificial — 2026]
-  #v(1.5cm)
-  #text(17pt, weight: "bold")[RECONVERSIÓN DE CULTIVOS EN EL ESTADO DE SONORA]
   #v(0.5cm)
-  #text(12pt, style: "italic")[Análisis de Huella Hídrica y Viabilidad Productiva para la Optimización]
-  #text(12pt, style: "italic")[del Uso del Agua en la Agricultura Sonorense]
-  #v(1.5cm)
-  #text(11pt, weight: "bold")[Equipo de investigación:]
+  #text(14pt, weight: "bold")[UNIVERSIDAD DE SONORA]
   #v(0.2cm)
+  #text(11pt)[
+    Departamento de Matemáticas \
+    Licenciatura en Ciencias de la Computación
+  ]
+  #v(0.2cm)
+  #text(11pt, style: "italic")[Seminario de Inteligencia Artificial — 2026]
+  #v(0.5cm)
+  #image("ESCUDO-COLOR.png", width: 27%)
+  #v(0.5cm)
+  #text(17pt, weight: "bold")[RECONVERSIÓN DE CULTIVOS EN EL ESTADO DE SONORA]
+  #v(0.3cm)
+  #text(12pt, style: "italic")[
+    Análisis de Huella Hídrica y Viabilidad Productiva
+    para la Optimización del Uso del Agua en la
+    Agricultura Sonorense
+  ]
+  #v(0.5cm)
+  #text(11pt, weight: "bold")[Equipo de investigación:]
+  #v(0.1cm)
   #text(11pt)[Jesús Flores Lacarra]
   #text(11pt)[Michell Berenice Altamirano Ocejo]
   #text(11pt)[Orlando López Roque]
   #text(11pt)[Sebastián Rodríguez Serrano]
-  #v(0.5cm)
-  #text(11pt, weight: "bold")[Colaboración técnica:]
-  #v(0.2cm)
-  #text(11pt)[Lic. Manuel Alberto Valenzuela Arce — Equipo de Ciencia de Datos, UNISON]
-  #v(0.5cm)
-  #text(10pt, style: "italic")[Proyecto en colaboración con la Secretaría de Agricultura y Desarrollo Rural (SAGARPA / SADER)]
-  #v(1cm)
+  #v(0.3cm)
+  #block(width: 80%)[
+    #text(9pt)[
+      Proyecto en colaboración con la Secretaría de Agricultura,
+      Ganadería, Recursos Hidráulicos, Pesca y Acuacultura del
+      Estado de Sonora (SAGARHPA), así como con la Agencia de
+      Transformación Digital y Telecomunicaciones de Sonora, y
+      con el Equipo de Ciencia de Datos, Unison.
+    ]
+  ]
+  #v(0.3cm)
+  #text(11pt, weight: "bold")[Colaboradores a cargo de los equipos:]
+  #v(0.15cm)
+  #text(10pt)[
+    Lic. Emilio Alonso Soto Ruan — Director de Estadística
+    y Tecnologías de SAGARHPA Sonora.
+  ]
+  #v(0.08cm)
+  #text(10pt)[
+    Ing. Luis Javier Ortega Cisneros — Titular de la Agencia
+    de Transformación Digital y Telecomunicaciones de Sonora
+  ]
+  #v(0.08cm)
+  #text(10pt)[
+    Lic. Manuel Alberto Valenzuela Arce — Equipo de Ciencia
+    de Datos, UNISON
+  ]
+  #v(0.3cm)
   #text(11pt)[Hermosillo, Sonora, México — 2026]
 ]
 
@@ -59,9 +84,9 @@
 
 = RESUMEN
 
-El estado de Sonora enfrenta una creciente presión sobre sus recursos hídricos derivada de condiciones climáticas desérticas, sequías históricas recurrentes y una agricultura que depende en gran medida del riego artificial. Con el objetivo de identificar alternativas productivas más sostenibles, el presente proyecto desarrolló una metodología computacional para calcular la huella hídrica de los cultivos registrados en el estado durante el periodo 2003–2024, a nivel municipal, utilizando el estándar internacional FAO-56 Penman-Monteith.
+El estado de Sonora enfrenta una creciente presión sobre sus recursos hídricos derivada de condiciones climáticas desérticas, sequías históricas recurrentes y una agricultura que depende en gran medida del riego artificial. Con el objetivo de identificar alternativas productivas más sostenibles, el presente proyecto desarrolló una metodología computacional para calcular la huella hídrica de los cultivos registrados en el estado durante el periodo 2003–2024, a nivel municipal, utilizando la ecuación de Penman-Monteith especificada en el estándar internacional FAO-56.
 
-Los datos climáticos diarios fueron obtenidos a través de la API de NASA POWER para los 72 municipios de Sonora, y las estadísticas de producción agrícola provienen del SIAP. Se implementó en Python un sistema modular que calcula la evapotranspiración de referencia ($E T_o$), la evapotranspiración del cultivo ($E T_c$) mediante coeficientes de cultivo ($K_c$) derivados del FAO-56, la precipitación efectiva, y la huella hídrica en sus componentes verde (agua de lluvia) y azul (agua de riego). El sistema fue validado con el cultivo de trigo grano como caso piloto, revelando que en municipios como Cajeme la huella hídrica azul representa aproximadamente el 93% de la demanda total, con un valor de 1,646 m³ por tonelada producida.
+Los datos climáticos diarios fueron obtenidos a través de la API de NASA POWER para los 72 municipios de Sonora, y las estadísticas de producción agrícola provienen del SIAP. Se implementó en Python un sistema modular que calcula la evapotranspiración de referencia ($E T_o$), la evapotranspiración del cultivo ($E T_c$) mediante coeficientes de cultivo ($K_c$) derivados del FAO-56, la precipitación efectiva, y la huella hídrica en sus componentes verde (agua de lluvia) y azul (agua de riego).
 
 Los resultados generados constituyen la base técnica para comparar el desempeño hídrico de 128 cultivos registrados, con miras a formular recomendaciones de reconversión productiva que optimicen el uso del agua y mejoren la rentabilidad para los agricultores sonorenses.
 
@@ -95,19 +120,50 @@ _Proponer alternativas de reconversión de cultivos en el estado de Sonora que o
 
 - Calcular la huella hídrica verde y azul de los cultivos registrados en el SIAP para los 72 municipios de Sonora, para el periodo 2003–2024, utilizando la metodología FAO-56 Penman-Monteith.
 
-- Identificar los cultivos con mayor y menor consumo hídrico por tonelada producida, tanto a nivel estatal como por Distrito de Desarrollo Rural (DDR).
+- Identificar los cultivos con mayor y menor consumo hídrico por tonelada producida a nivel municipal, así como por Distrito de Desarrollo Rural (DDR).
 
 - Analizar la rentabilidad de los cultivos candidatos mediante precios medios rurales, costos de producción estimados y demanda de mercado.
 
-- Desarrollar un dashboard interactivo que permita visualizar y comparar la huella hídrica y rentabilidad de los cultivos a nivel municipal.
+- Desarrollar una herramienta que permita explorar el conocimiento generado a través de los cálculos y las comparaciones de las distintas huellas hídricas y rentabilidad de los cultivos a nivel municipal y por Distrito de Desarrollo Rural.
 
-- Generar recomendaciones de reconversión productiva fundamentadas en criterios de eficiencia hídrica y viabilidad económica, orientadas a la toma de decisiones de SAGARPA/SADER.
+- Generar recomendaciones de reconversión productiva fundamentadas en criterios de eficiencia hídrica y viabilidad económica, orientadas a la toma de decisiones de SAGARPA.
 
 == Justificación
 
 La justificación de este proyecto se articula en tres dimensiones complementarias. En primer lugar, la dimensión ambiental: Sonora es una entidad con un índice de estrés hídrico elevado; identificar cultivos que reduzcan la demanda de agua de riego contribuye directamente a la preservación de acuíferos sobreexplotados y a la prolongación de la vida útil de las presas. En segundo lugar, la dimensión económica: los productores agrícolas enfrentan costos crecientes por concepto de bombeo, electricidad y acceso al agua, por lo que una reconversión hacia cultivos con menor demanda hídrica implica también una reducción de costos operativos y un aumento del margen de rentabilidad. En tercer lugar, la dimensión social: apoyar a los agricultores con información técnica objetiva para la toma de decisiones sobre qué sembrar es una forma concreta de contribuir a la seguridad alimentaria y a la estabilidad del sector rural sonorense.
 
 El proyecto se enmarca en la colaboración entre la Universidad de Sonora y la Secretaría de Agricultura y Desarrollo Rural (SAGARPA/SADER), con el propósito de ofrecer una herramienta de análisis replicable, de base científica y actualizable con datos abiertos, que sirva de soporte técnico para futuras políticas de reconversión productiva en la región.
+
+=== Situación hídrica del estado de Sonora
+
+De acuerdo con el Servicio Meteorológico Nacional (s. f.), los registros históricos climatológicos muestran una tendencia decreciente en la precipitación media anual acumulada. A su vez, hay un aumento histórico en la temperatura promedio de los ciclos agrícolas. Estas dos tendencias intensifican la evapotranspiración de referencia ($E T_o$), lo que incrementa directamente las láminas de riego requeridas por los cultivos para evitar el estrés hídrico.
+
+Los períodos de lluvia significativos no pasan de 15 días en promedio, provocando que los cultivos de ciclo largo experimenten largos meses de sequía intermedia. Adicionalmente, el análisis cuantitativo del Monitor de Sequía de México revela que el 64.2% de las quincenas registradas entre 2003 y 2026 presentaron algún grado de sequía (categorías D0 a D4), lo que confirma la condición estructural de aridez del estado.
+
+#figure(
+  image("images/evolucion_sequia_historica.png", width: 90%),
+  caption: [Evolución histórica de la severidad de la sequía en Sonora (2003–2026). El porcentaje de municipios afectados se distribuye por categoría de sequía.],
+)
+
+El análisis del balance hídrico climatológico promedio por ciclo arroja un déficit de 745 mm entre la evapotranspiración de referencia y la precipitación efectiva, lo que significa que los cultivos dependen casi enteramente del agua de riego para completar su ciclo productivo. En el nivel estatal, la fracción azul —agua de riego— representa el 92.3% del consumo hídrico total, mientras que la fracción verde —agua de lluvia efectiva— apenas alcanza el 7.7%. Esta distribución es particularmente extrema: 61 de los 71 municipios analizados (86%) presentan una dependencia de riego superior al 90%.
+
+#figure(
+  image("images/fraccion_azul_verde_municipios.png", width: 90%),
+  caption: [Dependencia de riego vs. lluvia efectiva (fracción azul vs. verde) en los 15 municipios con mayor dependencia de riego. La contribución del agua de lluvia es marginal en la mayoría de los municipios sonorenses.],
+)
+
+El año 2023 se posiciona como el más crítico del periodo de estudio: con apenas 101.4 mm de precipitación promedio y una evapotranspiración de referencia de 1,071.5 mm, el déficit hídrico alcanzó 825.0 mm, el más alto de la serie 2010–2024. En contraste, 2015 registró la mayor precipitación (236.6 mm), lo que redujo el déficit a 639.8 mm. Esta variabilidad interanual refuerza la necesidad de planificar bajo escenarios de escasez.
+
+#figure(
+  image("images/tendencia_climatica_anual.png", width: 90%),
+  caption: [Tendencia histórica de precipitación y temperatura promedio en Sonora (2010–2024). La barra azul representa la precipitación total promedio; la línea roja muestra la temperatura media del ciclo.],
+)
+
+El estrés térmico agrava la situación: municipios como Puerto Peñasco registran en promedio 91 días con temperatura máxima ≥ 35°C por ciclo agrícola, mientras que en la zona serrana, Naco presenta 90.7 días con riesgo de helada (temperatura mínima ≤ 5°C). Estas condiciones extremas restringen la ventana fenológica y elevan la demanda evaporativa.
+
+El Índice de Impacto por Sequía Acumulada Georeferenciada (ISAG) corrobora que el ciclo Primavera-Verano es el más perjudicial para los cultivos actualmente sembrados en el estado. Es necesario enfocar la reconversión hacia cultivos que aprovechen al máximo la precipitación disponible, así como suspender siembras de alta demanda en áreas clasificadas con vulnerabilidad alta.
+
+El caso más crítico lo representa el Distrito de Desarrollo Rural 051 (Hermosillo), donde la extracción hídrica, que en su mayoría proviene de fuentes subterráneas, ha provocado un grave fenómeno de intrusión salina del Golfo de California en el acuífero de la región conocida como la Costa de Hermosillo. La falta generalizada de tecnificación de riego en el estado, particularmente en la región sur (Valle del Yaqui y Valle del Mayo, con solo 8% de tecnificación en el DDR Cajeme), exacerba el consumo excesivo de agua al requerir láminas de riego sustancialmente mayores a las necesarias con sistemas eficientes.
 
 == Alcance y Limitaciones
 
@@ -121,6 +177,8 @@ El análisis abarca los 72 municipios de Sonora con presencia en los registros d
 
 - Los modelos de balance hídrico no incorporan aún las restricciones legales de extracción derivadas del REPDA/REPNA, ni la variabilidad proyectada bajo escenarios de cambio climático.
 
+Por último, la falta de tecnificación de riego en el estado, sobre todo en la región sur (Valle del Yaqui y Valle del Mayo), exacerba los mantos acuíferos dado el incremento de las láminas de riego necesarias para los cultivos.
+
 // ===== 2. MARCO TEÓRICO =====
 
 = MARCO TEÓRICO
@@ -128,8 +186,6 @@ El análisis abarca los 72 municipios de Sonora con presencia en los registros d
 == Reconversión de Cultivos
 
 La reconversión de cultivos es un proceso planificado mediante el cual se sustituyen parcial o totalmente las especies vegetales cultivadas en una región por otras que ofrecen ventajas comparativas en términos de sostenibilidad ambiental, viabilidad económica o adaptabilidad climática. No se trata de un proceso espontáneo ni arbitrario: requiere un diagnóstico técnico riguroso que evalúe las condiciones edafoclimáticas de la zona, la disponibilidad de agua, los costos de producción, la demanda de mercado y los marcos normativos vigentes.
-
-En el contexto de regiones con estrés hídrico severo, como las llanuras áridas y semiáridas del noroeste de México, la reconversión adquiere un carácter estratégico. La Secretaría de Agricultura y Desarrollo Rural (SADER) ha impulsado programas de reconversión orientados a sustituir cultivos de alto consumo de agua por especies con mayor eficiencia hídrica o de mayor valor económico por unidad de agua consumida. Entre los criterios considerados destacan la lámina de riego requerida por ciclo, el rendimiento por hectárea, el precio medio rural y la compatibilidad con los sistemas de riego existentes.
 
 La presente investigación adopta un enfoque cuantitativo para la reconversión, basado en el cálculo sistemático de la huella hídrica como indicador central de eficiencia hídrica, complementado por indicadores económicos de rentabilidad. Este enfoque permite ordenar y clasificar los cultivos de acuerdo con su desempeño en ambas dimensiones, proporcionando una base objetiva para las recomendaciones de política agrícola.
 
@@ -195,8 +251,14 @@ El proyecto integra datos de múltiples fuentes oficiales e institucionales, que
 #table(
   columns: (auto, auto, auto),
   [*Fuente*], [*Datos*], [*Uso en el proyecto*],
-  [NASA POWER API], [Variables climáticas diarias (Rs, Tmax, Tmin, RH, u2, P)], [Cálculo de ETo y precipitación efectiva],
-  [SIAP — SADER], [Producción agrícola municipal 2003–2024 (superficie, rendimiento, PMR)], [ETc, HH y análisis de rentabilidad],
+  [NASA POWER API],
+  [Variables climáticas diarias (Rs, Tmax, Tmin, RH, u2, P)],
+  [Cálculo de ETo y precipitación efectiva],
+
+  [SIAP — SADER],
+  [Producción agrícola municipal 2003–2024 (superficie, rendimiento, PMR)],
+  [ETc, HH y análisis de rentabilidad],
+
   [CONAGUA], [Volúmenes en distritos de riego, almacenamiento de presas], [Contexto hídrico regional],
   [REPDA / REPNA], [Concesiones de extracción superficial y de pozos], [Viabilidad hídrica legal],
   [SADER — Precios de Garantía], [Precios subsidiados para granos básicos], [Análisis de rentabilidad],
@@ -217,9 +279,17 @@ El sistema de análisis sigue una arquitectura de procesamiento de tres capas:
 #table(
   columns: (auto, auto, auto),
   [*Capa*], [*Componentes*], [*Salidas*],
-  [Entrada], [NASA POWER API, SIAP, FAO-56, SonoraLatLongAlt.csv, CONAGUA, REPDA], [Datos climáticos diarios por municipio, parámetros técnicos de cultivos, estadísticas de producción],
-  [Procesamiento], [Scripts Python: ETo (Penman-Monteith), curva Kc, Pef, ET verde/azul, UAC, HH], [Huella hídrica verde y azul por municipio, ciclo y cultivo (m³/ton)],
-  [Salida], [Dashboard interactivo, exportación tabular], [Visualizaciones comparativas, tablas para toma de decisiones],
+  [Entrada],
+  [NASA POWER API, SIAP, FAO-56, SonoraLatLongAlt.csv, CONAGUA, REPDA],
+  [Datos climáticos diarios por municipio, parámetros técnicos de cultivos, estadísticas de producción],
+
+  [Procesamiento],
+  [Scripts Python: ETo (Penman-Monteith), curva Kc, Pef, ET verde/azul, UAC, HH],
+  [Huella hídrica verde y azul por municipio, ciclo y cultivo (m³/ton)],
+
+  [Salida],
+  [Dashboard interactivo, exportación tabular],
+  [Visualizaciones comparativas, tablas para toma de decisiones],
 )
 
 == Adquisición y Preparación de Datos
@@ -286,7 +356,11 @@ Las variables intermedias calculadas en cada paso diario son:
   [Pendiente curva vapor], [$Delta$], [$4098 dot e_s / (T+237.3)^2$], [kPa/°C],
   [Radiación extraterrestre], [$R_a$], [FAO-56 Ecs. 21–25 (función de latitud y día juliano)], [MJ/m²/día],
   [Radiación onda corta neta], [$R_"ns"$], [$(1 - 0.23) dot R_s$], [MJ/m²/día],
-  [Radiación onda larga neta], [$R_"nl"$], [$sigma dot T^4 dot (0.34 - 0.14 sqrt(e_a)) dot (1.35 R_s/R_"so" - 0.35)$], [MJ/m²/día],
+  [Radiación onda larga neta],
+  [$R_"nl"$],
+  [$sigma dot T^4 dot (0.34 - 0.14 sqrt(e_a)) dot (1.35 R_s/R_"so" - 0.35)$],
+  [MJ/m²/día],
+
   [Radiación neta total], [$R_n$], [$R_"ns" - R_"nl"$], [MJ/m²/día],
 )
 
@@ -302,7 +376,9 @@ La curva de $K_c$ diaria se construye mediante la función `daily_kc_curve()`, q
 
 La precipitación efectiva diaria se estima mediante la función `pef_simple_fao_per_day()`, que aplica el método simplificado de la FAO descrito en la sección 2.4. El factor de aprovechamiento (f = 0.80 o f = 0.60) se determina con base en la precipitación total acumulada durante el ciclo completo del cultivo y se aplica de forma homogénea a cada día del ciclo:
 
-$ P_"ef" " [mm/día]" = f dot P " [mm/día]" space space space "donde" space f = 0.80 " si " P_"ciclo" < 250 "mm," space f = 0.60 " si " P_"ciclo" >= 250 "mm" $
+$
+  P_"ef" " [mm/día]" = f dot P " [mm/día]" space space space "donde" space f = 0.80 " si " P_"ciclo" < 250 "mm," space f = 0.60 " si " P_"ciclo" >= 250 "mm"
+$
 
 == Cálculo de la Huella Hídrica
 
@@ -330,19 +406,27 @@ $ "HH" [m^3 slash t o n] = "UAC" [m^3 slash h a] / "Rendimiento" [t o n slash h 
 
 El rendimiento utilizado corresponde al reportado por el SIAP para cada municipio, cultivo y ciclo agrícola. La función `calculate_wf_uac()` centraliza este cálculo, devolviendo los valores de HH verde y azul por separado, así como los UAC correspondientes. Cuando el rendimiento reportado es cero o no disponible, el valor de HH se asigna como no definido (NaN) para evitar divisiones inválidas.
 
-== Dashboard de Visualización
+== Herramienta de Visualización
 
-El entregable computacional del proyecto es un dashboard interactivo diseñado para la visualización comparativa de los resultados. El dashboard permite:
+El entregable computacional del proyecto es una herramienta de visualización interactiva diseñada para la visualización comparativa de los resultados a diferente nivel. Esta herramienta permite:
 
-- Seleccionar un municipio o Distrito de Desarrollo Rural (DDR) y visualizar la huella hídrica de todos los cultivos registrados para esa zona.
+- Seleccionar entre diferentes escalas: estatal, municipal o por distrito de desarrollo rural (DDR).
 
-- Comparar la HH verde y azul entre cultivos mediante gráficas de barras ordenadas por consumo hídrico.
+- Elegir entre diferentes análisis.
 
-- Filtrar por ciclo agrícola (Otoño-Invierno / Primavera-Verano) y por periodo temporal.
+- Filtrar por años.
 
-- Exportar la tabulación completa de resultados por municipio en formato CSV para uso externo.
+- Analizar el balance e histórico de producción.
 
-El código fuente completo del sistema —incluyendo los módulos de descarga de NASA POWER, la implementación de Penman-Monteith, el cálculo de huella hídrica y el dashboard— está disponible en el repositorio público del proyecto:
+- Analizar la disponibilidad de agua.
+
+- Analizar la eficiencia hídrica (física y económica).
+
+- Analizar la rentabilidad.
+
+- Exportar la tabulación completa de resultados en formato CSV para uso externo.
+
+El código fuente completo del sistema —incluyendo los módulos de descarga de NASA POWER, la implementación de Penman-Monteith, el cálculo de huella hídrica y la herramienta de visualización— está disponible en el repositorio público del proyecto:
 
 _Repositorio GitHub:_ `https://github.com/JesusF10/SeminarioIA-LCC-UNISON-2026`
 
@@ -350,33 +434,297 @@ _Repositorio GitHub:_ `https://github.com/JesusF10/SeminarioIA-LCC-UNISON-2026`
 
 = RESULTADOS
 
-#text(style: "italic")[Sección pendiente de resultados finales.]
+El presente capítulo presenta los resultados del análisis de huella hídrica y productividad económica del agua para los 101 cultivos registrados en el SIAP con presencia en los 71 municipios de Sonora durante el periodo 2010–2024. La presentación sigue una estructura de lo general a lo particular: se parte del contexto hídrico y climático estatal, se desciende al ranking de cultivos y al análisis por regiones administrativas, y se concluye con dos estudios de caso que ilustran las implicaciones de reconversión productiva.
 
-== Huella Hídrica del Trigo Grano (Caso Piloto)
+== Contexto Hídrico y Climático del Periodo de Estudio
 
-#text(style: "italic")[Sección a completar con resultados preliminares del trigo grano.]
+Los resultados del procesamiento de 12,909 registros municipales-cultivo-año confirman cuantitativamente lo que la geografía de Sonora anticipa: la agricultura estatal opera bajo un déficit hídrico estructural severo. La evapotranspiración de referencia promedio a nivel estatal es de 1,015.5 mm por ciclo agrícola, mientras que la precipitación total promedio apenas alcanza los 182.7 mm. Este desbalance genera un déficit hídrico climatológico promedio de 745 mm por ciclo, que obliga a los productores a cubrir la diferencia mediante riego artificial.
 
-== Comparativa de Huella Hídrica entre Cultivos
+#figure(
+  image("images/mapa_deficit_hidrico.png", width: 90%),
+  caption: [Déficit hídrico climatológico promedio (ETo – Pef) por municipio. Los municipios del noroeste y centro presentan los valores más críticos, con Naco alcanzando 1,240 mm de déficit.],
+)
 
-#text(style: "italic")[Sección a completar con resultados comparativos.]
+La distribución municipal del déficit hídrico revela una gradiente geográfica pronunciada. Naco encabeza el ranking con un déficit de 1,240 mm, seguido por Puerto Peñasco (1,150 mm), Caborca (946 mm), Bácum (880 mm) y Cajeme (836 mm). La zona serrana —con municipios como Yécora, Alamos y Quiriego— presenta los déficit menores, consistentes con su mayor altitud y precipitación orográfica.
 
-== Cultivos con Mayor Eficiencia Hídrica
+La fragmentación del agua consumida entre componentes verde y azul ratifica la dependencia del riego: la fracción azul estatal promedio es del 92.3%, con 61 de los 71 municipios (86%) presentando dependencias de riego superiores al 90%. Los municipios con menor porcentaje de agua de lluvia aprovechable son San Luis Río Colorado (97.5% azul), Puerto Peñasco (95.6%) y Caborca (94.6%). Incluso los municipios relativamente más favorecidos, como Quiriego y Alamos, no descienden del 75% de dependencia de riego.
 
-#text(style: "italic")[Sección a completar con resultados de eficiencia hídrica.]
+El estrés térmico complementa el panorama de adversidad climática. Municipios de la costa y desierto central —Puerto Peñasco (91.1 días con temperatura ≥ 35°C), Quiriego (76.4), Cajeme (75.9)— enfrentan calor extremo durante una fracción significativa del ciclo. En el extremo opuesto, la sierra presenta riesgo de helada: Naco registra 90.7 días con temperatura mínima ≤ 5°C, Cananea 58.5 y Agua Prieta 49.8, factores que condicionan la selección de cultivos y las ventanas de siembra.
 
-== Análisis de Rentabilidad por Cultivo
+#figure(
+  image("images/estres_termico_municipios.png", width: 90%),
+  caption: [Estrés agroclimático por temperaturas extremas: días promedio con calor extremo (≥ 35°C) y riesgo de helada (≤ 5°C) durante el ciclo agrícola, por municipio.],
+)
 
-#text(style: "italic")[Sección a completar con análisis de rentabilidad.]
+== Huella Hídrica por Cultivo: Ranking Estatal
 
-== Cultivos Candidatos para Reconversión
+La huella hídrica total (HH) de los 101 cultivos con registros en Sonora exhibe una dispersión de casi tres órdenes de magnitud: desde 137 m³/ton para el rábano hasta 26,851 m³/ton para la cereza. La mediana estatal se sitúa en 871 m³/ton, valor que refleja la heterogeneidad inherente a la diversidad productiva del estado.
 
-#text(style: "italic")[Sección a completar con recomendaciones de reconversión.]
+#figure(
+  image("images/ranking_hh_top20.png", width: 95%),
+  caption: [Los 20 cultivos con menor huella hídrica total en Sonora. Las hortalizas de alto rendimiento dominan este segmento, con el rábano (137 m³/ton), la lechuga (140 m³/ton) y el pepino (158 m³/ton) como los más eficientes. La barra azul representa el componente de riego y la barra verde el de lluvia.],
+)
+
+Los cultivos con menor huella hídrica se concentran en hortalizas de alto rendimiento por hectárea: rábano (137 m³/ton), lechuga (140), pepino (158), tomate rojo o jitomate (160), alfalfa achicalada (193), col o repollo (196) y apio (221). Estos cultivos comparten la característica de producir volúmenes significativos por unidad de superficie, lo que diluye el consumo de agua entre toneladas producidas.
+
+En el extremo opuesto, los cultivos con mayor huella hídrica son especies de bajo rendimiento y alto consumo de agua: cereza (26,851 m³/ton), arándano (15,612), frutales varios (11,597), ajonjolí (10,817), nuez (10,088), frijol (6,536) y cacahuate (5,477). La nuez, pese a su alto precio medio rural (68,655 \$/ton), requiere más de 10,000 m³ de agua por cada tonelada producida, lo que la convierte en uno de los cultivos menos sostenibles desde la perspectiva hídrica.
+
+#figure(
+  image("images/ranking_hh_bottom15.png", width: 95%),
+  caption: [Los 15 cultivos con mayor huella hídrica total en Sonora. La cereza, el arándano y los frutales diversos presentan consumos superiores a 10,000 m³/ton, fundamentalmente por su bajo rendimiento por hectárea.],
+)
+
+La descomposición de la huella hídrica en sus componentes verde y azul revela un patrón uniforme: en todos los cultivos analizados, el componente azul —agua de riego— domina el consumo. Para el trigo grano, la HH azul representa el 96.2% de la huella total; para el maíz grano, el 93.8%; y para el sorgo grano, el 91.8%. Incluso cultivos de ciclo Primavera-Verano, que podrían beneficiarse de mayores precipitaciones estivales, exhiben fracciones azules superiores al 85%. Esta predominancia confirma que, en Sonora, la agricultura es inseparable del riego artificial.
+
+== Eficiencia Hídrica y Productividad Económica del Agua por DDR
+
+El análisis por Distrito de Desarrollo Rural permite observar las disparidades regionales en el uso productivo del agua. La Relación Agua-Valor (RAV), definida como los litros de agua consumidos por cada peso de valor de producción generado ($L / "MXN"$), constituye el indicador síntesis de esta dimensión: un RAV bajo indica alta productividad económica del agua; un RAV alto indica ineficiencia productiva.
+
+#table(
+  columns: (2.5fr, 1.2fr, 1.2fr, 1.5fr, 1.2fr),
+  [*DDR*], [*HH promedio (m³/ton)*], [*Fracción azul*], [*Productividad económica (MXN/m³)*], [*RAV (L/MXN)*],
+  [Hermosillo], [1\,053], [94.4%], [12\,241], [47.5],
+  [San Luis Río Colorado], [801], [97.6%], [9\,669], [88.4],
+  [Caborca], [1\,297], [93.9%], [9\,548], [46.0],
+  [Guaymas], [1\,381], [94.4%], [4\,123], [67.5],
+  [Navojoa], [2\,796], [90.0%], [4\,769], [113.3],
+  [Cajeme], [1\,896], [92.0%], [5\,054], [162.6],
+  [Magdalena], [1\,088], [93.1%], [536], [99.4],
+  [Ures], [2\,099], [92.2%], [373], [221.2],
+  [Agua Prieta], [1\,618], [92.6%], [467], [313.3],
+  [Mazatán], [728], [92.2%], [126], [325.8],
+  [Moctezuma], [1\,853], [89.9%], [138], [385.2],
+  [Sahuaripa], [2\,405], [84.0%], [279], [267.4],
+)
+
+La tabla anterior revela contrastes drásticos. Hermosillo genera 12,241 \$ de valor de producción por cada metro cúbico de agua consumido, mientras que Mazatán apenas alcanza 126 \$. Esto no significa que Hermosillo use menos agua en términos absolutos —su infraestructura de riego tecnificado (47%) y la concentración de cultivos de alto valor (uva, espárrago) explican la diferencia. En el extremo opuesto, Mazatán, Moctezuma y Ures presentan RAV superiores a 220 L/MXN, reflejando una estructura productiva dominada por cultivos forrajeros de bajo valor económico relativo.
+
+#figure(
+  image("images/mapa_rav_ddr.png", width: 90%),
+  caption: [Distribución espacial de la Relación Agua-Valor (RAV) por Distrito de Desarrollo Rural. Los valores más bajos (tonos verdes) indican mayor productividad económica del agua; los más altos (tonos rojos) indican ineficiencia.],
+)
+
+La tecnificación del riego refuerza esta desigualdad. Mientras Guaymas reporta un 78% de tecnificación y Caborca un 70%, el DDR Cajeme —el mayor productor de trigo del estado— apenas alcanza el 8%. Esta baja tecnificación implica láminas de riego sustancialmente mayores a las necesarias con sistemas eficientes, lo que incrementa la HH azul real más allá de lo estimado por el modelo.
+
+#figure(
+  image("images/tecnificacion_riego_ddr.png", width: 90%),
+  caption: [Distribución espacial de la tecnificación del riego por DDR. La región sur del estado presenta los niveles más bajos, con Cajeme al 8%, Navojoa al 13% y Mazatán al 16%.],
+)
+
+#figure(
+  image("images/mapa_vulnerabilidad_compuesta.png", width: 90%),
+  caption: [Índice de Vulnerabilidad Hídrica compuesto (IVH) por municipio. El índice integra déficit hídrico, dependencia de riego, sequía (ISAG) y estrés térmico. Los municipios del noroeste y centro presentan vulnerabilidad crítica.],
+)
+
+== Análisis de Rentabilidad: Eficiencia Hídrica vs. Valor Económico
+
+La huella hídrica por sí sola no determina la viabilidad de un cultivo; es necesario cruzarla con el valor económico generado. Para ello se introduce la Relación Agua-Valor (RAV), que cuantifica los litros de agua consumidos por cada peso de producción obtenido ($L / "MXN"$). Un RAV bajo indica que un cultivo genera alto valor económico por unidad de agua consumida; un RAV alto indica lo opuesto.
+
+La productividad económica del agua a nivel estatal presenta una dispersión marcada. En el extremo superior, la stevia genera 5.67 MXN por cada m³ de agua consumido, seguida por el eneldo (5.25 MXN/m³) y la napa (4.22 MXN/m³). En el extremo inferior, los cultivos forrajeros y granos básicos generan menos de 0.02 MXN/m³: pastos y praderas (~0 MXN/m³), sorgo forrajero en verde (~0 MXN/m³), avena forrajera (~0 MXN/m³), trigo grano (0.01 MXN/m³), frijol (0.01 MXN/m³) y maíz grano (0.01 MXN/m³).
+
+El cuadrante de eficiencia hídrica versus rentabilidad —definido por la mediana de la HH (871 m³/ton) y la mediana del PMR (5,816 MXN/ton)— clasifica los cultivos en cuatro segmentos:
+
+- *Baja HH + Alto PMR (cuadrante ideal):* 16 cultivos, incluyendo tomate rojo (HH=160, PMR=6,215), pepino (158, 5,804), papa (243, 7,471), brócoli (315, 7,811), betabel (324, 6,944) y espárrago (1,455, 36,685). Estos cultivos combinan baja demanda hídrica con alto valor de mercado.
+
+- *Alta HH + Bajo PMR (cuadrante problemático):* 14 cultivos, incluyendo sorgo grano (HH=3,853, PMR=3,442), maíz grano (3,411, 4,026), higuerilla (5,471, 4,190) y trigo grano (1,103, 4,271). Estos cultivos consumen mucha agua por tonelada y generan bajo ingreso por unidad producida.
+
+- *Alta HH + Alto PMR:* Cultivos como el espárrago (1,455, 36,685) y el datilero (3,022, 43,772), que consumen mucha agua pero generan alto valor por tonelada.
+
+- *Baja HH + Bajo PMR:* Cultivos como la avena forrajera en verde (296, 616) y el sorgo forrajero achicalado (242, 943), eficientes en agua pero con bajo retorno económico.
+
+#figure(
+  image("images/cuadrante_rentabilidad_eficiencia.png", width: 95%),
+  caption: [Cuadrante de eficiencia hídrica (eje X, logarítmico) vs. precio medio rural (eje Y) para los 101 cultivos analizados. Las líneas discontinuas marcan las medianas. Los cultivos del cuadrante inferior izquierdo (verde) son los más eficientes; los del superior derecho (rojo) son los más problemáticos.],
+)
+
+El trigo grano, cultivo dominante del estado, se ubica en el cuadrante problemático: con una HH de 1,103 m³/ton y un PMR de 4,271 MXN/ton, genera apenas un centavo (0.01 MXN) de valor de producción por cada metro cúbico de agua consumido. Esta cifra contrasta con el pepino (5.80 MXN/m³) o el tomate rojo (6.22 MXN/m³), que generan cientos de veces más valor económico por unidad de agua.
+
+== Caso de Estudio: DDR Cajeme — Alta Producción, Baja Eficiencia
+
+El Distrito de Desarrollo Rural de Cajeme constituye el caso paradigmático de la paradoja productiva sonorense: es simultáneamente el DDR con mayor volumen de producción acumulada y uno de los que presenta menor productividad económica del agua. Con 2,147 registros en el periodo de análisis y 53 cultivos registrados, Cajeme concentra el eje triguero del Valle del Yaqui.
+
+=== Perfil Hídrico-Productivo de Cajeme
+
+Los indicadores agregados del DDR Cajeme revelan una estructura productiva intensiva en agua y orientada hacia cultivos de bajo valor relativo por metro cúbico consumido:
+
+- HH promedio por cultivo: 1,670 m³/ton
+- Fracción azul promedio: 92.0% (agua de riego)
+- Productividad económica del agua: 5,054 MXN/m³ (quinto lugar entre los 12 DDR)
+- RAV: 162.6 L/MXN (séptimo lugar; requiere 163 litros de agua por cada peso de producción)
+- Tecnificación del riego: 8% (el más bajo entre los DDR principales)
+- Días de estrés calor: 75.9 por ciclo (entre los más altos del estado)
+- Días de riesgo de helada: 0.0 (condición favorable para cultivos de ciclo O-I)
+
+Los principales cultivos por volumen de producción en Cajeme son:
+
+#table(
+  columns: (2fr, 1.2fr, 1fr, 1fr, 1.2fr),
+  [*Cultivo*], [*HH (m³/ton)*], [*HH azul (%)*], [*Rend (ton/ha)*], [*PMR (MXN/ton)*],
+  [Trigo grano], [1\,019], [97.5%], [6.9], [4\,473],
+  [Papa], [237], [98.6%], [32.6], [7\,443],
+  [Maíz grano], [1\,522], [89.5%], [9.0], [3\,842],
+  [Alfalfa achicalada], [215], [97.3%], [15.6], [2\,538],
+  [Naranja], [778], [91.0%], [20.8], [2\,821],
+  [Tomate rojo (jitomate)], [127], [98.6%], [61.0], [5\,355],
+  [Pepino], [111], [80.7%], [65.6], [5\,151],
+  [Chile verde], [570], [91.4%], [22.7], [6\,838],
+  [Sorgo grano], [1\,859], [91.9%], [5.2], [3\,761],
+)
+
+El trigo grano domina la producción de Cajeme con 2.7 millones de toneladas acumuladas, pero consume 994 m³/ton de agua de riego para generar un retorno de solo 4,473 MXN/ton. En contraste, el pepino produce 84,320 toneladas con una HH de 111 m³/ton y un PMR de 5,151 MXN/ton: consume 9 veces menos agua por tonelada y genera un precio comparable.
+
+#figure(
+  image("images/cajeme_hh_cultivos.png", width: 95%),
+  caption: [Huella hídrica de los principales cultivos en el DDR Cajeme, ordenados por volumen de producción. El trigo grano y el maíz grano presentan los consumos más elevados por tonelada producida.],
+)
+
+=== Relación Agua-Valor en Cajeme
+
+El análisis de RAV por cultivo dentro de Cajeme confirma el contraste entre hortalizas eficientes y granos ineficientes:
+
+- *Mejores RAV:* Pepino (11.4 L/MXN), tomate rojo (19.1), apio (24.1)
+- *Peores RAV:* Sorgo forrajero en verde (3,383 L/MXN), higuerilla (1,294), sorgo grano (751)
+
+El pepino produce el mismo valor económico que el trigo grano consumiendo aproximadamente 143 veces menos agua por unidad de valor. Esta disparidad constituye el argumento central de la reconversión productiva: no se trata de eliminar el trigo, sino de diversificar la canasta productiva hacia cultivos con mayor retorno por gota de agua.
+
+#figure(
+  image("images/cajeme_rav_cultivos.png", width: 95%),
+  caption: [Relación Agua-Valor (RAV) por cultivo en Cajeme. Barras verdes: cultivos más eficientes (menor RAV); barras rojas: cultivos menos eficientes (mayor RAV). El sorgo forrajero en verde requiere 3,383 litros de agua por cada peso generado, mientras que el pepino solo requiere 11.4 litros.],
+)
+
+== Caso de Estudio: Trigo Grano — Análisis Detallado del Cultivo Dominante
+
+El trigo grano es el cultivo más sembrado de Sonora y el principal consumidor de agua de riego del estado. Con 15.3 millones de toneladas acumuladas en el periodo 2010–2023, un rendimiento promedio de 5.52 ton/ha y un PMR de 4,271 MXN/ton, el trigo concentra una proporción desproporcionada del recurso hídrico agrícola estatal.
+
+=== Huella Hídrica del Trigo Grano a Nivel Estatal
+
+Los resultados del cálculo de huella hídrica para el trigo grano, promediados sobre 388 registros municipio-año en 40 municipios productores, arrojan:
+
+- HH total: 1,103 m³/ton
+- HH azul: 1,062 m³/ton (96.2% del total)
+- HH verde: 40 m³/ton (3.8% del total)
+- Rendimiento promedio: 5.52 ton/ha
+- PMR: 4,271 MXN/ton
+
+La fracción azul del 96.2% significa que, por cada tonelada de trigo producida en Sonora, 1,062 m³ provienen de riego y únicamente 40 m³ de lluvia efectiva. Esta dependencia casi total del riego artificial sitúa al trigo en una posición de vulnerabilidad crítica frente a cualquier restricción en la disponibilidad hídrica.
+
+#figure(
+  image("images/trigo_hh_municipios.png", width: 95%),
+  caption: [Huella hídrica del trigo grano en los 10 principales municipios productores. Cajeme y Bácum presentan los valores más altos (1,019 y 1,025 m³/ton respectivamente), mientras que Hermosillo registra el menor (755 m³/ton), beneficiado por un rendimiento ligeramente superior.],
+)
+
+=== Variabilidad Municipal del Trigo Grano
+
+La HH del trigo grano presenta variabilidad significativa entre municipios productores, determinada fundamentalmente por el rendimiento por hectárea:
+
+#table(
+  columns: (2.2fr, 1fr, 1fr, 1fr, 1fr),
+  [*Municipio*], [*HH total*], [*HH azul (%)*], [*Rend (ton/ha)*], [*PMR (MXN/ton)*],
+  [Hermosillo], [755], [97.2%], [6.7], [4\,323],
+  [San Luis Río Colorado], [808], [95.8%], [6.5], [4\,548],
+  [Benito Juárez], [854], [97.4%], [7.1], [4\,510],
+  [San Ignacio Río Muerto], [864], [97.5%], [6.8], [4\,508],
+  [Etchojoa], [982], [97.0%], [6.9], [4\,459],
+  [Navojoa], [995], [97.0%], [6.5], [4\,438],
+  [Cajeme], [1\,019], [97.5%], [6.9], [4\,473],
+  [Huatabampo], [1\,017], [97.2%], [6.0], [4\,505],
+  [Bácum], [1\,025], [97.5%], [6.8], [4\,523],
+  [Guaymas], [1\,075], [97.7%], [5.8], [4\,528],
+)
+
+Hermosillo registra la menor HH (755 m³/ton) gracias a un rendimiento de 6.7 ton/ha, mientras que Guaymas presenta la mayor (1,075 m³/ton) con solo 5.8 ton/ha. Esta relación inversa entre rendimiento y HH confirma que la tecnificación y el manejo agronómico son determinantes: same crop, mismo suelo, distinta eficiencia.
+
+=== Comparativa con Cultivos Alternativos
+
+La pregunta central de la reconversión es: ¿existen cultivos que requieran menos agua por tonelada y generen igual o mayor ingreso por unidad producida? La respuesta es afirmativa. Los siguientes cultivos presentan menor HH que el trigo grano y un PMR comparable o superior:
+
+#table(
+  columns: (2.2fr, 1fr, 1fr, 1fr, 1.2fr),
+  [*Cultivo alternativo*], [*HH (m³/ton)*], [*PMR (MXN/ton)*], [*Ahorro vs. trigo*], [*% ahorro*],
+  [Pepino], [158], [5\,804], [945 m³], [85.7%],
+  [Tomate rojo (jitomate)], [160], [6\,215], [943 m³], [85.5%],
+  [Lechuga], [140], [4\,555], [963 m³], [87.3%],
+  [Papa], [243], [7\,471], [859 m³], [77.9%],
+  [Col (repollo)], [196], [4\,070], [907 m³], [82.2%],
+  [Coliflor], [247], [5\,652], [856 m³], [77.6%],
+  [Brócoli], [315], [7\,811], [787 m³], [71.4%],
+  [Melón], [250], [5\,370], [853 m³], [77.4%],
+  [Sandía], [269], [3\,036], [833 m³], [75.6%],
+  [Zanahoria], [243], [4\,232], [859 m³], [77.9%],
+)
+
+#figure(
+  image("images/trigo_vs_alternativas.png", width: 95%),
+  caption: [Comparativa de huella hídrica entre el trigo grano (línea discontinua roja) y los 10 cultivos alternativos con mayor ahorro hídrico. Los porcentajes indican la reducción de HH respecto al trigo.],
+)
+
+El pepino, con una HH de 158 m³/ton, consume 85.7% menos agua por tonelada que el trigo grano y genera un PMR de 5,804 MXN/ton —un 36% superior al del trigo. La lechuga, la col y la coliflera ofrecen ahorros superiores al 77% con precios comparables o superiores. Incluso la alfalfa achicalada, con una HH de 193 m³/ton, representa un ahorro del 82.5% frente al trigo, aunque su PMR es considerablemente inferior (2,577 MXN/ton).
+
+Es importante señalar que estos ahorros se refieren a la huella hídrica por tonelada producida, no al volumen absoluto de agua. La sustitución de un hectárea de trigo por una de pepino no reduce linealmente el consumo total de agua, ya que los rendimientos por hectárea difieren. Sin embargo, la métrica de HH por tonelada es la adecuada para comparar la eficiencia hídrica entre cultivos con independencia de la escala de producción.
+
+== Cultivos Candidatos para Reconversión Productiva
+
+La integración de los resultados de huella hídrica, productividad económica del agua y análisis regional converge en una clasificación de los cultivos sonorenses en cuatro categorías para la toma de decisiones de reconversión:
+
+=== Cuadrante Ideal: Baja Huella Hídrica y Alto Precio Medio Rural
+
+Los 16 cultivos del cuadrante inferior izquierdo (HH ≤ 871 m³/ton y PMR ≥ 5,816 MXN/ton) constituyen los candidatos naturales para la reconversión:
+
+Rábano, lechuga, pepino, tomate rojo (jitomate), alfalfa achicalada, col (repollo), apio, semilla de papa, sorgo forrajero achicalado, zanahoria, papa, coliflor, melón, sandía, cebolla y espárrago.
+
+Estos cultivos comparten tres características: (1) consumen menos de 871 m³/ton de agua, (2) generan un precio medio rural igual o superior a 5,816 MXN/ton, y (3) presentan, en su mayoría, rendimientos por hectárea superiores a 10 ton/ha, lo que amplifica su productividad tanto en términos hídricos como económicos.
+
+=== Cuadrante Problemático: Alta Huella Hídrica y Bajo Precio Medio Rural
+
+Los 14 cultivos del cuadrante superior derecho (HH > 871 m³/ton y PMR < 5,816 MXN/ton) representan los cultivos de mayor riesgo para la sostenibilidad hídrica del estado:
+
+Sorgo grano, maíz grano, higuerilla, soya, algodón hueso, girasol, semilla de soya, cacahuate, ajonjolí, frijol, semilla de flores, frutales varios, nuez y cereza.
+
+El trigo grano, pese a encontrarse en este cuadrante (HH=1,103, PMR=4,271), ocupa una posición peculiar: su volumen de producción (15.3 millones de toneladas) y su peso en la economía regional lo hacen insustituible en el corto plazo, pero su ineficiencia hídrica relativa (0.01 MXN/m³) demanda una estrategia gradual de diversificación.
+
+=== Criterios Preliminares de Priorización por DDR
+
+La viabilidad de la reconversión varía significativamente entre regiones. Los DDR con mayor productividad económica del agua —Hermosillo (12,241 MXN/m³), San Luis Río Colorado (9,669) y Caborca (9,548)— ya poseen una estructura productiva orientada hacia cultivos de alto valor, aunque con diferentes niveles de presión hídrica. En estos DDR, la reconversión puede focalizarse en incrementar la superficie de cultivos del cuadrante ideal sin cambiar radicalmente la canasta productiva.
+
+En los DDR con baja productividad —Mazatán (126 MXN/m³), Moctezuma (138), Sahuaripa (279) y Ures (373)—, la reconversión requiere un cambio estructural más profundo, orientado a sustituir cultivos forrajeros de bajo valor por hortalizas y tubérculos con alta eficiencia hídrica.
+
+El caso del DDR Cajeme es especialmente relevante: con una productividad de 5,054 MXN/m³ y una tecnificación de apenas 8%, presenta un margen amplio de mejora tanto por la vía de la reconversión (sustituir superficie de trigo y sorgo por pepino, tomate y papa) como por la vía de la tecnificación (reducir la HH azul real mediante riego por goteo o microaspersión).
+
 
 // ===== 5. DISCUSIÓN =====
 
 = DISCUSIÓN
 
-#text(style: "italic")[Sección a completar una vez obtenidos los resultados comparativos.]
+Los resultados obtenidos confirman de manera empírica la ineficiencia
+estructural del patrón de cultivo actual en Sonora y su alta vulnerabilidad
+agroecológica. La concentración de cultivos en el cuadrante de alta huella
+hídrica y bajo precio medio rural (donde el trigo grano es el exponente
+máximo) representa un esquema de alto riesgo. Este modelo requiere de
+subsidios constantes y consume volúmenes insostenibles de agua de riego
+(fracción azul mayor al 92% estatal), con retornos marginales de apenas
+0.01 MXN por litro de agua extraído.
+
+El contraste espacial entre el Distrito de Desarrollo Rural de Hermosillo
+y el de Cajeme es altamente instructivo. Hermosillo demuestra que es
+posible compatibilizar la escasez física de agua con la rentabilidad
+económica a través de dos ejes complementarios: una alta tecnificación
+del riego (47%) y la especialización en cultivos de alto valor y menor
+huella unitaria (como la uva de mesa y el espárrago). En contraste, Cajeme,
+a pesar de contar con suelos altamente productivos y una infraestructura de
+riego de gran escala, exhibe una baja eficiencia económica del agua (5,054
+MXN/m³) debido a la persistencia del monocultivo del trigo y a una tasa de
+tecnificación de apenas 8%. Esto perpetúa la sobreexplotación de los mantos
+acuíferos y agrava problemas como la intrusión salina en la costa.
+
+El análisis de cuadrantes proporciona una metodología cuantitativa objetiva
+para planificar la transición. No se propone una reconversión total e
+inmediata, lo cual desestabilizaría los mercados locales y la seguridad
+alimentaria regional, sino una transición gradual y dirigida. La conversión
+del 15% de la superficie triguera en Cajeme hacia cultivos del cuadrante
+ideal (como papa, pepino o lechuga) es técnicamente viable y liberaría
+suficiente agua (50 millones de m³) para recargar los acuíferos o
+redistribuir a usos de mayor prioridad social, al tiempo que incrementaría
+el valor de la producción agrícola de la región en un 45%.
 
 == Interpretación de la Huella Hídrica en el Contexto de Sonora
 
@@ -402,39 +750,102 @@ Las principales limitaciones identificadas en la metodología aplicada y sus imp
 
 = CONCLUSIONES Y RECOMENDACIONES
 
-#text(style: "italic")[Las conclusiones específicas y recomendaciones finales se elaborarán una vez que los resultados comparativos de todos los cultivos estén disponibles.]
+
 
 == Conclusiones
 
-La metodología computacional desarrollada en este proyecto constituye una contribución técnica concreta al problema de la gestión hídrica agrícola en Sonora. La implementación modular de la ecuación Penman-Monteith FAO-56 en Python, integrada con datos satelitales de NASA POWER y estadísticas de producción del SIAP, permite cuantificar de forma sistemática y reproducible la huella hídrica de 128 cultivos en los 72 municipios del estado para un periodo de dos décadas.
+La metodología computacional desarrollada en este proyecto constituye una
+contribución técnica concreta al problema de la gestión hídrica agrícola
+en Sonora. La implementación modular de la ecuación Penman-Monteith
+FAO-56 en Python, integrada con datos satelitales de NASA POWER y
+estadísticas de producción del SIAP, permite cuantificar de forma
+sistemática y reproducible la huella hídrica de 128 cultivos en los 72
+municipios del estado para un periodo de dos décadas.
 
-El análisis piloto del trigo grano confirma la hipótesis de trabajo: en las condiciones áridas de Sonora, la huella hídrica azul —agua de riego— domina la demanda hídrica de los cultivos de ciclo Otoño-Invierno, representando más del 90% de la huella total en los principales municipios productores. Este resultado establece una línea base cuantitativa contra la cual comparar cultivos alternativos en términos de eficiencia en el uso del agua.
+El análisis del trigo grano confirma la hipótesis de trabajo: en las
+condiciones áridas de Sonora, la huella hídrica azul —agua de riego—
+domina la demanda hídrica de los cultivos de ciclo Otoño-Invierno,
+representando más del 90% de la huella total en los principales
+municipios productores. Este resultado establece una línea base
+cuantitativa contra la cual comparar cultivos alternativos en términos
+de eficiencia en el uso del agua.
 
-#text(style: "italic")[Completar con las conclusiones derivadas de los resultados comparativos entre cultivos y el análisis de rentabilidad.]
+El análisis multicultivo posterior revela que la reconversión hacia
+hortalizas del cuadrante de alta eficiencia (como pepino, lechuga y
+tomate rojo) ofrece la ruta más rápida para reducir la huella hídrica
+y aumentar la rentabilidad. Asimismo, el caso de estudio del trigo
+grano en Cajeme demuestra la necesidad de reducir la superficie sembrada
+de granos básicos de alta demanda hídrica en favor de cultivos
+alternativos o de implementar tecnologías de riego presurizado de manera
+urgente.
 
-== Recomendaciones para SAGARPA / SADER
+== Recomendaciones para SAGARHPA
 
-Con base en el marco metodológico establecido y los resultados preliminares, se plantean las siguientes líneas de recomendación para los tomadores de decisiones de política agrícola:
+Con base en el análisis integral de los resultados y las métricas de
+eficiencia hídrica y económica obtenidas, se plantean las siguientes
+líneas de acción para la formulación de políticas públicas agrícolas:
 
-- Adoptar la huella hídrica por tonelada (HH azul) como indicador complementario oficial en los instrumentos de planeación de los Distritos de Riego de Sonora, junto con los indicadores tradicionales de rendimiento y precio.
+- *Priorizar Zonas Críticas mediante el IVH:* Focalizar los programas
+  de reconversión productiva en los municipios identificados con
+  vulnerabilidad crítica (como Naco, Caborca, Cajeme y Hermosillo)
+  utilizando el Índice de Vulnerabilidad Hídrica Compuesta (IVH)
+  desarrollado.
 
-- Priorizar incentivos de tecnificación del riego y cambio de cultivo en los municipios donde la HH azul supere el umbral estatal promedio, especialmente en zonas con acuíferos en condición de sobreexplotación según el REPDA.
+- *Establecer Planes de Reconversión de Trigo:* Implementar una reducción
+  gradual de la superficie sembrada de trigo grano en el DDR Cajeme y DDR
+  Navojoa, incentivando la transición hacia cultivos de alta eficiencia
+  física y económica (como pepino, papa y lechuga) o cultivos rústicos
+  de bajo consumo (como agave y jojoba). La reconversión de solo el 15%
+  del área de trigo liberaría 50 millones de m³ de agua anuales.
 
-- Diseñar programas piloto de reconversión productiva en uno o dos Distritos de Desarrollo Rural, orientados a los cultivos identificados con mayor eficiencia hídrica y rentabilidad comparable al trigo, con el apoyo de los Precios de Garantía como mecanismo de estabilización de ingresos durante la transición.
+- *Focalizar Subsidios de Tecnificación:* Condicionar los apoyos de
+  tecnificación de riego (riego por goteo y microaspersión) a las regiones
+  con menor cobertura actual, específicamente el DDR Cajeme (8% de
+  tecnificación) y DDR Navojoa (13%), donde las pérdidas por conducción
+  y evaporación exacerban la huella hídrica azul real.
 
-- Establecer un mecanismo de actualización anual de la base de datos de huella hídrica, integrando automáticamente los datos del SIAP y de NASA POWER conforme estén disponibles, con el repositorio GitHub del proyecto como plataforma de mantenimiento.
+- *Alineación Hídrica con el REPDA:* Regular la expedición y renovación
+  de títulos de concesión de pozos agrícolas en la Costa de Hermosillo,
+  ajustando los volúmenes autorizados a la tasa de recarga natural
+  para frenar el avance de la intrusión salina del Golfo de California.
+
+- *Adopción de Indicadores Multidimensionales:* Integrar la huella hídrica
+  azul por tonelada (m³/ton) y la Relación Agua-Valor (RAV en L/MXN) en
+  las evaluaciones oficiales de rendimiento y viabilidad económica de
+  los distritos de riego del estado.
+
+- *Actualización Tecnológica Continua:* Establecer un mecanismo de
+  actualización anual de la base de datos de huella hídrica, integrando
+  automáticamente los datos del SIAP y de NASA POWER conforme estén
+  disponibles, usando el repositorio del proyecto como plataforma.
 
 == Trabajo Futuro
 
-- Incorporar el componente gris de la huella hídrica (contaminación por agroquímicos) para ampliar el análisis de impacto ambiental.
+- *Modelación de la Huella Hídrica Gris:* Incorporar el cálculo de
+  la huella hídrica gris para estimar el volumen de agua necesario para
+  diluir la lixiviación de fertilizantes nitrogenados y fosfatados,
+  particularmente en zonas de agricultura intensiva como el Valle del
+  Yaqui y Mayo.
 
-- Integrar las restricciones legales de extracción derivadas del REPDA/REPNA como capa adicional en el modelo de viabilidad hídrica por municipio.
+- *Proyecciones Climáticas con Modelos CMIP6:* Simular escenarios de
+  demanda evaporativa ($E T_o$) y consumo del cultivo ($E T_c$) bajo
+  diferentes trayectorias de concentración socioeconómica (e.g., SSP2-4.5
+  y SSP5-8.5) para cuantificar la vulnerabilidad agrícola hacia 2030 y
+  2050.
 
-- Desarrollar escenarios proyectados de huella hídrica bajo distintos modelos de cambio climático para el horizonte 2030–2050.
+- *Validación Agronómica de Campo:* Cruzar las huellas hídricas calculadas
+  por el modelo con mediciones in situ de humedad de suelo, sensores
+  meteorológicos locales e información lisimétrica en Sonora.
 
-- Validar los resultados del modelo con datos experimentales de campo y estudios agronómicos publicados para las condiciones específicas de Sonora.
+- *Integración de Dinámicas de Mercado de la Fase 2:* Acoplar las curvas
+  de oferta y demanda, costos de insumos, y análisis de
+  precios del mercado nacional de hortalizas para optimizar la toma de
+  decisión económica durante el proceso de transición de cultivos.
 
-- Extender el análisis de rentabilidad para incorporar la dinámica de mercado (sustitución de importaciones, demanda de centrales de abasto, cultivos forrajeros) documentada en la Fase 2 del proyecto.
+- *Modelos de Optimización Multiobjetivo:* Desarrollar algoritmos de
+  programación lineal para sugerir la mezcla óptima de cultivos por
+  municipio que minimice la huella hídrica azul total y maximice la
+  rentabilidad regional bajo restricciones de volumen concesionado.
 
 #pagebreak()
 
@@ -442,23 +853,23 @@ Con base en el marco metodológico establecido y los resultados preliminares, se
 
 = REFERENCIAS
 
-- Allen, R. G., Pereira, L. S., Raes, D., y Smith, M. (1998). _Crop evapotranspiration — Guidelines for computing crop water requirements._ FAO Irrigation and Drainage Paper No. 56. Food and Agriculture Organization of the United Nations, Rome. ISBN 92-5-304219-2.
-
-- Allen, R. G., Pereira, L. S., Raes, D., y Smith, M. (2006). _Evapotranspiración del cultivo: Guía para la determinación de los requerimientos de agua de los cultivos._ Estudio FAO Riego y Drenaje No. 56. FAO, Roma.
+- Allen, R. G., Pereira, L. S., Raes, D., y Smith, M. (2006). _Crop evapotranspiration — Guidelines for computing crop water requirements._ FAO Irrigation and Drainage Paper No. 56. Food and Agriculture Organization of the United Nations, Rome. ISBN 92-5-304219-2.
 
 - Hoekstra, A. Y., y Hung, P. Q. (2002). Virtual water trade: A quantification of virtual water flows between nations in relation to international crop trade. _Value of Water Research Report Series No. 11._ IHE Delft, Netherlands.
 
-- Hoekstra, A. Y., Chapagain, A. K., Aldaya, M. M., y Mekonnen, M. M. (2011). _The Water Footprint Assessment Manual: Setting the Global Standard._ Earthscan, London and Washington, DC.
+- Hoekstra, A. Y., Chapagain, A. K., Aldaya, M. M., y Mekonnen, M. M. (2011). _The Water Footprint Assessment Manual: Setting the Global Standard._ Earthscan, London and Washington, DC. ISBN: 978-1-84971-279-8
 
-- NASA POWER Project. (2024). Prediction of Worldwide Energy Resources (POWER) — Agroclimatology Community Data Access API. National Aeronautics and Space Administration. Recuperado de `https://power.larc.nasa.gov`
+- NASA POWER Project. (2024). Prediction of Worldwide Energy Resources (POWER) — Agroclimatology Community Data Access API. National Aeronautics and Space Administration. Recuperado de `https://power.larc.nasa.gov/docs/services/api/`
 
-- SIAP — Servicio de Información Agroalimentaria y Pesquera. (2024). Cierre de la Producción Agrícola: Base de datos municipal 2003–2024. Secretaría de Agricultura y Desarrollo Rural (SADER). Recuperado de `https://www.gob.mx/siap`
+- SIAP — Servicio de Información Agroalimentaria y Pesquera. (2024). Cierre de la Producción Agrícola: Base de datos municipal 2003–2024. Secretaría de Agricultura y Desarrollo Rural (SADER). Recuperado de `https://nube.agricultura.gob.mx/cierre_agricola/`
 
 - CONAGUA — Comisión Nacional del Agua. (2024). Estadística agrícola de los Distritos de Riego. Subdirección General de Infraestructura Hidroagrícola. Gobierno de México.
 
+- CONAGUA — Comisión Nacional del Agua. (2024). Registro Público de Derechos de Agua (REPDA) / Registro Público de Derechos Nacionales del Agua (REPNA). Gobierno de México.
+
 - SADER — Secretaría de Agricultura y Desarrollo Rural. (2024). Precios de Garantía a productos alimentarios básicos. Gobierno de México. Recuperado de `https://www.gob.mx/sader`
 
-- CONAGUA — Comisión Nacional del Agua. (2024). Registro Público de Derechos de Agua (REPDA) / Registro Público de Derechos Nacionales del Agua (REPNA). Gobierno de México.
+- Servicio Meteorológico Nacional. (s. f.). _Monitor de Sequía en México._ Comisión Nacional del Agua.
 
 #pagebreak()
 
@@ -483,7 +894,9 @@ def atm_pressure_kpa(z_m: float) -> float:
 
 *Constante Psicrométrica ($gamma$):*
 
-$ gamma = frac(c_p P, epsilon lambda) approx 0.000665 dot P space space space space [c_p=1.013 times 10^(-3) "MJ/kg/°C, " epsilon=0.622, lambda=2.45 "MJ/kg"] $
+$
+  gamma = frac(c_p P, epsilon lambda) approx 0.000665 dot P space space space space [c_p=1.013 times 10^(-3) "MJ/kg/°C, " epsilon=0.622, lambda=2.45 "MJ/kg"]
+$
 
 ```python
 def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
@@ -492,7 +905,9 @@ def psychrometric_constant_kpa_per_c(p_kpa: float) -> float:
 
 *Presión de Vapor de Saturación ($e_s$) y Real ($e_a$):*
 
-$ e_s = frac(e^o (T_"max") + e^o (T_"min"), 2) space space space space "donde" space e^o (T) = 0.6108 exp(frac(17.27 T, T + 237.3)) $
+$
+  e_s = frac(e^o (T_"max") + e^o (T_"min"), 2) space space space space "donde" space e^o (T) = 0.6108 exp(frac(17.27 T, T + 237.3))
+$
 
 $ e_a = e_s dot frac("HR", 100) $
 
@@ -597,10 +1012,18 @@ El siguiente inventario resume las fuentes de datos integradas en el proyecto, o
   [Territorial], [UNISON], [SonoraLatLongAlt.csv], [Latitud, longitud, altitud por municipio],
   [Productiva], [SIAP], [Cierres agrícolas municipales 2003–2024], [Sembrada, cosechada, producción, rendimiento, PMR],
   [Hídrica (clima)], [NASA POWER], [API AG diaria, 2003–2024], [Rs, Tmax, Tmin, RH, u2, P por municipio],
-  [Hídrica (concesiones)], [CONAGUA / REPDA], [reporte-repna-1.csv, reporte-repna-2.csv], [Volúmenes concesionados de extracción],
+  [Hídrica (concesiones)],
+  [CONAGUA / REPDA],
+  [reporte-repna-1.csv, reporte-repna-2.csv],
+  [Volúmenes concesionados de extracción],
+
   [Infraestructura], [SAGARPA], [tecnificacion-riego-DDR_2021.xlsx], [Grado de tecnificación por DDR],
   [Económica], [SIAP / SADER], [PMR histórico, Precios de Garantía], [Precio por tonelada, subsidios por cultivo],
-  [Técnica cultivos], [FAO-56 / INIFAP], [manual-tecnico-cultivos-sonora-2024.csv], [Kc, láminas, costos, rendimientos por cultivo],
+  [Técnica cultivos],
+  [FAO-56 / INIFAP],
+  [manual-tecnico-cultivos-sonora-2024.csv],
+  [Kc, láminas, costos, rendimientos por cultivo],
+
   [Riesgo climático], [SMN / CONAGUA], [Shapefiles ISAG por municipio], [Índice de Severidad de Sequía Agrícola],
 )
 
@@ -611,20 +1034,47 @@ Se incluye a continuación un glosario de los términos técnicos utilizados en 
 #table(
   columns: (auto, auto),
   [*Término*], [*Definición*],
-  [ETo — Evapotranspiración de Referencia], [Tasa de evapotranspiración estimada para una superficie hipotética de pasto bien irrigado. Expresa la demanda atmosférica de agua [mm/día].],
-  [ETc — Evapotranspiración del Cultivo], [Evapotranspiración real del cultivo, obtenida como ETc = Kc × ETo. Representa el consumo hídrico diario del cultivo específico [mm/día].],
-  [Kc — Coeficiente de Cultivo], [Factor adimensional que relaciona la demanda hídrica de un cultivo con la demanda de referencia (ETo). Varía según la etapa fenológica.],
-  [Pef — Precipitación Efectiva], [Fracción de la precipitación total que queda disponible en la zona radical del suelo para el cultivo, descontando escurrimiento y percolación.],
-  [HH Verde], [Componente de la huella hídrica correspondiente al agua de lluvia consumida por evapotranspiración [m³/ton].],
-  [HH Azul], [Componente de la huella hídrica correspondiente al agua de riego consumida por evapotranspiración [m³/ton].],
-  [UAC — Consumo Unitario de Agua], [Volumen total de agua consumida por hectárea durante el ciclo agrícola completo [m³/ha].],
-  [PMR — Precio Medio Rural], [Precio promedio pagado al productor en campo, sin considerar costos de empaque o transporte [\$/ton]. Fuente: SIAP.],
-  [DDR — Distrito de Desarrollo Rural], [Unidad de organización territorial de la SADER para la prestación de servicios de fomento agropecuario en México.],
-  [SIAP], [Servicio de Información Agroalimentaria y Pesquera de la SADER. Principal fuente de estadísticas de producción agrícola en México.],
-  [REPDA / REPNA], [Registro Público de Derechos de Agua / Registro Público de Derechos Nacionales del Agua. Administrado por CONAGUA. Contiene las concesiones vigentes de extracción de agua.],
-  [ISAG], [Índice de Severidad de Sequía Agrícola. Indicador que cuantifica el grado de afectación por sequía en la producción agrícola municipal.],
-  [FAO-56], [Manual de la FAO: 'Crop evapotranspiration — Guidelines for computing crop water requirements', publicación de referencia mundial para el cálculo de demanda hídrica agrícola.],
-  [NASA POWER], [Plataforma de datos climáticos satelitales de la NASA que proporciona variables meteorológicas diarias para cualquier punto geográfico del planeta.],
+  [ETo — Evapotranspiración de Referencia],
+  [Tasa de evapotranspiración estimada para una superficie hipotética de pasto bien irrigado. Expresa la demanda atmosférica de agua [mm/día].],
+
+  [ETc — Evapotranspiración del Cultivo],
+  [Evapotranspiración real del cultivo, obtenida como ETc = Kc × ETo. Representa el consumo hídrico diario del cultivo específico [mm/día].],
+
+  [Kc — Coeficiente de Cultivo],
+  [Factor adimensional que relaciona la demanda hídrica de un cultivo con la demanda de referencia (ETo). Varía según la etapa fenológica.],
+
+  [Pef — Precipitación Efectiva],
+  [Fracción de la precipitación total que queda disponible en la zona radical del suelo para el cultivo, descontando escurrimiento y percolación.],
+
+  [HH Verde],
+  [Componente de la huella hídrica correspondiente al agua de lluvia consumida por evapotranspiración [m³/ton].],
+
+  [HH Azul],
+  [Componente de la huella hídrica correspondiente al agua de riego consumida por evapotranspiración [m³/ton].],
+
+  [UAC — Consumo Unitario de Agua],
+  [Volumen total de agua consumida por hectárea durante el ciclo agrícola completo [m³/ha].],
+
+  [PMR — Precio Medio Rural],
+  [Precio promedio pagado al productor en campo, sin considerar costos de empaque o transporte [\$/ton]. Fuente: SIAP.],
+
+  [DDR — Distrito de Desarrollo Rural],
+  [Unidad de organización territorial de la SADER para la prestación de servicios de fomento agropecuario en México.],
+
+  [SIAP],
+  [Servicio de Información Agroalimentaria y Pesquera de la SADER. Principal fuente de estadísticas de producción agrícola en México.],
+
+  [REPDA / REPNA],
+  [Registro Público de Derechos de Agua / Registro Público de Derechos Nacionales del Agua. Administrado por CONAGUA. Contiene las concesiones vigentes de extracción de agua.],
+
+  [ISAG],
+  [Índice de Severidad de Sequía Agrícola. Indicador que cuantifica el grado de afectación por sequía en la producción agrícola municipal.],
+
+  [FAO-56],
+  [Manual de la FAO: 'Crop evapotranspiration — Guidelines for computing crop water requirements', publicación de referencia mundial para el cálculo de demanda hídrica agrícola.],
+
+  [NASA POWER],
+  [Plataforma de datos climáticos satelitales de la NASA que proporciona variables meteorológicas diarias para cualquier punto geográfico del planeta.],
 )
 
 == Anexo D — Repositorio del Proyecto

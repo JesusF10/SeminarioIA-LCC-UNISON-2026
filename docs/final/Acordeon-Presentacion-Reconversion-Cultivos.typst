@@ -1,0 +1,651 @@
+// Acordeón para Estudio de la Presentación Final
+// Reconversión de Cultivos en Sonora — Seminario IA 2026
+
+#set page(
+  paper: "a4",
+  margin: (x: 2cm, y: 2.5cm),
+  header: align(right)[_Material de Apoyo: Reconversión Agrícola de Sonora_],
+  footer: context {
+    line(length: 100%, stroke: 0.5pt + rgb("#cbd5e1"))
+    v(0.1cm)
+    grid(
+      columns: (1fr, 1fr),
+      [Seminario IA LCC UNISON 2026],
+      align(right)[Página #counter(page).display()]
+    )
+  }
+)
+
+#set text(
+  font: "Nimbus Sans",
+  size: 9.5pt,
+  fill: rgb("#1e293b"),
+  lang: "es"
+)
+
+#align(center)[
+  #text(15pt, weight: "bold", fill: rgb("#047857"))[
+    ACORDEÓN Y MATERIAL DE ESTUDIO DETALLADO (VERSION TÉCNICA)
+  ] \
+  #v(0.1cm)
+  #text(10.5pt, fill: rgb("#475569"))[
+    Datos Científicos, Fórmulas y Tablas de Referencia por Diapositiva \
+    *Reconversión de Cultivos en Sonora: Huella Hídrica y Viabilidad Económica*
+  ]
+]
+
+#v(0.3cm)
+
+---
+
+== Slide 1: Portada
+- *Título:* RECONVERSIÓN DE CULTIVOS EN SONORA: Análisis de Huella Hídrica y
+  Viabilidad Productiva.
+- *Elemento Visual:* Logotipos y datos institucionales del equipo de
+  investigación.
+- *Mensaje Principal:* Presentar el proyecto como un esfuerzo multidisciplinario
+  y cuantitativo de la Licenciatura en Ciencias de la Computación (UNISON) en
+  colaboración con instituciones gubernamentales (SAGARHPA, ATD) enfocado
+  en la crisis del agua en Sonora.
+- *Detalle Técnico:* Implementación de una arquitectura de software modular y
+  un pipeline en Python con validación estricta de esquemas de datos usando
+  Pydantic y procesamiento matricial en Pandas para la ingesta paralela de
+  datos climáticos diarios e históricos.
+- *Fuentes:* Universidad de Sonora (Departamento de Matemáticas), SAGARHPA y
+  la Agencia de Transformación Digital.
+
+== Slide 2: Resumen y Contexto
+- *Título:* Resumen y Contexto.
+- *Elemento Visual:* Mapa espacial del déficit hídrico climatológico anual en
+  Sonora (`images/mapa_deficit_hidrico.png`).
+- *Mensaje Principal:* Dimensionar el grave estrés hídrico de Sonora, donde
+  la agricultura consume la mayor parte del recurso disponible en un entorno
+  desértico con altos déficits naturales.
+- *Detalle Técnico:* El déficit climatológico anual representa la brecha física
+  entre la demanda evapotranspirativa de la atmósfera ($E T_o$) y la oferta de
+  lluvia efectiva ($P_"ef"$). En la planicie costera (Hermosillo, Caborca) y en
+  el sur agrícola (Cajeme, Navojoa) esta brecha es de 700 a 1,000 mm anuales.
+- *Fuentes:* Concesiones de agua estimadas de la base de datos de CONAGUA y
+  balances hídricos climáticos basados en NASA POWER.
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2.5fr, 1.5fr, 2fr),
+      align: (left, center, left),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Sector de Consumo*], [*Porcentaje*], [*Impacto Principal*],
+      [Agrícola (Riego)], [92.3%], [Presión crítica en acuíferos y presas],
+      [Público Urbano], [5.1%], [Abasto de agua en ciudades principales],
+      [Industrial/Pecuario], [2.6%], [Uso minero, manufactura y ganadería]
+    )
+  ]
+
+== Slide 3: Sequía y Balance Hídrico
+- *Título:* Sequía y Balance Hídrico.
+- *Elemento Visual:* Gráfico de barras apiladas de la evolución temporal de la
+  sequía municipal (`images/evolucion_sequia_historica.png`).
+- *Mensaje Principal:* Evidenciar la cronicidad de la sequía y la dependencia
+  casi absoluta del agua de riego (agua azul) frente a la de lluvia.
+- *Detalle Técnico:* Procesamiento y clasificación temporal de la severidad de
+  sequía de la escala D0 a la D4 para cada municipio del estado (2003-2026).
+- *Fuentes:* Monitor de Sequía en México (Servicio Meteorológico Nacional).
+- *Datos de Apoyo al Presentador:*
+  - *Frecuencia de Sequía:* El *64.2% de las quincenas* evaluadas (2003-2026)
+    presentan condiciones de sequía activa en el estado.
+  - *Brecha Hídrica:* Déficit climatológico promedio estatal de *745 mm*, con
+    un máximo histórico registrado de *825 mm* en el año 2023.
+  - *Origen del Consumo de los Cultivos (Línea Base Estatal):*
+    #align(center)[
+      #table(
+        columns: (2fr, 1.5fr, 2.5fr),
+        align: (left, center, left),
+        stroke: 0.5pt + rgb("#cbd5e1"),
+        [*Origen del Agua*], [*Proporción*], [*Descripción Física*],
+        [Agua Azul (Riego)], [92.3%], [Bombeo de pozos y canales de presas],
+        [Agua Verde (Lluvia)], [7.7%], [Precipitación efectiva en el suelo]
+      )
+    ]
+
+== Slide 4: Objetivos del Proyecto
+- *Título:* Objetivos del Proyecto.
+- *Elemento Visual:* Cuadros destacados con las metas generales e hitos
+  metodológicos del proyecto de investigación.
+- *Mensaje Principal:* Definir el marco lógico, los límites y las metas
+  cuantitativas del estudio de reconversión productiva.
+- *Detalle Técnico:*
+  - *Objetivo General:* Proponer alternativas viables de reconversión de
+    cultivos en Sonora que optimicen el uso del agua de riego y aumenten la
+    rentabilidad agrícola, basándose en la huella hídrica y la relación valor.
+  - *Objetivos Específicos:*
+    1. Calcular la huella hídrica (verde/azul) diaria para 72 municipios
+       (2003-2024) utilizando el estándar FAO-56 Penman-Monteith.
+    2. Jerarquizar cultivos eficientes a nivel municipal y de DDR.
+    3. Cruzar la rentabilidad económica ($"MXN"/t$)
+       y el consumo físico ($m^3/t$) mediante el indicador
+       Relación Agua-Valor ($L/"MXN"$).
+    4. Desarrollar una herramienta interactiva estática para tomadores de
+       decisiones en el sector público y agrícola.
+
+== Slide 5: Modelo Matemático: Evapotranspiración de Referencia (ETo)
+- *Título:* Modelo Matemático: Evapotranspiración de Refer.
+- *Elemento Visual:* Ecuación matemática Penman-Monteith de la FAO-56 y mapa de
+  temperatura media anual de Sonora (`images/mapa_temperatura_media.png`).
+- *Mensaje Principal:* El cálculo riguroso de la demanda física de agua de la
+  atmósfera requiere el balance de radiación y transferencia de masa del aire.
+- *Detalle Técnico (Ecuación FAO-56):*
+  $ E T_o = (0.408 Delta (R_n - G) + gamma 900 / (T + 273) u_2 (e_s - e_a))
+    / (Delta + gamma (1 + 0.34 u_2)) $
+  - $E T_o$: Evapotranspiración de referencia [mm/día].
+  - $Delta$: Pendiente de la curva de presión de vapor de saturación [kPa/°C].
+  - $R_n$: Radiación neta en la superficie del cultivo [MJ/m²/día].
+  - $G$: Flujo de calor del suelo [MJ/m²/día]
+    (asumido como 0 para escalas diarias).
+  - $gamma$: Constante psicrométrica [kPa/°C] ($approx 0.000665 dot P$).
+  - $T$: Temperatura media del aire a 2 metros de altura [°C].
+  - $u_2$: Velocidad del viento a 2 metros de altura [m/s].
+  - $e_s - e_a$: Déficit de presión de vapor de saturación [kPa].
+- *Constantes Físicas Auxiliares Utilizadas:*
+  - Albedo del cultivo de referencia: $alpha = 0.23$.
+  - Constante de Stefan-Boltzmann: $sigma = 4.903 times 10^(-9)$ MJ/K⁴/m²/día.
+  - Calor específico del aire: $c_p = 1.013 times 10^(-3)$ MJ/kg/°C.
+- *Fuentes:* NASA POWER API (daily grid, centroide municipal).
+
+== Slide 6: Modelo de Cultivo y Curva Coeficiente (Kc)
+- *Título:* Modelo de Cultivo y Curva Coeficiente (Kc).
+- *Elemento Visual:* Ecuación de evapotranspiración del cultivo y tabla de las
+  fases fenológicas del Trigo Grano.
+- *Mensaje Principal:* El coeficiente $K_c$ integra la biología y fenología
+  del cultivo para escalar la demanda climática base ($E T_o$).
+- *Ecuación:*
+  $ E T_c = K_c dot E T_o $
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (1.5fr, 1.5fr, 1.5fr, 2fr),
+      align: (left, center, center, left),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Cultivo (Ciclo)*],
+      [*Etapa Inicial*],
+      [*Etapa Media*],
+      [*Etapa Final*],
+      [Trigo Grano (O-I)],
+      [$K_c = 0.30$ (31 d)],
+      [$K_c = 1.15$ (32 d)],
+      [$K_c = 0.25$ (31 d)],
+      [Garbanzo (O-I)],
+      [$K_c = 0.40$ (30 d)],
+      [$K_c = 1.00$ (40 d)],
+      [$K_c = 0.35$ (30 d)],
+      [Alfalfa (Perenne)],
+      [$K_c = 0.90$ (Ciclo)],
+      [$K_c = 1.20$ (Ciclo)],
+      [$K_c = 1.15$ (Ciclo)]
+    )
+  ]
+
+== Slide 7: Determinación de la Huella Hídrica
+- *Título:* Determinación de la Huella Hídrica.
+- *Elemento Visual:* Fórmulas del balance físico de agua y el factor de
+  escala para volumen por hectárea.
+- *Mensaje Principal:* Explicar la desagregación matemática del agua de lluvia
+  y de riego, y la normalización del volumen físico por tonelada producida.
+- *Detalle Matemático:*
+  - *Precipitación Efectiva ($P_"ef"$):*
+    $ P_"ef" = 0.80 dot P_("total") quad ("si " P_("ciclo") < 250" mm") $
+    $ P_"ef" = 0.60 dot P_("total") quad ("si " P_("ciclo") >= 250" mm") $
+  - *Huella Verde (lluvia):* $E T_"verde" = min(E T_c, P_"ef")$
+  - *Huella Azul (riego):* $E T_"azul" = max(E T_c - P_"ef", 0)$
+  - *Consumo Unitario de Agua (UAC):*
+    $ U A C = sum E T dot 10 quad [m^3/"ha"] $
+  - *Huella Hídrica Total (HH):*
+    $ H H = U A C / "Rendimiento" quad [m^3/"ton"] $
+- *Datos de Apoyo al Presentador:*
+  - *Demostración geométrica del factor 10:*
+    $ 1" mm de lámina" = 1" litro" / "metro"^2 $
+    $ 1" Ha" = 10,000" metros"^2 $
+    $ 1" mm sobre 1 Ha" = 10,000" litros" = 10" m"^3 $
+    $ arrow.r U A C ("m"^3/"ha") = text("Lámina (mm)") dot 10 $
+
+== Slide 8: Eficiencia de Huella Hídrica Estatal
+- *Título:* Eficiencia de Huella Hídrica Estatal.
+- *Elemento Visual:* Gráficas de los rankings de menor huella e Ineficientes:
+  `images/ranking_hh_top20.png` y `images/ranking_hh_bottom15.png`.
+- *Mensaje Principal:* El rendimiento por hectárea (ton/ha) es el principal
+  factor que determina la eficiencia de la huella hídrica unitaria.
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2fr, 1.5fr, 1.5fr, 1.5fr),
+      align: (left, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Cultivo*], [*Tipo*], [*Rendimiento (t/ha)*], [*Huella Total (m³/t)*],
+      [Col (repollo)], [Hortaliza (Eficiente)], [32.20], [26.6],
+      [Tomate Rojo], [Hortaliza (Eficiente)], [48.50], [60.8],
+      [Trigo Grano], [Grano (Ineficiente)], [6.30], [1,103.0],
+      [Ajonjolí], [Grano (Ineficiente)], [0.85], [8,883.0],
+      [Nuez Pecanera], [Frutal (Ineficiente)], [1.82], [11,164.0]
+    )
+  ]
+
+== Slide 9: Huella Hídrica en el DDR Cajeme
+- *Título:* Huella Hídrica en el DDR Cajeme.
+- *Elemento Visual:* Gráfico comparativo de la demanda hídrica de los cultivos
+  en Cajeme (`images/cajeme_hh_cultivos.png`).
+- *Mensaje Principal:* A escala local, los patrones de consumo hídrico
+  demuestran la ineficiencia de los cultivos tradicionales de la región.
+- *Detalle Técnico:* Comparación de los consumos acumulados por hectárea (UAC
+  en m³/ha) y las huellas unitarias por tonelada (HH en m³/t).
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2fr, 1.8fr, 1.8fr, 1.8fr),
+      align: (left, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Cultivo*],
+      [*Consumo (UAC m³/ha)*],
+      [*Huella (HH m³/t)*],
+      [*Rendimiento (t/ha)*],
+      [Alfalfa Verde], [10,450], [1,220], [8.57],
+      [Trigo Grano], [6,881], [1,103], [6.23],
+      [Calabacita], [2,760], [152], [18.15]
+    )
+  ]
+
+== Slide 10: Vulnerabilidad Hídrica Municipal (IVH)
+- *Título:* Vulnerabilidad Hídrica Municipal (IVH).
+- *Elemento Visual:* Mapa espacial del Índice de Vulnerabilidad Hídrica
+  compuesta (`images/mapa_vulnerabilidad_compuesta.png`).
+- *Mensaje Principal:* Clasificar territorialmente la presión física del agua
+  para orientar de forma espacial las políticas de reconversión de cultivos.
+- *Detalle Técnico (Ponderación del IVH):*
+  $ "IVH" = 0.35 dot "Déficit Hídrico"
+    + 0.20 dot "ISAG"
+    + 0.35 dot "Frac. Azul"
+    + 0.10 dot "Estrés Térmico" $
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr),
+      align: (left, center, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Municipio*],
+      [*IVH*],
+      [*Déficit (mm)*],
+      [*ISAG (O-I)*],
+      [*Fracción Azul*],
+      [Naco], [0.825], [1,240.2], [0.380], [98.1%],
+      [Puerto Peñasco], [0.812], [1,150.5], [0.120], [99.5%],
+      [Hermosillo], [0.768], [885.2], [0.420], [96.5%],
+      [Cajeme], [0.680], [836.0], [0.350], [96.2%]
+    )
+  ]
+
+== Slide 11: Productividad Económica y Eficiencia por DDR
+- *Título:* Productividad Económica y Eficiencia por DDR.
+- *Elemento Visual:* Mapa espacial de la Relación Agua-Valor (RAV) por Distrito
+  de Desarrollo Rural (`images/mapa_rav_ddr.png`).
+- *Mensaje Principal:* El retorno económico por cada litro de agua consumido
+  es muy heterogéneo en Sonora, dividiendo al estado en regiones tecnificadas
+  eficientes y valles tradicionales de bajo valor.
+- *Fórmula del RAV:*
+  $ "RAV" = "Consumo Hídrico Total del Ciclo " (L)
+    / "Valor Bruto de la Producción " ("MXN") $
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2.5fr, 1.8fr, 2.7fr),
+      align: (left, center, left),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*DDR*], [*RAV Promedio*], [*Especialización Productiva*],
+      [Guaymas], [48.4 L/MXN], [Hortalizas de exportación y vid],
+      [Caborca], [49.9 L/MXN], [Espárrago, uva y olivo (tecnificado)],
+      [Hermosillo], [69.1 L/MXN], [Uva de mesa, nogal y hortalizas],
+      [Cajeme], [172.2 L/MXN], [Monocultivo de trigo y alfalfa por gravedad],
+      [Navojoa], [186.3 L/MXN], [Trigo grano y forrajes de bajo valor],
+      [Mazatán], [325.8 L/MXN], [Forrajes extensivos para ganadería]
+    )
+  ]
+
+== Slide 12: Tecnificación de Riego por DDR
+- *Título:* Tecnificación de Riego por DDR.
+- *Elemento Visual:* Gráfico de barras del porcentaje de tecnificación agrícola
+  por Distrito de Desarrollo Rural (`images/tecnificacion_riego_ddr.png`).
+- *Mensaje Principal:* La infraestructura de riego tecnificado es escasa y está
+  polarizada en el estado, limitando los ahorros volumétricos reales.
+- *Detalle Técnico:* Distribución porcentual del área bajo riego presurizado o
+  localizado (goteo/aspersión) frente a riego por gravedad tradicional.
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2.2fr, 1.8fr, 1.8fr, 1.2fr),
+      align: (left, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*DDR*],
+      [*Superficie Total (ha)*],
+      [*Superficie Tec. (ha)*],
+      [*Porcentaje*],
+      [Guaymas], [32,150], [25,077], [78.0%],
+      [Caborca], [51,200], [35,840], [70.0%],
+      [Hermosillo], [64,800], [30,456], [47.0%],
+      [Navojoa], [112,000], [14,560], [13.0%],
+      [Cajeme], [185,200], [14,816], [8.0%]
+    )
+  ]
+  - *Promedio Estatal:* De las 531,701 hectáreas en operación agrícola en el
+    estado, solo 106,418 hectáreas están tecnificadas, lo que representa apenas
+    el *20.0%* de tecnificación general.
+
+== Slide 13: Caso de Rentabilidad vs. Eficiencia Hídrica
+- *Título:* Caso de Rentabilidad vs. Eficiencia Hídrica.
+- *Elemento Visual:* Cuadro conceptual de la segmentación de cultivos
+  por medianas.
+- *Mensaje Principal:* Definir las fronteras matemáticas de decisión cruzando
+  la huella física y el valor de mercado para aislar los cultivos recomendados.
+- *Detalle Técnico (Límites de Decisión):*
+  - Mediana de Huella Hídrica (HH_m): *871 m³/t*.
+  - Mediana de Precio Medio Rural (PMR_m): *5,816 MXN/t*.
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (1.8fr, 2fr, 2fr),
+      align: (left, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Cuadrante*],
+      [*Características*],
+      [*Ejemplos de Cultivo*],
+      [Cuadrante I (Ideal)],
+      [Baja HH (< 871) y Alto PMR (> 5,816)],
+      [Tomate, pepino, papa, lechuga],
+      [Cuadrante II],
+      [Baja HH (< 871) y Bajo PMR (< 5,816)],
+      [Sorgo grano, avena forrajera],
+      [Cuadrante III],
+      [Alta HH (> 871) y Alto PMR (> 5,816)],
+      [Nogal pecanero, dátil],
+      [Cuadrante IV (Crit)],
+      [Alta HH (> 871) y Bajo PMR (< 5,816)],
+      [Trigo grano, maíz grano, frijol]
+    )
+  ]
+
+== Slide 14: Visualización: Clasificación de Rentabilidad y Eficiencia
+- *Título:* Visualización: Clasificación de Rentabilidad y Eficiencia.
+- *Elemento Visual:* Gráfico de dispersión de cuadrantes en escala logarítmica
+  (`images/cuadrante_rentabilidad_eficiencia.png`).
+- *Mensaje Principal:* El posicionamiento gráfico de los cultivos valida
+  que el patrón de siembra actual está desalineado de la
+  sustentabilidad hídrica.
+- *Detalle Técnico:*
+  - Eje horizontal: Huella Hídrica ($m^3/"ton"$, escala logarítmica base 10).
+  - Eje vertical: Precio Medio Rural ($"MXN"/"ton"$, escala
+    logarítmica base 10).
+  - Líneas de corte segmentadas que representan las medianas del estado.
+- *Análisis Gráfico:* El uso de la escala logarítmica evita la saturación
+  visual del gráfico debido a que los datos abarcan varios órdenes de
+  magnitud (huella del pepino: 80 $m^3/t$ vs nuez: 11,164 $m^3/t$; precio de
+  avena: 950 MXN/t vs chile: 18,500 MXN/t).
+
+== Slide 15: Caso de Estudio: Trigo Grano en Cajeme
+- *Título:* Caso de Estudio: Trigo Grano en Cajeme.
+- *Elemento Visual:* Lógica del escenario de reconversión del trigo y resultados
+  de ahorro volumétrico y económico.
+- *Mensaje Principal:* Reconvertir apenas una fracción de la superficie de trigo
+  en Cajeme hacia hortalizas generaría enormes ahorros de agua y aumentaría la
+  riqueza regional.
+- *La Paradoja del Trigo:* El trigo grano consume el 96.2% de agua azul en
+  Cajeme. Su retorno económico es de apenas 0.007 MXN por litro de agua.
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2.2fr, 1.8fr, 1.8fr, 1.8fr),
+      align: (left, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Concepto*],
+      [*Línea Base Trigo*],
+      [*Escenario Rec (15%)*],
+      [*Variación*],
+      [Superficie Sembrada], [115,000 ha], [97,750 ha (trigo)], [-17,250 ha],
+      [Superficie Hortalizas], [0 ha], [17,250 ha (hortalizas)], [+17,250 ha],
+      [Consumo Agua Riego], [791.3 Mm³], [741.3 Mm³], [-50.0 Mm³ (Ahorro)],
+      [Valor de Producción], [3,200 M MXN], [4,640 M MXN], [+45.0% (Ganancia)]
+    )
+  ]
+
+== Slide 16: Visualización: Trigo Grano vs. Alternativas
+- *Título:* Visualización: Trigo Grano vs. Alternativas.
+- *Elemento Visual:* Gráfico de barras comparativo de doble eje vertical
+  (`images/trigo_vs_alternativas.png`).
+- *Mensaje Principal:* Las hortalizas alternativas multiplican la eficiencia
+  monetaria por litro de agua consumido, reduciendo la demanda física.
+- *Detalle Técnico:*
+  - Eje izquierdo: Litros consumidos por peso de valor generado (L/MXN).
+  - Eje derecho: Precio Medio Rural (MXN/ton).
+- *Datos de Apoyo al Presentador:*
+  #align(center)[
+    #table(
+      columns: (2fr, 1.8fr, 1.8fr, 1.8fr),
+      align: (left, center, center, center),
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Cultivo*], [*Consumo (L/MXN)*], [*PMR (MXN/ton)*], [*Agua Verde/Azul*],
+      [Trigo Grano], [142.6 L/MXN], [7,730 MXN], [3.8% / 96.2%],
+      [Papa], [11.2 L/MXN], [14,500 MXN], [5.6% / 94.4%],
+      [Pepino], [13.1 L/MXN], [11,200 MXN], [6.2% / 93.8%],
+      [Lechuga], [9.8 L/MXN], [12,400 MXN], [7.1% / 92.9%]
+    )
+  ]
+
+== Slide 17: Plataforma Web
+- *Título:* Plataforma Web.
+- *Elemento Visual:* Resumen de los módulos de la plataforma y esquema de la
+  arquitectura estática basada en JSON.
+- *Mensaje Principal:* Los modelos físicos y bases de datos procesados en
+  Python se integran en una plataforma web estática de alto rendimiento y
+  consulta interactiva en tiempo real.
+- *Detalle Técnico:*
+  - *Pipeline de Ingesta:* Scripts en Python para descarga diaria de NASA POWER.
+  - *Pipeline de Compilación:* Generación del archivo JSON unificado
+    `docs/website/data_content.json` y `dashboard_data.json` que
+    contiene los diccionarios municipales para consulta rápida.
+  - *Frontend:* Single Page Application (SPA) construida en HTML5, CSS3
+    y Vanilla Javascript. No depende de servidores de base de datos
+    relacionales, lo que garantiza un tiempo de carga inmediato y costo de
+    mantenimiento cero.
+
+== Slide 18: Captura: Plataforma Web - Dashboard Regional
+- *Título:* Captura: Plataforma Web - Dashboard Regional.
+- *Elemento Visual:* Captura de pantalla real de la interfaz interactiva de
+  estadísticas y mapas (`images/dashboard_regional.png`).
+- *Mensaje Principal:* Mostrar la funcionalidad del Dashboard Regional de la
+  plataforma web para tomadores de decisiones.
+- *Detalle Técnico:*
+  - *Filtrado Cruzado Dinámico:* Implementado en Javascript mediante oyentes
+    de eventos en los elementos de selección del DOM.
+  - *Actualización Automática:* Al seleccionar un municipio, el sistema
+    realiza la búsqueda en el JSON de datos y renderiza de inmediato en pantalla
+    los KPIs principales de déficit, ISAG y volumen total.
+  - *Descarga de Datos:* Generador dinámico de blobs CSV en el frontend para
+    su exportación inmediata.
+
+== Slide 19: Captura: Plataforma Web - Calculadora FAO-56
+- *Título:* Captura: Plataforma Web - Calculadora FAO-56.
+- *Elemento Visual:* Captura de pantalla de la interfaz interactiva de la
+  calculadora diaria FAO-56 (`images/calculadora_fao56.png`).
+- *Mensaje Principal:* Mostrar la interfaz de simulación interactiva de la
+  calculadora FAO-56 instalada en el navegador.
+- *Detalle Técnico:*
+  - *Cálculo en Tiempo Real:* Implementación directa en Javascript de la
+    ecuación Penman-Monteith (FAO-56) y de las curvas de coeficientes $K_c$.
+  - *Interactividad:* Controles deslizantes vinculados a variables físicas de
+    temperatura ($T$), humedad relativa ($"RH"$), viento ($u_2$), radiación
+    ($R_s$) y precipitación ($P$).
+  - *Simulación de Escenarios:* Permite al usuario simular el impacto del
+    cambio climático sobre la huella hídrica y el consumo de riego (UAC).
+
+== Slide 20: Recomendaciones
+- *Título:* Recomendaciones.
+- *Elemento Visual:* Puntos clave de recomendación para política pública
+  agrícola.
+- *Mensaje Principal:* La reconversión productiva en Sonora debe guiarse
+  mediante el Índice de Vulnerabilidad Hídrica y el indicador RAV.
+- *Propuestas de Política Pública:*
+  1. *Zonificación por IVH:* Focalizar los programas gubernamentales de
+     reconversión en municipios con IVH crítico (Naco, Caborca, Cajeme,
+     Hermosillo).
+  2. *Sustitución de Trigo:* Transición gradual del 15% de trigo a papa,
+     pepino y lechuga en el sur para ahorrar *50 millones de m³* anuales.
+  3. *Tecnificación de Riego:* Subsidiar sistemas de riego eficiente por goteo
+     en Cajeme (8% tecnificado actual) y Navojoa (13% tecnificado) para revertir
+     el rezago tecnológico de los distritos de gravedad.
+  4. *Regulación del REPDA:* Alinear las extracciones reales con la recarga de
+     acuíferos, limitando nuevas concesiones de pozos en la costa.
+  5. *Métricas Clave:* Adoptar oficialmente los indicadores RAV ($L/"MXN"$) y HH
+     en el diseño de planes agrícolas estatales.
+
+== Slide 21: Trabajo por Realizar
+- *Título:* Trabajo por Realizar.
+- *Elemento Visual:* Lista de líneas de investigación futuras y oportunidades
+  de colaboración científica.
+- *Mensaje Principal:* El modelo actual es una base sólida que debe expandirse
+  con métricas de contaminación, cambio climático y optimización algorítmica.
+- *Líneas de Investigación Futura:*
+  - *Huella Hídrica Gris:* Estimar el volumen de agua dulce necesario para
+    diluir fertilizantes nitrogenados y pesticidas lixiviados en los valles del
+    Yaqui y Mayo para cumplir con estándares de calidad de agua.
+  - *Proyecciones CMIP6:* Acoplar modelos climáticos globales para prever el
+    incremento de la demanda hídrica de los cultivos a 2030 y 2050 ante
+    diferentes trayectorias de concentración representativas (RCP/SSP).
+  - *Validación Agronómica:* Cruzar las huellas calculadas del satélite con
+    datos medidos en campo mediante lisímetros instalados por el INIFAP.
+  - *Modelos de Optimización:* Desarrollar algoritmos de optimización
+    multiobjetivo para determinar la mezcla de cultivos óptima por municipio
+    bajo límites del REPDA y del mercado comercial.
+
+== Slide 22: Anexo: Fuentes de Datos
+- *Título:* Anexo: Fuentes de Datos.
+- *Elemento Visual:* Tabla premium de dimensiones, fuentes oficiales de datos
+  e integración técnica.
+- *Mensaje Principal:* La robustez de los modelos físicos y económicos se
+  sustenta en el cruce de siete bases de datos oficiales de escala nacional y
+  satelital.
+- *Detalle Técnico:*
+  #align(center)[
+    #table(
+      columns: (1.5fr, 2.2fr, 3.3fr),
+      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else { none },
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      [*Dimensión*], [*Fuente*], [*Variables Clave e Integración*],
+      [Territorial],
+      [
+        UNISON \ (`SonoraLatLongAlt.csv`)
+      ],
+      [
+        Coordenadas y altitud de los \ 72 municipios.
+      ],
+      [Clima],
+      [
+        NASA POWER API \ (Diario 2003-24)
+      ],
+      [
+        Radiación ($R_s$), Temp, HR, \ Viento ($u_2$), Precip.
+      ],
+      [Productiva],
+      [
+        SIAP — SADER \ (Anual)
+      ],
+      [
+        Sup. sembrada/cosechada, \ rendimiento, PMR.
+      ],
+      [Hídrica],
+      [
+        CONAGUA / \ REPDA (REPNA)
+      ],
+      [
+        Derechos de extracción \ concesionados (pozos).
+      ],
+      [Tecnológica],
+      [
+        SAGARHPA \ (Base 2021)
+      ],
+      [
+        Porcentaje de tecnificación \ de riego por DDR.
+      ],
+      [Riesgo],
+      [
+        Monitor de \ Sequía SMN
+      ],
+      [
+        Índice ISAG e impacto \ geoespacial municipal.
+      ],
+      [Fenológica],
+      [
+        FAO-56 / INIFAP
+      ],
+      [
+        Coeficientes $K_c$ y etapas \ para 128 cultivos.
+      ]
+    )
+  ]
+
+#pagebreak()
+
+= Glosario de Términos Clave
+
+- *Evapotranspiración de Referencia ($E T_o$):* Tasa de evaporación y
+  transpiración de un cultivo hipotético de referencia (pasto verde de 12 cm
+  de altura, bien regado y con albedo de 0.23) que depende exclusivamente de
+  las condiciones climáticas de radiación, temperatura, humedad y viento.
+- *Evapotranspiración Real del Cultivo ($E T_c$):* Volumen de agua
+  evapotranspirada por un cultivo real bajo condiciones agronómicas
+  específicas, obtenido al multiplicar la evapotranspiración de
+  referencia ($E T_o$) por el coeficiente biológico del cultivo ($K_c$).
+- *Coeficiente de Cultivo ($K_c$):* Factor adimensional que integra la biología,
+  desarrollo foliar y fase fenológica de un cultivo (Inicial, Desarrollo,
+  Medios, Final) para ajustar la demanda climática base ($E T_o$).
+- *Precipitación Efectiva ($P_"ef"$):* Fracción de la lluvia acumulada
+  diaria que logra infiltrarse y almacenarse en la zona radicular,
+  excluyendo pérdidas por escorrentía superficial o percolación
+  profunda, aprovechada por el cultivo.
+- *Huella Hídrica Azul:* Volumen de agua dulce consumido a partir de recursos
+  hídricos superficiales (presas, ríos) o subterráneos (acuíferos) mediante
+  infraestructura de riego artificial para el desarrollo del cultivo.
+- *Huella Hídrica Verde:* Volumen de agua dulce de lluvia acumulada y retenida
+  en el suelo como humedad que es directamente consumido y transpirado por el
+  cultivo durante su ciclo.
+- *Huella Hídrica Gris:* Indicador del volumen de agua dulce requerido para
+  diluir y asimilar la carga de contaminantes (fertilizantes nitrogenados,
+  pesticidas) lixiviados durante el ciclo agrícola para cumplir con las
+  normas de calidad de agua locales.
+- *Consumo Unitario de Agua (UAC):* Cantidad física acumulada de agua consumida
+  y evaporada por un cultivo por unidad de superficie sembrada, expresada en
+  metros cúbicos por hectárea ($m^3/"ha"$).
+- *Huella Hídrica Total (HH):* Volumen de agua dulce consumido para producir
+  una unidad de masa de cosecha comercial, obtenida al dividir el Consumo
+  Unitario de Agua (UAC) entre el rendimiento físico, expresada en metros
+  cúbicos por tonelada ($m^3/"ton"$).
+- *Relación Agua-Valor (RAV):* Indicador de eficiencia monetaria del agua que
+  mide la cantidad de litros de agua dulce consumidos para generar 1.00 peso
+  mexicano de valor agrícola bruto ($L/"MXN"$). RAVs más bajos indican mayor
+  eficiencia económica del recurso.
+- *Índice de Vulnerabilidad Hídrica (IVH):* Indicador sintético compuesto que
+  pondera el déficit hídrico climatológico anual, la recurrencia de sequía
+  (ISAG), la dependencia de agua azul de riego y el estrés térmico municipal.
+- *Índice de Sequía Acumulada Georreferenciada (ISAG):* Métrica de severidad e
+  impacto espacial que evalúa la frecuencia de afectación por sequías
+  acumuladas (categorías D0 a D4 del SMN) por municipio y ciclo agrícola.
+- *Riego por Gravedad (Rodado):* Método tradicional de aplicación de agua
+  mediante canales abiertos por surcos o melgas, caracterizado por bajas
+  eficiencias globales ($eta = 0.60$ a $0.65$) debido a infiltración y
+  evaporación.
+- *Riego Localizado (Goteo):* Sistema presurizado de alta tecnología que aplica
+  el agua gota a gota directamente en la zona radicular del cultivo con altas
+  eficiencias ($eta = 0.85$ a $0.90$), reduciendo el bombeo de agua azul.
+- *Precio Medio Rural (PMR):* Precio promedio ponderado pagado al productor
+  agrícola en la primera zona de comercialización para su venta local o
+  exportación comercial, expresado en pesos por tonelada ($"MXN"/"ton"$).
+- *REPDA:* Registro Público de Derechos de Agua operado por la CONAGUA, que
+  establece los límites legales y volúmenes anuales autorizados de extracción
+  de agua superficial y subterránea.
+- *DDR:* Distrito de Desarrollo Rural, delimitación geográfica y administrativa
+  utilizada por la SADER para la planeación y agregación de estadísticas.
+- *DR:* Distrito de Riego, delimitación física y operativa delimitada por la
+  CONAGUA en base a la infraestructura de canales, presas y acuíferos.
